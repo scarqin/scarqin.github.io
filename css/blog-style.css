@@ -786,7 +786,7 @@ img::-moz-selection {
     line-height: 28px;
     margin: 0 2px;
     margin-bottom: 8px;
-    background: #D6D6D6;
+    background: #000;
 }
 
 #tag_cloud a:hover,
