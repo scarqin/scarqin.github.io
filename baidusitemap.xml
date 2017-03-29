@@ -3,8 +3,53 @@
 
 
     
+    
   <url>
-    <loc>http://yoursite.com/2017/03/08/%E7%99%BE%E5%BA%A6%E5%89%8D%E7%AB%AF%E5%AD%A6%E9%99%A2%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/</loc>
+    <loc>http://haojen.github.io/2017/03/29/content-type/</loc>
+    <lastmod>2017-03-29T03:16:15.857Z</lastmod>
+    <data>
+        <display>
+        <title>content-type=false</title>
+        <pubTime>2017-03-29T03:14:16.110Z</pubTime>
+        
+        <tag>ajax</tag>
+         
+        <tag>js</tag>
+         
+         
+           
+             
+              <breadCrumb title="ajax,js" url="http://haojen.github.io/categories/ajax-js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://haojen.github.io/2016/09/16/footer/</loc>
+    <lastmod>2017-03-14T08:29:13.048Z</lastmod>
+    <data>
+        <display>
+        <title>footer的各种写法</title>
+        <pubTime>2016-09-16T05:09:08.791Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>js</tag>
+         
+         
+           
+             
+              <breadCrumb title="js,css" url="http://haojen.github.io/categories/js-css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://haojen.github.io/2017/03/08/%E7%99%BE%E5%BA%A6%E5%89%8D%E7%AB%AF%E5%AD%A6%E9%99%A2%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/</loc>
     <lastmod>2017-03-08T12:14:14.809Z</lastmod>
     <data>
         <display>
@@ -18,7 +63,7 @@
          
            
              
-              <breadCrumb title="css,js" url="http://yoursite.com/categories/css-js/"/>
+              <breadCrumb title="css,js" url="http://haojen.github.io/categories/css-js/"/>
           
         </display>
     </data>
@@ -26,7 +71,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/03/07/%E7%94%A8ps%E5%81%9A%E5%87%BA%E7%A3%81%E9%93%81/</loc>
+    <loc>http://haojen.github.io/2017/03/07/%E7%94%A8ps%E5%81%9A%E5%87%BA%E7%A3%81%E9%93%81/</loc>
     <lastmod>2017-03-07T10:52:57.283Z</lastmod>
     <data>
         <display>
@@ -38,7 +83,7 @@
          
            
              
-              <breadCrumb title="Photoshop" url="http://yoursite.com/categories/Photoshop/"/>
+              <breadCrumb title="Photoshop" url="http://haojen.github.io/categories/Photoshop/"/>
           
         </display>
     </data>
@@ -46,7 +91,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/03/02/float%E4%B8%8E%E5%85%83%E7%B4%A0%E6%94%BE%E7%BD%AE%E5%B0%8F%E7%BB%86%E8%8A%82/</loc>
+    <loc>http://haojen.github.io/2017/03/02/float%E4%B8%8E%E5%85%83%E7%B4%A0%E6%94%BE%E7%BD%AE%E5%B0%8F%E7%BB%86%E8%8A%82/</loc>
     <lastmod>2017-03-07T10:49:50.980Z</lastmod>
     <data>
         <display>
@@ -60,7 +105,7 @@
          
            
              
-              <breadCrumb title="css" url="http://yoursite.com/categories/css/"/>
+              <breadCrumb title="css" url="http://haojen.github.io/categories/css/"/>
           
         </display>
     </data>
@@ -68,7 +113,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/03/05/%E4%BA%86%E8%A7%A3js%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
+    <loc>http://haojen.github.io/2017/03/05/%E4%BA%86%E8%A7%A3js%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
     <lastmod>2017-03-05T09:26:24.488Z</lastmod>
     <data>
         <display>
@@ -80,7 +125,7 @@
          
            
              
-              <breadCrumb title="css" url="http://yoursite.com/categories/css/"/>
+              <breadCrumb title="css" url="http://haojen.github.io/categories/css/"/>
           
         </display>
     </data>
@@ -88,29 +133,7 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/09/16/footer/</loc>
-    <lastmod>2017-03-03T08:21:59.030Z</lastmod>
-    <data>
-        <display>
-        <title>footer的各种写法</title>
-        <pubTime>2016-09-16T05:09:08.791Z</pubTime>
-        
-        <tag>css</tag>
-         
-        <tag>js</tag>
-         
-         
-           
-             
-              <breadCrumb title="js,css" url="http://yoursite.com/categories/js-css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/02/23/css%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</loc>
+    <loc>http://haojen.github.io/2017/02/23/css%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</loc>
     <lastmod>2017-03-03T08:21:45.286Z</lastmod>
     <data>
         <display>
@@ -122,13 +145,12 @@
          
            
              
-              <breadCrumb title="css" url="http://yoursite.com/categories/css/"/>
+              <breadCrumb title="css" url="http://haojen.github.io/categories/css/"/>
           
         </display>
     </data>
     </url>
 
-    
     
     
     
