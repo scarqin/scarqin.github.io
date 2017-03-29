@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        百度前段学院实践记录｜Scar&#39;s blog
+        chrome拓展开发记录--eolinker｜Scar&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://sarqin.github.io/2017/03/08/百度前端学院实践记录/">
+    <link rel="canonical" href="http://sarqin.github.io/2017/03/29/chrome拓展开发记录-eolinker/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,13 +140,13 @@
 
 
 <img class="wechat-title-img"
-     src="http://onkdrh0y6.bkt.clouddn.com/default9.jpg">
+     src="http://onkdrh0y6.bkt.clouddn.com/eolinker.jpg">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default9.jpg')
+        background-image: url('http://onkdrh0y6.bkt.clouddn.com/eolinker.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
     }
 
     
@@ -157,12 +157,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>百度前段学院实践记录</h1>
+                    <h1>chrome拓展开发记录--eolinker</h1>
                     
                     <span class="meta">
                          作者 Scar
                         <span>
-                          日期 2017-03-08
+                          日期 2017-03-29
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -170,8 +170,8 @@
                         <a class="tag" href="/tags/#js"
                            title="js">js</a>
                         
-                        <a class="tag" href="/tags/#css"
-                           title="css">css</a>
+                        <a class="tag" href="/tags/#extension"
+                           title="extension">extension</a>
                         
                     </div>
                 </div>
@@ -180,7 +180,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            百度前段学院实践记录
+            chrome拓展开发记录--eolinker
         </span>
     </div>
 </header>
@@ -191,52 +191,57 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>参加百度前端学院学到的东西~<br><a id="more"></a></p>
+                <ul>
+<li>eoapi插件实现http请求功能<br> 浏览器插件类似于一个浏览器的桌面端，使用本地服务器，可以请求本地数据，也可以跨域请求。</li>
+<li><p>本地测试：在本地写好接口的后台人员测试</p>
+<pre><code>前端人员模拟数据时，测试
+</code></pre></li>
+<li><p>思路：写好接口格式，帮忙写接口</p>
+</li>
+<li><p>chrome插件<br>content_scripts脚本只是共享页面的DOM,并不共享页面内嵌的js的命名空间。两者不会相互干扰<br>background域，当前插件能访问的域，又是一个独立的js环境。<br>background与content_script的交互</p>
+</li>
+</ul>
+<p>其所指为当前网页与扩展插件之间的交互。使用chrome.* API进行通信。</p>
+<ul>
+<li>onhashchange事件 浏览器hash值改变 ：#字后面的部分<br><img src="http://upload-images.jianshu.io/upload_images/1318539-f0cedcb0ff609202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hash值"></li>
+<li>正则匹配规则</li>
+<li><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="external">JSON.parse</a></p>
+</li>
+<li><p>待解决问题</p>
+</li>
+</ul>
 <ol>
-<li><p>value  innnerHTML<br>value是input框的输入值 ，innerHTML是dom元素里面的所有dom结构</p>
+<li>要添加头部？<br> 解决，整理用户在页面上填的header，通过request.setRequestHeader设置</li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-73f7df1ca7f5997d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-b4efac3f44a6b4f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<ol>
+<li>chrome.tabs.query方法<br><a href="https://chajian.baidu.com/developer/extensions/tabs.html" target="_blank" rel="external">百度</a><br><a href="https://developer.chrome.com/extensions/tabs" target="_blank" rel="external">谷歌</a><br>tabs为浏览器的标签对象<br>插件分三个域<br><img src="http://upload-images.jianshu.io/upload_images/1318539-4e0a10fc366f3383.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></li>
+</ol>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-f37f8a3fdae79abf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>3 .content.js background.js popup.js<br>background.js和content.js交互使用<br>chrome.extension.sendRequest(msg);<br>chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {}));</p>
+<p>4 .一个奇怪的bug<br>在ajax请求外部定义了一个变量名为preTime，死活在success函数里面解析不出来。<br>后来改了个名字，神奇的好了。</p>
+<ol>
+<li><p>popup和background的区别<br>popup.js不会常驻后台<br>background.js可以常驻后台</p>
 </li>
-<li><p>keyvalue==13 为回车按键</p>
-</li>
-<li><p>js  getFullYear()从data数据中提取年份  </p>
-</li>
-<li>ceil()最大整数  .floor最小整数<br>floor()是向负无穷大舍入，floor(-10.5) == -11；<br>ceil()是向正无穷大舍入，ceil(-10.5) == -10<br>math.random()返回0~1区间的一个数</li>
-<li>getDay（） 返回星期中的一个数</li>
-<li><p>for in 循环   var i  in  date  此处i指的是对象的属性（forin循环暂时没发现支持访问下一个数据 即date（i+1）的数据）</p>
-</li>
-<li><p>先思考逻辑（思维导图）列出关键函数，再补充其余通用函数。</p>
-</li>
-<li><p>onchange()事件  在select text textarea发生改变是执行函数</p>
-</li>
-<li><p><strong>Object.getOwnPropertyNames()</strong><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames" target="_blank" rel="external">getOwnpropertyNames</a></p>
+<li><p>JSON.stringify()转码规则<br>对象，不变<br>字符串不变<br>json字符串  +“”<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="external">JSON.stringify()</a></p>
 </li>
 </ol>
-<p>8.做了几天终于完成了17<br>在n随机选一个数<br><code>Math.floor(Math.random() * n)</code><br>随机选颜色<br><code>&quot;#&quot; + Math.random().toString(16).substring(2, 8);
-    (~~(Math.random()*((1&lt;&lt;24)-1))).toString(16)+&#39;000000&#39;).substring(0,7)</code></p>
-<p>9.flex布局  对于大多数布局来说很方便<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">阮一峰-flex布局</a><br>10.原生实现 jq addclass removeclass</p>
-<p>11.dataTransfer对象–在拖放操作实现数据交换<br>它是事件对象的一个属性，只有一个？<br>setData（）  getData（）<br><a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_draganddrop" target="_blank" rel="external">用法</a><br>保存在dataTransfer对象的元素只能在drop事件中读取</p>
-<p>12.用html5实现拖动只能拖动到另一个元素上，如果要随意拖动需用js控制定位。</p>
-<p>13.鼠标事件</p>
-<ul>
-<li>mousedown 按下鼠标按钮触发</li>
-<li>mousemove 鼠标在元素内部移动时触发</li>
-<li>mouseout 鼠标从一个元素移入另一个元素时触发（离开）</li>
-<li>mouseover   鼠标从一个元素外移入元素时触发 （移入）</li>
-<li>mouseup   用户释放鼠标时触发</li>
-</ul>
-<p>14.new function（）{}  js中函数是一个引用对象  new function（）{}就是定义一个对象</p>
+<p>7 .tabs[0].id<br>error in response to tabs.query<br>当发送的http请求是error的时候，报此错误，当关闭背景页的时候,可获取到tab.id<br><img src="http://upload-images.jianshu.io/upload_images/1318539-e2bc46c17166e25c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>8.想要拓展多次进行通信<br>经过测试，在content页面发送两个sendmessage请求，出现错误，因为无法标志接受方。sendmessage和onmessage只能用于一次性请求</p>
+<p>######资料<br>1.<a href="http://www.ituring.com.cn/article/60272" target="_blank" rel="external">图灵社区-chrome拓展及应用开发</a><br>2.<a href="https://developer.chrome.com/extensions/extension" target="_blank" rel="external">经常挂掉的-谷歌开发者文档</a><br>3.<a href="http://open.chrome.360.cn/extension_dev/overview.html" target="_blank" rel="external">360翻译-谷歌开发者文档</a><br>4.<a href="https://crxdoc-zh.appspot.com/apps/messaging" target="_blank" rel="external">页面间通信</a></p>
 
                 <hr>
                 
                 <!-- 多说 Share start -->
                 <div class="ds-share"
                      style="text-align: right"
-                     data-thread-key="2017/03/08/百度前端学院实践记录/"
-                     data-title="百度前段学院实践记录"
-                     data-url="http://sarqin.github.io/2017/03/08/百度前端学院实践记录/"
-                     data-images=""
-                     data-content="参加百度前端学院学到的东西~
-
-value  innnerHTMLvalue是input框的输... | Scar&#39;s blog ">
+                     data-thread-key="2017/03/29/chrome拓展开发记录-eolinker/"
+                     data-title="chrome拓展开发记录--eolinker"
+                     data-url="http://sarqin.github.io/2017/03/29/chrome拓展开发记录-eolinker/"
+                     data-images="http://sarqin.github.io/2017/03/29/chrome拓展开发记录-eolinker/eolinker.jpg"
+                     data-content="
+eoapi插件实现http请求功能 浏览器插件类似于一个浏览器的桌面端，使用本地服务器，可以... | Scar&#39;s blog ">
                     <div class="ds-share-inline">
                         <ul class="ds-share-icons-16">
                             <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -254,15 +259,10 @@ value  innnerHTMLvalue是input框的输... | Scar&#39;s blog ">
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/03/29/content-type/" data-toggle="tooltip" data-placement="top"
-                           title="content-type=false">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/03/07/用ps做出磁铁/" data-toggle="tooltip" data-placement="top"
-                           title="用ps做出磁铁">Next Post &rarr;</a>
+                        <a href="/2017/03/29/简历-web前端开发/" data-toggle="tooltip" data-placement="top"
+                           title="简历-web前端开发">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -271,9 +271,9 @@ value  innnerHTMLvalue是input框的输... | Scar&#39;s blog ">
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                         data-thread-key="2017/03/08/百度前端学院实践记录/"
-                         data-title="百度前段学院实践记录"
-                         data-url="http://sarqin.github.io/2017/03/08/百度前端学院实践记录/">
+                         data-thread-key="2017/03/29/chrome拓展开发记录-eolinker/"
+                         data-title="chrome拓展开发记录--eolinker"
+                         data-url="http://sarqin.github.io/2017/03/29/chrome拓展开发记录-eolinker/">
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
@@ -310,8 +310,8 @@ value  innnerHTMLvalue是input框的输... | Scar&#39;s blog ">
                         <a class="tag" href="/tags/#js"
                            title="js">js</a>
                         
-                        <a class="tag" href="/tags/#css"
-                           title="css">css</a>
+                        <a class="tag" href="/tags/#extension"
+                           title="extension">extension</a>
                         
                     </div>
                 </section>

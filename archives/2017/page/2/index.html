@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        百度前段学院实践记录｜Scar&#39;s blog
+        Scar&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://sarqin.github.io/2017/03/08/百度前端学院实践记录/">
+    <link rel="canonical" href="http://sarqin.github.io/archives/2017/page/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -135,219 +135,240 @@
 </script>
 
 <!-- Main Content -->
-
-<!--only post-->
-
-
-<img class="wechat-title-img"
-     src="http://onkdrh0y6.bkt.clouddn.com/default9.jpg">
-
-
 <style>
-    
-    header.intro-header {
-        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default9.jpg')
+    .intro-header .site-heading {
+        margin: 50px;
     }
-
-    
 </style>
 
+<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>百度前段学院实践记录</h1>
-                    
-                    <span class="meta">
-                         作者 Scar
-                        <span>
-                          日期 2017-03-08
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#js"
-                           title="js">js</a>
-                        
-                        <a class="tag" href="/tags/#css"
-                           title="css">css</a>
-                        
-                    </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading text-center">
+                    <h1>archives</h1>
+                    <span class="subheading">可以根据归档日期检索所有文件</span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="post-title-haojen">
-        <span>
-            百度前段学院实践记录
-        </span>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>参加百度前端学院学到的东西~<br><a id="more"></a></p>
-<ol>
-<li><p>value  innnerHTML<br>value是input框的输入值 ，innerHTML是dom元素里面的所有dom结构</p>
-</li>
-<li><p>keyvalue==13 为回车按键</p>
-</li>
-<li><p>js  getFullYear()从data数据中提取年份  </p>
-</li>
-<li>ceil()最大整数  .floor最小整数<br>floor()是向负无穷大舍入，floor(-10.5) == -11；<br>ceil()是向正无穷大舍入，ceil(-10.5) == -10<br>math.random()返回0~1区间的一个数</li>
-<li>getDay（） 返回星期中的一个数</li>
-<li><p>for in 循环   var i  in  date  此处i指的是对象的属性（forin循环暂时没发现支持访问下一个数据 即date（i+1）的数据）</p>
-</li>
-<li><p>先思考逻辑（思维导图）列出关键函数，再补充其余通用函数。</p>
-</li>
-<li><p>onchange()事件  在select text textarea发生改变是执行函数</p>
-</li>
-<li><p><strong>Object.getOwnPropertyNames()</strong><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames" target="_blank" rel="external">getOwnpropertyNames</a></p>
-</li>
-</ol>
-<p>8.做了几天终于完成了17<br>在n随机选一个数<br><code>Math.floor(Math.random() * n)</code><br>随机选颜色<br><code>&quot;#&quot; + Math.random().toString(16).substring(2, 8);
-    (~~(Math.random()*((1&lt;&lt;24)-1))).toString(16)+&#39;000000&#39;).substring(0,7)</code></p>
-<p>9.flex布局  对于大多数布局来说很方便<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">阮一峰-flex布局</a><br>10.原生实现 jq addclass removeclass</p>
-<p>11.dataTransfer对象–在拖放操作实现数据交换<br>它是事件对象的一个属性，只有一个？<br>setData（）  getData（）<br><a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_draganddrop" target="_blank" rel="external">用法</a><br>保存在dataTransfer对象的元素只能在drop事件中读取</p>
-<p>12.用html5实现拖动只能拖动到另一个元素上，如果要随意拖动需用js控制定位。</p>
-<p>13.鼠标事件</p>
-<ul>
-<li>mousedown 按下鼠标按钮触发</li>
-<li>mousemove 鼠标在元素内部移动时触发</li>
-<li>mouseout 鼠标从一个元素移入另一个元素时触发（离开）</li>
-<li>mouseover   鼠标从一个元素外移入元素时触发 （移入）</li>
-<li>mouseup   用户释放鼠标时触发</li>
-</ul>
-<p>14.new function（）{}  js中函数是一个引用对象  new function（）{}就是定义一个对象</p>
-
-                <hr>
-                
-                <!-- 多说 Share start -->
-                <div class="ds-share"
-                     style="text-align: right"
-                     data-thread-key="2017/03/08/百度前端学院实践记录/"
-                     data-title="百度前段学院实践记录"
-                     data-url="http://sarqin.github.io/2017/03/08/百度前端学院实践记录/"
-                     data-images=""
-                     data-content="参加百度前端学院学到的东西~
-
-value  innnerHTMLvalue是input框的输... | Scar&#39;s blog ">
-                    <div class="ds-share-inline">
-                        <ul class="ds-share-icons-16">
-                            <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
-                            <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-                            <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
-                            <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
-                        </ul>
-                        <div class="ds-share-icons-more">
-                        </div>
-                    </div>
-                    <hr>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- archive list -->
+            
+				
+				
+				
+					
+					
+					<div class="archive archive-year" data-date="2017">
+						<h2 class="archive-title">
+						<span class="fa fa-archive">
+							<a href="/archives/2017">2017</a>
+						</span>
+						</h2>
+				
+				
+					
+					
+					<div class="archive archive-month" data-date="201703">
+						<h3 class="archive-title">
+							<a href="/archives/2017/03">03</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/29/chrome拓展开发记录-eolinker/">
+                        <h4 class="post-title">
+                            chrome拓展开发记录--eolinker
+                        </h4>
+                        
+                    </a>
                 </div>
-                <!-- 多说 Share end-->
-                
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/2017/03/29/content-type/" data-toggle="tooltip" data-placement="top"
-                           title="content-type=false">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/2017/03/07/用ps做出磁铁/" data-toggle="tooltip" data-placement="top"
-                           title="用ps做出磁铁">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-                <!-- 多说评论框 start -->
-                <div class="comment">
-                    <div class="ds-thread"
-                         data-thread-key="2017/03/08/百度前端学院实践记录/"
-                         data-title="百度前段学院实践记录"
-                         data-url="http://sarqin.github.io/2017/03/08/百度前端学院实践记录/">
-                    </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/29/简历-web前端开发/">
+                        <h4 class="post-title">
+                            简历-web前端开发
+                        </h4>
+                        
+                    </a>
                 </div>
-                <!-- 多说评论框 end -->
-                
-
-                
-
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/29/波纹团队招新移动端界面/">
+                        <h4 class="post-title">
+                            波纹团队招新移动端界面
+                        </h4>
+                        
+                    </a>
                 </div>
-            </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/29/content-type/">
+                        <h4 class="post-title">
+                            content-type=false
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/08/百度前端学院实践记录/">
+                        <h4 class="post-title">
+                            百度前段学院实践记录
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/07/用ps做出磁铁/">
+                        <h4 class="post-title">
+                            用ps做出磁铁
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/05/了解js内存泄漏/">
+                        <h4 class="post-title">
+                            了解内存泄露
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/03/02/float与元素放置小细节/">
+                        <h4 class="post-title">
+                            float与元素放置小细节
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+				
+					
+					</div><!--month-->
+					
+					
+					<div class="archive archive-month" data-date="201702">
+						<h3 class="archive-title">
+							<a href="/archives/2017/02">02</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2017/02/23/css权威指南/">
+                        <h4 class="post-title">
+                            css权威指南
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
+				
+				
+				
+					
+					</div><!--month-->
+					</div><!--year-->
+					
+					
+					
+					<div class="archive archive-year" data-date="2016">
+						<h2 class="archive-title">
+						<span class="fa fa-archive">
+							<a href="/archives/2016">2016</a>
+						</span>
+						</h2>
+				
+				
+					
+					
+					<div class="archive archive-month" data-date="201609">
+						<h3 class="archive-title">
+							<a href="/archives/2016/09">09</a>
+						</h3>
+				
+				<div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/2016/09/16/footer/">
+                        <h4 class="post-title">
+                            footer的各种写法
+                        </h4>
+                        
+                    </a>
+                </div>
+				<hr>
+				</div>
+            
         </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
-                        
-                        <a class="tag" href="/tags/#js"
-                           title="js">js</a>
-                        
-                        <a class="tag" href="/tags/#css"
-                           title="css">css</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
-        </div>
-
     </div>
-</article>
-
-
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    // dynamic User by Hux
-    var _user = 'scarqin';
-
-    // duoshuo comment query.
-    var duoshuoQuery = {short_name: _user};
-    (function () {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';
-        ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- 多说公共JS代码 end -->
-
-
-
-
+</div>
 
 <!-- Footer -->
 <!-- Footer -->
