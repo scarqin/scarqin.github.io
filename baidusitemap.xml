@@ -4,8 +4,139 @@
 
     
   <url>
+    <loc>http://sarqin.github.io/2016/06/09/footer/</loc>
+    <lastmod>2017-03-31T14:54:01.408Z</lastmod>
+    <data>
+        <display>
+        <title>如何放置网页footer？</title>
+        <pubTime>2016-06-09T07:30:00.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+             
+              <breadCrumb title="js,css" url="http://sarqin.github.io/categories/js-css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2015/12/29/float%E4%B8%8E%E5%85%83%E7%B4%A0%E6%94%BE%E7%BD%AE%E5%B0%8F%E7%BB%86%E8%8A%82/</loc>
+    <lastmod>2017-03-31T14:51:53.769Z</lastmod>
+    <data>
+        <display>
+        <title>float与元素放置小细节</title>
+        <pubTime>2015-12-28T16:48:57.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2016/06/20/css%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2017-03-31T14:51:19.140Z</lastmod>
+    <data>
+        <display>
+        <title>css权威指南</title>
+        <pubTime>2016-06-20T04:06:30.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+             
+              <breadCrumb title="css" url="http://sarqin.github.io/categories/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2016/03/22/%E7%94%A8ps%E5%81%9A%E5%87%BA%E7%A3%81%E9%93%81/</loc>
+    <lastmod>2017-03-31T14:50:39.091Z</lastmod>
+    <data>
+        <display>
+        <title>用ps做出磁铁</title>
+        <pubTime>2016-03-22T07:21:00.000Z</pubTime>
+        
+        <tag>Photoshop</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2017/03/22/content-type/</loc>
+    <lastmod>2017-03-31T14:50:02.848Z</lastmod>
+    <data>
+        <display>
+        <title>content-type=false</title>
+        <pubTime>2017-03-22T11:03:57.000Z</pubTime>
+        
+        <tag>ajax</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2016/09/12/%E7%99%BE%E5%BA%A6%E5%89%8D%E7%AB%AF%E5%AD%A6%E9%99%A2%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2017-03-31T14:49:41.507Z</lastmod>
+    <data>
+        <display>
+        <title>百度前段学院实践记录</title>
+        <pubTime>2016-09-12T05:38:57.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+        <tag>js</tag>
+         
+        <tag>html</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2017/03/29/%E7%AE%80%E5%8E%86-web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2017-03-31T14:47:17.545Z</lastmod>
+    <data>
+        <display>
+        <title>简历-web前端开发</title>
+        <pubTime>2017-03-29T12:02:27.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://sarqin.github.io/2017/03/29/%E6%B3%A2%E7%BA%B9%E5%9B%A2%E9%98%9F%E6%8B%9B%E6%96%B0%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%95%8C%E9%9D%A2/</loc>
-    <lastmod>2017-03-31T14:43:07.157Z</lastmod>
+    <lastmod>2017-03-31T14:47:00.669Z</lastmod>
     <data>
         <display>
         <title>波纹团队招新移动端界面</title>
@@ -13,9 +144,42 @@
         
         <tag>css</tag>
          
-        <tag>web</tag>
          
-        <tag>html5</tag>
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2017/03/05/%E4%BA%86%E8%A7%A3js%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
+    <lastmod>2017-03-31T14:45:49.088Z</lastmod>
+    <data>
+        <display>
+        <title>了解内存泄露</title>
+        <pubTime>2017-03-05T08:51:08.187Z</pubTime>
+        
+        <tag>内存泄露</tag>
+         
+         
+           
+             
+              <breadCrumb title="css" url="http://sarqin.github.io/categories/css/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://sarqin.github.io/2017/03/29/chrome%E6%8B%93%E5%B1%95%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95-eolinker/</loc>
+    <lastmod>2017-03-31T14:45:07.136Z</lastmod>
+    <data>
+        <display>
+        <title>chrome拓展开发记录--eolinker</title>
+        <pubTime>2017-03-29T12:02:49.000Z</pubTime>
+        
+        <tag>extension</tag>
          
          
            
@@ -41,190 +205,6 @@
     </url>
 
     
-  <url>
-    <loc>http://sarqin.github.io/2017/03/29/chrome%E6%8B%93%E5%B1%95%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95-eolinker/</loc>
-    <lastmod>2017-03-29T13:27:59.442Z</lastmod>
-    <data>
-        <display>
-        <title>chrome拓展开发记录--eolinker</title>
-        <pubTime>2017-03-29T12:02:49.000Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>extension</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-    
-  <url>
-    <loc>http://sarqin.github.io/2017/03/29/%E7%AE%80%E5%8E%86-web%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2017-03-29T12:20:44.873Z</lastmod>
-    <data>
-        <display>
-        <title>简历-web前端开发</title>
-        <pubTime>2017-03-29T12:02:27.000Z</pubTime>
-        
-        <tag>简历</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://sarqin.github.io/2017/03/05/%E4%BA%86%E8%A7%A3js%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F/</loc>
-    <lastmod>2017-03-29T09:09:16.997Z</lastmod>
-    <data>
-        <display>
-        <title>了解内存泄露</title>
-        <pubTime>2017-03-05T08:51:08.187Z</pubTime>
-        
-        <tag>内存泄露</tag>
-         
-         
-           
-             
-              <breadCrumb title="css" url="http://sarqin.github.io/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://sarqin.github.io/2017/03/07/%E7%94%A8ps%E5%81%9A%E5%87%BA%E7%A3%81%E9%93%81/</loc>
-    <lastmod>2017-03-29T09:09:12.656Z</lastmod>
-    <data>
-        <display>
-        <title>用ps做出磁铁</title>
-        <pubTime>2017-03-07T10:48:43.698Z</pubTime>
-        
-        <tag>Photoshop</tag>
-         
-         
-           
-             
-              <breadCrumb title="Photoshop" url="http://sarqin.github.io/categories/Photoshop/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://sarqin.github.io/2017/03/29/content-type/</loc>
-    <lastmod>2017-03-29T03:16:15.857Z</lastmod>
-    <data>
-        <display>
-        <title>content-type=false</title>
-        <pubTime>2017-03-29T03:14:16.110Z</pubTime>
-        
-        <tag>ajax</tag>
-         
-        <tag>js</tag>
-         
-         
-           
-             
-              <breadCrumb title="ajax,js" url="http://sarqin.github.io/categories/ajax-js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://sarqin.github.io/2016/09/16/footer/</loc>
-    <lastmod>2017-03-14T08:29:13.048Z</lastmod>
-    <data>
-        <display>
-        <title>footer的各种写法</title>
-        <pubTime>2016-09-16T05:09:08.791Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>css</tag>
-         
-         
-           
-             
-              <breadCrumb title="js,css" url="http://sarqin.github.io/categories/js-css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://sarqin.github.io/2017/03/08/%E7%99%BE%E5%BA%A6%E5%89%8D%E7%AB%AF%E5%AD%A6%E9%99%A2%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2017-03-08T12:14:14.809Z</lastmod>
-    <data>
-        <display>
-        <title>百度前段学院实践记录</title>
-        <pubTime>2017-03-08T12:11:14.697Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>css</tag>
-         
-         
-           
-             
-              <breadCrumb title="css,js" url="http://sarqin.github.io/categories/css-js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://sarqin.github.io/2017/03/02/float%E4%B8%8E%E5%85%83%E7%B4%A0%E6%94%BE%E7%BD%AE%E5%B0%8F%E7%BB%86%E8%8A%82/</loc>
-    <lastmod>2017-03-07T10:49:50.980Z</lastmod>
-    <data>
-        <display>
-        <title>float与元素放置小细节</title>
-        <pubTime>2017-03-02T11:54:23.164Z</pubTime>
-        
-        <tag>js</tag>
-         
-        <tag>css</tag>
-         
-         
-           
-             
-              <breadCrumb title="css" url="http://sarqin.github.io/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://sarqin.github.io/2017/02/23/css%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2017-03-03T08:21:45.286Z</lastmod>
-    <data>
-        <display>
-        <title>css权威指南</title>
-        <pubTime>2017-02-23T02:45:16.658Z</pubTime>
-        
-        <tag>css</tag>
-         
-         
-           
-             
-              <breadCrumb title="css" url="http://sarqin.github.io/categories/css/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
     
 </urlset>

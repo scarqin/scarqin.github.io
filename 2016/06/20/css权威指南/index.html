@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        chrome拓展开发记录--eolinker｜Scar&#39;s blog
+        css权威指南｜Scar&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://sarqin.github.io/2017/03/29/chrome拓展开发记录-eolinker/">
+    <link rel="canonical" href="http://sarqin.github.io/2016/06/20/css权威指南/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,13 +140,13 @@
 
 
 <img class="wechat-title-img"
-     src="http://onkdrh0y6.bkt.clouddn.com/eolinker1.jpg">
+     src="http://onkdrh0y6.bkt.clouddn.com/default9.jpg">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('http://onkdrh0y6.bkt.clouddn.com/eolinker1.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default9.jpg')
     }
 
     
@@ -157,18 +157,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>chrome拓展开发记录--eolinker</h1>
+                    <h1>css权威指南</h1>
                     
                     <span class="meta">
                          作者 Scar
                         <span>
-                          日期 2017-03-29
+                          日期 2016-06-20
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#extension"
-                           title="extension">extension</a>
+                        <a class="tag" href="/tags/#css"
+                           title="css">css</a>
                         
                     </div>
                 </div>
@@ -177,7 +177,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            chrome拓展开发记录--eolinker
+            css权威指南
         </span>
     </div>
 </header>
@@ -188,30 +188,83 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h3 id="eoapi插件实现http请求功能"><a href="#eoapi插件实现http请求功能" class="headerlink" title="eoapi插件实现http请求功能"></a>eoapi插件实现http请求功能</h3><ul>
-<li><p>浏览器插件类似于一个浏览器的桌面端，使用本地服务器，可以请求本地数据，也可以跨域请求。<br> 本地测试：<br> 在本地写好接口的后台人员测试<br> 前端人员模拟数据时，测试</p>
-</li>
-<li><p>思路：写好接口格式，帮忙写接口</p>
-</li>
-</ul>
-<h3 id="chrome插件"><a href="#chrome插件" class="headerlink" title="chrome插件"></a>chrome插件</h3><p> content_scripts脚本只是共享页面的DOM,并不共享页面内嵌的js的命名空间。两者不会相互干扰<br>background域，当前插件能访问的域，又是一个独立的js环境。<br>background与content_script的交互<br>其所指为当前网页与扩展插件之间的交互。使用chrome.* API进行通信。</p>
+                <p>css权威指南读书笔记</p>
+<a id="more"></a>
 <ul>
-<li>onhashchange事件 浏览器hash值改变 ：#字后面的部分<br><img src="http://upload-images.jianshu.io/upload_images/1318539-f0cedcb0ff609202.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hash值"></li>
-<li>正则匹配规则</li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="external">JSON.parse</a></li>
+<li><p>p[class~=”warning”] 部分属性值选择 p.warning  如果忽略了~，则说明要完全匹配<br> p[class^=”cloud”]匹配class属性值以cloud开头的p元素<br> p[class*=”bar”]匹配class属性值含有子串”bar”的p元素<br> p[class$=”bar”] 匹配以bar结尾的p元素<br> p[lang|=”en”]匹配属性等于en或者以en-开头的所有元素<br> h1+p{margin:0 auto;} 选择紧接在一个h1元素后的所有段落，h1和段落要有相同的父元素</p>
+</li>
+<li><p>!important比内联样式特殊性（1000）还要高</p>
+</li>
+<li><p>一般来说，框模型属性（外边距，内边距，边框，背景）都不能继承<br>   继承bug  有些浏览器的表不会继承样式</p>
+</li>
+<li><p>建议以 ：link :visited :hover :active (伪类元素特殊性 10)<br>如果：link和visited后出现，是会覆盖hover的样式</p>
+</li>
+<li><p>web安全颜色：在256色计算机系统上总能避免抖动的颜色</p>
+</li>
+<li><p>通用字体系列<br>serif字体 sans-serif字体 monospace字体 cursive字体 fantasy字体</p>
+<blockquote>
+<p>如果字体包括#或者$之类的符号，或者有一个或多个空格的 需要用’’<br> 例如 font-family：’New York’</p>
+</blockquote>
+</li>
+<li><p>line-height：1；  因为继承问题，行高会被子元素继承，如果一个大字体为子元素就会影响样式，除了显式指line-height还可以指定倍数</p>
+</li>
+<li><p>verical-align 设置length（*px） 会使（行内或表格）元素上移或下移，但是垂直对齐的文本并不会成为另一行的一部分，也不会覆盖其他行的文本</p>
+</li>
+<li><p>vertical-align：top /bottom 将元素行内框底端与行框的底端对齐</p>
+</li>
 </ul>
-<h3 id="待解决问题"><a href="#待解决问题" class="headerlink" title="待解决问题"></a>待解决问题</h3><h4 id="1-要添加头部？"><a href="#1-要添加头部？" class="headerlink" title="1.要添加头部？"></a>1.要添加头部？</h4><p>解决，整理用户在页面上填的header，通过request.setRequestHeader设置</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1318539-73f7df1ca7f5997d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1318539-b4efac3f44a6b4f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<h4 id="2-chrome-tabs-query方法"><a href="#2-chrome-tabs-query方法" class="headerlink" title="2.chrome.tabs.query方法"></a>2.chrome.tabs.query方法</h4><p><a href="https://chajian.baidu.com/developer/extensions/tabs.html" target="_blank" rel="external">百度</a><br><a href="https://developer.chrome.com/extensions/tabs" target="_blank" rel="external">谷歌</a><br>tabs为浏览器的标签对象<br>插件分三个域<br><img src="http://upload-images.jianshu.io/upload_images/1318539-4e0a10fc366f3383.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1318539-f37f8a3fdae79abf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<h4 id="3-content-js-amp-background-js-amp-popup-js"><a href="#3-content-js-amp-background-js-amp-popup-js" class="headerlink" title="3.content.js&amp;background.js&amp;popup.js"></a>3.content.js&amp;background.js&amp;popup.js</h4><p>background.js和content.js交互使用<br>chrome.extension.sendRequest(msg);<br>chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {}));</p>
-<h4 id="4-一个奇怪的bug"><a href="#4-一个奇怪的bug" class="headerlink" title="4.一个奇怪的bug"></a>4.一个奇怪的bug</h4><p>在ajax请求外部定义了一个变量名为preTime，死活在success函数里面解析不出来。<br>后来改了个名字，神奇的好了。</p>
-<h4 id="5-popup和background的区别"><a href="#5-popup和background的区别" class="headerlink" title="5.popup和background的区别"></a>5.popup和background的区别</h4><p>popup.js不会常驻后台<br>background.js可以常驻后台</p>
-<h4 id="6-JSON-stringify-转码规则"><a href="#6-JSON-stringify-转码规则" class="headerlink" title="6.JSON.stringify()转码规则"></a>6.JSON.stringify()转码规则</h4><p>对象，不变<br>字符串不变<br>json字符串  +“”<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="external">JSON.stringify()</a></p>
-<h4 id="7-tabs-0-id"><a href="#7-tabs-0-id" class="headerlink" title="7.tabs[0].id"></a>7.tabs[0].id</h4><p>error in response to tabs.query<br>当发送的http请求是error的时候，报此错误，当关闭背景页的时候,可获取到tab.id<br><img src="http://upload-images.jianshu.io/upload_images/1318539-e2bc46c17166e25c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<h4 id="8-想要拓展多次进行通信"><a href="#8-想要拓展多次进行通信" class="headerlink" title="8.想要拓展多次进行通信"></a>8.想要拓展多次进行通信</h4><p>经过测试，在content页面发送两个sendmessage请求，出现错误，因为无法标志接受方。sendmessage和onmessage只能用于一次性请求</p>
-<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><p>1.<a href="http://www.ituring.com.cn/article/60272" target="_blank" rel="external">图灵社区-chrome拓展及应用开发</a><br>2.<a href="https://developer.chrome.com/extensions/extension" target="_blank" rel="external">经常挂掉的-谷歌开发者文档</a><br>3.<a href="http://open.chrome.360.cn/extension_dev/overview.html" target="_blank" rel="external">360翻译-谷歌开发者文档</a><br>4.<a href="https://crxdoc-zh.appspot.com/apps/messaging" target="_blank" rel="external">页面间通信</a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-88e732a0e2e4f4da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-ec86b83643e7e485.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>  vertical-align：super/sub  将元素的基线相对于父元素的基线提高或者降低</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-d20f24aaeeb91b7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-2027051fc9fe59dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>vertical-align:text-top/bottom:将元素行内框的顶端和父元素的内容区的顶端对齐<br> vertical-align:*px;可以指定值</p>
+<blockquote>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-9aa925aa7607a719.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="行框图"><br> 行内框：非替换元素为line-height的值<br>              替换元素为内容区的高度<br> 行框:包含该行中出现的行内框的最高点和最低点的最小框</p>
+<ul>
+<li>vetical-align的值要根据相对于元素的line-height来算</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>word-spacing的值可能受text-align属性值的影响。如果一个元素是两端对齐的，字母和字之间的空间可能会调整。</p>
+</li>
+<li><p>合并垂直外边距：外边距会融合 p181</p>
+</li>
+<li>行内元素的内边距不会增加行框的高度</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-7af36d4891899455.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="不会把上一行的文本挤上去"></p>
+<ul>
+<li>margin百分数是相对于其父元素的width计算的</li>
+<li>行内框与一个浮动元素重叠时，其边框、背景和内容太都在该浮动元素”之上”显示<br>块框与一个浮动元素重叠时，其边框、背景在浮动元素之下，内容在浮动元素之上显示</li>
+<li>position：relative 包含块为最近的块集框<br> position:absolute 包含块为最近的position值不是static的祖先元素</li>
+<li>clip:rect(top\right\left\bottom)|auto|inherit<br> 应用于绝对定位函数</li>
+<li>visibility:hidden/visible 如果后代元素指定为visible 则父元素即使是hidden后代元素也可见</li>
+<li>position:absolute 左右外边距设为auto，left和right不是auto，会让元素居中；</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-3678f11536a40694.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-838625fb4db6a9f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>left和right是整个子元素盒模型 相对于元素块的left和right</p>
+<ul>
+<li>positon定位时<br>同时定位right 和left且不符合框模型事，在从左向右的语言中，忽略right的值 （如果margin值为auto则，左右同时设定）</li>
+<li>z-index 元素的所有后代相对于自己的祖先元素又有自己的叠放顺序，子元素的叠放顺序是相对于父元素而言的。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;p style=&quot;z-index:7&quot;&gt;</div><div class="line">    &lt;em style=&quot;z-index:43&quot;&gt;</div><div class="line">    &lt;strong style=&quot;z-index:-52&quot;&gt;&lt;/strong&gt;&lt;/em&gt;</div><div class="line">&lt;/p&gt;</div><div class="line">&lt;h1 style=&quot;z-index:6&quot;&gt;&lt;/h1&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>此刻strong 的z-index虽然为-52，因为其父元素p在h1之上，所以strong在h1之上</p>
+<ul>
+<li>如果position：relative 过度受限<br> 即{positon：relatie；top：10px；bottom：20px}<br>top要求他向下移动10x，而bottom要求他向上移动20px；此时css2.1指出，一个值会重置为另一个值的相反数即bottom总是等于-top，right总是等于-left</li>
+<li>list-style：list-style-image list-style-type list-style-position</li>
+<li>li::marker {margin-right:0.125em;}来使标志与列表项内容之间有适当的距离【css3草案】</li>
+<li>:before 和:after 把生成内容放在一个元素内容的前面或者后面；<ul>
+<li>如果：before和： after选择器的主题是块级元素，则display属性只接受none，inline，block，和 marker</li>
+</ul>
+</li>
+<li>counter-reset  设置计数器的起点<br>counter-increment   将其递增一定的量<br><a href="http://www.zhangxinxu.com/wordpress/2014/08/css-counters-
+automatic-number-content/" target="_blank" rel="external">CSS计数器(序列数字字符自动递增)详解–张旭鑫</a></li>
+<li>outline和border的区别<br> 1.outline不占位，设置过大可能会覆盖其他元素<br> 2.outline的形状不定，用户代理可以合并部分轮廓，创造一个连续非矩形的元素</li>
+<li>最适合屏幕设计的字体是sans-serif字体，但是在打印媒体中serif字体更可读</li>
+<li>非媒体屏幕<br>打印媒体and幻灯片媒体and声音样式<br><a href="http://blog.csdn.net/jhqdlove/article/details/50526321" target="_blank" rel="external">http://blog.csdn.net/jhqdlove/article/details/50526321</a></li>
+<li>垂直居中技巧<br>positon：absolute；<br>top：50%；<br>margin设为元素高的一半</li>
+</ul>
 
                 <hr>
                 
@@ -219,14 +272,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2017/03/31/每日一道编程题之背包问题/" data-toggle="tooltip" data-placement="top"
-                           title="每日一道编程题之背包问题">&larr; Previous Post</a>
+                        <a href="/2016/09/12/百度前端学院实践记录/" data-toggle="tooltip" data-placement="top"
+                           title="百度前段学院实践记录">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2017/03/29/简历-web前端开发/" data-toggle="tooltip" data-placement="top"
-                           title="简历-web前端开发">Next Post &rarr;</a>
+                        <a href="/2016/06/09/footer/" data-toggle="tooltip" data-placement="top"
+                           title="如何放置网页footer？">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -234,9 +287,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                         data-thread-key="2017/03/29/chrome拓展开发记录-eolinker/"
-                         data-title="chrome拓展开发记录--eolinker"
-                         data-url="http://sarqin.github.io/2017/03/29/chrome拓展开发记录-eolinker/">
+                         data-thread-key="2016/06/20/css权威指南/"
+                         data-title="css权威指南"
+                         data-url="http://sarqin.github.io/2016/06/20/css权威指南/">
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
@@ -248,7 +301,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#eoapi插件实现http请求功能"><span class="toc-text">eoapi插件实现http请求功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chrome插件"><span class="toc-text">chrome插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#待解决问题"><span class="toc-text">待解决问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-要添加头部？"><span class="toc-text">1.要添加头部？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-chrome-tabs-query方法"><span class="toc-text">2.chrome.tabs.query方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-content-js-amp-background-js-amp-popup-js"><span class="toc-text">3.content.js&background.js&popup.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-一个奇怪的bug"><span class="toc-text">4.一个奇怪的bug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-popup和background的区别"><span class="toc-text">5.popup和background的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-JSON-stringify-转码规则"><span class="toc-text">6.JSON.stringify()转码规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-tabs-0-id"><span class="toc-text">7.tabs[0].id</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-想要拓展多次进行通信"><span class="toc-text">8.想要拓展多次进行通信</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#资料"><span class="toc-text">资料</span></a></li></ol>
+                    
                 </div>
             </div>
         </div>
