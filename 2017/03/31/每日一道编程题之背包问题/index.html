@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="吃货前端">
+    <meta name="keyword" content="前端">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="source/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" title="Scar" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        每日一道编程题之背包问题｜Scar&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sarqin.github.io/2017/03/31/每日一道编程题之背包问题/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Scar
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://onkdrh0y6.bkt.clouddn.com/default11.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default11.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>每日一道编程题之背包问题</h1>
+                    
+                    <span class="meta">
+                         作者 Scar
+                        <span>
+                          日期 2017-03-31
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#每日编程"
+                           title="每日编程">每日编程</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            每日一道编程题之背包问题
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><p><img src="http://upload-images.jianshu.io/upload_images/1318539-400788a1a22bb804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳5kg的东西，为了保证你的营养最大化，有以下几种食物可以选择</p>
+<pre><code>* 西兰花   1kg    5营养（没错！营养就是单位）
+* 西红柿   1kg    8营养
+* 米饭     2kg    4营养
+* 牛肉     3kg    10营养
+</code></pre><p>动用吃货的小脑筋，就知道，营养最大化的选择是<br>牛肉+西兰花+西红柿   共23点营养！<br>我的大脑是怎么计算的呢？</p>
+<h3 id="first-blood：画出一个最优营养表格"><a href="#first-blood：画出一个最优营养表格" class="headerlink" title="first blood：画出一个最优营养表格"></a>first blood：画出一个最优营养表格</h3><table>
+<thead>
+<tr>
+<th>食物</th>
+<th>1kg</th>
+<th>2kg</th>
+<th>3kg</th>
+<th>4kg</th>
+<th>5kg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>西兰花 1kg</td>
+<td>5</td>
+<td>13</td>
+<td>13</td>
+<td>17</td>
+<td>23</td>
+</tr>
+<tr>
+<td>西红柿 1kg</td>
+<td>8</td>
+<td>8</td>
+<td>12</td>
+<td>18</td>
+<td>22</td>
+</tr>
+<tr>
+<td>米饭 2kg</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>14</td>
+</tr>
+<tr>
+<td>牛肉  3kg</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-92582b864e27eb0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="思路详解"><a href="#思路详解" class="headerlink" title="思路详解"></a>思路详解</h3><p><strong>假设1</strong>.我肚子现在只能容纳1kg，那我的选择只有两个 </p>
+<pre><code>* 西兰花   1kg    5营养 
+* 西红柿   1kg    8营养
+</code></pre><p><strong>假设2</strong>.我的肚子现在只能容纳2kg</p>
+<pre><code>* 西兰花+西红柿    2kg    13营养   【对与选择西兰花情况下的最优解】
+* 西红柿   1kg    8营养
+* 米饭     2kg    4营养
+</code></pre><p><strong>假设3</strong>.我的肚子现在只能容纳3kg，那我的选择….嘿嘿嘿</p>
+<ul>
+<li>假设我选了西兰花吧，吃完之后，我肚子到了只能容纳2kg的食物（跳到假设2），此时除了西兰花，对于我来说，最大的营养价值是西红柿<br>即   对于3kg的肚子来说，选了西兰花的最优解是 <pre><code>* 西兰花+西红柿   2kg    13营养
+</code></pre></li>
+</ul>
+<ul>
+<li><strong> 对于西兰花，我们已经找到了最优解，所以我不选西兰花</strong>，开始选西红柿，那在假设2中选了西红柿最优解是<pre><code>* 西红柿+米饭      3kg   12营养
+</code></pre></li>
+<li>对于不选西红柿不选西兰花的米饭<pre><code>* 米饭   2kg     4营养
+</code></pre></li>
+<li>最后剩一个好吃的牛肉<pre><code>* 牛肉    3kg     10营养
+</code></pre></li>
+</ul>
+<p><strong>假设4</strong>.我的肚子现在只能容纳4kg<br>【思路与假设3如出一辙，确定是否选这样食物，如果是1kg的，确认选中后到3kg找最优解，如果是3kg的，确认选中后到1kg找最优解】</p>
+<ul>
+<li>假设选了西兰花，此刻跳到假设3，bingo~除了西兰花之外的最优解是西红柿+米饭！<pre><code>* 西兰花+西红柿+米饭  4kg    17营养
+</code></pre></li>
+<li>同理可得（是不是做证明题的时候！最讨厌又最喜欢这句话）<pre><code>* 西红柿+牛肉         4kg    18营养
+* 米饭               2kg     4营养
+* 牛肉               3kg    10营养
+</code></pre><strong>假设5</strong>我的肚子现在只能容纳5kg<pre><code>* 西兰花+西红柿+牛肉  5kg    23营养
+* 西红柿+牛肉+米饭    5kg    22营养
+* 米饭+牛肉          5kg    14营养 
+* 牛肉               3kg    10营养
+</code></pre></li>
+</ul>
+<p>看完了繁琐的分析，都在说明一个道理：<br><strong> 每一次的肚子选择，都是假设肚子放入了物品a，然后在除去物品a质量和选择的假设中找到最优，即全局最优解包含局部最优解</strong></p>
+<p>咳咳，敲重点了哈，动态规划最重要的问题是什么？<br><strong> 是问题中的状态和状态转移方程是什么</strong>。<br> 诺。</p>
+<pre><code>d(i, j)=max{ d(i-1, j), d(i-1,j-V[i-1]) + W[i-1] } 
+</code></pre><p>即假设放入物体i-1是否吃进肚子里，一层一层考虑。就像下表中，先从0.1kg的西兰花放起。<br>放在例子中，d（1，0.1）代表只能吃一样食物且肚子只有0.1kg大。</p>
+<table>
+<thead>
+<tr>
+<th>食物</th>
+<th>1kg</th>
+<th>2kg</th>
+<th>3kg</th>
+<th>4kg</th>
+<th>5kg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>西兰花 1kg</td>
+<td>5</td>
+<td>13  p（2，2）</td>
+<td>13</td>
+<td>17</td>
+<td>23  p（4，4）</td>
+</tr>
+<tr>
+<td>西红柿 1kg</td>
+<td>8   p（1，1）</td>
+<td>8</td>
+<td>12</td>
+<td>18  p（3，0.3）</td>
+<td>22</td>
+</tr>
+<tr>
+<td>米饭 2kg</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>14</td>
+</tr>
+<tr>
+<td>牛肉  3kg</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>此刻再看看表格<br>d（1，0.1）=8；d（1，0.2）=8；d……..<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">     <span class="comment">//本例中n=4，j=0.5</span></div><div class="line">    <span class="comment">//返回最大值</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> result = a &gt; b ? a : b;</div><div class="line">	<span class="keyword">return</span> result;</div><div class="line"></div><div class="line">&#125;</div><div class="line"> <span class="keyword">var</span> value = [<span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">10</span>],</div><div class="line">	    size = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">	    d = [],</div><div class="line">	    n = <span class="number">4</span>,</div><div class="line">	    C = <span class="number">5</span>;</div><div class="line">     <span class="comment">//初始化数组</span></div><div class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt;= n; ++k) &#123;</div><div class="line">	    d[k] = [];</div><div class="line">   &#125;</div><div class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</div><div class="line">	  <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt;= C; ++j) &#123;</div><div class="line">		d[i][j] = (i == <span class="number">0</span>) ? <span class="number">0</span> : d[i - <span class="number">1</span>][j];</div><div class="line">	  <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; j &gt;= value[i - <span class="number">1</span>])</div><div class="line">          d[i][j] = max(d[i<span class="number">-1</span>][j], d[i - <span class="number">1</span>][j - size[i - <span class="number">1</span>]] + value[i - <span class="number">1</span>]);</div><div class="line">    	&#125;</div><div class="line">     &#125;</div><div class="line">    <span class="built_in">console</span>.log(d[n][C], d[<span class="number">1</span>][<span class="number">1</span>])</div><div class="line">    <span class="comment">//乾坤大循环后，得出d[n][c]</span></div></pre></td></tr></table></figure></p>
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>链接：<a href="https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa" target="_blank" rel="external">https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa</a><br>来源：牛客网<br>一种双核CPU的两个核能够同时的处理任务，现在有n个已知数据量的任务需要交给CPU处理，假设已知CPU的每个核1秒可以处理1kb，每个核同时只能处理一项任务。n个任务可以按照任意顺序放入CPU进行处理，现在需要设计一个方案让CPU处理完这批任务所需的时间最少，求这个最小的时间。</p>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p><a href="http://www.hawstein.com/posts/dp-knapsack.html" target="_blank" rel="external">动态规划之背包问题（一）</a><br><a href="http://blog.csdn.net/mu399/article/details/7722810" target="_blank" rel="external">动态规划之01背包问题</a>–表格思路来源<br><a href="http://www.cnblogs.com/SDJL/archive/2008/08/22/1274312.html" target="_blank" rel="external">通过金矿模型介绍动态规划</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/03/29/chrome拓展开发记录-eolinker/" data-toggle="tooltip" data-placement="top"
+                           title="chrome拓展开发记录--eolinker">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+                <!-- 多说评论框 start -->
+                <div class="comment">
+                    <div class="ds-thread"
+                         data-thread-key="2017/03/31/每日一道编程题之背包问题/"
+                         data-title="每日一道编程题之背包问题"
+                         data-url="http://sarqin.github.io/2017/03/31/每日一道编程题之背包问题/">
+                    </div>
+                </div>
+                <!-- 多说评论框 end -->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背包问题"><span class="toc-text">背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#first-blood：画出一个最优营养表格"><span class="toc-text">first blood：画出一个最优营养表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路详解"><span class="toc-text">思路详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题"><span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资料"><span class="toc-text">资料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    // dynamic User by Hux
+    var _user = 'scarqin';
+
+    // duoshuo comment query.
+    var duoshuoQuery = {short_name: _user};
+    (function () {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                     
+                        <li>
+                            <a target="_blank" href="http://www.jianshu.com/u/9f4b86bd9c0e">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-stack-1x fa-inverse">简</i>
+                                        </span>
+                            </a>
+                        </li>
+                        
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/scar-qin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/scarqin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Scar 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sarqin.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://onkdrh0y6.bkt.clouddn.com/avator.png">
+</body>
+
+</html>
