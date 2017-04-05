@@ -483,7 +483,7 @@ a:focus {
 }
 .post-preview > a > h2{transition: color .3s;}
 .post-preview:not(:first-of-type) > a:hover > h2{
-    color: #FC7097;
+    color: #0085a1;
 }
 
 .post-preview > a > .post-title {
