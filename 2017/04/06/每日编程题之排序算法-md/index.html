@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="吃货前端">
+    <meta name="keyword" content="前端">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://onkdrh0y6.bkt.clouddn.com/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="Scar" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        每日编程题之排序算法.md｜Scar&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sarqin.github.io/2017/04/06/每日编程题之排序算法-md/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Scar
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://onkdrh0y6.bkt.clouddn.com/default12.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default12.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>每日编程题之排序算法.md</h1>
+                    
+                    <span class="meta">
+                         作者 Scar
+                        <span>
+                          日期 2017-04-06
+                         </span>
+                         
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#每日编程"
+                           title="每日编程">每日编程</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            每日编程题之排序算法.md
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h2 id="1-例题"><a href="#1-例题" class="headerlink" title="1. 例题"></a>1. 例题</h2><p><a href="http://exercise.acmcoder.com/online/online_judge_ques?ques_id=4382&amp;konwledgeId=169" target="_blank" rel="external">http://exercise.acmcoder.com/online/online_judge_ques?ques_id=4382&amp;konwledgeId=169</a></p>
+<p>作为国内领先的酒店预订平台，去哪儿网为了广大用户能住到更舒适的酒店，根据实际用户的居住评价对各酒店进行动态评级和排名。去哪儿网会从酒店整体环境、客房舒适度、服务质量、配套设施和交通情况5的方面进行评价收集，并给与 1-5 星的评分（整数）。现希望开发者编写程序根据一定的规则对酒店进行排序。规则如下：</p>
+<p>1.优先按照最低星数进行排序，最低星数高者居前。<br>2.在最低星数相同时，按照平均星数排序，平均星数高者居前。<br>3.如果最低星数和平均星数均相同，则序号（数据里出现的顺序编号，从0开始）小者居前。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-f56437635af552a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h2 id="2-相关知识点"><a href="#2-相关知识点" class="headerlink" title="2. 相关知识点"></a>2. 相关知识点</h2><h3 id="2-1-排序算法"><a href="#2-1-排序算法" class="headerlink" title="2.1 排序算法"></a>2.1 排序算法</h3><p><img src="http://upload-images.jianshu.io/upload_images/1318539-aab055a9facb876d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h4 id="常见的稳定排序"><a href="#常见的稳定排序" class="headerlink" title="常见的稳定排序"></a>常见的稳定排序</h4><h5 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">function bubbleSort(arr) &#123;</div><div class="line">    var len = arr.length;</div><div class="line">    for (var i = 0; i &lt; len - 1; i++) &#123;</div><div class="line">        for (var j = 0; j &lt; len - 1 - i; j++) &#123;</div><div class="line">            if (arr[j] &gt; arr[j+1]) &#123;        // 相邻元素两两对比</div><div class="line">                var temp = arr[j+1];        // 元素交换</div><div class="line">                arr[j+1] = arr[j];</div><div class="line">                arr[j] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-直接插入排序"><a href="#2-直接插入排序" class="headerlink" title="2. 直接插入排序"></a>2. 直接插入排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function insertionSort(arr) &#123;</div><div class="line">    var len = arr.length;</div><div class="line">    var preIndex, current;</div><div class="line">    for (var i = 1; i &lt; len; i++) &#123;</div><div class="line">        preIndex = i - 1;</div><div class="line">        current = arr[i];</div><div class="line">        while(preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current) &#123;</div><div class="line">            arr[preIndex+1] = arr[preIndex];</div><div class="line">            preIndex--;</div><div class="line">        &#125;</div><div class="line">        arr[preIndex+1] = current;</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-计数排序"><a href="#3-计数排序" class="headerlink" title="3. 计数排序"></a>3. 计数排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">function countingSort(arr, maxValue) &#123;</div><div class="line">    var bucket = new Array(maxValue+1),</div><div class="line">        sortedIndex = 0;</div><div class="line">        arrLen = arr.length,</div><div class="line">        bucketLen = maxValue + 1;</div><div class="line"></div><div class="line">    for (var i = 0; i &lt; arrLen; i++) &#123;</div><div class="line">        if (!bucket[arr[i]]) &#123;</div><div class="line">            bucket[arr[i]] = 0;</div><div class="line">        &#125;</div><div class="line">        bucket[arr[i]]++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    for (var j = 0; j &lt; bucketLen; j++) &#123;</div><div class="line">        while(bucket[j] &gt; 0) &#123;</div><div class="line">            arr[sortedIndex++] = j;</div><div class="line">            bucket[j]--;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="4-归并排序"><a href="#4-归并排序" class="headerlink" title="4. 归并排序"></a>4. 归并排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">function mergeSort(arr) &#123;  // 采用自上而下的递归方法</div><div class="line">    var len = arr.length;</div><div class="line">    if(len &lt; 2) &#123;</div><div class="line">        return arr;</div><div class="line">    &#125;</div><div class="line">    var middle = Math.floor(len / 2),</div><div class="line">        left = arr.slice(0, middle),</div><div class="line">        right = arr.slice(middle);</div><div class="line">    return merge(mergeSort(left), mergeSort(right));</div><div class="line">&#125;</div><div class="line">function merge(left, right)</div><div class="line">&#123;</div><div class="line">    var result = [];</div><div class="line"></div><div class="line">    while (left.length &amp;&amp; right.length) &#123;</div><div class="line">        if (left[0] &lt;= right[0]) &#123;</div><div class="line">            result.push(left.shift());</div><div class="line">        &#125; else &#123;</div><div class="line">            result.push(right.shift());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    while (left.length)</div><div class="line">        result.push(left.shift());</div><div class="line"></div><div class="line">    while (right.length)</div><div class="line">        result.push(right.shift());</div><div class="line"></div><div class="line">    return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="5-基数排序"><a href="#5-基数排序" class="headerlink" title="5. 基数排序"></a>5. 基数排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//LSD Radix Sort</div><div class="line">var counter = [];</div><div class="line">function radixSort(arr, maxDigit) &#123;</div><div class="line">    var mod = 10;</div><div class="line">    var dev = 1;</div><div class="line">    for (var i = 0; i &lt; maxDigit; i++, dev *= 10, mod *= 10) &#123;</div><div class="line">        for(var j = 0; j &lt; arr.length; j++) &#123;</div><div class="line">            var bucket = parseInt((arr[j] % mod) / dev);</div><div class="line">            if(counter[bucket]==null) &#123;</div><div class="line">                counter[bucket] = [];</div><div class="line">            &#125;</div><div class="line">            counter[bucket].push(arr[j]);</div><div class="line">        &#125;</div><div class="line">        var pos = 0;</div><div class="line">        for(var j = 0; j &lt; counter.length; j++) &#123;</div><div class="line">            var value = null;</div><div class="line">            if(counter[j]!=null) &#123;</div><div class="line">                while ((value = counter[j].shift()) != null) &#123;</div><div class="line">                      arr[pos++] = value;</div><div class="line">                &#125;</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="6-桶排序"><a href="#6-桶排序" class="headerlink" title="6. 桶排序"></a>6. 桶排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">function bucketSort(arr, bucketSize) &#123;</div><div class="line">    if (arr.length === 0) &#123;</div><div class="line">      return arr;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    var i;</div><div class="line">    var minValue = arr[0];</div><div class="line">    var maxValue = arr[0];</div><div class="line">    for (i = 1; i &lt; arr.length; i++) &#123;</div><div class="line">      if (arr[i] &lt; minValue) &#123;</div><div class="line">          minValue = arr[i];                // 输入数据的最小值</div><div class="line">      &#125; else if (arr[i] &gt; maxValue) &#123;</div><div class="line">          maxValue = arr[i];                // 输入数据的最大值</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //桶的初始化</div><div class="line">    var DEFAULT_BUCKET_SIZE = 5;            // 设置桶的默认数量为5</div><div class="line">    bucketSize = bucketSize || DEFAULT_BUCKET_SIZE;</div><div class="line">    var bucketCount = Math.floor((maxValue - minValue) / bucketSize) + 1;   </div><div class="line">    var buckets = new Array(bucketCount);</div><div class="line">    for (i = 0; i &lt; buckets.length; i++) &#123;</div><div class="line">        buckets[i] = [];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //利用映射函数将数据分配到各个桶中</div><div class="line">    for (i = 0; i &lt; arr.length; i++) &#123;</div><div class="line">        buckets[Math.floor((arr[i] - minValue) / bucketSize)].push(arr[i]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    arr.length = 0;</div><div class="line">    for (i = 0; i &lt; buckets.length; i++) &#123;</div><div class="line">        insertionSort(buckets[i]);                      // 对每个桶进行排序，这里使用了插入排序</div><div class="line">        for (var j = 0; j &lt; buckets[i].length; j++) &#123;</div><div class="line">            arr.push(buckets[i][j]);                      </div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="不稳定排序"><a href="#不稳定排序" class="headerlink" title="不稳定排序"></a>不稳定排序</h4><h5 id="1-选择排序"><a href="#1-选择排序" class="headerlink" title="1. 选择排序"></a>1. 选择排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function selectionSort(arr) &#123;</div><div class="line">    var len = arr.length;</div><div class="line">    var minIndex, temp;</div><div class="line">    for (var i = 0; i &lt; len - 1; i++) &#123;</div><div class="line">        minIndex = i;</div><div class="line">        for (var j = i + 1; j &lt; len; j++) &#123;</div><div class="line">            if (arr[j] &lt; arr[minIndex]) &#123;     // 寻找最小的数</div><div class="line">                minIndex = j;                 // 将最小数的索引保存</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        temp = arr[i];</div><div class="line">        arr[i] = arr[minIndex];</div><div class="line">        arr[minIndex] = temp;</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="2-快速排序"><a href="#2-快速排序" class="headerlink" title="2. 快速排序"></a>2. 快速排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">function quickSort(arr, left, right) &#123;</div><div class="line">    var len = arr.length,</div><div class="line">        partitionIndex,</div><div class="line">        left = typeof left != &apos;number&apos; ? 0 : left,</div><div class="line">        right = typeof right != &apos;number&apos; ? len - 1 : right;</div><div class="line"></div><div class="line">    if (left &lt; right) &#123;</div><div class="line">        partitionIndex = partition(arr, left, right);</div><div class="line">        quickSort(arr, left, partitionIndex-1);</div><div class="line">        quickSort(arr, partitionIndex+1, right);</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div><div class="line">function partition(arr, left ,right) &#123;     // 分区操作</div><div class="line">    var pivot = left,                      // 设定基准值（pivot）</div><div class="line">        index = pivot + 1;</div><div class="line">    for (var i = index; i &lt;= right; i++) &#123;</div><div class="line">        if (arr[i] &lt; arr[pivot]) &#123;</div><div class="line">            swap(arr, i, index);</div><div class="line">            index++;</div><div class="line">        &#125;        </div><div class="line">    &#125;</div><div class="line">    swap(arr, pivot, index - 1);</div><div class="line">    return index-1;</div><div class="line">&#125;</div><div class="line">function swap(arr, i, j) &#123;</div><div class="line">    var temp = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = temp;</div><div class="line">&#125;</div><div class="line">functiion paritition2(arr, low, high) &#123;</div><div class="line">  let pivot = arr[low];</div><div class="line">  while (low &lt; high) &#123;</div><div class="line">    while (low &lt; high &amp;&amp; arr[high] &gt; pivot) &#123;</div><div class="line">      --high;</div><div class="line">    &#125;</div><div class="line">    arr[low] = arr[high];</div><div class="line">    while (low &lt; high &amp;&amp; arr[low] &lt;= pivot) &#123;</div><div class="line">      ++low;</div><div class="line">    &#125;</div><div class="line">    arr[high] = arr[low];</div><div class="line">  &#125;</div><div class="line">  arr[low] = pivot;</div><div class="line">  return low;</div><div class="line">&#125;</div><div class="line">function quickSort2(arr, low, high) &#123;</div><div class="line">  if (low &lt; high) &#123;</div><div class="line">    let pivot = paritition2(arr, low, high);</div><div class="line">    quickSort2(arr, low, pivot - 1);</div><div class="line">    quickSort2(arr, pivot + 1, high);</div><div class="line">  &#125;</div><div class="line">  return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="3-希尔排序"><a href="#3-希尔排序" class="headerlink" title="3. 希尔排序"></a>3. 希尔排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function shellSort(arr) &#123;</div><div class="line">    var len = arr.length,</div><div class="line">        temp,</div><div class="line">        gap = 1;</div><div class="line">    while(gap &lt; len/3) &#123;          //动态定义间隔序列</div><div class="line">        gap =gap*3+1;</div><div class="line">    &#125;</div><div class="line">    for (gap; gap &gt; 0; gap = Math.floor(gap/3)) &#123;</div><div class="line">        for (var i = gap; i &lt; len; i++) &#123;</div><div class="line">            temp = arr[i];</div><div class="line">            for (var j = i-gap; j &gt;= 0 &amp;&amp; arr[j] &gt; temp; j-=gap) &#123;</div><div class="line">                arr[j+gap] = arr[j];</div><div class="line">            &#125;</div><div class="line">            arr[j+gap] = temp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="4-堆排序"><a href="#4-堆排序" class="headerlink" title="4. 堆排序"></a>4. 堆排序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">var len;    // 因为声明的多个函数都需要数据长度，所以把len设置成为全局变量</div><div class="line">function buildMaxHeap(arr) &#123;   // 建立大顶堆</div><div class="line">    len = arr.length;</div><div class="line">    for (var i = Math.floor(len/2); i &gt;= 0; i--) &#123;</div><div class="line">        heapify(arr, i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function heapify(arr, i) &#123;     // 堆调整</div><div class="line">    var left = 2 * i + 1,</div><div class="line">        right = 2 * i + 2,</div><div class="line">        largest = i;</div><div class="line"></div><div class="line">    if (left &lt; len &amp;&amp; arr[left] &gt; arr[largest]) &#123;</div><div class="line">        largest = left;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (right &lt; len &amp;&amp; arr[right] &gt; arr[largest]) &#123;</div><div class="line">        largest = right;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (largest != i) &#123;</div><div class="line">        swap(arr, i, largest);</div><div class="line">        heapify(arr, largest);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">function swap(arr, i, j) &#123;</div><div class="line">    var temp = arr[i];</div><div class="line">    arr[i] = arr[j];</div><div class="line">    arr[j] = temp;</div><div class="line">&#125;</div><div class="line">function heapSort(arr) &#123;</div><div class="line">    buildMaxHeap(arr);</div><div class="line"></div><div class="line">    for (var i = arr.length-1; i &gt; 0; i--) &#123;</div><div class="line">        swap(arr, 0, i);</div><div class="line">        len--;</div><div class="line">        heapify(arr, 0);</div><div class="line">    &#125;</div><div class="line">    return arr;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-2-数组排序"><a href="#2-2-数组排序" class="headerlink" title="2.2 数组排序"></a>2.2 数组排序</h3><h5 id="array-sort-方法"><a href="#array-sort-方法" class="headerlink" title="array.sort()方法"></a>array.sort()方法</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">\\升序</div><div class="line">function compareNumbers(a, b) &#123;</div><div class="line">  return a - b;</div><div class="line">&#125;</div><div class="line">\\降序</div><div class="line">function compareNumbers(a, b) &#123;</div><div class="line">  return b - a;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>因为ECMAscript规范对于浏览器实现sort()方法有此说法</p>
+<blockquote>
+<p>The sort is not necessarily stable (that is, elements that compare equal do not necessarily remain in their original order)</p>
+</blockquote>
+<p>所以不同浏览器实现array.sort()的算法不一样，array.sort()在各个浏览器的稳定性<br><img src="http://upload-images.jianshu.io/upload_images/1318539-5f5257d526696863.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="修改array-sort-后实现稳定性的方法"><a href="#修改array-sort-后实现稳定性的方法" class="headerlink" title="修改array.sort()后实现稳定性的方法"></a>修改array.sort()后实现稳定性的方法</h5><p>通过记录元素原位置j，当对比到两个相同的元素（a.i=b.i）时，按照原始的位置排序。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">Array.prototype.stableSort = function (fn) &#123;</div><div class="line">  // 用新数组记录位置</div><div class="line">  var newArr = this.map(function (i, j) &#123; return &#123;i:i, j:j&#125;; &#125;);</div><div class="line">  return newArr.sort(function (a, b) &#123;</div><div class="line">    result = fn(a.i, b.i);</div><div class="line">    if (result === 0) &#123;</div><div class="line">      // 按原先元素位置排序，升序</div><div class="line">      return a.j - b.j;</div><div class="line">    &#125;</div><div class="line">    return result;</div><div class="line">  &#125;).map(function (i) &#123; return i.i; &#125;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="3-思路"><a href="#3-思路" class="headerlink" title="3. 思路"></a>3. 思路</h2><p>输入的分数数据，看作五个数组。此题可看作对五个数组进行<strong>稳定排序</strong><br>1.取每个酒店5方面得到的最低分作为依据，递减排序；<br>2.对于最低分相同的酒店，根据5方面平均分作为依据，递减排序。</p>
+<h2 id="4-代码"><a href="#4-代码" class="headerlink" title="4. 代码"></a>4. 代码</h2><p>会根据学习水平持续优化代码~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">var n=5,</div><div class="line">    record=[&quot;4 4 5 3 4&quot;, &quot;3 3 3 3 3&quot;, &quot;5 4 4 3 5&quot;, &quot;5 5 5 5 5&quot;, &quot;5 2 4 3 4&quot;],</div><div class="line">    score=0,</div><div class="line">    result=&apos;&apos;;</div><div class="line">//升序</div><div class="line">function orderAsc(a, b) &#123;</div><div class="line">  return a[0] - b[0];</div><div class="line">&#125;</div><div class="line">//降序  </div><div class="line">function orderDes(a,b)&#123;</div><div class="line">return b[0][0]-a[0][0];</div><div class="line">&#125;</div><div class="line">//计算平均值</div><div class="line">function   computeAvg(record)&#123;</div><div class="line">    var avg=0;</div><div class="line">    for(var i=0;i&lt;5;i++)&#123;</div><div class="line">    avg+=record[i]</div><div class="line">    &#125;</div><div class="line">    avg=avg/5;</div><div class="line">    return avg;</div><div class="line">&#125;</div><div class="line">for(var i=0;i&lt;n;i++)&#123;</div><div class="line">    record[i]=record[i].split(&quot; &quot;);</div><div class="line">    record[i]=record[i].stableSort(orderAsc);</div><div class="line">    record[i][5]=i;</div><div class="line">&#125;</div><div class="line">    record=record.stableSort(orderDes);</div><div class="line">for(var j=0;j&lt;n-1;j++)&#123;</div><div class="line">  if(record[j][0]==record[j+1][0])&#123;</div><div class="line">    record=record.stableSort(function(a,b)&#123;</div><div class="line">    return computeAvg(b)-computeAvg(a);</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">for(var k=0;k&lt;n;k++)&#123;</div><div class="line">   result+=record[k][5]+&apos; &apos;;</div><div class="line">&#125;</div><div class="line">console.log(result)</div></pre></td></tr></table></figure></p>
+<h2 id="5-资料"><a href="#5-资料" class="headerlink" title="5. 资料"></a>5. 资料</h2><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="external">Array.prototype.sort()</a><br><a href="http://efe.baidu.com/blog/talk-about-sort-in-front-end/" target="_blank" rel="external">聊聊前端排序的那些事</a><br><a href="">GitBook《十大经典排序算法》JavaScript 实现</a><br><a href="http://ichuan.net/post/52/stable-sort-of-javascript-array/" target="_blank" rel="external">javascript 数组的稳定性排序</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/03/31/每日一道编程题之背包问题/" data-toggle="tooltip" data-placement="top"
+                           title="每日编程题之背包问题">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-例题"><span class="toc-text">1. 例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-相关知识点"><span class="toc-text">2. 相关知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-排序算法"><span class="toc-text">2.1 排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常见的稳定排序"><span class="toc-text">常见的稳定排序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-冒泡排序"><span class="toc-text">1. 冒泡排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-直接插入排序"><span class="toc-text">2. 直接插入排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-计数排序"><span class="toc-text">3. 计数排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-归并排序"><span class="toc-text">4. 归并排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-基数排序"><span class="toc-text">5. 基数排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-桶排序"><span class="toc-text">6. 桶排序</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#不稳定排序"><span class="toc-text">不稳定排序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-选择排序"><span class="toc-text">1. 选择排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-快速排序"><span class="toc-text">2. 快速排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-希尔排序"><span class="toc-text">3. 希尔排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-堆排序"><span class="toc-text">4. 堆排序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-数组排序"><span class="toc-text">2.2 数组排序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#array-sort-方法"><span class="toc-text">array.sort()方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#修改array-sort-后实现稳定性的方法"><span class="toc-text">修改array.sort()后实现稳定性的方法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-思路"><span class="toc-text">3. 思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-代码"><span class="toc-text">4. 代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-资料"><span class="toc-text">5. 资料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "scarqin";
+    var disqus_identifier = "http://sarqin.github.io/2017/04/06/每日编程题之排序算法-md/";
+    var disqus_url = "http://sarqin.github.io/2017/04/06/每日编程题之排序算法-md/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                     
+                        <li>
+                            <a target="_blank" href="http://www.jianshu.com/u/9f4b86bd9c0e">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-stack-1x fa-inverse">简</i>
+                                        </span>
+                            </a>
+                        </li>
+                        
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/scar-qin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/scarqin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Scar 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sarqin.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://onkdrh0y6.bkt.clouddn.com/avator.png">
+</body>
+
+</html>

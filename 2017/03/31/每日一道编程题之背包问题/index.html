@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        每日一道编程题之背包问题｜Scar&#39;s blog
+        每日编程题之背包问题｜Scar&#39;s blog
         
     </title>
 
@@ -81,15 +81,15 @@
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
                         
 							
-								
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
 							
 						
                     
@@ -157,13 +157,14 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>每日一道编程题之背包问题</h1>
+                    <h1>每日编程题之背包问题</h1>
                     
                     <span class="meta">
                          作者 Scar
                         <span>
                           日期 2017-03-31
                          </span>
+                         
                     </span>
                     <div class="tags text-center">
                         
@@ -177,7 +178,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            每日一道编程题之背包问题
+            每日编程题之背包问题
         </span>
     </div>
 </header>
@@ -188,7 +189,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><p><img src="http://upload-images.jianshu.io/upload_images/1318539-400788a1a22bb804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳5kg的东西，为了保证你的营养最大化，有以下几种食物可以选择</p>
+                <h2 id="1-背包问题"><a href="#1-背包问题" class="headerlink" title="1.背包问题"></a>1.背包问题</h2><p><img src="http://upload-images.jianshu.io/upload_images/1318539-400788a1a22bb804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳5kg的东西，为了保证你的营养最大化，有以下几种食物可以选择</p>
 <pre><code>* 黄瓜   1kg    5营养（没错！营养就是单位）
 * 西红柿   1kg    8营养
 * 米饭     2kg    4营养
@@ -333,13 +334,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  先放牛肉的写法</div><div class="line">for(int j = 0; j &lt;= c; j++)  </div><div class="line">       if(j &lt; w[n]) m[n][j] = 0;     //j小于w[n],所对应的值设为0，否则就为可以放置   </div><div class="line">       else         m[n][j] = v[n];  </div><div class="line">         </div><div class="line">    //对剩下的n-1个物品进行放置。  </div><div class="line">    int i;  </div><div class="line">    for(i = n-1; i &gt;= 1; i--)  </div><div class="line">        for(int j = 0; j &lt;= c; j++)  </div><div class="line">           if(j &lt; w[i])   </div><div class="line">               d[i][j] = d[i+1][j];</div><div class="line">//如果j &lt; w[i]则，当前位置就不能放置，它等于上一个位置的值。  </div><div class="line">//否则，就比较到底是放置之后的值大，还是不放置的值大，选择其中较大者。              </div><div class="line">           else      </div><div class="line">            d[i][j] = d[i+1][j] &gt; d[i+1][j-w[i]] + v[i]?</div><div class="line">            d[i+1][j] :</div><div class="line">            d[i+1][j-w[i]] + v[i];    </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">先放黄瓜的写法</div><div class="line">  //本例中n=4，C=5</div><div class="line">  //返回最大值</div><div class="line">  function max(a, b) &#123;</div><div class="line">var result = a &gt; b ? a : b;</div><div class="line">return result;</div><div class="line"></div><div class="line">  &#125;//其实js有内置的Math.max()</div><div class="line">  var value = [5, 8, 4, 10],</div><div class="line">    size = [1, 1, 2, 3],</div><div class="line">    d = [],</div><div class="line">    n = 4,</div><div class="line">    C = 5;</div><div class="line">   //初始化数组</div><div class="line">  for (var k = 0; k &lt;= n; ++k) &#123;</div><div class="line">      d[k] = [];</div><div class="line">   &#125;</div><div class="line">   for (var i = 0; i &lt;= n; ++i) &#123;</div><div class="line">    for (var w = 0;w &lt;= C; ++w) &#123;</div><div class="line">      d[i][w] = (i == 0) ? 0 : d[i - 1][w];</div><div class="line">      if (i &gt; 0 &amp;&amp; j &gt;= size[i - 1])</div><div class="line">            d[i][w] = max(d[i-1][w], d[i - 1][w - size[i - 1]] + value[i - 1]);</div><div class="line">    &#125;</div><div class="line">   &#125;</div><div class="line">  console.log(d[n][C], d[1][1])</div><div class="line">  //乾坤大循环后，得出d[n][c]</div></pre></td></tr></table></figure>
 <p>背包问题中，我最困惑的点是，你放了这个物品进去，怎么确保这次放的对以后的选项来说是最好的选择。<br>对于一件物品</p>
-<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>链接：<a href="https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa" target="_blank" rel="external">https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa</a><br>来源：牛客网<br>一种双核CPU的两个核能够同时的处理任务，现在有n个已知数据量的任务需要交给CPU处理，假设已知CPU的每个核1秒可以处理1kb，每个核同时只能处理一项任务。n个任务可以按照任意顺序放入CPU进行处理，现在需要设计一个方案让CPU处理完这批任务所需的时间最少，求这个最小的时间。</p>
-<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p><a href="http://www.hawstein.com/posts/dp-knapsack.html" target="_blank" rel="external">动态规划之背包问题（一）</a><br><a href="http://blog.csdn.net/mu399/article/details/7722810" target="_blank" rel="external">动态规划之01背包问题</a>–表格思路来源<br><a href="http://www.cnblogs.com/SDJL/archive/2008/08/22/1274312.html" target="_blank" rel="external">通过金矿模型介绍动态规划</a></p>
+<h2 id="2-例题"><a href="#2-例题" class="headerlink" title="2.例题"></a>2.例题</h2><p>链接：<a href="https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa" target="_blank" rel="external">https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa</a><br>来源：牛客网<br>一种双核CPU的两个核能够同时的处理任务，现在有n个已知数据量的任务需要交给CPU处理，假设已知CPU的每个核1秒可以处理1kb，每个核同时只能处理一项任务。n个任务可以按照任意顺序放入CPU进行处理，现在需要设计一个方案让CPU处理完这批任务所需的时间最少，求这个最小的时间。</p>
+<h2 id="3-资料"><a href="#3-资料" class="headerlink" title="3.资料"></a>3.资料</h2><p><a href="http://www.hawstein.com/posts/dp-knapsack.html" target="_blank" rel="external">动态规划之背包问题（一）</a><br><a href="http://blog.csdn.net/mu399/article/details/7722810" target="_blank" rel="external">动态规划之01背包问题</a>–表格思路来源<br><a href="http://www.cnblogs.com/SDJL/archive/2008/08/22/1274312.html" target="_blank" rel="external">通过金矿模型介绍动态规划</a></p>
 
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/04/06/每日编程题之排序算法-md/" data-toggle="tooltip" data-placement="top"
+                           title="每日编程题之排序算法.md">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
@@ -362,7 +368,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背包问题"><span class="toc-text">背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#first-blood：画出一个最优营养表格"><span class="toc-text">first blood：画出一个最优营养表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路详解"><span class="toc-text">思路详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例题"><span class="toc-text">例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资料"><span class="toc-text">资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-背包问题"><span class="toc-text">1.背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#first-blood：画出一个最优营养表格"><span class="toc-text">first blood：画出一个最优营养表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路详解"><span class="toc-text">思路详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-例题"><span class="toc-text">2.例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-资料"><span class="toc-text">3.资料</span></a></li></ol>
                 </div>
             </div>
         </div>
