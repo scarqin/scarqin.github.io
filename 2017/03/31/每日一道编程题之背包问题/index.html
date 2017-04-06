@@ -12,7 +12,7 @@
     <meta name="msapplication-navbutton-color" content="#600090">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
-    <link rel="shortcut icon" href="http://onkdrh0y6.bkt.clouddn.com/favicon.ico">
+    <link rel="shortcut icon" href="http://onkdrh0y6.bkt.clouddn.com/favicon.png">
     <link rel="alternate" type="application/atom+xml" title="Scar" href="/atom.xml">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
@@ -81,15 +81,15 @@
                     
                         
 							
-								
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
 							
 						
                     
                         
 							
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
+								
 							
 						
                     
@@ -189,7 +189,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><p><img src="http://upload-images.jianshu.io/upload_images/1318539-400788a1a22bb804.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳5kg的东西，为了保证你的营养最大化，有以下几种食物可以选择</p>
-<pre><code>* 西兰花   1kg    5营养（没错！营养就是单位）
+<pre><code>* 黄瓜   1kg    5营养（没错！营养就是单位）
 * 西红柿   1kg    8营养
 * 米饭     2kg    4营养
 * 牛肉     3kg    10营养
@@ -197,7 +197,10 @@
 <h3 id="first-blood：画出一个最优营养表格"><a href="#first-blood：画出一个最优营养表格" class="headerlink" title="first blood：画出一个最优营养表格"></a>first blood：画出一个最优营养表格</h3><table>
 <thead>
 <tr>
-<th>食物</th>
+<th>食物 v\w</th>
+<th>质量</th>
+<th>价值</th>
+<th>0kg</th>
 <th>1kg</th>
 <th>2kg</th>
 <th>3kg</th>
@@ -207,7 +210,10 @@
 </thead>
 <tbody>
 <tr>
-<td>西兰花 1kg</td>
+<td>黄瓜</td>
+<td>1kg</td>
+<td>5</td>
+<td>0</td>
 <td>5</td>
 <td>13</td>
 <td>13</td>
@@ -215,23 +221,32 @@
 <td>23</td>
 </tr>
 <tr>
-<td>西红柿 1kg</td>
+<td>西红柿</td>
+<td>1kg</td>
+<td>8</td>
+<td>0</td>
 <td>8</td>
 <td>8</td>
 <td>12</td>
 <td>18</td>
-<td>22</td>
+<td>18</td>
 </tr>
 <tr>
-<td>米饭 2kg</td>
+<td>米饭</td>
+<td>2kg</td>
+<td>4</td>
+<td>0</td>
 <td>0</td>
 <td>4</td>
-<td>4</td>
-<td>4</td>
+<td>10</td>
+<td>10</td>
 <td>14</td>
 </tr>
 <tr>
-<td>牛肉  3kg</td>
+<td>牛肉</td>
+<td>3kg</td>
+<td>10</td>
+<td>0</td>
 <td>0</td>
 <td>0</td>
 <td>10</td>
@@ -240,48 +255,27 @@
 </tr>
 </tbody>
 </table>
-<p><img src="http://upload-images.jianshu.io/upload_images/1318539-92582b864e27eb0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h3 id="思路详解"><a href="#思路详解" class="headerlink" title="思路详解"></a>思路详解</h3><p><strong>假设1</strong>.我肚子现在只能容纳1kg，那我的选择只有两个 </p>
-<pre><code>* 西兰花   1kg    5营养 
-* 西红柿   1kg    8营养
-</code></pre><p><strong>假设2</strong>.我的肚子现在只能容纳2kg</p>
-<pre><code>* 西兰花+西红柿    2kg    13营养   【对与选择西兰花情况下的最优解】
-* 西红柿   1kg    8营养
-* 米饭     2kg    4营养
-</code></pre><p><strong>假设3</strong>.我的肚子现在只能容纳3kg，那我的选择….嘿嘿嘿</p>
-<ul>
-<li>假设我选了西兰花吧，吃完之后，我肚子到了只能容纳2kg的食物（跳到假设2），此时除了西兰花，对于我来说，最大的营养价值是西红柿<br>即   对于3kg的肚子来说，选了西兰花的最优解是 <pre><code>* 西兰花+西红柿   2kg    13营养
-</code></pre></li>
-</ul>
-<ul>
-<li><strong> 对于西兰花，我们已经找到了最优解，所以我不选西兰花</strong>，开始选西红柿，那在假设2中选了西红柿最优解是<pre><code>* 西红柿+米饭      3kg   12营养
-</code></pre></li>
-<li>对于不选西红柿不选西兰花的米饭<pre><code>* 米饭   2kg     4营养
-</code></pre></li>
-<li>最后剩一个好吃的牛肉<pre><code>* 牛肉    3kg     10营养
-</code></pre></li>
-</ul>
-<p><strong>假设4</strong>.我的肚子现在只能容纳4kg<br>【思路与假设3如出一辙，确定是否选这样食物，如果是1kg的，确认选中后到3kg找最优解，如果是3kg的，确认选中后到1kg找最优解】</p>
-<ul>
-<li>假设选了西兰花，此刻跳到假设3，bingo~除了西兰花之外的最优解是西红柿+米饭！<pre><code>* 西兰花+西红柿+米饭  4kg    17营养
-</code></pre></li>
-<li>同理可得（是不是做证明题的时候！最讨厌又最喜欢这句话）<pre><code>* 西红柿+牛肉         4kg    18营养
-* 米饭               2kg     4营养
-* 牛肉               3kg    10营养
-</code></pre><strong>假设5</strong>我的肚子现在只能容纳5kg<pre><code>* 西兰花+西红柿+牛肉  5kg    23营养
-* 西红柿+牛肉+米饭    5kg    22营养
-* 米饭+牛肉          5kg    14营养 
-* 牛肉               3kg    10营养
-</code></pre></li>
-</ul>
-<p>看完了繁琐的分析，都在说明一个道理：<br><strong> 每一次的肚子选择，都是假设肚子放入了物品a，然后在除去物品a质量和选择的假设中找到最优，即全局最优解包含局部最优解</strong></p>
-<p>咳咳，敲重点了哈，动态规划最重要的问题是什么？<br><strong> 是问题中的状态和状态转移方程是什么</strong>。<br> 诺。</p>
-<pre><code>d(i, j)=max{ d(i-1, j), d(i-1,j-V[i-1]) + W[i-1] } 
-</code></pre><p>即假设放入物体i-1是否吃进肚子里，一层一层考虑。就像下表中，先从0.1kg的西兰花放起。<br>放在例子中，d（1，0.1）代表只能吃一样食物且肚子只有0.1kg大。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-92582b864e27eb0c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>看不懂？容我解释</p>
+<h3 id="思路详解"><a href="#思路详解" class="headerlink" title="思路详解"></a>思路详解</h3><blockquote>
+<p>d(i,w)代表肚子能吃w千克食物时，是否吃食物i的最大营养值(最优解)</p>
+</blockquote>
+<p><strong>假设1  放or不放牛肉</strong><br>size（西红柿）=3kg，当背包大小小于3kg时，牛肉都放不进去，此前背包的总价值都为d=0（w=1kg，w=2kg），此后背包价值为d（牛肉，w）=10（w&gt;=3）<br><strong>假设2 放or不放米饭</strong><br>size（米饭）=2kg，当背包价值小于2kg时，米饭是放不进去的，使d（米饭，w）=d（牛肉，w）；<br>，当w&gt;=2kg时，就要开始判断，是放进米饭的价值大呢，还是不放米饭的价值大？<br><strong>放米饭的价值为  d（米饭，w）=v[米饭]+d（牛肉，w-s[米饭]）</strong><br><strong>不放米饭的价值为 d（米饭，w）=d（牛肉，w）</strong></p>
+<p>w=2时，d（米饭，2）=max（v[米饭]）+d（牛肉，2-2），d（牛肉，2））=4<br>w=3时，d（米饭，3）=max（v[米饭]）+d（牛肉，3-2），d（牛肉，3））=10<br>同理 d（米饭，4）=d（米饭，5）=10<br><strong>假设3 放or不放西红柿</strong><br>size（西红柿）=1kg，当背包价值小于1kg时，西红柿是放不进去的，使d（西红柿，w）=d（米饭，w）；<br><strong>放西红柿的价值为  d（西红柿，w）=v（西红柿）+d（米饭，w-s[西红柿]）</strong><br><strong>不放西红柿的价值为 d（西红柿，w）=d（米饭，w）</strong><br>w=1时，d（西红柿，1）=max（v[西红柿]）+d（米饭，w-s[西红柿]）,d[米饭,1]）=8<br>w=2时，d（西红柿，2）=max（v[西红柿]）+d（米饭，w-s[西红柿]）,d[米饭,2]）=8<br>w=3时，v（西红柿）+d（米饭，w-s[西红柿]）=8+d（米饭，2）=12&gt;d[米饭]=8,故d(西红柿，3)=12<br>同理，v（西红柿，4）=18，v（西红柿，5）=18.</p>
+<p><strong>假设4 放or不放黄瓜</strong>.<br>size（黄瓜）=1kg，当背包价值小于1kg时，黄瓜是放不进去的，使d（黄瓜，w）=d（西红柿，w）；<br>至于d的值，如图。</p>
+<p><strong> 每一次的肚子选择，都是假设物品a放入了肚子，然后在放入与不放的假设中找到最优，即<br>全局最优解包含局部最优解，自顶向下寻找最优解，自底向上求最优解
+</strong></p>
+<p>咳咳，敲重点了哈，动态规划最重要的问题是什么？<br><strong> 是问题中的状态和状态转移方程是什么</strong>。<br> 诺</p>
+<blockquote>
+<p>d(i, j)=max{ d(i+1, j), d(i+1,j-V[i]) + W[i] } </p>
+</blockquote>
+<p>即假设放入物体否吃进肚子里，一层一层考虑。就像下表中，先从3kg的牛肉放起。</p>
 <table>
 <thead>
 <tr>
-<th>食物</th>
+<th>食物 v\w</th>
+<th>质量</th>
+<th>价值</th>
+<th>0kg</th>
 <th>1kg</th>
 <th>2kg</th>
 <th>3kg</th>
@@ -291,31 +285,43 @@
 </thead>
 <tbody>
 <tr>
-<td>西兰花 1kg</td>
+<td>黄瓜</td>
+<td>1kg</td>
 <td>5</td>
-<td>13  p（2，2）</td>
+<td>0</td>
+<td>5</td>
+<td>13</td>
 <td>13</td>
 <td>17</td>
-<td>23  p（4，4）</td>
+<td>23</td>
 </tr>
 <tr>
-<td>西红柿 1kg</td>
-<td>8   p（1，1）</td>
+<td>西红柿</td>
+<td>1kg</td>
+<td>8</td>
+<td>0</td>
+<td>8</td>
 <td>8</td>
 <td>12</td>
-<td>18  p（3，0.3）</td>
-<td>22</td>
+<td>18</td>
+<td>18</td>
 </tr>
 <tr>
-<td>米饭 2kg</td>
+<td>米饭</td>
+<td>2kg</td>
+<td>4</td>
+<td>0</td>
 <td>0</td>
 <td>4</td>
-<td>4</td>
-<td>4</td>
+<td>10</td>
+<td>10</td>
 <td>14</td>
 </tr>
 <tr>
-<td>牛肉  3kg</td>
+<td>牛肉</td>
+<td>3kg</td>
+<td>10</td>
+<td>0</td>
 <td>0</td>
 <td>0</td>
 <td>10</td>
@@ -324,7 +330,9 @@
 </tr>
 </tbody>
 </table>
-<p>此刻再看看表格<br>d（1，0.1）=8；d（1，0.2）=8；d……..<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">     <span class="comment">//本例中n=4，j=0.5</span></div><div class="line">    <span class="comment">//返回最大值</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> result = a &gt; b ? a : b;</div><div class="line">	<span class="keyword">return</span> result;</div><div class="line"></div><div class="line">&#125;</div><div class="line"> <span class="keyword">var</span> value = [<span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">10</span>],</div><div class="line">	    size = [<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</div><div class="line">	    d = [],</div><div class="line">	    n = <span class="number">4</span>,</div><div class="line">	    C = <span class="number">5</span>;</div><div class="line">     <span class="comment">//初始化数组</span></div><div class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt;= n; ++k) &#123;</div><div class="line">	    d[k] = [];</div><div class="line">   &#125;</div><div class="line"> <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</div><div class="line">	  <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt;= C; ++j) &#123;</div><div class="line">		d[i][j] = (i == <span class="number">0</span>) ? <span class="number">0</span> : d[i - <span class="number">1</span>][j];</div><div class="line">	  <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; j &gt;= value[i - <span class="number">1</span>])</div><div class="line">          d[i][j] = max(d[i<span class="number">-1</span>][j], d[i - <span class="number">1</span>][j - size[i - <span class="number">1</span>]] + value[i - <span class="number">1</span>]);</div><div class="line">    	&#125;</div><div class="line">     &#125;</div><div class="line">    <span class="built_in">console</span>.log(d[n][C], d[<span class="number">1</span>][<span class="number">1</span>])</div><div class="line">    <span class="comment">//乾坤大循环后，得出d[n][c]</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">  先放牛肉的写法</div><div class="line">for(int j = 0; j &lt;= c; j++)  </div><div class="line">       if(j &lt; w[n]) m[n][j] = 0;     //j小于w[n],所对应的值设为0，否则就为可以放置   </div><div class="line">       else         m[n][j] = v[n];  </div><div class="line">         </div><div class="line">    //对剩下的n-1个物品进行放置。  </div><div class="line">    int i;  </div><div class="line">    for(i = n-1; i &gt;= 1; i--)  </div><div class="line">        for(int j = 0; j &lt;= c; j++)  </div><div class="line">           if(j &lt; w[i])   </div><div class="line">               d[i][j] = d[i+1][j];</div><div class="line">//如果j &lt; w[i]则，当前位置就不能放置，它等于上一个位置的值。  </div><div class="line">//否则，就比较到底是放置之后的值大，还是不放置的值大，选择其中较大者。              </div><div class="line">           else      </div><div class="line">            d[i][j] = d[i+1][j] &gt; d[i+1][j-w[i]] + v[i]?</div><div class="line">            d[i+1][j] :</div><div class="line">            d[i+1][j-w[i]] + v[i];    </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">先放黄瓜的写法</div><div class="line">  //本例中n=4，C=5</div><div class="line">  //返回最大值</div><div class="line">  function max(a, b) &#123;</div><div class="line">var result = a &gt; b ? a : b;</div><div class="line">return result;</div><div class="line"></div><div class="line">  &#125;//其实js有内置的Math.max()</div><div class="line">  var value = [5, 8, 4, 10],</div><div class="line">    size = [1, 1, 2, 3],</div><div class="line">    d = [],</div><div class="line">    n = 4,</div><div class="line">    C = 5;</div><div class="line">   //初始化数组</div><div class="line">  for (var k = 0; k &lt;= n; ++k) &#123;</div><div class="line">      d[k] = [];</div><div class="line">   &#125;</div><div class="line">   for (var i = 0; i &lt;= n; ++i) &#123;</div><div class="line">    for (var w = 0;w &lt;= C; ++w) &#123;</div><div class="line">      d[i][w] = (i == 0) ? 0 : d[i - 1][w];</div><div class="line">      if (i &gt; 0 &amp;&amp; j &gt;= size[i - 1])</div><div class="line">            d[i][w] = max(d[i-1][w], d[i - 1][w - size[i - 1]] + value[i - 1]);</div><div class="line">    &#125;</div><div class="line">   &#125;</div><div class="line">  console.log(d[n][C], d[1][1])</div><div class="line">  //乾坤大循环后，得出d[n][c]</div></pre></td></tr></table></figure>
+<p>背包问题中，我最困惑的点是，你放了这个物品进去，怎么确保这次放的对以后的选项来说是最好的选择。<br>对于一件物品</p>
 <h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p>链接：<a href="https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa" target="_blank" rel="external">https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa</a><br>来源：牛客网<br>一种双核CPU的两个核能够同时的处理任务，现在有n个已知数据量的任务需要交给CPU处理，假设已知CPU的每个核1秒可以处理1kb，每个核同时只能处理一项任务。n个任务可以按照任意顺序放入CPU进行处理，现在需要设计一个方案让CPU处理完这批任务所需的时间最少，求这个最小的时间。</p>
 <h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p><a href="http://www.hawstein.com/posts/dp-knapsack.html" target="_blank" rel="external">动态规划之背包问题（一）</a><br><a href="http://blog.csdn.net/mu399/article/details/7722810" target="_blank" rel="external">动态规划之01背包问题</a>–表格思路来源<br><a href="http://www.cnblogs.com/SDJL/archive/2008/08/22/1274312.html" target="_blank" rel="external">通过金矿模型介绍动态规划</a></p>
 
