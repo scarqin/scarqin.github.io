@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        content-type=false｜Scar&#39;s blog
+        浅析一个函数调用另一个函数的变量｜Scar&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://sarqin.github.io/2017/03/22/content-type/">
+    <link rel="canonical" href="http://sarqin.github.io/2017/07/06/浅析一个函数调用另一个函数的变量/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -140,13 +140,13 @@
 
 
 <img class="wechat-title-img"
-     src="http://onkdrh0y6.bkt.clouddn.com/default9.jpg">
+     src="http://onkdrh0y6.bkt.clouddn.com/default14.jpg">
 
 
 <style>
     
     header.intro-header {
-        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default9.jpg')
+        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default14.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
     }
 
     
@@ -157,19 +157,19 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>content-type=false</h1>
+                    <h1>浅析一个函数调用另一个函数的变量</h1>
                     
                     <span class="meta">
                          作者 Scar
                         <span>
-                          日期 2017-03-22
+                          日期 2017-07-06
                          </span>
                          
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#ajax"
-                           title="ajax">ajax</a>
+                        <a class="tag" href="/tags/#js"
+                           title="js">js</a>
                         
                     </div>
                 </div>
@@ -178,7 +178,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            content-type=false
+            浅析一个函数调用另一个函数的变量
         </span>
     </div>
 </header>
@@ -189,27 +189,27 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p><img src="http://upload-images.jianshu.io/upload_images/1318539-83b4d4f63fbd7495.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="引用jquery ajax"><br><strong>他的作用是告诉服务器，浏览器发来了什么数据。</strong>一般情况下，我们不需要设置它。默认值为’application/x-www-form-urlencoded; charset=UTF-8’)；<br>上传文件时，使用jquery的同学知道，我们会将content-type设置成flase<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">...</div><div class="line">  processData: false,</div><div class="line">  contentType: false,</div><div class="line">...</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>咦，请求一发送<br><img src="http://upload-images.jianshu.io/upload_images/1318539-02f0d5dc0f96ea02.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="request headers1"></p>
-<p>content-type自动设置成了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Content-Type:multipart/form-data; boundary=----WebKitFormBoundarynXvTC1AHtFbVvKTL</div><div class="line">// WebKitFormBoundarynXvTC1AHtFbVvKTL这是随机生成的分界符</div><div class="line">//目的是防止上传文件中出现分界符导致服务器无法正确识别文件起始位置</div></pre></td></tr></table></figure></p>
-<p>如果不给ajax设置contType，ajax会自动发送什么request headers呢？</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1318539-627f8bba042c3cab.png" alt="request headers2"><br>发现这是默认的request-headers，可知jquery里ajax的设置机制为若没有content-type属性，则默认设置为<br><code>application/x-www-form-urlencoded; charset=UTF-8</code><br> <strong> contentType: false设置的目的是让jquery不要操作content-type</strong></p>
-<p>参考资料<br><a href="http://api.jquery.com/jquery.ajax/" target="_blank" rel="external">ajax</a><br><a href="https://segmentfault.com/a/1190000007207128" target="_blank" rel="external">浅谈contentType = false</a>–fisecoco</p>
+                <p><img src="http://upload-images.jianshu.io/upload_images/1318539-18b854da6a4b4e60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"><br><a href="http://www.ibm.com/developerworks/cn/web/wa-jsmemory/" target="_blank" rel="external">原文链接</a><br><a id="more"></a><br><a href="https://www.zhihu.com/question/41179551" target="_blank" rel="external">js中一个函数中调用另一个函数，内部函数怎么访问外部函数的变量?</a><br>无意中逛到这个问题，突然发现自己以前也有这样的困惑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function a()&#123; alert(num);   &#125;</div><div class="line">function b()&#123;  </div><div class="line">      var num=3;</div><div class="line">      a();</div><div class="line">  &#125;</div><div class="line">b();   //num is not defined</div></pre></td></tr></table></figure></p>
+<p>首先，a函数不是b的内部函数（闭包），而是全局函数。所以对于a函数来说，即使你b在内部调用了我a，我a还是访问不了你b。<br>说到底就是作用域问题，所以我想到了改变作用域的方法</p>
+<h4 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call(),apply(),bind()"></a>call(),apply(),bind()</h4><p>实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function a()&#123; alert(num);   &#125;</div><div class="line">function b()&#123;  </div><div class="line">      var num=3;</div><div class="line">      a.call(b);</div><div class="line">  &#125;</div><div class="line">b();  // num is not defined</div></pre></td></tr></table></figure></p>
+<p>尝试了很多次，都无法获取到b，原来我对这些方法理解有误，查阅文档，发现此类方法主要作用是，对象调用不属于自己的方法，例如下例：<br>food函数是没有product方法，使用call对food的上下文进行product操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//mozilla官方用例</div><div class="line">function Product(name, price) &#123;</div><div class="line">  this.name = name;</div><div class="line">  this.price = price;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Food(name, price) &#123;</div><div class="line">  Product.call(this, name, price);</div><div class="line">  this.category = &apos;food&apos;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">function Toy(name, price) &#123;</div><div class="line">  Product.call(this, name, price);</div><div class="line">  this.category = &apos;toy&apos;;</div><div class="line">&#125;</div><div class="line">var cheese = new Food(&apos;feta&apos;, 5);</div><div class="line">var fun = new Toy(&apos;robot&apos;, 40);</div></pre></td></tr></table></figure></p>
+<h4 id="使用闭包"><a href="#使用闭包" class="headerlink" title="使用闭包"></a>使用闭包</h4><p>闭包就不多说了，一个函数内部<strong>定义</strong>(不是调用)另一个函数<br>内部函数可调用外部函数的变量，作用域链的延长</p>
+<p>改写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">function b()&#123;  </div><div class="line">      var num=3;</div><div class="line">      function a()&#123; alert(num);   &#125;</div><div class="line">      a();</div><div class="line">  &#125;</div><div class="line">b();  //3</div></pre></td></tr></table></figure></p>
+<h4 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function a(num)&#123; alert(num);   &#125;</div><div class="line">function b()&#123;  </div><div class="line">      var num=3;  </div><div class="line">      a(num);</div><div class="line">  &#125;</div><div class="line">b();  //3</div></pre></td></tr></table></figure>
+<h4 id="return"><a href="#return" class="headerlink" title="return"></a>return</h4><pre><code>function a(){ alert(b());   }
+</code></pre><p>function b(){<br>      var num=3;<br>      return num;<br>  }<br>  a();</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>一般来说，a是复用的函数，才会有此类用法，传参实现即可。</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="http://web.jobbole.com/83642/" target="_blank" rel="external">深入浅出妙用 Javascript 中 apply、call、bind</a><br><a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">学习Javascript闭包（Closure）</a><br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call" target="_blank" rel="external">call()方法</a></p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2017/03/29/波纹团队招新移动端界面/" data-toggle="tooltip" data-placement="top"
-                           title="波纹团队招新移动端界面">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2017/03/05/了解js内存泄漏/" data-toggle="tooltip" data-placement="top"
-                           title="了解内存泄露">Next Post &rarr;</a>
+                        <a href="/2017/04/06/每日编程题之排序算法-md/" data-toggle="tooltip" data-placement="top"
+                           title="每日编程题之排序算法.md">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -227,7 +227,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#call-apply-bind"><span class="toc-text">call(),apply(),bind()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用闭包"><span class="toc-text">使用闭包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#传参"><span class="toc-text">传参</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#return"><span class="toc-text">return</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -255,8 +255,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "scarqin";
-    var disqus_identifier = "http://sarqin.github.io/2017/03/22/content-type/";
-    var disqus_url = "http://sarqin.github.io/2017/03/22/content-type/";
+    var disqus_identifier = "http://sarqin.github.io/2017/07/06/浅析一个函数调用另一个函数的变量/";
+    var disqus_url = "http://sarqin.github.io/2017/07/06/浅析一个函数调用另一个函数的变量/";
 
     (function () {
         var dsq = document.createElement('script');
