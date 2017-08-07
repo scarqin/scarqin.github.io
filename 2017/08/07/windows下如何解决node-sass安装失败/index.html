@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="吃货前端">
+    <meta name="keyword" content="前端">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="http://onkdrh0y6.bkt.clouddn.com/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="Scar" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        windows下如何解决node-sass安装失败?｜Scar&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://sarqin.github.io/2017/08/07/windows下如何解决node-sass安装失败/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Scar
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="http://onkdrh0y6.bkt.clouddn.com/default15.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://onkdrh0y6.bkt.clouddn.com/default15.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>windows下如何解决node-sass安装失败?</h1>
+                    
+                    <span class="meta">
+                         作者 Scar
+                        <span>
+                          日期 2017-08-07
+                         </span>
+                         
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#npm"
+                           title="npm">npm</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            windows下如何解决node-sass安装失败?
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>配置环境也是门学问，反正我每次配环境能出一堆问题，望所有同学都有耐心，最后一定会解决的~</p>
+<h2 id="gt-ps：如果解决不了，可使用饮鸩止渴大法–叫同组小伙伴直接发node-module给你哈哈哈"><a href="#gt-ps：如果解决不了，可使用饮鸩止渴大法–叫同组小伙伴直接发node-module给你哈哈哈" class="headerlink" title="&gt;ps：如果解决不了，可使用饮鸩止渴大法–叫同组小伙伴直接发node-module给你哈哈哈~"></a>&gt;ps：如果解决不了，可使用<strong>饮鸩止渴大法–叫同组小伙伴直接发node-module给你哈哈哈~</strong></h2><h4 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt; node-sass@3.13.1 install E:\node_modules\gulp-sass\node_modules\node-sass</div><div class="line">&gt; node scripts/install.js</div><div class="line"></div><div class="line">Downloading binary from https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-57_binding.node</div><div class="line">//报错的的链接本身就失效了</div><div class="line">Cannot download &quot;https://github.com/sass/node-sass/releases/download/v3.13.1/win32-x64-57_binding.node&quot;:</div><div class="line"></div><div class="line">HTTP error 404 Not Found</div><div class="line"></div><div class="line">Hint: If github.com is not accessible in your location</div><div class="line">      try setting a proxy via HTTP_PROXY, e.g.</div><div class="line"></div><div class="line">      export HTTP_PROXY=http://example.com:1234</div><div class="line"></div><div class="line">or configure npm proxy via</div><div class="line"></div><div class="line">      npm config set proxy http://example.com:8080</div></pre></td></tr></table></figure>
+<h4 id="node-sass-安装失败解决方法"><a href="#node-sass-安装失败解决方法" class="headerlink" title="node-sass 安装失败解决方法"></a>node-sass 安装失败解决方法</h4><p>从报错可以看出，node-sass安装失败的原因是网络限制导致无法下载.node文件</p>
+<h5 id="解决办法一"><a href="#解决办法一" class="headerlink" title="解决办法一"></a>解决办法一</h5><p>我们把所需文件下载路径复制一份到浏览器里，然后使用浏览器下载文件就可以了。</p>
+<ol>
+<li>从node命令行中复制.node文件下载链接并在浏览器打开下载文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://github.com/sass/node-sass/releases/download/v3.13.0/win32-x64-46_binding.node</div></pre></td></tr></table></figure>
+<ol>
+<li>文件下载成功后，在命令行工具输入下面指令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set SASS_BINARY_PATH=.node所在的路径</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>设置SASS_BINARY_PATH环境变量，目的是告诉程序直接使用本地的.node文件，无需从网上下载</p>
+<ol>
+<li>配置完成，从新输入指令：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm i node-sass -D --verbose</div></pre></td></tr></table></figure>
+<p>node-sass安装成功了</p>
+<h5 id="解决方法二"><a href="#解决方法二" class="headerlink" title="解决方法二"></a>解决方法二</h5><p>使用淘宝镜像<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm set sass_binary_site=https://npm.taobao.org/mirrors/node-sass/</div></pre></td></tr></table></figure></p>
+<p>or </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div><div class="line">cnpm install node-sass</div></pre></td></tr></table></figure>
+<h5 id="方式三（如果你安装了翻墙软件）"><a href="#方式三（如果你安装了翻墙软件）" class="headerlink" title="方式三（如果你安装了翻墙软件）"></a>方式三（如果你安装了翻墙软件）</h5><p>假设你的翻墙软件在你本地机器上开启了一个第三方服务器 127.0.0.1:1080，那么只需按照下面的方法配置一下就能正常安装 node-sass 了（如果你开启的是 PAC 模式而不是全局模式，那还需要将 s3.amazonaws.com 加入 PAC 列表）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm config set proxy http://127.0.0.1:1080</div><div class="line">npm i node-sass</div></pre></td></tr></table></figure>
+<p>下载完成后删除 http 代理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config delete proxy</div></pre></td></tr></table></figure></p>
+<p>以上解决node-sass安装的解决办法</p>
+<h4 id="番外篇"><a href="#番外篇" class="headerlink" title="番外篇"></a>番外篇</h4><p>作者以为就此成功走向开发顺利的康庄大道，too young too naive<br>….bower 失败了….<br>报错如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">E:\bower install</div><div class="line">module.js:487</div><div class="line">    throw err;</div><div class="line">    ^</div><div class="line"></div><div class="line">Error: Cannot find module &apos;internal/fs&apos;</div><div class="line">    at Function.Module._resolveFilename (module.js:485:15)</div><div class="line">    at Function.Module._load (module.js:437:25)</div><div class="line">    at Module.require (module.js:513:17)</div><div class="line">    at require (internal/module.js:11:18)</div><div class="line">    at evalmachine.&lt;anonymous&gt;:40:20</div><div class="line">    at Object.&lt;anonymous&gt; (C:\Users\scar\AppData\Roaming\npm\node_modules\bower\lib\node_modules\graceful-fs\fs.js:11:1)</div><div class="line">    at Module._compile (module.js:569:30)</div><div class="line">    at Object.Module._extensions..js (module.js:580:10)</div><div class="line">    at Module.load (module.js:503:32)</div><div class="line">    at tryModuleLoad (module.js:466:12)</div></pre></td></tr></table></figure></p>
+<p>查阅文章发现module找不到有两个原因<br>1.没安装<br>2.多个版本被安装<br>包依赖这个大魔王，真折磨人啊~<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm list graceful-fs</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1318539-df00b4168615d427.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>发现我的问题是包重复安装了<br>仔细瞅瞅，可能是我的全局graceful-fs没有安装好<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g graceful-fs</div></pre></td></tr></table></figure></p>
+<p>成功了!</p>
+<h4 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h4><p><a href="http://blog.csdn.net/zhu1500527791/article/details/53444870" target="_blank" rel="external">解决node-sass偶尔安装失败的方法</a><br><a href="https://github.com/lmk123/blog/issues/28" target="_blank" rel="external">安装 node-sass 的正确姿势</a><br><a href="http://blog.csdn.net/J3oker/article/details/72900728" target="_blank" rel="external">npm使用过程中遇到的 Cannot find module ‘internal/fs’ 的问题</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/07/06/浅析一个函数调用另一个函数的变量/" data-toggle="tooltip" data-placement="top"
+                           title="浅析一个函数调用另一个函数的变量">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gt-ps：如果解决不了，可使用饮鸩止渴大法–叫同组小伙伴直接发node-module给你哈哈哈"><span class="toc-text">>ps：如果解决不了，可使用饮鸩止渴大法–叫同组小伙伴直接发node-module给你哈哈哈~</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#报错"><span class="toc-text">报错</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#node-sass-安装失败解决方法"><span class="toc-text">node-sass 安装失败解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决办法一"><span class="toc-text">解决办法一</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方法二"><span class="toc-text">解决方法二</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#方式三（如果你安装了翻墙软件）"><span class="toc-text">方式三（如果你安装了翻墙软件）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#番外篇"><span class="toc-text">番外篇</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#资料"><span class="toc-text">资料</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "scarqin";
+    var disqus_identifier = "http://sarqin.github.io/2017/08/07/windows下如何解决node-sass安装失败/";
+    var disqus_url = "http://sarqin.github.io/2017/08/07/windows下如何解决node-sass安装失败/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                     
+                        <li>
+                            <a target="_blank" href="http://www.jianshu.com/u/9f4b86bd9c0e">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-stack-1x fa-inverse">简</i>
+                                        </span>
+                            </a>
+                        </li>
+                        
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/scar-qin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/scarqin">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Scar 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://sarqin.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="http://onkdrh0y6.bkt.clouddn.com/avator.png">
+</body>
+
+</html>
