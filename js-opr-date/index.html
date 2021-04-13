@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JavaScript 日期操作 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#37474f">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="testtest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 日期操作">
+<meta property="og:url" content="http://scar.site/js-opr-date/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="testtest">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86989d7d27144bfda1154903b5c60f6e~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4048dc007ef4305b5d245bed298f642~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/460e12b0d69a4c9aab4bd42294d7c045~tplv-k3u1fbpfcp-zoom-1.image">
+<meta property="article:published_time" content="2020-07-13T12:46:25.000Z">
+<meta property="article:modified_time" content="2021-04-13T00:31:36.493Z">
+<meta property="article:author" content="秦一">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86989d7d27144bfda1154903b5c60f6e~tplv-k3u1fbpfcp-zoom-1.image">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/15225835.jpeg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scar@gamil.com" title="scar@gamil.com" class="mail">scar@gamil.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/scarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JavaScript 日期操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JavaScript 日期操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-07-13T12:46:25.000Z" itemprop="datePublished" class="page-time">
+  2020-07-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基础问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">基础问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Date-prototype-getTime-返回的数字是什么？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Date.prototype.getTime() 返回的数字是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GMT-和-UTC-是什么，有什么区别？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">GMT 和 UTC 是什么，有什么区别？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Date-getMonth-为什么要从-0-开始"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Date.getMonth() 为什么要从 0 开始</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间戳是什么？"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">时间戳是什么？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#常用方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">常用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义时间的方法"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">定义时间的方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传入时间格式的字符串"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">传入时间格式的字符串</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传入多个时间单位的数字"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">传入多个时间单位的数字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#传入-Unix-时间戳"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">传入 Unix 时间戳</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间的加减法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">时间的加减法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#减法"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">减法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#加法"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">加法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-转换成数字相加"><span class="post-toc-number">2.2.2.1.</span> <span class="post-toc-text">1.转换成数字相加</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-使用-JS-内置方法"><span class="post-toc-number">2.2.2.2.</span> <span class="post-toc-text">2.使用 JS 内置方法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#比较时间的大小"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">比较时间的大小</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取不同格式的当前时间"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">获取不同格式的当前时间</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toString-NaN"><span class="post-toc-number">2.4.1.</span> <span class="post-toc-text">toString()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toLocaleString-NaN"><span class="post-toc-number">2.4.2.</span> <span class="post-toc-text">toLocaleString()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toUTCString-toGMTString"><span class="post-toc-number">2.4.3.</span> <span class="post-toc-text">toUTCString()&#x2F;toGMTString()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#toISOString"><span class="post-toc-number">2.4.4.</span> <span class="post-toc-text">toISOString()</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资料"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">资料</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-js-opr-date"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript 日期操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-07-13 20:46:25" datetime="2020-07-13T12:46:25.000Z"  itemprop="datePublished">2020-07-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>平时对 Date 很多内容都一知半解，每次一用到 Date 就需要查资料，着实恼火。<br>故此文记录关于 JS 日期操作那些我不知道的事。</p>
+<a id="more"></a>
+<h1 id="基础问题"><a href="#基础问题" class="headerlink" title="基础问题"></a>基础问题</h1><h2 id="Date-prototype-getTime-返回的数字是什么？"><a href="#Date-prototype-getTime-返回的数字是什么？" class="headerlink" title="Date.prototype.getTime() 返回的数字是什么？"></a><strong>Date.prototype.getTime()</strong> 返回的数字是什么？</h2><p>官方对getTime 函数对定义是</p>
+<blockquote>
+<p>The getTime() method returns the number of milliseconds* since the Unix Epoch</p>
+</blockquote>
+<p>getTime() 函数返回从 Unix Epoch 开始到当前 Date 所指时间经过的毫秒数。</p>
+<p>Unix Epoch 是什么呢？</p>
+<blockquote>
+<p>1970年1月1日（UTC/GMT的午夜）</p>
+</blockquote>
+<p>所以 getTime() 返回的数字是<strong>从 1970年1月1日0时0分0秒开始到当前 Date 对象所指时间所经过的毫秒数</strong>。</p>
+<p>例如：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86989d7d27144bfda1154903b5c60f6e~tplv-k3u1fbpfcp-zoom-1.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>getTime() 和你所在的时区也有关系，我国的标准时间是北京时间，在东八区，所以比英国格林威治时间（GMT）的 0 时区晚 8 个小时。所以我定义的 1970年1月1日使用 getTime 函数得到 -2880000,即 8 小时。</p>
+<h2 id="GMT-和-UTC-是什么，有什么区别？"><a href="#GMT-和-UTC-是什么，有什么区别？" class="headerlink" title="GMT 和 UTC 是什么，有什么区别？"></a>GMT 和 UTC 是什么，有什么区别？</h2><p>GMT（格林尼治标准时间） 和 UTC（协调世界时） 是计算世界时间的两种标准。</p>
+<p>GMT 根据地球的自转和公转来计算时间，也就是太阳每天经过位于英国伦敦郊区的皇家格林威治天文台的时间就是中午12点。UTC是根据原子钟来计算时间，目前世界上最精确的原子钟50亿年才会误差1秒。因为地球的自传正在缓速变慢，会导致 GMT 计算有误差，所以 UTC 比 GMT 更加精确。UTC 时间被认为能与GMT 时间互换，但 GMT 时间已不再被科学界所确定。</p>
+<p>PS:两个都是 0 时区的时间，例如：UTC +8 = 北京时间。</p>
+<h2 id="Date-getMonth-为什么要从-0-开始"><a href="#Date-getMonth-为什么要从-0-开始" class="headerlink" title="Date.getMonth() 为什么要从 0 开始"></a><strong>Date.getMonth()</strong> 为什么要从 0 开始</h2><p>谁能想到这是 Java 埋的坑，因为 Javascript 的 Date 实现方案是 JDK1.0 的方案，所以坑也一样。<br>Javascript 之父用一句 Make It Look Like Java 调侃了这个坑也告诉了我们答案。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4048dc007ef4305b5d245bed298f642~tplv-k3u1fbpfcp-zoom-1.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>问题来了，Java 获取月份为什么要从 0 开始呢？</p>
+<ul>
+<li>说法 1: 可能是因为旧的 C 语言日期 API 是这样的，那么旧的 C 语言日期 API 为什么是这样呢？…不套娃了。</li>
+<li>说法 2:计算机里面所有东西都从 0 开始</li>
+<li>说法 3:从 0 开始做月份计算更加容易</li>
+</ul>
+<p>例如 12 月的下一个月份是 1 月，不过为了计算出 1 月你会做以下计算：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">12</span> + <span class="number">1</span> = <span class="number">13</span> <span class="comment">// 13 月是哪个月?</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以用 12 取余快速修复上面的问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">12</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>但是当遇到 11 月的时候…</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">11</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">0</span> <span class="comment">// 0 月是哪个月?</span></span><br></pre></td></tr></table></figure>
+
+<p>您可以在添加月份之前先减去1，然后再进行取余运算，最后再加1，就可以修复上面的问题…也可以解决这个“基本问题”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">((<span class="number">11</span> - <span class="number">1</span> + <span class="number">1</span>) % <span class="number">12</span>) + <span class="number">1</span> = <span class="number">12</span> <span class="comment">// 许多神奇的数字！</span></span><br></pre></td></tr></table></figure>
+
+<p>现在我们来看看如果月份的数字是 0 - 11，会有什么问题？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">0</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">1</span> <span class="comment">// February</span></span><br><span class="line">(<span class="number">1</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">2</span> <span class="comment">// March</span></span><br><span class="line">(<span class="number">2</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">3</span> <span class="comment">// April</span></span><br><span class="line">(<span class="number">3</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">4</span> <span class="comment">// May</span></span><br><span class="line">(<span class="number">4</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">5</span> <span class="comment">// June</span></span><br><span class="line">(<span class="number">5</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">6</span> <span class="comment">// July</span></span><br><span class="line">(<span class="number">6</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">7</span> <span class="comment">// August</span></span><br><span class="line">(<span class="number">7</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">8</span> <span class="comment">// September</span></span><br><span class="line">(<span class="number">8</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">9</span> <span class="comment">// October</span></span><br><span class="line">(<span class="number">9</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">10</span> <span class="comment">// November</span></span><br><span class="line">(<span class="number">10</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">11</span> <span class="comment">// December</span></span><br><span class="line">(<span class="number">11</span> + <span class="number">1</span>) % <span class="number">12</span> = <span class="number">0</span> <span class="comment">// January</span></span><br></pre></td></tr></table></figure>
+
+<p>所有月份的表现一致，无需较复杂的解决方案。</p>
+<h2 id="时间戳是什么？"><a href="#时间戳是什么？" class="headerlink" title="时间戳是什么？"></a>时间戳是什么？</h2><p>常指 unix 时间戳，上文提到过：从1970年1月1日（UTC/GMT的午夜）开始所经过的秒数。<br>获取时间戳的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.round(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime()/<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><h2 id="定义时间的方法"><a href="#定义时间的方法" class="headerlink" title="定义时间的方法"></a>定义时间的方法</h2><h3 id="传入时间格式的字符串"><a href="#传入时间格式的字符串" class="headerlink" title="传入时间格式的字符串"></a>传入时间格式的字符串</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'September 11, 1995 03:24:00'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'1995-09-11T03:24:00'</span>)</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">'Mon Sep 11 1995'</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不同的浏览器实现有差异，强烈不建议使用字符串初始化/解析日期。建议使用传入数字初始化日期对象。相同的浏览器针对不同的定义方式也有些许差异。</p>
+</blockquote>
+<p>例子1：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.parse(<span class="string">"Jul 8, 2005"</span>));<span class="comment">//Fri Jul 08 2005 00:00:00 GMT+0800 (China Standard Time)</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.parse(<span class="string">"2005-07-08"</span>));<span class="comment">//Fri Jul 08 2005 08:00:00 GMT+0800 (China Standard Time)</span></span><br></pre></td></tr></table></figure>
+
+<p>例子2:在 2020年以前的，Firefox 和 Chrome 针对以下代码实现有差异。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'1970-01-01T00:00:00Z'</span>);       <span class="comment">// Chrome: 0         FF: 0</span></span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'1970-01-01T00:00:00-0500'</span>);   <span class="comment">// Chrome:18000000  FF: 18000000</span></span><br><span class="line"><span class="built_in">Date</span>.parse(<span class="string">'1970-01-01T00:00:00'</span>);        <span class="comment">// Chrome: 0 FF: -28800000</span></span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/460e12b0d69a4c9aab4bd42294d7c045~tplv-k3u1fbpfcp-zoom-1.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h3 id="传入多个时间单位的数字"><a href="#传入多个时间单位的数字" class="headerlink" title="传入多个时间单位的数字"></a>传入多个时间单位的数字</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1995</span>, <span class="number">8</span>, <span class="number">11</span>)<span class="comment">//注意，月份需要减 1，例如定义 9 月，第二个月份参数需要传 8</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1995</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">3</span>, <span class="number">24</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="传入-Unix-时间戳"><a href="#传入-Unix-时间戳" class="headerlink" title="传入 Unix 时间戳"></a>传入 Unix 时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">810761040000</span>) <span class="comment">//Mon Sep 11 1995 03:24:00 GMT+0800 (China Standard Time)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="时间的加减法"><a href="#时间的加减法" class="headerlink" title="时间的加减法"></a>时间的加减法</h2><h3 id="减法"><a href="#减法" class="headerlink" title="减法"></a>减法</h3><p>首先，需要将你的日期转化为 Date 对象，然后直接使用加减符号计算差。得到的结果是和或差的毫秒数，再将毫秒转化成你需要的格式。例如 2020-01-01 和 2020-01-02 差多久？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">0</span>,<span class="number">2</span>)-<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>)<span class="comment">//86400000[ms]</span></span><br></pre></td></tr></table></figure>
+
+<p>如果结果是要计算差多少天，即是 86400000 除以 1000得到秒数，再除以 60 得到分钟数，以此类推。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">86400000</span>/<span class="number">1000</span>/<span class="number">60</span>/<span class="number">60</span>/<span class="number">24</span> <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><p>两个 Date 相减能得到毫秒，那理所当然地某个 Date 加上毫秒数就可以等于另一个日期了。例如 2020-01-01 加上 86400000 毫秒，就等于 2020-01-02<br>No！No！No！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>)+<span class="number">86400000</span> </span><br><span class="line"><span class="comment">//Wed Jan 01 2020 00:00:00 GMT+0800 (China Standard Time)86400000</span></span><br></pre></td></tr></table></figure>
+
+<p>我还是太年轻了，跨类型的两个对象，强行加在一起，不甜。</p>
+<h4 id="1-转换成数字相加"><a href="#1-转换成数字相加" class="headerlink" title="1.转换成数字相加"></a>1.转换成数字相加</h4><p>将 new Date(2020,0,1) 转换成毫秒，来到整形的世界，快乐地计算。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>).getTime()+<span class="number">86400000</span>) </span><br><span class="line"><span class="comment">//Thu Jan 02 2020 00:00:00 GMT+0800 (China Standard Time)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-使用-JS-内置方法"><a href="#2-使用-JS-内置方法" class="headerlink" title="2.使用 JS 内置方法"></a>2.使用 JS 内置方法</h4><p>加减年、月、日、时、分、秒。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> date=<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">date.setDate(date.getDate()+<span class="number">1</span>)</span><br><span class="line"><span class="comment">//date:Thu Jan 02 2020 00:00:00 GMT+0800 (China Standard Time)</span></span><br></pre></td></tr></table></figure>
+
+<p>不同的时间单位的加法使用的方法不同，可以根据下表选择对应的方法。</p>
+<p>单位|获取时间|设置时间|例子|<br>|—|—|—|—|<br>|秒|getSeconds|setSeconds|date.setSeconds(date.getSeconds()+1)|<br>|分|getMinutes|setMinutes|date.setMinutes(date.getMinutes()+1)|<br>|时|getHours|setHours|date.setHours(date.getHours()+1)|<br>|日|getDate|setDate|date.setDate(date.getDate()+1)|<br>|周|setFullYear|getFullYear|date.setFullYear(date.getFullYear() + x)|<br>|月|getMonth|setMonth|date.setMonth(date.getMonth()+1)|<br>|年|setFullYear|getFullYear|date.setFullYear(date.getFullYear() + x)|</p>
+<h2 id="比较时间的大小"><a href="#比较时间的大小" class="headerlink" title="比较时间的大小"></a>比较时间的大小</h2><p>获取毫秒数，进行数字大小的比较。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>).getTime()&gt;=<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>).getTime() <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取不同格式的当前时间"><a href="#获取不同格式的当前时间" class="headerlink" title="获取不同格式的当前时间"></a>获取不同格式的当前时间</h2><h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().toString();</span><br><span class="line"><span class="comment">//Fri Sep 18 2020 00:18:59 GMT+0800 (China Standard Time)"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="toLocaleString-NaN"><a href="#toLocaleString-NaN" class="headerlink" title="toLocaleString()"></a>toLocaleString()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString();</span><br><span class="line"><span class="comment">// 9/18/2020, 12:18:16 AM</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="toUTCString-toGMTString"><a href="#toUTCString-toGMTString" class="headerlink" title="toUTCString()/toGMTString()"></a>toUTCString()/toGMTString()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().toUTCString();</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().toGMTString();</span><br><span class="line"><span class="comment">//Thu, 17 Sep 2020 16:10:04 GMT</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>GMT 已经不被推荐使用了，原因在上文提到过：UTC 比 GMT 精确。</p>
+</blockquote>
+<h3 id="toISOString"><a href="#toISOString" class="headerlink" title="toISOString()"></a>toISOString()</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().toISOString();</span><br><span class="line"><span class="comment">//2020-09-17T16:20:06.419Z</span></span><br></pre></td></tr></table></figure>
+
+<p>返回 ISO 格式 (<a href="https://zh.wikipedia.org/wiki/ISO_8601" target="_blank" rel="noopener">ISO 8601</a>)的日期。</p>
+<p>ISO 格式日期的规则是生成格式为 <strong>YYYY-MM-DDTHH:mm:ss.sssZ</strong> 或者 <strong>±YYYYYY-MM-DDTHH:mm:ss.sssZ</strong> 的<strong>24 位到 27 位</strong>字符串。</p>
+<p>YYYY-MM-DD<strong>T</strong>HH:mm:ss.sssZ 里面的 T  是分隔日期和时间的符号。</p>
+<p>YYYY-MM-DDTHH:mm:ss.sss<strong>Z</strong> 里面的 Z 是时区的占位符，可以不写时区用 Z 代替是 0 时区，也可以使用 2020-09-17T00:20:06+08:00 代表东八区。</p>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toGMTString" target="_blank" rel="noopener">MDN-Date</a></li>
+<li><a href="https://www.zhihu.com/question/27052407" target="_blank" rel="noopener">知乎-UTC和GMT什么关系？</a></li>
+<li><a href="https://www.zhihu.com/question/263804983" target="_blank" rel="noopener">知乎-JavaScript中的Date对象取值month为什么是从0开始的？</a></li>
+<li><a href="https://stackoverflow.com/questions/344380/why-is-january-month-0-in-java-calendar" target="_blank" rel="noopener">stackoverflow-why-is-january-month-0-in-java-calendar</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2021-04-13T00:31:36.493Z" itemprop="dateUpdated">2021-04-13 08:31:36</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/js-opr-date/" target="_blank" rel="external">http://scar.site/js-opr-date/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/15225835.jpeg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/js-opr-date/&title=《JavaScript 日期操作》 — 秦一&pic=http://scar.site/img/15225835.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/js-opr-date/&title=《JavaScript 日期操作》 — 秦一&source=平时对 Date 很多内容都一知半解，每次一用到 Date 就需要查资料，着实恼火。故此文记录关于 JS 日期操作那些我不知道的事。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/js-opr-date/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript 日期操作》 — 秦一&url=http://scar.site/js-opr-date/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/js-opr-date/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/Mock%20%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Mock 能做什么？</h4>
+      </a>
+    </div>
+  
+
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/js-opr-date/&title=《JavaScript 日期操作》 — 秦一&pic=http://scar.site/img/15225835.jpeg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/js-opr-date/&title=《JavaScript 日期操作》 — 秦一&source=平时对 Date 很多内容都一知半解，每次一用到 Date 就需要查资料，着实恼火。故此文记录关于 JS 日期操作那些我不知道的事。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/js-opr-date/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript 日期操作》 — 秦一&url=http://scar.site/js-opr-date/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/js-opr-date/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/js-opr-date/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '热爱生活的平凡人';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '热爱生活的平凡人';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
