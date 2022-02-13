@@ -1,3 +1,8 @@
+---
+title: 为什么我的 gitignore 无效
+date: 2020/10/30 08:44:25
+description: 
+---
 ![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e192f485b19e471e97e135596c01764b~tplv-k3u1fbpfcp-watermark.image)
 
 # 问题背景

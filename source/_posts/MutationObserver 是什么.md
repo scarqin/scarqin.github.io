@@ -1,3 +1,8 @@
+---
+title: MutationObserver 详解
+date: 2020/7/14 20:46:25
+description: testtest
+---
 ## MutationObserver 是什么
 
 MutationObserver API 让我们能监听 DOM 树变化，该 API 设计用来替换掉在 DOM 3 事件规范中引入的 Mutation events。

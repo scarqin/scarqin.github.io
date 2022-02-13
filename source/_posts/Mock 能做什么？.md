@@ -1,3 +1,8 @@
+---
+title: Mock 能做什么
+date: 2020/6/30 12:14:00
+description: 
+---
 ## Mock 能做什么？
 
 ### 1.API 没开发好，使用 Mock 快速对接
