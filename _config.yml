@@ -104,4 +104,4 @@ theme: indigo
 deploy:
   type: git
   repository: https://github.com/scarqin/scarqin.github.io.git
-  branch: master
+  branch: main
