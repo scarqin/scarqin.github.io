@@ -1,7 +1,8 @@
 ---
 title: JavaScript 日期操作我不知道的事情
 date: 2020/9/18 08:53:25
-description: 
+description:
+categories: 技术
 ---
 
 平时对 Date 很多内容都一知半解，每次一用到 Date 就需要查资料，着实恼火。
@@ -24,7 +25,7 @@ Unix Epoch 是什么呢？
 所以 getTime() 返回的数字是**从 1970年1月1日0时0分0秒开始到当前 Date 对象所指时间所经过的毫秒数**。
 
 例如：
-![](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86989d7d27144bfda1154903b5c60f6e~tplv-k3u1fbpfcp-zoom-1.image)
+![20220222232110](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232110.png)
 getTime() 和你所在的时区也有关系，我国的标准时间是北京时间，在东八区，所以比英国格林威治时间（GMT）的 0 时区晚 8 个小时。所以我定义的 1970年1月1日使用 getTime 函数得到 -2880000,即 8 小时。
 
 ## GMT 和 UTC 是什么，有什么区别？
@@ -38,8 +39,8 @@ PS:两个都是 0 时区的时间，例如：UTC +8 = 北京时间。
 ## **Date.getMonth()** 为什么要从 0 开始
 
 谁能想到这是 Java 埋的坑，因为 Javascript 的 Date 实现方案是 JDK1.0 的方案，所以坑也一样。
-Javascript 之父用一句 Make It Look Like Java 调侃了这个坑也告诉了我们答案。
-![](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a4048dc007ef4305b5d245bed298f642~tplv-k3u1fbpfcp-zoom-1.image)
+Javascript 之父用一句 Make It Look Like Java 调侃了这个坑也告诉了我们答![20220222232120](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232120.png)案。
+
 问题来了，Java 获取月份为什么要从 0 开始呢？
 
 * 说法 1: 可能是因为旧的 C 语言日期 API 是这样的，那么旧的 C 语言日期 API 为什么是这样呢？...不套娃了。

@@ -5,8 +5,8 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "release": "hexo deploy",
-    "start": "hexo server"
+    "release": "hexo clean&hexo deploy",
+    "start": "hexo server --draft"
   },
   "hexo": {
     "version": "6.0.0"

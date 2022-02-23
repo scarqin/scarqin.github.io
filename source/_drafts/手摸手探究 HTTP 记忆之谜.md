@@ -1,48 +1,43 @@
 ---
-title: 我就不信你看完不懂 Cookie、Session、Token
+title: 手摸手探究 HTTP 记忆之谜
 date: 2022/02/19 10:00:00
 description:
-
+categories: 技术
 ---
-
-# 前言
-
-我是一个前端，每次遇到前后端登陆状态保持的方案时懵懵懂懂，跟随后端的方案走却不知其所以然。
-
-今天，我将带领大家一起弄懂 Cookie、Session、Token，告别懵懂！(呵，充满信心的 flag🚩)
-
-
-
 # 历史背景
 
-咱就是说 HTTP 是一种没有记忆的[无状态](https://juejin.cn/post/6952077852514713637)协议，同样的请求信息往往能得到同样返回值，就像纯函数。
+咱就是说 **HTTP 是一种没有记忆的[无状态](https://juejin.cn/post/6952077852514713637)协议**，同样的请求信息往往能得到同样返回值，就像纯函数。
 
-![](/images/2022-02-18-00-01-22-image.png)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-01-22-image.png)
+
+很久很久以前，Web 仅提供基本的文本浏览，一个网站就是一个静态资源，谁都可以访问，所以没有保持服务状态的需求。
 
 随着我们冲浪的需求越来越复杂，像**用户登陆、权限校验等**需要 Web 记住状态功能需求越来越多。
 
-HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借用额外的手段例如 **Cookie、Session、Token 等机制储存一些应用信息**，客户端/语言框架会按照技术的规范实现相关逻辑，将这些信息添加到后续的 HTTP 请求中。
+HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借用额外的手段例如 **Cookie、Session、Token 等机制储存应用信息**，客户端/语言框架会按照技术的规范实现相关逻辑，将这些信息添加到后续的 HTTP 请求中。
 
+今天，我将带领大家一起弄懂 Cookie、Session、Token，告别懵懂！(呵，充满信心的 flag🚩)
 # Cookie、Session、Token
 
 其实状态管理无处不在，假设某天你要去网吧上网，前台是一个只有七秒记忆的女生，所以就算你天天通宵她也不认识你，那怎么证明你就是网吧会员呢？
 
 * 给你发个网卡，每次刷网卡核对网吧有没有你信息
 * 给你发了个冒险小虎队卡，前台小姐姐拿着解密卡扫一下拿到里面的信息，发现是你的大脸并给你上了两小时钟
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-02-11-image.png)
+<p align="center">(一张暴露年龄的卡)</p>
+这两种方案的主要区别是【数据存储的位置】：
 
-这两种方案的主要区别是：
+* **网卡里面没有身份信息**，只是一个身份标示，需要根据网卡从网吧获取身份信息核对
+* **冒险小虎队卡里面就有身份信息**，网吧每次解密就可以获取里面的信息核对
 
-* 网卡里面没有身份信息，只是一个身份标示，需要根据网卡从网吧获取身份信息核对
-* 冒险小虎队卡里面就有身份信息，网吧每次解密就可以获取里面的信息核对
 
-![](/images/2022-02-18-00-02-11-image.png)
 
 所以这例子和 Session、Token 有什么关系呢？咱们接着看。
 
 # Session：服务器缓存机制
 
 Session ID 就等于服务端给你发放的一张网卡，后续你每次请求服务的时候，都要带上 Session ID，过程如图：
-![](/images/2022-02-18-00-04-40-image.png)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-04-40-image.png)
 
 # Token：客户端缓存机制
 
@@ -50,26 +45,23 @@ Session ID 就等于服务端给你发放的一张网卡，后续你每次请求
 
 * 为什么有的人 Token 存 Cookie 里面呢
   时间换空间方案
-
 * OAuth
-
 * JWT
-
 * OpenID
   
-  # Cookie
-  
-  Cookie 我放在最后讲是因为它往往是一种辅助保持服务状态的手段，不独立作为保持状态的方案存在。
+# Cookie
+Cookie 我放在最后讲是因为它往往是一种辅助保持服务状态的手段，不独立作为保持状态的方案存在。
 
 例如它在 Session 中承担的作用就是一个智能、适合状态管理的客户端缓存，保持状态的过程如图：
 
-![](/images/2022-02-18-00-06-27-image.png)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-06-27-image.png)
 
 <p align="center">(你第一次去上网，给你发张网卡)</p>
 
-![](/images/2022-02-18-00-07-42-image.png)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-07-42-image.png)
 
 <p align="center">Cookie 就像你裤兜，上网兜着这网卡去，就认识你了</p>
+
 
 Cookie 和 Session 是一种相辅相成的关系，所以这里不想做对他们做对比，对比了反而担心你们混淆概念。
 
@@ -178,6 +170,7 @@ Session 还能代表会话，是一种**抽象概念**，比如浏览器的一�
 * [使用Session和Cookie - 廖雪峰](https://www.liaoxuefeng.com/wiki/1252599548343744/1328768897515553)
 * [分布式Session一致性的4种解决方案 - 民工哥](https://segmentfault.com/a/1190000022404396)
 * [彻底理解cookie，token，session - 墨颜](https://www.cnblogs.com/moyand/p/9047978.html)
-* [jwt token 过期刷新_JWT Token 刷新和作废](https://blog.csdn.net/weixin_39581652/article/details/110801338)
-* [深入理解web开发中的Session和Cookie](https://tianqing370687.github.io/2016/10/22/%E8%BD%AC%E8%BD%BD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3web%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Session%E5%92%8CCookie/)
-* [跨站请求伪造 CSRF](https://www.cnblogs.com/vincent-c/articles/15380195.html)
+* [WT Token 刷新和作废 - weixin_39581652](https://blog.csdn.net/weixin_39581652/article/details/110801338)
+* [深入理解web开发中的Session和Cookie - Niklaus.chi](https://tianqing370687.github.io/2016/10/22/%E8%BD%AC%E8%BD%BD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3web%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Session%E5%92%8CCookie/)
+* [跨站请求伪造 CSRF - Vincent](https://www.cnblogs.com/vincent-c/articles/15380195.html)
+* [傻傻分不清之 Cookie、Session、Token、JWT - 秋天不落叶](https://juejin.cn/post/6844904034181070861)

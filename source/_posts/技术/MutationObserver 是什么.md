@@ -1,14 +1,13 @@
 ---
 title: MutationObserver 详解
-date: 2020/7/14 20:46:25
+date: 2020/5/9 20:46:25
 description: testtest
 ---
 ## MutationObserver 是什么
 
 MutationObserver API 让我们能监听 DOM 树变化，该 API 设计用来替换掉在 DOM 3 事件规范中引入的 Mutation events。
 
-Mutation events 是同步触发的，每次变动都会触发一次调用。
-MutationObserver API 是异步触发的， DOM 的变动并不会马上触发，而是要等到当前所有 DOM 操作都结束才触发。所以 MutationObserver 相比 Mutation events 性能要更高。
+Mutation events 是同步触发的，每次变动都会触发一次调用。MutationObserver API 是异步触发的， DOM 的变动并不会马上触发，而是要等到当前所有 DOM 操作都结束才触发。所以 MutationObserver 相比 Mutation events 性能要更高。
 
 ## 代码示例
 
@@ -120,8 +119,9 @@ observer.takeRecords();
 
 ## 浏览器兼容性
 
-![](https://user-gold-cdn.xitu.io/2020/5/8/171f4df522eaffad?w=1206&h=287&f=png&s=49826)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222230235.png)
 不兼容的浏览器可以使用旧 API [Mutation events](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Mutation_events) 作为替代方案。
+
 
 ## 参考资料
 

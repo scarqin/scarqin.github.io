@@ -2,14 +2,14 @@
 title: 为什么我的 gitignore 无效
 date: 2020/10/30 08:44:25
 description: 
-
+categories: 技术
 ---
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e192f485b19e471e97e135596c01764b~tplv-k3u1fbpfcp-watermark.image)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232353.png)
 
 # 问题背景
 
-![](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e8a4b3f92c0046fcb314424895303b8d~tplv-k3u1fbpfcp-watermark.image)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232443.png)
 
 项目有一些开发时用的配置文件，需要用到所以不能删，但是却不想提交改动。
 

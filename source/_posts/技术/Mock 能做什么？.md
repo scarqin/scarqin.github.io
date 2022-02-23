@@ -2,6 +2,7 @@
 title: Mock 能做什么
 date: 2020/6/30 12:14:00
 description: 
+categories: 技术
 ---
 ## Mock 能做什么？
 
@@ -17,7 +18,7 @@ description:
 
 使用Mock 假数据替代我们想控制但控制困难的部分
 
-例如
+例如:
 
 * 某些 API 依赖其他 API 的返回值，使用 Mock 方便的对返回值进行改变，测试不同场景下 API 的表现。
 * 某个 API 特别慢，可以暂时用 Mock 代替它，快速调通整个场景测试流程。
@@ -33,8 +34,8 @@ description:
 ### 1.将 Mock 写到代码变量中，哪里需要写哪里
 
 例如
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222224109.png)
 
-![](https://user-gold-cdn.xitu.io/2020/6/30/17302fa24374f0c9?w=299&h=82&f=png&s=7311)
 **优点**
 
 * 成本低，使用简单，只需要学习 Mock.js 模板语法。
@@ -68,7 +69,7 @@ request.onreadystatechange = function () {
 
 控制台输出
 
-![](https://user-gold-cdn.xitu.io/2020/6/30/1730340d3f7e5998?w=307&h=36&f=png&s=1484)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222223833.png)
 
 **优点**
 
@@ -166,7 +167,7 @@ request.onreadystatechange = function () {
 }
 ```
 
- ![](https://user-gold-cdn.xitu.io/2020/6/28/172fb80b7443677e?w=578&h=284&f=png&s=18317)
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222231633.png)
 数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：
 
 ```javascript
@@ -214,6 +215,7 @@ Mock.Random.date()//1997-12-31
     "quoteString":"demo"
 }
 ```
+
 
 > 需要注意，如果引用的属性名和 Mock 占位符名称一样（上面例子中的 quoteStrin1），引用值优先级比占位符高，所以最后 quoteStrin1 属性值与属性 name 的属性值一致,而不是占位符生成的值(Paul Miller)。
 
