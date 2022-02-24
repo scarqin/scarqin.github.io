@@ -1,7 +1,8 @@
 ---
 title: MutationObserver 详解
 date: 2020/5/9 20:46:25
-description: testtest
+description: 
+categories: 技术
 ---
 ## MutationObserver 是什么
 
