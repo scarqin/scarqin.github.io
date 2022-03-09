@@ -1,5 +1,5 @@
 ---
-title: 手摸手探究 HTTP 记忆之谜
+title: 探究 HTTP 记忆之谜 - Cookie、Session、Token
 date: 2022/02/19 10:00:00
 description:
 categories: 技术
