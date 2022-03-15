@@ -54,7 +54,7 @@ Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里�
 | 平台                       | 操作示例                                       | 说明                           |
 | ------------------------ | ------------------------------------------ | ---------------------------- |
 | 服务端                      | set-cookie: \<cookie-name>=\<cookie-value> | 服务端通过设置 set-cookie 控制 Cookie |
-| 浏览器 <br> document.cookie | document.cookie = ;                        | 获取并设置与当前文档相关联的 cookie，操作不灵活。 |
+| 浏览器 <br> document.cookie | document.cookie = "name=scar";                        | 获取并设置与当前文档相关联的 cookie，操作不灵活。 |
 | 浏览器<br>Cookie Store API  | cookieStore.set("name", "scar")            | 新特性，仅支持在 HTTPS 使用，目前还在实验阶段。  |
 
 ## 详细说明
@@ -266,7 +266,7 @@ Cookie 属性可以理解为 Cookie 的配置项，告诉浏览器 Cookie 的一
 | Max-Age   | 有效期，单位秒                                      | Number                                                                 |                  | 1000                            |
 | Secure    | 仅 HTTPS 可用                                   |                                                                        |                  | `无值`，出现即设置                      |
 | HttpOnly  | 设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 进行访问 |                                                                        |                  | `无值`，出现即设置                      |
-| SameSite  | 允许服务器设定 Cookie 不随着跨站请求一起发送                   | string                                                                 |                  | 值可能性为:<br>Lax<br>Strict<br>None |
+| SameSite  | 允许服务器设定 Cookie 不随着跨站请求一起发送                   | string                                                                 |    Lax              | 值可能性为:<br>Lax<br>Strict<br>None |
 | SameParty | 允许特定条件跨域共享 Cookie                            |                                                                        |                  | `无值`，出现即设置                      |
 | Priority  | 优先级，仅 Chrome 支持                              |                                                                        | Medium           | 值可能性为:<br>Low<br>Medium<br>High |
 
