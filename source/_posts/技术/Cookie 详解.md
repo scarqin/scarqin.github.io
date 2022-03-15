@@ -42,7 +42,7 @@ Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里�
 **后续浏览器会自动将 userToken 加到满足条件（域名、路径）的 API 的 请求头部 cookie 中**
 
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222225708.png)
-如果退出登陆，返回头部的 `set-cookie` 会拜托浏览器帮忙删除 userToken，浏览器的 cookie 储存库就会将 userToken 字段删除，后续的 API 请求头部 `cookie` 也不会发送它。
+如果退出登陆，返回头部的 `set-cookie` 会拜托浏览器帮忙删除 userToken，浏览器的 cookie 储存库就会将 userToken 字段删除，后续的 API 请求头部 `cookie` 也不会发送它
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222225829.png)
 
 # 如何设置 Cookie
@@ -51,11 +51,11 @@ Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里�
 
 ## 速查表
 
-| 平台                       | 操作示例                                       | 说明                                                                                                       |
-| ------------------------ | ------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| 服务端                      | set-cookie: \<cookie-name>=\<cookie-value> | 服务端通过设置 set-cookie 控制 Cookie                                                                             |
-| 浏览器 <br> document.cookie | document.cookie = ;                        | 获取并设置与当前文档相关联的 cookie，操作不灵活。|
-| 浏览器<br>Cookie Store API  | cookieStore.set("name", "scar")            | 新特性，仅支持在 HTTPS 使用，目前还在实验阶段。   |
+| 平台                       | 操作示例                                       | 说明                           |
+| ------------------------ | ------------------------------------------ | ---------------------------- |
+| 服务端                      | set-cookie: \<cookie-name>=\<cookie-value> | 服务端通过设置 set-cookie 控制 Cookie |
+| 浏览器 <br> document.cookie | document.cookie = ;                        | 获取并设置与当前文档相关联的 cookie，操作不灵活。 |
+| 浏览器<br>Cookie Store API  | cookieStore.set("name", "scar")            | 新特性，仅支持在 HTTPS 使用，目前还在实验阶段。  |
 
 ## 详细说明
 
@@ -184,6 +184,7 @@ Set-Cookie: <cookie-prefix><cookie-name>=<cookie-value>
 ```
 
 - 前缀[非必须]
+  
   - 示例：`Set-cookie: __Secure-lol=foo;Domain=example.xxx`， \_Sercure- 就是前缀
   - Cookie 前缀需配合属性使用，使 Cookie 更安全
 
@@ -269,14 +270,19 @@ Cookie 属性可以理解为 Cookie 的配置项，告诉浏览器 Cookie 的一
 | SameParty | 允许特定条件跨域共享 Cookie                            |                                                                        |                  | `无值`，出现即设置                      |
 | Priority  | 优先级，仅 Chrome 支持                              |                                                                        | Medium           | 值可能性为:<br>Low<br>Medium<br>High |
 
-
 ### 详细说明
 
 #### Domain
 
-`Domain` 指定了哪些主机可以接受 Cookie。如果不指定，默认为 [origin](https://developer.mozilla.org/zh-CN/docs/Glossary/Origin)，**不包含子域名**。如果指定了`Domain`，则一般包含子域名。
+`Domain` 指定了哪些主机地址可以接收 Cookie。来看看如下设置：
 
-例如，如果设置 `Domain=mozilla.org`，则 Cookie 也包含在子域名中（如`developer.mozilla.org`）。
+```http
+Set-Cookie: __Secure-ID=123; Secure; Domain=example.com
+```
+
+表示只要请求的目标地址匹配 Domain 规则，那 Cookie 就会被发送过去，所即使`scar.site` 向 `example.com` 发起的请求，Cookie 会被发送过去。**所以不要再误会 `Domain`是发起请求的域名啦，其实是接受请求的域名**。
+
+如果不设置，默认为 [origin](https://developer.mozilla.org/zh-CN/docs/Glossary/Origin)，**不包含子域名**，如果指定了`Domain`，则一般包含子域名，例如，如果设置 `Domain=mozilla.org`，则 Cookie 也包含在子域名中（如`developer.mozilla.org`）。
 
 > 当前大多数浏览器遵循 [RFC 6265](https://tools.ietf.org/html/rfc6265)，设置 `Domain` 时 不需要加前导点。浏览器不遵循该规范，则需要加前导点，例如：`Domain=.mozilla.org`
 
@@ -340,7 +346,7 @@ SameSite 可以有下面三种值：
 
 上面提到过，`Domain` 可以指定 Cookie 生效的域名，那它和 `Domain`的区别是什么呢？
 
-**`Domain` 属性限制了 Cookie 接收 Cookie 的域名，而 `SameSite`属性限制了发送 Cookie 的域名**
+**`Domain` 属性限制了接收 Cookie 的域名，而 `SameSite`属性限制了发送 Cookie 的域名**
 
 举个例子：
 
@@ -382,7 +388,7 @@ Set-Cookie: name=scar; Path=/; Secure; Domain=scar.site;SameSite=strict;
 
 一些关于 Cookie 的疑问和新特性，以 Q&A 形式记录。比较杂、比较散，可以说没什么知识点全是感情，属于那种你知道了可能没什么用但是就是想把它弄懂。
 
-## Cookie 的限制
+## 1. Cookie 的限制
 
 ### 大小限制
 
@@ -396,7 +402,33 @@ Cookie 有数量限制，而且只允许每个站点存储一定数量的 Cookie
 
 > 实际上影响 Cookie 被删除的要素不止是 `Expires` 和 `Max-Age`，还有 `Priority`、`Secure`，对移除策略感兴趣的可以看：[Cookie 知识二则](https://zhuanlan.zhihu.com/p/50541175)
 
-## Floc 替代第三方 Cookie？
+## 2. 和 Cookie 相关的不安全事件有哪些？
+
+### CSRF 攻击
+
+> CSRF：跨站请求攻击，简单地说，是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过的网站并运行一些操作（如发邮件，发消息，甚至财产操作如转账和购买商品）。
+
+举个例子，一家银行用以运行转账操作的 URL 如下：
+
+```
+http://www.examplebank.com/withdraw?account=AccoutName&amount=1000&for=PayeeName
+```
+
+那么，一个恶意攻击者可以在另一个网站上放置如下代码： 
+
+```HTML
+<img src="<http://www.examplebank.com/withdraw?account=scar&amount=1000&for=Badman>">
+```
+
+如果有账户名为 Alice 的用户访问了恶意站点，而她之前刚访问过银行不久，登录信息尚未过期，导致发起请求后后端以为是用户正常操作，于是进行扣款操作，那么她就会损失 1000 资金。通过设置 `sameSite` 可以防止跨域发送 Cookie，抵御 CSRF。
+
+### XSS 攻击
+
+> 跨站脚本（Cross-site scripting）是一种网站应用程序的安全漏洞攻击，简称为 CSS, 但这会与层叠样式表（Cascading Style Sheets）CSS的缩写混淆。因此，跨站脚本攻击缩写为 XSS。
+
+XSS 攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。攻击成功后，攻击者可能得到 Cookie 从而实现攻击。
+
+## 3. Floc 替代第三方 Cookie？
 
 > 引用自：[如果不用第三方 Cookie，Google FLoC 会是更好的替代者吗？ - 少数派](https://sspai.com/post/66056)
 
@@ -412,15 +444,7 @@ FLoC 由 Google 主导，所以三方团体担忧：当所有的浏览器开始�
 
 [authentication - Set cookies for cross origin requests - Stack Overflow](https://stackoverflow.com/questions/46288437/set-cookies-for-cross-origin-requests) -->
 
-<!-- ## 和 Cookie 相关的不安全事件有哪些？
-
-### CSRF
-
-https://juejin.cn/post/6844904102544031757
-
-### XSS -->
-
-## 同名 Cookie 发送时，优先级如何判断？
+## 4. 同名 Cookie 发送时，优先级如何判断？
 
 ```http
 Cookie: a=2; a=1
@@ -436,7 +460,7 @@ Cookie: a=2; a=1
 
 除了考虑发送顺序，还要考虑不同的服务器框架可能有不同的接收逻辑，所以笔者推荐尽量避免出现同名 Cookie，减少端表现不统一带来的不确定性。
 
-## 如何快速调试 Cookie
+## 5. 如何快速调试 Cookie
 
 F12 打开控制台可以快速看到本域下的所有 Cookie
 
@@ -448,12 +472,9 @@ F12 打开控制台可以快速看到本域下的所有 Cookie
 
 # 总结
 
-我作为一名前端人员，平时用得少所以不熟悉，也是我写这篇文章的初衷——看看它到底是个什么妖魔鬼怪。
-其实 Cookie 没有什么难点，相信你们看完这篇就能彻底了解她了～写完感慨自己写了 N 句不同浏览器 xx 不同，看来 Cookie 如果要实现大一统任重而道远。
-
 本来我在写：Cookie、Session、Token ，写着写着发现 Cookie 的篇幅比较多，而那篇文章的重点不在于这些部分，所以摘了出来。如果对 Cookie、Session、Token 感兴趣的可以持续关注一下我，近期会发哦～
 
-如果文章中还有关于 Cookie 你想知道但是我没写的部分都可以评论，我会回复。
+作为一名前端人员，平时用得少所以不熟悉，但了解后其实也没有什么难点，相信你们看完这篇就可以彻底了解了。如果文章中还有关于 Cookie 你想知道但是我没写的部分都可以评论，我会回复。
 
 # 资料
 
