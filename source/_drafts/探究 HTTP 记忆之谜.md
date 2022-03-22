@@ -4,9 +4,10 @@ date: 2022/02/19 10:00:00
 description:
 categories: 技术
 ---
+
 # 历史背景
 
-咱就是说 **HTTP 是一种没有记忆的[无状态](https://juejin.cn/post/6952077852514713637)协议**，同样的请求信息往往能得到同样返回值，就像纯函数。
+咱就是说**HTTP 是一种没有记忆的[无状态](https://juejin.cn/post/6952077852514713637)协议**，同样的请求信息往往能得到同样返回值，就像纯函数，同样的输入能得到同样的输出。
 
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-01-22-image.png)
 
@@ -17,42 +18,74 @@ categories: 技术
 HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借用额外的手段例如 **Cookie、Session、Token 等机制储存应用信息**，客户端/语言框架会按照技术的规范实现相关逻辑，将这些信息添加到后续的 HTTP 请求中。
 
 今天，我将带领大家一起弄懂 Cookie、Session、Token，告别懵懂！(呵，充满信心的 flag🚩)
+
 # Cookie、Session、Token
 
 其实状态管理无处不在，假设某天你要去网吧上网，前台是一个只有七秒记忆的女生，所以就算你天天通宵她也不认识你，那怎么证明你就是网吧会员呢？
 
 * 给你发个网卡，每次刷网卡核对网吧有没有你信息
+
 * 给你发了个冒险小虎队卡，前台小姐姐拿着解密卡扫一下拿到里面的信息，发现是你的大脸并给你上了两小时钟
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-02-11-image.png)
+
+![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/飞书20220321-094345.jpg)
+
 <p align="center">(一张暴露年龄的卡)</p>
+
 这两种方案的主要区别是【数据存储的位置】：
 
 * **网卡里面没有身份信息**，只是一个身份标示，需要根据网卡从网吧获取身份信息核对
+
 * **冒险小虎队卡里面就有身份信息**，网吧每次解密就可以获取里面的信息核对
-
-
 
 所以这例子和 Session、Token 有什么关系呢？咱们接着看。
 
 # Session：服务器缓存机制
 
-Session ID 就等于服务端给你发放的一张网卡，后续你每次请求服务的时候，都要带上 Session ID，过程如图：
+Session ID 就等于服务端给你发放的一张网卡，后续你每次请求服务的时候，都要带上 Session ID，服务端通过 ID 查到状态信息后来返回相应的状态。过程如图：
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-04-40-image.png)
+
+数据存哪里
+
+一致性怎么解决
+
+怎么过期
+
+怎么回收
 
 # Token：客户端缓存机制
 
+
+
 * Token 为什么不存在 Cookie 里面？仿 CSRF 跨站伪造攻击 
 
-* 为什么有的人 Token 存 Cookie 里面呢
+* 为什么有的人 Token 存 Cookie 里面呢？
   时间换空间方案
-* OAuth
-* JWT
-* OpenID
-  
-# Cookie
-Cookie 我放在最后讲是因为它往往是一种辅助保持服务状态的手段，不独立作为保持状态的方案存在。
 
-例如它在 Session 中承担的作用就是一个智能、适合状态管理的客户端缓存，保持状态的过程如图：
+* OAuth
+
+* JWT
+
+* OpenID
+
+* 为什么不用 Token 换 Cookie 呢
+
+* token 过期处理
+
+# Session 和 Token 的区别
+
+## 储存位置
+
+## 控制力
+
+https://www.zhihu.com/question/315397046/answer/619457469
+
+# Cookie
+
+Cookie 我放在最后讲是因为**它往往是一种辅助保持服务状态的手段**，不独立作为保持状态的方案存在。
+
+例如它在 Session 中承担的作用就是一个智能、适合状态管理的客户端缓存，即使你用 LocalStorage 储存，也能辅助实现 Session、Token 机制。
+
+Cookie 辅助保持状态的过程如图：
 
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-06-27-image.png)
 
@@ -60,20 +93,31 @@ Cookie 我放在最后讲是因为它往往是一种辅助保持服务状态的�
 
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-07-42-image.png)
 
-<p align="center">Cookie 就像你裤兜，上网兜着这网卡去，就认识你了</p>
+<p align="center">Cookie 就像你裤兜，上网兜着网卡去，就认识你了</p>
 
+Cookie 和 Session 是一种相辅相成的关系，所以这里不会对他们做对比，对比了反而担心大家混淆概念。
 
-Cookie 和 Session 是一种相辅相成的关系，所以这里不想做对他们做对比，对比了反而担心你们混淆概念。
-
-关于 Cookie 的更详细的知识可以看这篇：[Cookie 详解]()。
+关于 Cookie 的超详细的知识可以看这篇：[Cookie 从入门到进阶：一文彻底弄懂其原理以及应用](https://juejin.cn/post/7075129301527429133)。
 
 # Q&A
 
-一些零散不知道如何组织到文章中的思考，图个方便做成了 Q&A，嘻嘻～我可真是个小机灵鬼。
+一些零散不知道如何组织到文章中的思考，图个方便做成了 Q&A，我可真是个小机灵鬼。
+
+## Q1：Session 不是会话吗？
+
+本文提到的 Session 指的是一种**用 Session ID 保持 HTTP 状态的机制的技术方案，是一种实现**。
+
+**Session 还能代表会话，是一种抽象概念**，比如浏览器的一次会话指的是从打开浏览器到关闭浏览器的过程，系统的会话指从注册进入系统到注销退出系统之间所经过的时间。
+
+Web Session 定义如下：
+
+> **会话**(Session)是一个客户与服务器之间的不中断的请求响应序列。对客户的每个请求，服务器能够识别出请求来自于同一个客户。当一个未知的客户向 Web 应用程序]发送第一个请求时就开始了一个会话。当客户明确结束会话或服务器在一个预定义的时限内不从客户接受任何请求时，会话就结束了。当会话结束后，服务器就忘记了客户以及客户的请求。
+
+所有为了保持 HTTP 状态且数据储存到服务端到方案都可以称为 Session 方案，例如：Session ID+Cookie、Session ID+LocalStorage+Redis 等等，**所以我们不要混淆 Session 概念和 Session ID 实现啦～**
 
 ## Q1：我们为什么不直接把状态数据放到 Cookie 里面呢？
 
-### 1.安全问题
+### 1. 安全问题
 
 Cookie 数据储存在客户端，容易被攻击者获取/篡改，例如 XSS 攻击；
 
@@ -81,15 +125,13 @@ Cookie 数据储存在客户端，容易被攻击者获取/篡改，例如 XSS �
 
 又又又拿网卡当例子的话，Cookie 就是一张上面写了你账号密码的网卡，而 Session 是一张只有网吧会员 ID 的网卡，账号密码存在网吧。
 
-### 2.储存大小限制
+### 2. 储存大小限制
 
-大多数浏览器支持最大为 4KB 字节的 Cookie，而且只允许每个站点存储 30 或 50 个 Cookie（不同浏览器支持的数量不同），当超过时，最早的 Cookie 便被删除。
+Cookie 有数量限制，而且只允许每个站点存储一定数量的 Cookie，当超过时，最早过期的 Cookie 便被删除。
 
-> 4KB 是针对 Cookie 单条记录的 Value 值，不是当前域下的所有 Cookie
+### 3. 影响性能
 
-### 3.影响性能
-
-就算人浏览器不给你限制 Cookie 大小，整个 C 盘都让给你储存。老铁们别忘了 Cookie 会附带在请求头上，内容多了占带宽，直接影响性能。
+就算人浏览器不给你限制 Cookie 大小，整个系统盘都让给你储存。老铁们别忘了 Cookie 会附带在请求头上，内容多了占带宽，直接影响性能。
 
 ### 4. 可以被用户禁用
 
@@ -103,7 +145,7 @@ Cookie 本身就是为了辅助 HTTP 协议保持状态而被创造出来的，S
 * 可以纯粹由后端控制增删查改，前端可以不关注状态管理
 * 提供过期时间（expire）、生效域名范围（domain）等功能
 
-这些功能特性都是 Local Storage、Session Storage 无法提供的。
+这些功能特性都是 Local Storage、Session Storage 无法提供的，当然你手动撸一个也不是不行。
 
 ## Q3：Cookie 加了密是不是就可以代替 Token
 
@@ -120,7 +162,7 @@ Cookie 有 domain，仅在指定的域名下生效，Token 只需要在请求头
 ### 3. Token 可以防止 CSRF 攻击，Cookie 不行
 
 > CSRF：跨站请求攻击，简单地说，是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过的网站并运行一些操作（如发邮件，发消息，甚至财产操作如转账和购买商品）。
-> 
+
 举个例子，一家银行用以运行转账操作的 URL 如下：
 
 ```
@@ -137,29 +179,22 @@ http://www.examplebank.com/withdraw?account=AccoutName&amount=1000&for=PayeeName
 
 - Cookie：用户点击了链接，Cookie 未失效，导致发起请求后后端以为是用户正常操作，于是进行扣款操作。
 - Token：用户点击链接，由于浏览器不会自动带上 Token，所以即使发了请求，后端的 Token 验证不会通过，所以不会进行扣款操作。
-  
+
 所以如果用 Cookie 缓存身份信息，你就会被攻击。
 
 > 以上关于 CSRF 解释来自 [chaijinsong](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/31#issuecomment-496368647)
-
-## Q4：文中的 Session 和会话有什么关系？
-
-本文的 Session 指的是一种**保持 HTTP 状态的机制，是一种技术方案，是一种实现**。
-
-Session 还能代表会话，是一种**抽象概念**，比如浏览器的一次会话指的是从打开浏览器到关闭浏览器的过程，系统的会话指从注册进入系统到注销退出系统之间所经过的时间。
-
-所以在遇到 Session 时，不要混淆 Session 概念和 Session 实现啦～
 
 # 总结
 
 * Cookie 是浏览器提供的缓存方案
 * Session 是储存在服务端的保持状态方案
 * Token 是储存在客户端的保持状态方案
-  Token 和 Session 都是比较成熟的状态保持方案，方案没有谁优谁略，只有适合与不适合。
+
+Token 和 Session 都是比较成熟的状态保持方案，方案没有谁优谁略，只有适合与不适合。
 
 文章所有外星人配图来自于[图解 HTTP](https://awesome-programming-books.github.io/http/%E5%9B%BE%E8%A7%A3HTTP.pdf)，强烈推荐给想要了解 HTTP 协议的同学，作者这种图文并茂的表现形式也是我学习的榜样。
 
-这篇文章从去年 4 月份就开始写一直到今天，中途起草了另一篇文章关于 Chrome 插件入门的文章，写着写着又觉得写完这篇好像更开心一点，这属于是风险对冲了。
+这篇文章从去年 4 月份就开始写一直到今天，中途起草了另一篇文章关于 Chrome 插件入门的文章，写着写着又觉得写完这篇好像更开心一点，又回来写这篇，这波属于是风险对冲了。
 
 如果你喜欢这篇文章求求多多点赞评论～
 
