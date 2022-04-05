@@ -23,9 +23,9 @@ HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借
 
 其实状态管理无处不在，假设某天你要去网吧上网，前台是一个只有七秒记忆的女生，所以就算你天天通宵她也不认识你，那怎么证明你就是网吧会员呢？
 
-* 给你发个网卡，每次刷网卡核对网吧有没有你信息
-
-* 给你发了个冒险小虎队卡，前台小姐姐拿着解密卡扫一下拿到里面的信息，发现是你的大脸并给你上了两小时钟
+* 给你发个**网卡**，每次刷网卡核对网吧有没有你信息
+  ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220329085523.png)
+* 给你发个**冒险小虎队卡**，前台小姐姐拿着解密卡扫一下拿到里面的信息，发现是你的大脸并给你上了两小时钟
 
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/飞书20220321-094345.jpg)
 
@@ -37,12 +37,21 @@ HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借
 
 * **冒险小虎队卡里面就有身份信息**，网吧每次解密就可以获取里面的信息核对
 
-所以这例子和 Session、Token 有什么关系呢？咱们接着看。
+例子中网卡类似于 Session 机制，通过 Session ID 获取存储在服务器的状态信息；冒险小虎队类似于 Token，通过加密自己携带状态信息。
+
+具体的表现如何呢？咱们接着看。
 
 # Session：服务器缓存机制
 
 Session ID 就等于服务端给你发放的一张网卡，后续你每次请求服务的时候，都要带上 Session ID，服务端通过 ID 查到状态信息后来返回相应的状态。过程如图：
 ![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/2022-02-18-00-04-40-image.png)
+
+Session 的状态数据主要存储在服务器，例如：
+
+* 
+* 服务器
+
+创建 Session
 
 数据存哪里
 
@@ -54,22 +63,22 @@ Session ID 就等于服务端给你发放的一张网卡，后续你每次请求
 
 # Token：客户端缓存机制
 
-
-
-* Token 为什么不存在 Cookie 里面？仿 CSRF 跨站伪造攻击 
+* 创建 Token
 
 * 为什么有的人 Token 存 Cookie 里面呢？
   时间换空间方案
-
-* OAuth
-
-* JWT
 
 * OpenID
 
 * 为什么不用 Token 换 Cookie 呢
 
-* token 过期处理
+* token 过期机制
+
+* 怎么回收
+
+* - OAuth
+  
+  - JWT
 
 # Session 和 Token 的区别
 
@@ -83,7 +92,7 @@ https://www.zhihu.com/question/315397046/answer/619457469
 
 Cookie 我放在最后讲是因为**它往往是一种辅助保持服务状态的手段**，不独立作为保持状态的方案存在。
 
-例如它在 Session 中承担的作用就是一个智能、适合状态管理的客户端缓存，即使你用 LocalStorage 储存，也能辅助实现 Session、Token 机制。
+例如它在 Session 中承担的作用就是一个**智能、适合状态管理的客户端缓存**，即使你用 LocalStorage 储存，也能辅助实现 Session、Token 机制。
 
 Cookie 辅助保持状态的过程如图：
 
@@ -195,8 +204,6 @@ Token 和 Session 都是比较成熟的状态保持方案，方案没有谁优�
 文章所有外星人配图来自于[图解 HTTP](https://awesome-programming-books.github.io/http/%E5%9B%BE%E8%A7%A3HTTP.pdf)，强烈推荐给想要了解 HTTP 协议的同学，作者这种图文并茂的表现形式也是我学习的榜样。
 
 这篇文章从去年 4 月份就开始写一直到今天，中途起草了另一篇文章关于 Chrome 插件入门的文章，写着写着又觉得写完这篇好像更开心一点，又回来写这篇，这波属于是风险对冲了。
-
-如果你喜欢这篇文章求求多多点赞评论～
 
 # 资料
 
