@@ -25,7 +25,7 @@ Unix Epoch 是什么呢？
 所以 getTime() 返回的数字是**从 1970年1月1日0时0分0秒开始到当前 Date 对象所指时间所经过的毫秒数**。
 
 例如：
-![20220222232110](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232110.png)
+![20220222232110](http://images.scar.site/20220222232110.png)
 getTime() 和你所在的时区也有关系，我国的标准时间是北京时间，在东八区，所以比英国格林威治时间（GMT）的 0 时区晚 8 个小时。所以我定义的 1970年1月1日使用 getTime 函数得到 -2880000,即 8 小时。
 
 ## GMT 和 UTC 是什么，有什么区别？
@@ -39,7 +39,7 @@ PS:两个都是 0 时区的时间，例如：UTC +8 = 北京时间。
 ## **Date.getMonth()** 为什么要从 0 开始
 
 谁能想到这是 Java 埋的坑，因为 Javascript 的 Date 实现方案是 JDK1.0 的方案，所以坑也一样。
-Javascript 之父用一句 Make It Look Like Java 调侃了这个坑也告诉了我们答![20220222232120](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232120.png)案。
+Javascript 之父用一句 Make It Look Like Java 调侃了这个坑也告诉了我们答![20220222232120](http://images.scar.site/20220222232120.png)案。
 
 问题来了，Java 获取月份为什么要从 0 开始呢？
 

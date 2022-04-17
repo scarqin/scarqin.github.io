@@ -5,11 +5,11 @@ description:
 categories: 技术
 ---
 
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232353.png)
+![](http://images.scar.site/20220222232353.png)
 
 # 问题背景
 
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220222232443.png)
+![](http://images.scar.site/20220222232443.png)
 
 项目有一些开发时用的配置文件，需要用到所以不能删，但是却不想提交改动。
 

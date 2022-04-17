@@ -11,7 +11,7 @@ categories: 技术
 
 <!--more-->
 
-![浮动问题图1](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223000617.png)
+![浮动问题图1](http://images.scar.site/20220223000617.png)
 
 ```html
 <div class="box1"></div>
@@ -27,7 +27,7 @@ categories: 技术
 ```
 
 .right 的盒子已经被挤压到下一行了，明显不是宽度问题。经过调试发现。是．no-float 是块级元素，占了一整行。在给 no-float 添加 inline-block 后发现
-![浮动问题图2](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223000717.png)
+![浮动问题图2](http://images.scar.site/20220223000717.png)
 
 此时的.right 到了浮动层
 [浮动就是个带有方位的 display:inline-block 属性--张鑫旭](http://www.zhangxinxu.com/wordpress/2010/01/css-float浮动的深入研究、详解及拓展一)
@@ -39,12 +39,12 @@ categories: 技术
 ## 清除浮动
 
 设置浮动元素时，父元素不能随着浮动元素的增大而增大
-![错误图](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223000733.png)
-![html](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223000750.png)
+![错误图](http://images.scar.site/20220223000733.png)
+![html](http://images.scar.site/20220223000750.png)
 
 背景颜色为是灰色，可以看出右边浮动的元素超出了 main 盒子
 我想要的效果
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223000825.png)
+![](http://images.scar.site/20220223000825.png)
 所以此刻就要清除浮动啦~
 
 [清除浮动最好方法](http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best)

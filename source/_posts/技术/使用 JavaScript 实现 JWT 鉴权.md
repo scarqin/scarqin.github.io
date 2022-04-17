@@ -10,7 +10,7 @@ categories: 技术
 # 什么是鉴权
 
 如果没有鉴权信息,他人能够轻而易举的调用 API 对我们的数据进行操作。下图是一种常见的鉴权流程。客户端输入用户名密码等身份信息，服务端生成一个 token（token 可以是 user 唯一能识别身份的非敏感信息通过鉴权的加密方式生成），然后再将 token 返回给浏览器客户端，再次访问服务器时带上 token 信息，服务器会使用同样的鉴权方式对 token 进行验证，token 验证一致后执行具体操作。
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220225001302.png)
+![](http://images.scar.site/20220225001302.png)
 
 # 应用
 
@@ -98,14 +98,14 @@ let final_sign = before_sign + '.' + signature;
 
 ```
 
-![图片来自jwt.io](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220225001321.png)
+![图片来自jwt.io](http://images.scar.site/20220225001321.png)
 使用 javascript 实现有一定的加密算法限制，目前 ES512（ECDSA with curve P-521 and SHA-512）是不被支持的。
 
 # 使用 eoLinker 做验证
 
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220225001328.png)
+![](http://images.scar.site/20220225001328.png)
 填写好响应的信息，此处我将 jwt 鉴权 token 放在请求头部的 Authorization 中。
 
 点击测试后，得到和我们的加密函数一样的结果
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220225001349.png)
+![](http://images.scar.site/20220225001349.png)
 ```

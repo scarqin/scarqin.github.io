@@ -4,7 +4,7 @@ date: 2016/03/22 15:21
 description:
 categories: 技术
 ---
-![成品图](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005037.png)
+![成品图](http://images.scar.site/20220223005037.png)
 
 1.快捷键
 
@@ -12,13 +12,13 @@ categories: 技术
 
 - ctrl+I 反相 白变成黑色 。想象色彩为一个色彩环，360 度，反向即增加一百八十度。例 红色反相变蓝色，绿色反相变紫红色。
 
-![色彩图](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005113.png)
+![色彩图](http://images.scar.site/20220223005113.png)
 
 - ctrl+Z 撤销上个操作
 
 - 选框工具+ctrl+选中图层 可以选中图层有形状区域，但是边缘都会有瑕疵，所以多用高斯模糊
 
-![图示](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005120.png)
+![图示](http://images.scar.site/20220223005120.png)
 
 - shift+选框工具 可以画出正方形，圆形。
 
@@ -28,44 +28,44 @@ categories: 技术
 
   2.步骤 1.建一个圆，使用油漆桶工具填充颜色（ps 颜色不要太深，以免层次感不够），复制三个此图层，其中两个填充成黑色（做阴影）。
 
-![如图](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005126.png)
+![如图](http://images.scar.site/20220223005126.png)
 
 2.【背景阴影】进行高斯模糊，减少不透明度。
 滤镜->模糊->高斯模糊->半径自调，我的是 5
 
-![不透明度设置](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005134.png)
+![不透明度设置](http://images.scar.site/20220223005134.png)
 
-![效果](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005139.png)
+![效果](http://images.scar.site/20220223005139.png)
 
 
 3【阴影】进行动感模糊，做有层次的阴影效果
 滤镜->模糊->动感模糊
 
-![阴影效果](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005145.png)
+![阴影效果](http://images.scar.site/20220223005145.png)
 
-![阴影](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005149.png)
+![阴影](http://images.scar.site/20220223005149.png)
 
 3.中间磁铁效果
 复制图层底色，缩小图层，高斯模糊，用油漆桶工具将较深的颜色填充。调节透明度，如果颜色太浅可复制多几个中间磁铁图层
 
-![结构](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005154.png)
+![结构](http://images.scar.site/20220223005154.png)
 
-![效果图](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005159.png)
+![效果图](http://images.scar.site/20220223005159.png)
 
 4.立体效果
 复制底色图层，命名为立体效果，高斯模糊后，调整透明度，使用橡皮擦工具至半月形状。
 
-![结构](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005206.png)
+![结构](http://images.scar.site/20220223005206.png)
 
-![图示](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005211.png)
+![图示](http://images.scar.site/20220223005211.png)
 
 
 5.白色月牙反光效果
 复制两个背景阴影图层，使用反相，颜色变成白色。用橡皮工具至反光效果
-![效果](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005217.png)
+![效果](http://images.scar.site/20220223005217.png)
 
 6.倒影效果
 使用钢笔随便画一些有棱角的小碎片，右键，建立选区，填充黑色，调节透明度，微调其余部分。
-![最终图](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223005225.png)
+![最终图](http://images.scar.site/20220223005225.png)
 
 大功告成啦~

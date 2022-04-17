@@ -2,15 +2,17 @@
 title: 【译】不要再犯这五个 Javascript 错误啦
 date: 2020/09/27 08:39
 description:
-categories: 技术
+categories:
+  - [技术, 翻译]
 ---
+
 > - [原文地址](https://medium.com/the-dev-caf%C3%A9/stop-making-these-5-javascript-style-mistakes-7b352e1b47e3)
 > - 原文作者：Giuseppe Picciano
 > - 译者：scarqin
 
 下文将列出五个让你的代码更加可读和易于维护小窍门。
 
-![Photo by Author](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220224232545.png)
+![Photo by Author](http://images.scar.site/20220224232545.png)
 
 在编辑旧项目的时候，有没有遇到过那种一加新逻辑就“粉碎”的迷惑代码？我们当然都遇到过。
 为了让世界上不可读的 `Javascript` 代码更少，我得给你们看看以下的五个例子 -- 我的耻辱柱。

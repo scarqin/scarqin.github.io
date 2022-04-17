@@ -6,7 +6,7 @@ categories: 碎碎念
 ---
 此次是dfc的前两个阶段  
 FEEL-IMAGE
-![问题笔记](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220223223544.png)
+![问题笔记](http://images.scar.site/20220223223544.png)
 
 # 主持人控场：
 主要原因是前期准备不足（国帅辛苦啦）

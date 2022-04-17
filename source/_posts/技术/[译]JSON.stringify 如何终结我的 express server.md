@@ -2,7 +2,8 @@
 title: 【译】JSON.stringify 如何 kill 掉我的 express server
 date: 2019/12/04 00:36
 description:
-categories: 技术
+categories: 
+ - [技术, 翻译]
 ---
 
 > - 原文地址：https://itnext.io/how-json-stringify-killed-my-express-server-d8d0565a1a61

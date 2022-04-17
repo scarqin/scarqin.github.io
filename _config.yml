@@ -105,3 +105,5 @@ deploy:
   type: git
   repository: https://github.com/scarqin/scarqin.github.io.git
   branch: main
+
+disqus_shortname: your_disqus_short_name

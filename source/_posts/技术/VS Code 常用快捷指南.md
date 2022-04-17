@@ -12,9 +12,9 @@ VS Code 是一个用户体验很好的代码编辑器，对前端使用的语言
 ##### Project Manager
 
 像管理文件夹一样管理不同项目，便于开发时快速切换项目
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220225001544.png)
+![](http://images.scar.site/20220225001544.png)
 
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220225001549.png)
+![](http://images.scar.site/20220225001549.png)
 
 ##### Gitlens
 
@@ -29,7 +29,7 @@ VS Code 是一个用户体验很好的代码编辑器，对前端使用的语言
 ##### ESLint
 
 代码检查工具，高亮不规范的代码，灰色未使用的变量，让你的代码更规范
-![](https://raw.githubusercontent.com/scarqin/imageshack/main/images/20220225002822.png)
+![](http://images.scar.site/20220225002822.png)
 
 配置参考：[使用 VSCode + ESLint 实践前端编码规范](https://segmentfault.com/a/1190000009077086)
 
