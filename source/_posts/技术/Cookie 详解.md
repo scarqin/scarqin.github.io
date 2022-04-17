@@ -7,15 +7,15 @@ categories: 技术
 
 # Cookie 是什么？
 
-![Fortune cookie](http://images.scar.site/20220222222828.png)
+![Fortune cookie](https://images.scar.site/20220222222828.png)
 
 Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。
 
 在浏览器中，Cookie 是服务器让浏览器帮忙携带信息的手段，就像饼干里的纸条，**浏览器会储存它，并且在后续的 HTTP 请求中再次发送给服务器**。
 
-![](http://images.scar.site/2022-02-18-00-06-27-image.png)
+![](https://images.scar.site/2022-02-18-00-06-27-image.png)
 
-![](http://images.scar.site/2022-02-18-00-07-42-image.png)
+![](https://images.scar.site/2022-02-18-00-07-42-image.png)
 
 # Cookie 应用
 
@@ -35,15 +35,15 @@ Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里�
 
 匹配后**在登录 API 返回头部 `set-cookie` 返回记录用户状态的 cookie 值 userToken：**
 
-![](http://images.scar.site/20220222225339.png)
+![](https://images.scar.site/20220222225339.png)
 浏览器按照 `set-cookie` 的规则解析后存入浏览器
 
-![](http://images.scar.site/20220222225602.png)
+![](https://images.scar.site/20220222225602.png)
 **后续浏览器会自动将 userToken 加到满足条件（域名、路径）的 API 的 请求头部 cookie 中**
 
-![](http://images.scar.site/20220222225708.png)
+![](https://images.scar.site/20220222225708.png)
 如果退出登陆，返回头部的 `set-cookie` 会拜托浏览器帮忙删除 userToken，浏览器的 cookie 储存库就会将 userToken 字段删除，后续的 API 请求头部 `cookie` 也不会发送它
-![](http://images.scar.site/20220222225829.png)
+![](https://images.scar.site/20220222225829.png)
 
 # 如何设置 Cookie
 
@@ -316,7 +316,7 @@ Set-Cookie: __Secure-ID=123; Secure; Domain=example.com
 
 设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 经由  [`Document.cookie`](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie) 属性、[`XMLHttpRequest`](https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest) 和  [`Request`](https://developer.mozilla.org/zh-CN/docs/Web/API/Request) APIs、[`Cookie Store`](https://developer.mozilla.org/en-US/docs/Web/API/CookieStorechr) APIs 进行访问。
 
-![](http://images.scar.site/20220312181822.png)
+![](https://images.scar.site/20220312181822.png)
 
 #### Secure
 
@@ -434,7 +434,7 @@ XSS 攻击通常指的是通过利用网页开发时留下的漏洞，通过巧�
 
 FLoC 是一种新的广告追踪技术，全称为 Federated Learning of Cohorts，即「同类群组联合学习」。FLoC 的工作原理是监视你的浏览记录，为访客的汇总行为分配一个 ID，然后将具有类似浏览行为的浏览器分组在一起。这些群组的数据称为同类群组，然后用于向人们展示针对性更强的广告。
 
-![](http://images.scar.site/20220314225720.png)
+![](https://images.scar.site/20220314225720.png)
 
 **FLoC 在自身设计层面，是比 Cookie 隐私性更好的**，但是首先它依然是一个广告追踪技术，其次才是一个相对保护隐私的广告追踪技术。
 
@@ -464,7 +464,7 @@ Cookie: a=2; a=1
 
 F12 打开控制台可以快速看到本域下的所有 Cookie
 
-![](http://images.scar.site/notebook.png)
+![](https://images.scar.site/notebook.png)
 
 通过分析 Cookie 属性来定位问题。
 

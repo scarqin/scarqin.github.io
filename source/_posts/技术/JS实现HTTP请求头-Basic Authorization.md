@@ -139,13 +139,13 @@ function base64decode(str) {
 # 验证
 
 使用**eoLinker**发送 Basic Auth，输入用户名 scar 密码 123456
-![使用eoLinker的Basic验证](http://images.scar.site/20220224090828.png)
+![使用eoLinker的Basic验证](https://images.scar.site/20220224090828.png)
 
 **PS:** eoLinker 是一个很好用的接口管理网站，前端测试很方便
-![请求头Auth](http://images.scar.site/20220224090837.png)
+![请求头Auth](https://images.scar.site/20220224090837.png)
 
 在 JS Bin 运行后，发现和 eoLinker 结果一致，成功！！
-![JS Bin结果](http://images.scar.site/20220224090846.png)
+![JS Bin结果](https://images.scar.site/20220224090846.png)
 [方法一 JS Bin 示例](http://jsbin.com/qimeviy)
 [方法二 JS Bin 示例](http://jsbin.com/nuboyow/)
 

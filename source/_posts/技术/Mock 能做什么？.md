@@ -34,7 +34,7 @@ categories: 技术
 ### 1.将 Mock 写到代码变量中，哪里需要写哪里
 
 例如
-![](http://images.scar.site/20220222224109.png)
+![](https://images.scar.site/20220222224109.png)
 
 **优点**
 
@@ -69,7 +69,7 @@ request.onreadystatechange = function () {
 
 控制台输出
 
-![](http://images.scar.site/20220222223833.png)
+![](https://images.scar.site/20220222223833.png)
 
 **优点**
 
@@ -167,7 +167,7 @@ request.onreadystatechange = function () {
 }
 ```
 
-![](http://images.scar.site/20220222231633.png)
+![](https://images.scar.site/20220222231633.png)
 数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：
 
 ```javascript

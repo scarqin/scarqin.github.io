@@ -12,7 +12,7 @@ categories:
 
 下文将列出五个让你的代码更加可读和易于维护小窍门。
 
-![Photo by Author](http://images.scar.site/20220224232545.png)
+![Photo by Author](https://images.scar.site/20220224232545.png)
 
 在编辑旧项目的时候，有没有遇到过那种一加新逻辑就“粉碎”的迷惑代码？我们当然都遇到过。
 为了让世界上不可读的 `Javascript` 代码更少，我得给你们看看以下的五个例子 -- 我的耻辱柱。

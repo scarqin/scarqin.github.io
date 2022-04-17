@@ -125,7 +125,7 @@ Error: Cannot find module 'internal/fs'
 npm list graceful-fs
 ```
 
-![](http://images.scar.site/20220224085850.png)
+![](https://images.scar.site/20220224085850.png)
 
 发现我的问题是包重复安装了
 仔细瞅瞅，可能是我的全局 graceful-fs 没有安装好

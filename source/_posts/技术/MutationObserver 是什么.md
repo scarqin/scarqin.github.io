@@ -120,7 +120,7 @@ observer.takeRecords();
 
 ## 浏览器兼容性
 
-![](http://images.scar.site/20220222230235.png)
+![](https://images.scar.site/20220222230235.png)
 不兼容的浏览器可以使用旧 API [Mutation events](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Events/Mutation_events) 作为替代方案。
 
 

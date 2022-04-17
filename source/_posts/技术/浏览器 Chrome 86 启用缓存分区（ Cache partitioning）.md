@@ -13,7 +13,7 @@ categories: 技术
 
 # 旧缓存策略-单键储存
 chrome 86 版本以前，引用/储存缓存的**键名是资源的 URL**。如图：
-![](http://images.scar.site/20220224231520.png)
+![](https://images.scar.site/20220224231520.png)
 
 也就是说，如果有其他任何网站引用到了同个 URL的资源，浏览器会先去缓存里面查询有无资源，有则加载本地资源，无则远程请求。
 
@@ -34,7 +34,7 @@ chrome 86 版本以前，引用/储存缓存的**键名是资源的 URL**。如�
 
 <p style="text-align:center;color:#999">购物网站</p>
 
-![淘宝网](http://images.scar.site/20220224231552.png)
+![淘宝网](https://images.scar.site/20220224231552.png)
 
 如果整块搜索结果是图片，图片中有搜索关键词的信息，那么甚至还可以获取用户的搜索关键字。
 ### 跨站跟踪：共享身份信息
@@ -62,7 +62,7 @@ chrome 86 版本以前，引用/储存缓存的**键名是资源的 URL**。如�
 
 <p style="text-align:center;color:#999">新旧策略对比图</p>
 
-![](http://images.scar.site/20220224232316.png)
+![](https://images.scar.site/20220224232316.png)
 
 例如:
 用户返回了 https://a.example ，但是图片是属于 `iframe` https://c.example 。

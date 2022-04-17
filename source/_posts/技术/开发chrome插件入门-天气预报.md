@@ -16,7 +16,7 @@ chrome 拓展是基于 chrome 平台的小程序，集合了一系列文件，�
 2. 天气预报接口
 
 书里面提供的接口无法使用，看了几家接口商店后选用了[API SHOP 接口商店](https://www.apishop.net/#/)的天气预报接口（它可以免费试用 100 次哈哈哈~）
-![](http://images.scar.site/20220224091930.png)
+![](https://images.scar.site/20220224091930.png)
 
 上图接口，申请后传接口商店的 apiKey 和接口对应参数即可，每个用户有自己专属的 ApiKey，注册后在 API Shop 的控制台复制 ApiKey 调用接口。
 
@@ -94,13 +94,13 @@ httpRequest(url, showWeather);
 
 ### 导入 chrome 拓展
 
-![](http://images.scar.site/20220224091948.png)
+![](https://images.scar.site/20220224091948.png)
 
 manifest.json 的上一层目录，拖入浏览器即可
 
 ### 最终效果如图
 
-![预览图](http://images.scar.site/20220224092000.png)
+![预览图](https://images.scar.site/20220224092000.png)
 
 具体代码和文件结构可以上我的 github 浏览!
 
