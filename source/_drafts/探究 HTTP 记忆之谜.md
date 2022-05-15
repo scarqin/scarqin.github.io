@@ -11,21 +11,23 @@ categories: 技术
 
 ![](https://images.scar.site/2022-02-18-00-01-22-image.png)
 
-很久很久以前，Web 仅提供基本的文本浏览，一个网站就是一个静态资源，谁都可以访问，所以没有保持服务状态的需求。
+很久很久以前，我们在 Web 只是浏览基本的文本，一个网站就是一个静态资源，谁都可以访问，所以没有保持服务状态的需求。
+
+![最早的网页](https://images.scar.site/20220504113235.png)
 
 随着我们冲浪的需求越来越复杂，像**用户登陆、权限校验等**需要 Web 记住状态功能需求越来越多。
 
 HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借用额外的手段例如 **Cookie、Session、Token 等机制储存应用信息**，客户端/语言框架会按照技术的规范实现相关逻辑，将这些信息添加到后续的 HTTP 请求中。
 
-今天，我将带领大家一起弄懂 Cookie、Session、Token，告别懵懂！(呵，充满信心的 flag🚩)
+今天，我将带领大家一起弄懂 Cookie、Session、Token，告别懵懂 🚩！
 
 # Cookie、Session、Token
 
-其实状态管理无处不在，假设某天你要去网吧上网，前台是一个只有七秒记忆的女生，所以就算你天天通宵她也不认识你，那怎么证明你就是网吧会员呢？
+其实状态管理无处不在，假设某天你要去网吧上网，前台是一个只有七秒记忆的大姨，所以就算你天天通宵她也不认识你，那怎么证明你就是网吧会员呢？
 
-* 给你发个**网卡**，每次刷网卡核对网吧有没有你信息
+- 给你发个**网卡**，每次刷网卡核对网吧有没有你信息
   ![](https://images.scar.site/20220329085523.png)
-* 给你发个**冒险小虎队卡**，前台小姐姐拿着解密卡扫一下拿到里面的信息，发现是你的大脸并给你上了两小时钟
+- 给你发个**冒险小虎队卡**，前台小姐姐拿着解密卡扫一下拿到里面的信息，发现是你的大脸并给你上了两小时钟
 
 ![](https://images.scar.site/飞书20220321-094345.jpg)
 
@@ -33,9 +35,9 @@ HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借
 
 这两种方案的主要区别是【数据存储的位置】：
 
-* **网卡里面没有身份信息**，只是一个身份标示，需要根据网卡从网吧获取身份信息核对
+- **网卡里面没有身份信息**，只是一个身份标示，需要根据网卡从网吧获取身份信息核对
 
-* **冒险小虎队卡里面就有身份信息**，网吧需要每次解密获取里面的身份信息
+- **冒险小虎队卡里面就有身份信息**，网吧需要每次解密获取里面的身份信息
 
 例子中网卡类似于 Session 机制，通过 Session ID 获取存储在服务器的状态信息；
 
@@ -45,20 +47,31 @@ HTTP 这种众生平等的特性无法满足上诉需求，所以我们需要借
 
 # Session：服务器缓存机制
 
-Session ID 就等于服务端给你发放的一张网卡，后续你每次请求服务的时候，都要带上 Session ID，服务端通过 ID 查到信息后返回给客户端。过程如图：
+Session ID 就等于服务端给你发放的一张网卡，网吧给你的一张唯一标识你身份的东西，后续你每次请求服务的时候，带上 Session ID，服务端通过 ID 查到信息后再返回给客户端。
+
+过程如图：
 ![](https://images.scar.site/2022-02-18-00-04-40-image.png)
 
-那真正的信息存哪里呢？
+**Session ID 只存了用户的唯一标识 ID，那真正的信息存哪里呢？**
 
 Session 的状态数据主要存储在服务器，这个储存位置可能是：
 
-* 内存
-* 文件
-* 数据库，例如 Redis、Memcached
+- 内存
 
-创建 Session
+- 文件
 
-一致性怎么解决
+- 数据库，例如 Redis、Memcached
+  ![](https://images.scar.site/20220419090601.png)
+  
+  <p style="text-align:center;color:#999">Redis Session 截图</p>
+
+无论是储存在内存还是储存在文件，最终都会遇到一个很大的问题——**横向拓展比较困难**。举个例子，因为网吧生意火爆，所以老板决定开分店，但是有一天 1 店的电脑坏了，要实现**不下机的同时换机**，如果上机状态存在网吧 1，那我需要实时复制一份 Session 数据去网吧 2 才能实现这个功能。
+![](https://images.scar.site/20220429090604.png)
+虽然复制也是一种方案，可以解决多个分店下（分布式架构）下 Session 一致性的问题，但它太麻烦了！如果我开七八九十家分店，复制的成本岂不是指数增长？
+
+![](https://images.scar.site/20220429091310.png)
+
+方法总比困难多，我们把 session 统一存在一个地方，
 
 怎么过期
 
@@ -66,20 +79,20 @@ Session 的状态数据主要存储在服务器，这个储存位置可能是：
 
 # Token：客户端缓存机制
 
-* 创建 Token
+- 创建 Token
 
-* 为什么有的人 Token 存 Cookie 里面呢？
+- 为什么有的人 Token 存 Cookie 里面呢？
   时间换空间方案
 
-* OpenID
+- OpenID
 
-* 为什么不用 Token 换 Cookie 呢
+- 为什么不用 Token 换 Cookie 呢
 
-* token 过期机制
+- token 过期机制
 
-* 怎么回收
+- 怎么回收
 
-* - OAuth
+- - OAuth
   
   - JWT
 
@@ -129,7 +142,7 @@ Web Session 定义如下：
 
 ## Q2：我们为什么不直接把状态数据放到 Cookie 里面呢？
 
-又又又拿网卡当例子的话，Cookie 就是一张上面写了你账号密码的网卡，卡丢了直接给你祖传的密码也丢了（起码作者各网站的密码都是固定的），人家获取到的可不只是仅和网吧有关的信息了，信息量极大。
+又又又拿上网卡当例子的话，Cookie 就是一张上面写了你账号密码的网卡，卡丢了直接给你祖传的密码也丢了（起码作者各网站的密码都是固定的），人家获取到的可不只是仅和网吧有关的信息了，信息量极大。
 
 而 Session 是一张只有网吧会员 ID 的网卡，卡丢了最多花你网费，你密码起码不会丢。
 
@@ -157,9 +170,9 @@ Cookie 有数量限制，而且只允许每个站点存储一定数量的 Cookie
 
 Cookie 本身就是为了辅助 HTTP 协议保持状态而被创造出来的，Session 机制之所以常常和它双剑合璧的原因是：
 
-* Cookie 会自动添加到后续的请求头部
-* 可以纯粹由后端控制增删查改，前端可以不关注状态管理
-* 提供过期时间（expire）、生效域名范围（domain）等功能
+- Cookie 会自动添加到后续的请求头部
+- 可以纯粹由后端控制增删查改，前端可以不关注状态管理
+- 提供过期时间（expire）、生效域名范围（domain）等功能
 
 这些功能特性都是 Local Storage、Session Storage 无法提供的，当然你手动撸一个也不是不行。
 
@@ -185,7 +198,7 @@ Cookie 有 domain，仅在指定的域名下生效，Token 只需要在请求头
 http://www.examplebank.com/withdraw?account=AccoutName&amount=1000&for=PayeeName
 ```
 
-那么，一个恶意攻击者可以在另一个网站上放置如下代码： 
+那么，一个恶意攻击者可以在另一个网站上放置如下代码：
 
 ```HTML
 <img src="<http://www.examplebank.com/withdraw?account=Alice&amount=1000&for=Badman>">
@@ -202,9 +215,9 @@ http://www.examplebank.com/withdraw?account=AccoutName&amount=1000&for=PayeeName
 
 # 总结
 
-* Cookie 是浏览器提供的缓存方案
-* Session 是储存在服务端的保持状态方案
-* Token 是储存在客户端的保持状态方案
+- Cookie 是浏览器提供的缓存方案
+- Session 是储存在服务端的保持状态方案
+- Token 是储存在客户端的保持状态方案
 
 Token 和 Session 都是比较成熟的状态保持方案，方案没有谁优谁略，只有适合与不适合。
 
@@ -214,13 +227,13 @@ Token 和 Session 都是比较成熟的状态保持方案，方案没有谁优�
 
 # 资料
 
-* [你真的了解 Cookie 和 Session 吗? - ityouknow](https://juejin.cn/post/6844903842773991431#heading-3)
-* [Difference between cookies, session and tokens - Valentin Despa](https://www.youtube.com/watch?v=44c1t_cKylo&ab_channel=ValentinDespa)
-* [Cookie 与 Session 的区别 - 阿里百川](https://juejin.cn/post/6844903434366222350)
-* [使用Session和Cookie - 廖雪峰](https://www.liaoxuefeng.com/wiki/1252599548343744/1328768897515553)
-* [分布式Session一致性的4种解决方案 - 民工哥](https://segmentfault.com/a/1190000022404396)
-* [彻底理解cookie，token，session - 墨颜](https://www.cnblogs.com/moyand/p/9047978.html)
-* [WT Token 刷新和作废 - weixin_39581652](https://blog.csdn.net/weixin_39581652/article/details/110801338)
-* [深入理解web开发中的Session和Cookie - Niklaus.chi](https://tianqing370687.github.io/2016/10/22/%E8%BD%AC%E8%BD%BD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3web%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Session%E5%92%8CCookie/)
-* [跨站请求伪造 CSRF - Vincent](https://www.cnblogs.com/vincent-c/articles/15380195.html)
-* [傻傻分不清之 Cookie、Session、Token、JWT - 秋天不落叶](https://juejin.cn/post/6844904034181070861)
+- [你真的了解 Cookie 和 Session 吗? - ityouknow](https://juejin.cn/post/6844903842773991431#heading-3)
+- [Difference between cookies, session and tokens - Valentin Despa](https://www.youtube.com/watch?v=44c1t_cKylo&ab_channel=ValentinDespa)
+- [Cookie 与 Session 的区别 - 阿里百川](https://juejin.cn/post/6844903434366222350)
+- [使用 Session 和 Cookie - 廖雪峰](https://www.liaoxuefeng.com/wiki/1252599548343744/1328768897515553)
+- [分布式 Session 一致性的 4 种解决方案 - 民工哥](https://segmentfault.com/a/1190000022404396)
+- [彻底理解 cookie，token，session - 墨颜](https://www.cnblogs.com/moyand/p/9047978.html)
+- [WT Token 刷新和作废 - weixin_39581652](https://blog.csdn.net/weixin_39581652/article/details/110801338)
+- [深入理解 web 开发中的 Session 和 Cookie - Niklaus.chi](https://tianqing370687.github.io/2016/10/22/%E8%BD%AC%E8%BD%BD-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3web%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84Session%E5%92%8CCookie/)
+- [跨站请求伪造 CSRF - Vincent](https://www.cnblogs.com/vincent-c/articles/15380195.html)
+- [傻傻分不清之 Cookie、Session、Token、JWT - 秋天不落叶](https://juejin.cn/post/6844904034181070861)
