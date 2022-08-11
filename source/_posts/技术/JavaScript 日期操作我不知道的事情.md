@@ -7,7 +7,9 @@ categories: 技术
 
 平时对 Date 很多内容都一知半解，每次一用到 Date 就需要查资料，着实恼火。
 故此文记录关于 JS 日期操作那些我不知道的事。
+
 <!--more-->
+
 # 基础问题
 
 ## **Date.prototype.getTime()** 返回的数字是什么？
