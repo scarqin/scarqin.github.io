@@ -178,14 +178,52 @@
             <p>今日队友问我一问题，浮动的位置关系。具体如下图</p>
 <h2 id="浮动元素放置问题"><a href="#浮动元素放置问题" class="headerlink" title="浮动元素放置问题"></a>浮动元素放置问题</h2><span id="more"></span>
 
-<p><img src="https://images.scar.site/20220223000617.png" alt="浮动问题图1"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223000617.png" alt="浮动问题图1" title="">
+                </div>
+                <div class="image-caption">浮动问题图1</div>
+            </figure>
+
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">//深灰色</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box2&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;left&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  //浅灰色</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;no-float&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  //被left覆盖</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;right&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  //米黄色</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>.right 的盒子已经被挤压到下一行了，明显不是宽度问题。经过调试发现。是．no-float 是块级元素，占了一整行。在给 no-float 添加 inline-block 后发现<br><img src="https://images.scar.site/20220223000717.png" alt="浮动问题图2"></p>
+<p>.right 的盒子已经被挤压到下一行了，明显不是宽度问题。经过调试发现。是．no-float 是块级元素，占了一整行。在给 no-float 添加 inline-block 后发现</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223000717.png" alt="浮动问题图2" title="">
+                </div>
+                <div class="image-caption">浮动问题图2</div>
+            </figure>
+
 <p>此时的.right 到了浮动层<br><a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/wordpress/2010/01/css-float%E6%B5%AE%E5%8A%A8%E7%9A%84%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6%E3%80%81%E8%AF%A6%E8%A7%A3%E5%8F%8A%E6%8B%93%E5%B1%95%E4%B8%80">浮动就是个带有方位的 display:inline-block 属性–张鑫旭</a><br>似乎在 html 中放在前面的浮动元素才会脱离文档流继而覆盖其他未浮动元素</p>
 <p>解决方案<br>浮动块和浮动块放在一起，才可以浮动在同一个文档流上。</p>
-<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>设置浮动元素时，父元素不能随着浮动元素的增大而增大<br><img src="https://images.scar.site/20220223000733.png" alt="错误图"><br><img src="https://images.scar.site/20220223000750.png" alt="html"></p>
-<p>背景颜色为是灰色，可以看出右边浮动的元素超出了 main 盒子<br>我想要的效果<br><img src="https://images.scar.site/20220223000825.png"><br>所以此刻就要清除浮动啦~</p>
+<h2 id="清除浮动"><a href="#清除浮动" class="headerlink" title="清除浮动"></a>清除浮动</h2><p>设置浮动元素时，父元素不能随着浮动元素的增大而增大</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223000733.png" alt="错误图" title="">
+                </div>
+                <div class="image-caption">错误图</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223000750.png" alt="html" title="">
+                </div>
+                <div class="image-caption">html</div>
+            </figure>
+
+<p>背景颜色为是灰色，可以看出右边浮动的元素超出了 main 盒子<br>我想要的效果</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223000825.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>所以此刻就要清除浮动啦~</p>
 <p><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/211383/which-method-of-clearfix-is-best">清除浮动最好方法</a></p>
 <ul>
 <li>&lt;br clear&#x3D;”all”&#x2F;&gt;</li>

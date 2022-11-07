@@ -188,7 +188,14 @@
 <h1 id="SOA-、ESB、微服务"><a href="#SOA-、ESB、微服务" class="headerlink" title="SOA 、ESB、微服务"></a>SOA 、ESB、微服务</h1><h2 id="SOA"><a href="#SOA" class="headerlink" title="SOA"></a>SOA</h2><p>Service Oriented Architecture，一种指导理念</p>
 <h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>微服务是一种通过多个小型服务组合来构建单个应用的架构风格，这些服务围绕业务能力而非特定的技术标准来构建。各个服务可以采用不同的编程语言，不同的数据存储技术，运行在不同的进程之中。服务采取轻量级的通信机制和自动化的部署机制实现通信与运维。</p>
 <h2 id="ESB"><a href="#ESB" class="headerlink" title="ESB"></a>ESB</h2><p>一种实现 SOA 实现的方案&#x2F;框架</p>
-<p><img src="https://img-blog.csdn.net/20180619101018799?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pwb2lzb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20180619101018799?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pwb2lzb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
 <li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30477325">SOA、ESB、微服务的关系梳理</a></p>
 </li>
@@ -203,7 +210,14 @@
 <p>organizations which design systems … are constrained to produce designs which are copies of the communication structures of these organizations</p>
 </blockquote>
 <p>设计系統的架构受制于产生这些设计的组织的沟通结构。</p>
-<p><img src="https://img-blog.csdnimg.cn/20200702154504476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phc29uX2ppYWhvbmdmZWk=,size_16,color_FFFFFF,t_70"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200702154504476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phc29uX2ppYWhvbmdmZWk=,size_16,color_FFFFFF,t_70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h1 id="为什么不用-token-代替-cookie-防止-xss-攻击"><a href="#为什么不用-token-代替-cookie-防止-xss-攻击" class="headerlink" title="为什么不用 token 代替 cookie 防止 xss 攻击"></a>为什么不用 token 代替 cookie 防止 xss 攻击</h1><ul>
 <li><p>cookie 可以让前端不需要关注登录逻辑</p>
 </li>
@@ -234,8 +248,22 @@
 </ul>
 <h2 id="微前端"><a href="#微前端" class="headerlink" title="微前端"></a>微前端</h2><p>微服务在前端应用的概念，前端将应用拆分成多个微小应用，可以在同一个运行环境下运行，通过自定义的通信手段进行服务间的通信。</p>
 <p>好处和微服务一致。</p>
-<h1 id="依赖倒置-x2F-依赖注入原则"><a href="#依赖倒置-x2F-依赖注入原则" class="headerlink" title="依赖倒置&#x2F;依赖注入原则"></a>依赖倒置&#x2F;依赖注入原则</h1><p><img src="https://pic2.zhimg.com/80/v2-c68248bb5d9b4d64d22600571e996446_720w.jpg?source=1940ef5c"></p>
-<p><img src="https://pic2.zhimg.com/80/v2-e64bf72c5c04412f626b21753aa9e1a1_720w.jpg?source=1940ef5c"></p>
+<h1 id="依赖倒置-x2F-依赖注入原则"><a href="#依赖倒置-x2F-依赖注入原则" class="headerlink" title="依赖倒置&#x2F;依赖注入原则"></a>依赖倒置&#x2F;依赖注入原则</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic2.zhimg.com/80/v2-c68248bb5d9b4d64d22600571e996446_720w.jpg?source=1940ef5c" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic2.zhimg.com/80/v2-e64bf72c5c04412f626b21753aa9e1a1_720w.jpg?source=1940ef5c" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <ul>
 <li><p>把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E9%AB%98%E5%B1%82%E5%BB%BA%E7%AD%91&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:169698662%7D">高层建筑</a>。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况。</p>
 </li>
@@ -259,7 +287,14 @@
 
 <h1 id="什么是-Git-LFS？"><a href="#什么是-Git-LFS？" class="headerlink" title="什么是 Git LFS？"></a><strong>什么是 Git LFS？</strong></h1><p>Git 是<em>分布式</em> 版本控制系统，这意味着在克隆过程中会将仓库的整个历史记录传输到客户端。对于包涵大文件（尤其是经常被修改的大文件）的项目，初始克隆需要大量时间，因为客户端会下载每个文件的每个版本。</p>
 <p><strong>Git LFS</strong>（Large File Storage）是由 Atlassian, GitHub 以及其他开源贡献者开发的 Git 扩展，它通过延迟地（lazily）下载大文件的相关版本来减少大文件在仓库中的影响，具体来说，大文件是在 checkout 的过程中下载的，而不是 clone 或 fetch 过程中下载的（<strong>这意味着你在后台定时 fetch 远端仓库内容到本地时，并不会下载大文件内容，而是在你 checkout 到工作区的时候才会真正去下载大文件的内容</strong>）。</p>
-<h1 id="Pass、Sass、IaaS-区别"><a href="#Pass、Sass、IaaS-区别" class="headerlink" title="Pass、Sass、IaaS 区别"></a>Pass、Sass、IaaS 区别</h1><p><img src="https://www.ruanyifeng.com/blogimg/asset/2017/bg2017072301.jpg"></p>
+<h1 id="Pass、Sass、IaaS-区别"><a href="#Pass、Sass、IaaS-区别" class="headerlink" title="Pass、Sass、IaaS 区别"></a>Pass、Sass、IaaS 区别</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://www.ruanyifeng.com/blogimg/asset/2017/bg2017072301.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <ul>
 <li><p><strong>SaaS</strong> 是软件的开发、管理、部署都交给第三方，不需要关心技术问题，可以拿来即用。普通用户接触到的互联网服务，几乎都是 SaaS，下面是一些例子。</p>
 </li>

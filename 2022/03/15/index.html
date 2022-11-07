@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="Cookie 是什么？ Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。 在浏览器中，Cookie 是服务器让浏览器帮忙携带信息的手段，就像饼干里的纸条，浏览器会储存它，并且在后续的 HTTP 请求中再次发送给服务器。   Cookie 应用主要用于以下三个方面：  会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）">
+    <meta name="description" content="Cookie 是什么？                                                                                             Fortune cookie               Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。 在浏览器中，Cook">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cookie 从入门到进阶：一文彻底弄懂其原理以及应用">
 <meta property="og:url" content="http://scar.site/2022/03/15/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="Cookie 是什么？ Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。 在浏览器中，Cookie 是服务器让浏览器帮忙携带信息的手段，就像饼干里的纸条，浏览器会储存它，并且在后续的 HTTP 请求中再次发送给服务器。   Cookie 应用主要用于以下三个方面：  会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）">
+<meta property="og:description" content="Cookie 是什么？                                                                                             Fortune cookie               Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。 在浏览器中，Cook">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.scar.site/20220222222828.png">
 <meta property="og:image" content="https://images.scar.site/2022-02-18-00-06-27-image.png">
@@ -180,11 +180,32 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Cookie-是什么？"><a href="#Cookie-是什么？" class="headerlink" title="Cookie 是什么？"></a>Cookie 是什么？</h1><p><img src="https://images.scar.site/20220222222828.png" alt="Fortune cookie"></p>
+            <h1 id="Cookie-是什么？"><a href="#Cookie-是什么？" class="headerlink" title="Cookie 是什么？"></a>Cookie 是什么？</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222222828.png" alt="Fortune cookie" title="">
+                </div>
+                <div class="image-caption">Fortune cookie</div>
+            </figure>
+
 <p>Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。</p>
 <p>在浏览器中，Cookie 是服务器让浏览器帮忙携带信息的手段，就像饼干里的纸条，<strong>浏览器会储存它，并且在后续的 HTTP 请求中再次发送给服务器</strong>。</p>
-<p><img src="https://images.scar.site/2022-02-18-00-06-27-image.png"></p>
-<p><img src="https://images.scar.site/2022-02-18-00-07-42-image.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/2022-02-18-00-06-27-image.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/2022-02-18-00-07-42-image.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h1 id="Cookie-应用"><a href="#Cookie-应用" class="headerlink" title="Cookie 应用"></a>Cookie 应用</h1><p>主要用于以下三个方面：</p>
 <ul>
 <li>会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</li>
@@ -196,9 +217,38 @@
 <p>目前 Cookie 主要用于会话状态管理，以用户登录-退出登陆为例，Cookie 的生命周期如下：</p>
 <p>前端通过用户登录 API 向后端传递用户信息，后端核对与数据库信息是否匹配。</p>
 <p>匹配后<strong>在登录 API 返回头部 <code>set-cookie</code> 返回记录用户状态的 cookie 值 userToken：</strong></p>
-<p><img src="https://images.scar.site/20220222225339.png"><br>浏览器按照 <code>set-cookie</code> 的规则解析后存入浏览器</p>
-<p><img src="https://images.scar.site/20220222225602.png"><br><strong>后续浏览器会自动将 userToken 加到满足条件（域名、路径）的 API 的 请求头部 cookie 中</strong></p>
-<p><img src="https://images.scar.site/20220222225708.png"><br>如果退出登陆，返回头部的 <code>set-cookie</code> 会拜托浏览器帮忙删除 userToken，浏览器的 cookie 储存库就会将 userToken 字段删除，后续的 API 请求头部 <code>cookie</code> 也不会发送它<br><img src="https://images.scar.site/20220222225829.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225339.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>浏览器按照 <code>set-cookie</code> 的规则解析后存入浏览器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225602.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>后续浏览器会自动将 userToken 加到满足条件（域名、路径）的 API 的 请求头部 cookie 中</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225708.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果退出登陆，返回头部的 <code>set-cookie</code> 会拜托浏览器帮忙删除 userToken，浏览器的 cookie 储存库就会将 userToken 字段删除，后续的 API 请求头部 <code>cookie</code> 也不会发送它</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225829.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h1 id="如何设置-Cookie"><a href="#如何设置-Cookie" class="headerlink" title="如何设置 Cookie"></a>如何设置 Cookie</h1><p>服务端和浏览器有不同设置 Cookie 的方式。</p>
 <h2 id="速查表"><a href="#速查表" class="headerlink" title="速查表"></a>速查表</h2><table>
 <thead>
@@ -399,7 +449,14 @@
 <p>Expires&#x2F;Max-age 最大值在 chrome 是 400 天，详情可见：<a target="_blank" rel="noopener" href="https://chromestatus.com/feature/4887741241229312">Cookie Expires&#x2F;Max-Age attribute upper limit - Chrome Platform Status</a></p>
 </blockquote>
 <h4 id="HttpOnly"><a href="#HttpOnly" class="headerlink" title="HttpOnly"></a>HttpOnly</h4><p>设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 经由  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie"><code>Document.cookie</code></a> 属性、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 和  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Request"><code>Request</code></a> APIs、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStorechr"><code>Cookie Store</code></a> APIs 进行访问。</p>
-<p><img src="https://images.scar.site/20220312181822.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220312181822.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h4 id="Secure"><a href="#Secure" class="headerlink" title="Secure"></a>Secure</h4><p>标记为 <code>Secure</code> 的 Cookie 只应通过被 HTTPS 协议加密过的请求发送给服务端，因此可以预防 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/MitM">man-in-the-middle</a> 攻击。</p>
 <p>但即便设置了 <code>Secure</code> 标记，敏感信息也不应该通过 Cookie 传输，因为 Cookie 固有的不安全性，<code>Secure</code> 标记也无法提供确实的安全保障，例如：可以访问客户端硬盘的人可以读取它。</p>
 <h4 id="SameSite"><a href="#SameSite" class="headerlink" title="SameSite"></a>SameSite</h4><p>服务器要求某个 Cookie 在跨站请求时不会被发送，从而可以阻止<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSRF">跨站请求伪造攻击</a>。</p>
@@ -472,7 +529,14 @@
 <p>引用自：<a target="_blank" rel="noopener" href="https://sspai.com/post/66056">如果不用第三方 Cookie，Google FLoC 会是更好的替代者吗？ - 少数派</a></p>
 </blockquote>
 <p>FLoC 是一种新的广告追踪技术，全称为 Federated Learning of Cohorts，即「同类群组联合学习」。FLoC 的工作原理是监视你的浏览记录，为访客的汇总行为分配一个 ID，然后将具有类似浏览行为的浏览器分组在一起。这些群组的数据称为同类群组，然后用于向人们展示针对性更强的广告。</p>
-<p><img src="https://images.scar.site/20220314225720.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220314225720.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p><strong>FLoC 在自身设计层面，是比 Cookie 隐私性更好的</strong>，但是首先它依然是一个广告追踪技术，其次才是一个相对保护隐私的广告追踪技术。</p>
 <p>FLoC 由 Google 主导，所以三方团体担忧：当所有的浏览器开始默认屏蔽第三方 Cookie，广告商转向使用 FLoC 以后，Google 将在广告追踪市场一家独大。</p>
 <!-- ## 跨域 Cookie
@@ -491,7 +555,14 @@
 <p>具体的浏览器表现我没有去探究，但提案只是倡导，所以每个客户端不一定会按照它实现 Cookie 的发送顺序。</p>
 <p>除了考虑发送顺序，还要考虑不同的服务器框架可能有不同的接收逻辑，所以笔者推荐尽量避免出现同名 Cookie，减少端表现不统一带来的不确定性。</p>
 <h2 id="5-如何快速调试-Cookie"><a href="#5-如何快速调试-Cookie" class="headerlink" title="5. 如何快速调试 Cookie"></a>5. 如何快速调试 Cookie</h2><p>F12 打开控制台可以快速看到本域下的所有 Cookie</p>
-<p><img src="https://images.scar.site/notebook.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/notebook.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>通过分析 Cookie 属性来定位问题。</p>
 <p>例如某个 Cookie 导致了业务问题，如果它设置了 HttpOnly，那么代表客户端无法操作 Cookie，可以快速的把问题定位到 API 层面。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本来我在写：Cookie、Session、Token ，写着写着发现 Cookie 的篇幅比较多，而那篇文章的重点不在于这些部分，所以摘了出来。如果对 Cookie、Session、Token 感兴趣的可以持续关注一下我，近期会发哦～</p>

@@ -184,7 +184,15 @@
 </ul>
 <h3 id="3-方便快速建立功能原型"><a href="#3-方便快速建立功能原型" class="headerlink" title="3.方便快速建立功能原型"></a>3.方便快速建立功能原型</h3><p>敏捷开发过程中，调整需求是很常见的。通过 Mock 可以快速建立功能原型，直观的看到业务逻辑，方便产品调整需求，还可以使用假数据对系统进行演示。</p>
 <h2 id="Mock-部署"><a href="#Mock-部署" class="headerlink" title="Mock 部署"></a>Mock 部署</h2><p>记录以下三种方案，各有千秋。</p>
-<h3 id="1-将-Mock-写到代码变量中，哪里需要写哪里"><a href="#1-将-Mock-写到代码变量中，哪里需要写哪里" class="headerlink" title="1.将 Mock 写到代码变量中，哪里需要写哪里"></a>1.将 Mock 写到代码变量中，哪里需要写哪里</h3><p>例如<br><img src="https://images.scar.site/20220222224109.png"></p>
+<h3 id="1-将-Mock-写到代码变量中，哪里需要写哪里"><a href="#1-将-Mock-写到代码变量中，哪里需要写哪里" class="headerlink" title="1.将 Mock 写到代码变量中，哪里需要写哪里"></a>1.将 Mock 写到代码变量中，哪里需要写哪里</h3><p>例如</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222224109.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p><strong>优点</strong></p>
 <ul>
 <li>成本低，使用简单，只需要学习 Mock.js 模板语法。</li>
@@ -202,7 +210,14 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = <span class="title class_">Mock</span>.<span class="title function_">mock</span>(<span class="string">&quot;https://www.baidu.com&quot;</span>, &#123;</span><br><span class="line">    <span class="string">&quot;string|1-10&quot;</span>: <span class="string">&quot;★&quot;</span>, <span class="comment">//随机生成 1-10 个字符串&quot;★&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> <span class="title class_">XMLHttpRequest</span>();</span><br><span class="line">request.<span class="title function_">open</span>(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;https://www.baidu.com&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">request.<span class="title function_">send</span>();</span><br><span class="line">request.<span class="property">onreadystatechange</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (request.<span class="property">readyState</span> === <span class="number">4</span> &amp;&amp; request.<span class="property">status</span> === <span class="number">200</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(request.<span class="property">responseText</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>控制台输出</p>
-<p><img src="https://images.scar.site/20220222223833.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222223833.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p><strong>优点</strong></p>
 <ul>
 <li>成本低，使用简单，学习 Mock.js 模板语法、 Mock.mock 函数。</li>
@@ -246,7 +261,14 @@
 <p> 生成结果</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;string&quot;</span><span class="punctuation">:</span> <span class="string">&quot;★★&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;string2&quot;</span><span class="punctuation">:</span> <span class="string">&quot;★★★&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;number&quot;</span><span class="punctuation">:</span> <span class="number">202</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;number2&quot;</span><span class="punctuation">:</span> <span class="number">71.73566</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;boolean&quot;</span><span class="punctuation">:</span><span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;regexp&quot;</span><span class="punctuation">:</span> <span class="string">&quot;qS8&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;absolutePath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;★★ demo&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;object&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;310000&quot;</span><span class="punctuation">:</span> <span class="string">&quot;上海市&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;440000&quot;</span><span class="punctuation">:</span> <span class="string">&quot;广东省&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;array&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AMD&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;arrayRepeat&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;AMD&quot;</span><span class="punctuation">,</span><span class="string">&quot;CMD&quot;</span><span class="punctuation">,</span> <span class="string">&quot;AMD&quot;</span><span class="punctuation">,</span><span class="string">&quot;CMD&quot;</span><span class="punctuation">,</span>AMD<span class="string">&quot;,&quot;</span>CMD<span class="string">&quot;],</span></span><br><span class="line"><span class="string">  &quot;</span>date<span class="string">&quot;:&quot;</span><span class="number">1980</span><span class="number">-12</span><span class="number">-19</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/20220222231633.png"><br>数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222231633.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>数据模板中的每个属性由 3 部分构成：属性名、生成规则、属性值：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x27;属性名|生成规则&#x27;:属性值</span></span><br><span class="line"><span class="string">&#x27;name|rule&#x27;</span>: value</span><br></pre></td></tr></table></figure>
 
 <p>针对不同的属性值，生成规则的意义也不一样，有的生成规则是概率（Boolean），有的生成规则是重复。具体的意义可以查阅 <a target="_blank" rel="noopener" href="https://github.com/nuysoft/Mock/wiki/Syntax-Specification">Mock.js 官方文档</a></p>

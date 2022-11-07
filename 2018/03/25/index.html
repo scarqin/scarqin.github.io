@@ -181,7 +181,15 @@
 <ol start="2">
 <li>天气预报接口</li>
 </ol>
-<p>书里面提供的接口无法使用，看了几家接口商店后选用了<a target="_blank" rel="noopener" href="https://www.apishop.net/#/">API SHOP 接口商店</a>的天气预报接口（它可以免费试用 100 次哈哈哈~）<br><img src="https://images.scar.site/20220224091930.png"></p>
+<p>书里面提供的接口无法使用，看了几家接口商店后选用了<a target="_blank" rel="noopener" href="https://www.apishop.net/#/">API SHOP 接口商店</a>的天气预报接口（它可以免费试用 100 次哈哈哈~）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224091930.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>上图接口，申请后传接口商店的 apiKey 和接口对应参数即可，每个用户有自己专属的 ApiKey，注册后在 API Shop 的控制台复制 ApiKey 调用接口。</p>
 <h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><p>每个插件都有 mainifest.json（清单）文件，它是整个扩展的入口。</p>
 <ul>
@@ -195,9 +203,23 @@
 <p>都是基本 js 的语法，不需要介绍了嘻嘻</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function httpRequest(url, callback) &#123;</span><br><span class="line">    var xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(&quot;POST&quot;, url, true);</span><br><span class="line">    xhr.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">    xhr.send(&quot;apiKey=GU6qekR17503a6b2326f09fbc4e3a7c03874c733300****&amp;city=广州&amp;areaID=101280101&quot;);</span><br><span class="line">    //apishop注册后就有apiKey，在API Shop的控制台查看</span><br><span class="line">    xhr.onreadystatechange = function() &#123;</span><br><span class="line">        if (xhr.readyState == 4) &#123;</span><br><span class="line">            callback(xhr.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function showWeather(result) &#123;</span><br><span class="line">    console.log(result)</span><br><span class="line">    result = JSON.parse(result);</span><br><span class="line">    var list = result.result.dayList;</span><br><span class="line">    var table = &#x27;&lt;table&gt;&lt;tr&gt;&lt;th&gt;日期&lt;/th&gt;&lt;th&gt;天气&lt;/th&gt;&lt;th&gt;最低温度&lt;/th&gt;&lt;th&gt;最高温度&lt;/th&gt;&lt;/tr&gt;&#x27;;</span><br><span class="line">    for (var i in list) &#123;</span><br><span class="line">        table += &#x27;&lt;tr&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; +list[i].daytime + &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; + list[i].day_weather + &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; + Math.round(list[i].night_air_temperature ) + &#x27; °C&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; + Math.round(list[i].day_air_temperature) + &#x27; °C&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;/tr&gt;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    table += &#x27;&lt;/table&gt;&#x27;;</span><br><span class="line">    document.getElementById(&#x27;weather&#x27;).innerHTML = table;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var url = &#x27;http://api.apishop.net/common/weather/get15DaysWeatherByArea&#x27;;</span><br><span class="line">httpRequest(url, showWeather);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="导入-chrome-拓展"><a href="#导入-chrome-拓展" class="headerlink" title="导入 chrome 拓展"></a>导入 chrome 拓展</h3><p><img src="https://images.scar.site/20220224091948.png"></p>
+<h3 id="导入-chrome-拓展"><a href="#导入-chrome-拓展" class="headerlink" title="导入 chrome 拓展"></a>导入 chrome 拓展</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224091948.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>manifest.json 的上一层目录，拖入浏览器即可</p>
-<h3 id="最终效果如图"><a href="#最终效果如图" class="headerlink" title="最终效果如图"></a>最终效果如图</h3><p><img src="https://images.scar.site/20220224092000.png" alt="预览图"></p>
+<h3 id="最终效果如图"><a href="#最终效果如图" class="headerlink" title="最终效果如图"></a>最终效果如图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224092000.png" alt="预览图" title="">
+                </div>
+                <div class="image-caption">预览图</div>
+            </figure>
+
 <p>具体代码和文件结构可以上我的 github 浏览!</p>
 <p><strong>地址:<a target="_blank" rel="noopener" href="https://github.com/scarqin/chrome-extension-wether">https://github.com/scarqin/chrome-extension-wether</a></strong></p>
 <p>写完教程后其实有很多可以优化的点，比如可以选择城市、当天点开天气预报后存储数据（仅发一次请求）等等，欢迎大家和我交流讨论。</p>

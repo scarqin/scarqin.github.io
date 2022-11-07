@@ -186,11 +186,25 @@
 <p>1970年1月1日（UTC&#x2F;GMT的午夜）</p>
 </blockquote>
 <p>所以 getTime() 返回的数字是<strong>从 1970年1月1日0时0分0秒开始到当前 Date 对象所指时间所经过的毫秒数</strong>。</p>
-<p>例如：<br><img src="https://images.scar.site/20220222232110.png" alt="20220222232110"><br>getTime() 和你所在的时区也有关系，我国的标准时间是北京时间，在东八区，所以比英国格林威治时间（GMT）的 0 时区晚 8 个小时。所以我定义的 1970年1月1日使用 getTime 函数得到 -2880000,即 8 小时。</p>
+<p>例如：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222232110.png" alt="20220222232110" title="">
+                </div>
+                <div class="image-caption">20220222232110</div>
+            </figure>
+<p>getTime() 和你所在的时区也有关系，我国的标准时间是北京时间，在东八区，所以比英国格林威治时间（GMT）的 0 时区晚 8 个小时。所以我定义的 1970年1月1日使用 getTime 函数得到 -2880000,即 8 小时。</p>
 <h2 id="GMT-和-UTC-是什么，有什么区别？"><a href="#GMT-和-UTC-是什么，有什么区别？" class="headerlink" title="GMT 和 UTC 是什么，有什么区别？"></a>GMT 和 UTC 是什么，有什么区别？</h2><p>GMT（格林尼治标准时间） 和 UTC（协调世界时） 是计算世界时间的两种标准。</p>
 <p>GMT 根据地球的自转和公转来计算时间，也就是太阳每天经过位于英国伦敦郊区的皇家格林威治天文台的时间就是中午12点。UTC是根据原子钟来计算时间，目前世界上最精确的原子钟50亿年才会误差1秒。因为地球的自传正在缓速变慢，会导致 GMT 计算有误差，所以 UTC 比 GMT 更加精确。UTC 时间被认为能与GMT 时间互换，但 GMT 时间已不再被科学界所确定。</p>
 <p>PS:两个都是 0 时区的时间，例如：UTC +8 &#x3D; 北京时间。</p>
-<h2 id="Date-getMonth-为什么要从-0-开始"><a href="#Date-getMonth-为什么要从-0-开始" class="headerlink" title="Date.getMonth() 为什么要从 0 开始"></a><strong>Date.getMonth()</strong> 为什么要从 0 开始</h2><p>谁能想到这是 Java 埋的坑，因为 Javascript 的 Date 实现方案是 JDK1.0 的方案，所以坑也一样。<br>Javascript 之父用一句 Make It Look Like Java 调侃了这个坑也告诉了我们答<img src="https://images.scar.site/20220222232120.png" alt="20220222232120">案。</p>
+<h2 id="Date-getMonth-为什么要从-0-开始"><a href="#Date-getMonth-为什么要从-0-开始" class="headerlink" title="Date.getMonth() 为什么要从 0 开始"></a><strong>Date.getMonth()</strong> 为什么要从 0 开始</h2><p>谁能想到这是 Java 埋的坑，因为 Javascript 的 Date 实现方案是 JDK1.0 的方案，所以坑也一样。<br>Javascript 之父用一句 Make It Look Like Java 调侃了这个坑也告诉了我们答<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222232120.png" alt="20220222232120" title="">
+                </div>
+                <div class="image-caption">20220222232120</div>
+            </figure>案。</p>
 <p>问题来了，Java 获取月份为什么要从 0 开始呢？</p>
 <ul>
 <li>说法 1: 可能是因为旧的 C 语言日期 API 是这样的，那么旧的 C 语言日期 API 为什么是这样呢？…不套娃了。</li>
@@ -227,7 +241,14 @@
 <p>例子2:在 2020年以前的，Firefox 和 Chrome 针对以下代码实现有差异。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Date</span>.<span class="title function_">parse</span>(<span class="string">&#x27;1970-01-01T00:00:00Z&#x27;</span>);       <span class="comment">// Chrome: 0         FF: 0</span></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">parse</span>(<span class="string">&#x27;1970-01-01T00:00:00-0500&#x27;</span>);   <span class="comment">// Chrome:18000000  FF: 18000000</span></span><br><span class="line"><span class="title class_">Date</span>.<span class="title function_">parse</span>(<span class="string">&#x27;1970-01-01T00:00:00&#x27;</span>);        <span class="comment">// Chrome: 0 FF: -28800000</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/460e12b0d69a4c9aab4bd42294d7c045~tplv-k3u1fbpfcp-zoom-1.image"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/460e12b0d69a4c9aab4bd42294d7c045~tplv-k3u1fbpfcp-zoom-1.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h3 id="传入多个时间单位的数字"><a href="#传入多个时间单位的数字" class="headerlink" title="传入多个时间单位的数字"></a>传入多个时间单位的数字</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">1995</span>, <span class="number">8</span>, <span class="number">11</span>)<span class="comment">//注意，月份需要减 1，例如定义 9 月，第二个月份参数需要传 8</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">1995</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">3</span>, <span class="number">24</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="传入-Unix-时间戳"><a href="#传入-Unix-时间戳" class="headerlink" title="传入 Unix 时间戳"></a>传入 Unix 时间戳</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">810761040000</span>) <span class="comment">//Mon Sep 11 1995 03:24:00 GMT+0800 (China Standard Time)</span></span><br></pre></td></tr></table></figure>

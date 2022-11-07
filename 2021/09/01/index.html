@@ -193,16 +193,37 @@
 <li>Controller:通过获取视图输入的数据处理</li>
 </ul>
 <p>古早的软件需要自己编写鼠标、键盘事件，所以 Controller 主要指的是这部分逻辑。例如通过使用 TextView 和 TextEditor 配合来完成文本的选中、插入&#x2F;覆盖模式切换、换行、退格、双击、拖拽等逻辑。</p>
-<p><img src="https://image-static.segmentfault.com/368/338/3683380041-764dd660f259b1f0"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://image-static.segmentfault.com/368/338/3683380041-764dd660f259b1f0" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>若是在控件系统中，<strong>再令所有用户输入流经一个controller则可谓不伦不类、本末倒置</strong>。</p>
 <p>MVVM的提出者，微软架构师John Gossman曾言：“我倾向于认为它(指controller)只是隐藏到后台了，它仍然存在，但是我们不需要像是1979年那样考虑那么多事情了”</p>
 <h3 id="MVP-就是-MVC"><a href="#MVP-就是-MVC" class="headerlink" title="MVP 就是 MVC"></a>MVP 就是 MVC</h3><p>Model-View-Presenter是在MVC的基础上，进一步规定了Controller中的一些概念。</p>
-<p><img src="https://image-static.segmentfault.com/170/146/170146538-48afefd3ed3cdb77_fix732"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://image-static.segmentfault.com/170/146/170146538-48afefd3ed3cdb77_fix732" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <blockquote>
 <p>Mike的论文里说了“we refer to this kind（指应用程序全局且使用interactor, command以及selection概念的） of controller as a presenter”。presenter它就是一种controller啊！</p>
 </blockquote>
 <h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>在MVVM模式中，数据绑定是最重要的概念，在MVC和MVP中的view和model的互相通讯，被以双向绑定的方式替代，这进一步把逻辑代码变成了声明模式。</p>
-<p><img src="https://image-static.segmentfault.com/334/125/3341257700-27a8116c47a33986_fix732"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://image-static.segmentfault.com/334/125/3341257700-27a8116c47a33986_fix732" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>控制层被融合进 view（控件） 里的，浏览器&#x2F;系统可以直接让我们从 View 通过数据绑定获取数据，不需要再通过 Controller 自己处理。</p>
 <h2 id="如何调用滴答清单-Open-API"><a href="#如何调用滴答清单-Open-API" class="headerlink" title="如何调用滴答清单 Open API"></a>如何调用滴答清单 Open API</h2><h3 id="第一步，建立-APP，获取-client-id"><a href="#第一步，建立-APP，获取-client-id" class="headerlink" title="第一步，建立  APP，获取 client_id"></a>第一步，建立  APP，获取 client_id</h3><h3 id="第二步，Oauth-授权"><a href="#第二步，Oauth-授权" class="headerlink" title="第二步，Oauth 授权"></a>第二步，Oauth 授权</h3><p><a target="_blank" rel="noopener" href="https://api.dida365.com/oauth/custom_authorize?scope=tasks:write&amp;client_id=qX1oIw8Gt44dQMrNi2&amp;state=state&amp;redirect_uri=https://www.eolinker.com&amp;response_type=code">https://api.dida365.com/oauth/custom_authorize?scope=tasks%3Awrite&amp;client_id=qX1oIw8Gt44dQMrNi2&amp;state=state&amp;redirect_uri=https%3A%2F%2Fwww.eolinker.com&amp;response_type=code</a></p>
 <h3 id="第三步，拿到重定向的-code"><a href="#第三步，拿到重定向的-code" class="headerlink" title="第三步，拿到重定向的 code"></a>第三步，拿到重定向的 code</h3><h2 id="STAR-面试法"><a href="#STAR-面试法" class="headerlink" title="STAR 面试法"></a>STAR 面试法</h2><ul>
@@ -211,7 +232,14 @@
 <li>A——Action 针对这样的情况分析，你采用了什么行动方式</li>
 <li>R——Result 结果怎样，在这样的情况下你学习到了什么</li>
 </ul>
-<h2 id="Node-如何查找模块"><a href="#Node-如何查找模块" class="headerlink" title="Node 如何查找模块"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020950339">Node 如何查找模块</a></h2><p><img src="https://img-blog.csdnimg.cn/20190718223319835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9taW5nZWx2,size_16,color_FFFFFF,t_70"></p>
+<h2 id="Node-如何查找模块"><a href="#Node-如何查找模块" class="headerlink" title="Node 如何查找模块"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020950339">Node 如何查找模块</a></h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20190718223319835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9taW5nZWx2,size_16,color_FFFFFF,t_70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <ul>
 <li><a target="_blank" rel="noopener" href="https://typescript.bootcss.com/module-resolution.html">typescript 模块解析</a></li>
 </ul>

@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。 近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！ 在介绍它之前，我们先来看看旧的缓存策略。 旧缓存策略-单键储存chrome 86 版本以前，引用&#x2F;储存缓存的键名是资源的 URL。如图： 也就是说，如果有其他任何网站引用到">
+    <meta name="description" content="所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。 近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！ 在介绍它之前，我们先来看看旧的缓存策略。 旧缓存策略-单键储存chrome 86 版本以前，引用&#x2F;储存缓存的键名是资源的 URL。如图：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器 Chrome 86 启用缓存分区（Cache partitioning）">
 <meta property="og:url" content="http://scar.site/2020/11/20/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。 近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！ 在介绍它之前，我们先来看看旧的缓存策略。 旧缓存策略-单键储存chrome 86 版本以前，引用&#x2F;储存缓存的键名是资源的 URL。如图： 也就是说，如果有其他任何网站引用到">
+<meta property="og:description" content="所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。 近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！ 在介绍它之前，我们先来看看旧的缓存策略。 旧缓存策略-单键储存chrome 86 版本以前，引用&#x2F;储存缓存的键名是资源的 URL。如图：">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.scar.site/20220224231520.png">
 <meta property="og:image" content="https://images.scar.site/20220224231552.png">
@@ -176,7 +176,15 @@
             <p>所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。</p>
 <p>近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！</p>
 <p>在介绍它之前，我们先来看看旧的缓存策略。</p>
-<h1 id="旧缓存策略-单键储存"><a href="#旧缓存策略-单键储存" class="headerlink" title="旧缓存策略-单键储存"></a>旧缓存策略-单键储存</h1><p>chrome 86 版本以前，引用&#x2F;储存缓存的<strong>键名是资源的 URL</strong>。如图：<br><img src="https://images.scar.site/20220224231520.png"></p>
+<h1 id="旧缓存策略-单键储存"><a href="#旧缓存策略-单键储存" class="headerlink" title="旧缓存策略-单键储存"></a>旧缓存策略-单键储存</h1><p>chrome 86 版本以前，引用&#x2F;储存缓存的<strong>键名是资源的 URL</strong>。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224231520.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>也就是说，如果有其他任何网站引用到了同个 URL的资源，浏览器会先去缓存里面查询有无资源，有则加载本地资源，无则远程请求。</p>
 <h1 id="新缓存策略-缓存分区（Cache-partitioning）"><a href="#新缓存策略-缓存分区（Cache-partitioning）" class="headerlink" title="新缓存策略-缓存分区（Cache partitioning）"></a>新缓存策略-缓存分区（Cache partitioning）</h1><p>从 chrome 86 版本开始，启用了新的缓存策略-<code>缓存分区</code>。</p>
 <p>从前端开发者的角度出发，我得知这个消息的第一反应是：啊！是 chrome 派来解决用户使用缓存里的旧版本，而前端资源已经更新导致的版本一致性问题吧？毕竟本人遇到的浏览器缓存导致唯一问题就是这个，殊不知不同的角度有不同的困惑，缓存分区，主要是解决谁的困惑呢？</p>
@@ -188,7 +196,14 @@
 <p>淘宝网在搜索结果为空时才会加载哭哭脸小二的图片，可以借此用户是否搜索。</p>
 <p style="text-align:center;color:#999">购物网站</p>
 
-<p><img src="https://images.scar.site/20220224231552.png" alt="淘宝网"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224231552.png" alt="淘宝网" title="">
+                </div>
+                <div class="image-caption">淘宝网</div>
+            </figure>
+
 <p>如果整块搜索结果是图片，图片中有搜索关键词的信息，那么甚至还可以获取用户的搜索关键字。</p>
 <h3 id="跨站跟踪：共享身份信息"><a href="#跨站跟踪：共享身份信息" class="headerlink" title="跨站跟踪：共享身份信息"></a>跨站跟踪：共享身份信息</h3><p>使用 <code>HTTP 缓存</code>储存类似 <code>Cookie</code> 的身份信息，来进行跨站跟踪。</p>
 <p>我们都知道，Cookie 是无法跨域访问的。<br>但实际上除了第一方 Cookie，还存在一种第三方 Cookie —— 广告商的 Cookie</p>
@@ -209,7 +224,14 @@
 </ul>
 <p style="text-align:center;color:#999">新旧策略对比图</p>
 
-<p><img src="https://images.scar.site/20220224232316.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224232316.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>例如:<br>用户返回了 <a target="_blank" rel="noopener" href="https://a.example/">https://a.example</a> ，但是图片是属于 <code>iframe</code> <a target="_blank" rel="noopener" href="https://c.example/">https://c.example</a> 。<br>遇到这种情况，资源会不会从缓存里面读取呢？</p>
 <p>答案是不会！因为不匹配 Cache Key 为 <a target="_blank" rel="noopener" href="https://a.example/">https://a.example</a> ， <a target="_blank" rel="noopener" href="https://c.example/">https://c.example</a> ,以及<a target="_blank" rel="noopener" href="https://x.example/doge.png">https://x.example/doge.png</a> 的资源，所以无法使用 <a target="_blank" rel="noopener" href="https://c.example/">https://c.example</a> 里面的缓存。</p>
 <h2 id="使用缓存分区之后的变化"><a href="#使用缓存分区之后的变化" class="headerlink" title="使用缓存分区之后的变化"></a>使用缓存分区之后的变化</h2><ul>

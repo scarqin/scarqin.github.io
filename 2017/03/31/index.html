@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="背包问题 先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择    食物 质量&#x2F;weight （100g） 价值&#x2F;value（10g）    米饭 2 4   黄瓜 1 5   西红柿 1 8   牛肉 3 10   动动吃货的小脑筋，就知道，营养价值最大化的选择是牛肉+黄瓜+西红柿 共 23（10">
+    <meta name="description" content="背包问题                                                                                                            先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择    食物 质量&#x2F;weight （">
 <meta property="og:type" content="article">
 <meta property="og:title" content="吃货如何理解01背包问题">
 <meta property="og:url" content="http://scar.site/2017/03/31/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="背包问题 先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择    食物 质量&#x2F;weight （100g） 价值&#x2F;value（10g）    米饭 2 4   黄瓜 1 5   西红柿 1 8   牛肉 3 10   动动吃货的小脑筋，就知道，营养价值最大化的选择是牛肉+黄瓜+西红柿 共 23（10">
+<meta property="og:description" content="背包问题                                                                                                            先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择    食物 质量&#x2F;weight （">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.scar.site/20220223234709.png">
 <meta property="og:image" content="https://images.scar.site/20220223234716.png">
@@ -173,7 +173,14 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><p><img src="https://images.scar.site/20220223234709.png"></p>
+            <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234709.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择</p>
 <table>
 <thead>
@@ -205,7 +212,14 @@
 </tr>
 </tbody></table>
 <p>动动吃货的小脑筋，就知道，营养价值最大化的选择是<br>牛肉+黄瓜+西红柿 共 23（10g）营养！<br>可是该怎么使用程序计算出答案呢？</p>
-<p><img src="https://images.scar.site/20220223234716.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234716.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>肚子的资源有限，对每一种食物有两种选择：吃或者不吃。<br>判断的依据有两点：</p>
 <p>（1）肚子能否装得下食物？</p>
 <p>（2）吃他的价值，是否比不吃他的价值大？大则吃下，不大则不吃。</p>
@@ -270,7 +284,15 @@
 <blockquote>
 <p>d(3 , 5)&#x3D;max{d(2,5) , d(2,4)}</p>
 </blockquote>
-<p>按照上面的往下分解,最终都会指向 d(0,w)～逻辑如下图：<br><img src="https://images.scar.site/20220223234811.png"></p>
+<p>按照上面的往下分解,最终都会指向 d(0,w)～逻辑如下图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234811.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <blockquote>
 <p>d(0,w)代表选 0 件物品的放入背包容量为 w 的背包的最大价值，所以为 0。d(i,0)代表选 i 件物品放入背包容量为 0 的背包的最大价值，也为 0。</p>
 </blockquote>

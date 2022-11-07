@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="content-type 的作用他的作用是告诉服务器，浏览器发来了什么数据。一般情况下，我们不需要设置它。默认值为application&#x2F;x-www-form-urlencoded; charset&#x3D;UTF-8&#39;) 上传文件时，使用 Jquery 的同学知道，我们会将 contentType 设置成 flase 123456$.ajax(&amp;#123;...  processData: fa">
+    <meta name="description" content="content-type 的作用他的作用是告诉服务器，浏览器发来了什么数据。                                                                                              引用jquery ajax              一般情况下，我们不需要设置它。默认值为application&#x2F;x-www-form">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Jquery ContentType的设置">
 <meta property="og:url" content="http://scar.site/2017/03/22/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="content-type 的作用他的作用是告诉服务器，浏览器发来了什么数据。一般情况下，我们不需要设置它。默认值为application&#x2F;x-www-form-urlencoded; charset&#x3D;UTF-8&#39;) 上传文件时，使用 Jquery 的同学知道，我们会将 contentType 设置成 flase 123456$.ajax(&amp;#123;...  processData: fa">
+<meta property="og:description" content="content-type 的作用他的作用是告诉服务器，浏览器发来了什么数据。                                                                                              引用jquery ajax              一般情况下，我们不需要设置它。默认值为application&#x2F;x-www-form">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.scar.site/20220223234403.png">
 <meta property="og:image" content="https://images.scar.site/20220223234419.png">
@@ -173,17 +173,40 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="content-type-的作用"><a href="#content-type-的作用" class="headerlink" title="content-type 的作用"></a>content-type 的作用</h3><p>他的作用是告诉服务器，浏览器发来了什么数据。<br><img src="https://images.scar.site/20220223234403.png" alt="引用jquery ajax"><br>一般情况下，我们不需要设置它。默认值为<code>application/x-www-form-urlencoded; charset=UTF-8&#39;)</code></p>
+            <h3 id="content-type-的作用"><a href="#content-type-的作用" class="headerlink" title="content-type 的作用"></a>content-type 的作用</h3><p>他的作用是告诉服务器，浏览器发来了什么数据。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234403.png" alt="引用jquery ajax" title="">
+                </div>
+                <div class="image-caption">引用jquery ajax</div>
+            </figure>
+<p>一般情况下，我们不需要设置它。默认值为<code>application/x-www-form-urlencoded; charset=UTF-8&#39;)</code></p>
 <p>上传文件时，使用 Jquery 的同学知道，我们会将 contentType 设置成 flase</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(&#123;</span><br><span class="line">...</span><br><span class="line">  processData: false,</span><br><span class="line">  contentType: false,</span><br><span class="line">...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>咦，请求一发送<br><img src="https://images.scar.site/20220223234419.png" alt="request headers1"></p>
+<p>咦，请求一发送</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234419.png" alt="request headers1" title="">
+                </div>
+                <div class="image-caption">request headers1</div>
+            </figure>
+
 <p>content-type 自动设置成了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Type:multipart/form-data; boundary=----WebKitFormBoundarynXvTC1AHtFbVvKTL</span><br></pre></td></tr></table></figure>
 
 <p>WebKitFormBoundarynXvTC1AHtFbVvKTL 这是随机生成的分界符</p>
 <p>目的是防止上传文件中出现分界符导致服务器无法正确识别文件起始位置<br>如果不给 Ajax 设置 contentType，Ajax 会自动发送什么 content-type 呢？</p>
-<p><img src="https://images.scar.site/20220223234430.png" alt="request headers2"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234430.png" alt="request headers2" title="">
+                </div>
+                <div class="image-caption">request headers2</div>
+            </figure>
+
 <p>发现这是默认的 content-type，可知 Jquery 的 ajax 的设置机制为若没有 content-type 属性，则默认设置为<br><code>application/x-www-form-urlencoded; charset=UTF-8</code></p>
 <p>设置<code>contentType: false</code>的目的是让 Ajax 不要操作 content-type</p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>

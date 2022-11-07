@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。 同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置， 如图所示： 如果使用锚点实现目录的跳转，会遇到 fixed 导航栏遮住了标题的问题。  锚点定位机制 如果没有滚动条，锚点失效。 如果有滚动条，滚动条滚动到地址 hash （地址 # 号后面的内容）对应的锚点元素 padding-box上边缘位置。  解">
+    <meta name="description" content="很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。 同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置， 如图所示：                                                                                                             如果使用锚点实现目录的跳转">
 <meta property="og:type" content="article">
 <meta property="og:title" content="锚点定位被顶部固定导航栏遮住的解决方案">
 <meta property="og:url" content="http://scar.site/2020/04/09/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。 同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置， 如图所示： 如果使用锚点实现目录的跳转，会遇到 fixed 导航栏遮住了标题的问题。  锚点定位机制 如果没有滚动条，锚点失效。 如果有滚动条，滚动条滚动到地址 hash （地址 # 号后面的内容）对应的锚点元素 padding-box上边缘位置。  解">
+<meta property="og:description" content="很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。 同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置， 如图所示：                                                                                                             如果使用锚点实现目录的跳转">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.scar.site/20220224233544.png">
 <meta property="og:image" content="https://images.scar.site/20220224233602.png">
@@ -182,9 +182,24 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。</p>
 <p>同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置，</p>
-<p>如图所示：<br><img src="https://images.scar.site/20220224233544.png"></p>
+<p>如图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233544.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>如果使用锚点实现目录的跳转，会遇到 fixed 导航栏遮住了标题的问题。</p>
-<p><img src="https://images.scar.site/20220224233602.png" alt="fixed 导航栏遮住了标题"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233602.png" alt="fixed 导航栏遮住了标题" title="">
+                </div>
+                <div class="image-caption">fixed 导航栏遮住了标题</div>
+            </figure>
+
 <h2 id="锚点定位机制"><a href="#锚点定位机制" class="headerlink" title="锚点定位机制"></a>锚点定位机制</h2><ul>
 <li>如果没有滚动条，锚点失效。</li>
 <li>如果有滚动条，滚动条滚动到地址 hash （地址 # 号后面的内容）对应的锚点元素 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model"><code>padding-box</code></a>上边缘位置。</li>
@@ -197,23 +212,53 @@
 <p>如果滚动条在其他元素上，将 scroll-padding-top 设置到附滚动条的元素即可。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">scroll-padding-top</span>: <span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>浏览器内置的支持，用法超轻便</strong>，兼容性如图：<br><img src="https://images.scar.site/20220224233626.png"></p>
+<p><strong>浏览器内置的支持，用法超轻便</strong>，兼容性如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233626.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h3 id="方法二-padding-margin"><a href="#方法二-padding-margin" class="headerlink" title="方法二 padding+margin"></a>方法二 padding+margin</h3><p>padding 影响锚点元素的定位，margin 不影响锚点元素的定位。所以使用 padding 调整锚点元素跳转后的位置，使用 margin 抵消 padding 对布局的影响。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;heading first&quot;</span> <span class="attr">id</span>=<span class="string">&quot;first&quot;</span>&gt;</span>1.出现的时间、地点不同<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.first</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">60px</span>; <span class="comment">/* 60px是导航栏高度 */</span></span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/20220224233909.png"><br><strong>优点</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233909.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>优点</strong></p>
 <p>此方案无需添加额外的元素，直接使用 css 可解决问题。</p>
 <p><strong>缺点</strong></p>
 <p>当标题的文档层级和段落的文档层级不一致时会导致遮盖其他元素。</p>
-<p>例如：标题使用了 <code>relative</code> 定位提升了文档层级。会出现鼠标无法选中标题上方被布局遮挡的段落，从而导致无法复制文档。<br><img src="https://images.scar.site/52ccac5e90034a75b79b54a6dc530939_tplv-k3u1fbpfcp-zoom-1.gif"></p>
+<p>例如：标题使用了 <code>relative</code> 定位提升了文档层级。会出现鼠标无法选中标题上方被布局遮挡的段落，从而导致无法复制文档。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/52ccac5e90034a75b79b54a6dc530939_tplv-k3u1fbpfcp-zoom-1.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h3 id="方法三-用span或a标签作为锚点元素"><a href="#方法三-用span或a标签作为锚点元素" class="headerlink" title="方法三 用span或a标签作为锚点元素"></a>方法三 用<code>span</code>或<code>a</code>标签作为锚点元素</h3><p>非替换内联元素的<code>padding</code>不影响布局，但可以影响锚点位置。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;heading&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;second&quot;</span> <span class="attr">class</span>=<span class="string">&quot;title_placeholder&quot;</span>&gt;</span></span><br><span class="line">    2. require/exports 是运行时动态加载，import/export 是静态编译</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.title_placeholder</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/20220224234148.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224234148.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p><strong>缺点</strong></p>
 <p>同方案（1）</p>
 <h3 id="方法四-暗锚点"><a href="#方法四-暗锚点" class="headerlink" title="方法四 暗锚点"></a>方法四 暗锚点</h3><p>在需要定位的元素上方加入不影响布局的空白锚点元素。</p>
@@ -222,12 +267,27 @@
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.dark_anchor</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/20220224233731.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233731.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p><strong>优点</strong></p>
 <p>不影响其他元素的鼠标选择</p>
 <p><strong>缺点</strong></p>
 <p>此方案的定位元素的<code>margin</code>会影响锚点跳转后的位置，和直接设置标题为锚点元素的表现不一致。</p>
-<p>例如：标题（定位元素）有 20px 的边距，锚点跳转后 20px 的边距依旧保留。如果希望锚点跳转后标题置顶不受 <code>margin</code>影响的同学慎用此方案。<br><img src="https://images.scar.site/20220224233741.png"></p>
+<p>例如：标题（定位元素）有 20px 的边距，锚点跳转后 20px 的边距依旧保留。如果希望锚点跳转后标题置顶不受 <code>margin</code>影响的同学慎用此方案。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233741.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h3 id="方法五-target伪类"><a href="#方法五-target伪类" class="headerlink" title="方法五 :target伪类"></a>方法五 <code>:target</code>伪类</h3><p><code>:target</code></p>
 <blockquote>
 <p>CSS 伪类 代表一个唯一的页面元素(目标元素)，其 id 与当前 URL 片段匹配 .</p>
@@ -236,10 +296,25 @@
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#forth</span><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/20220224234240.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224234240.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>此方案和方案（1）有异曲同工之妙，当跳转到某个（类）锚点时，锚点元素应用 <code>:target</code> 样式。</p>
 <p>使用<code>:target</code>需要注意兼容性，目前 IE6-IE8 浏览器不支持。</p>
-<p><strong>浏览器兼容性</strong><br><img src="https://images.scar.site/20220224233750.png"></p>
+<p><strong>浏览器兼容性</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233750.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2013/08/url-anchor-html-%E9%94%9A%E7%82%B9%E5%AE%9A%E4%BD%8D%E6%9C%BA%E5%88%B6-%E5%BA%94%E7%94%A8-%E9%97%AE%E9%A2%98/">张鑫旭-URL 锚点 HTML 定位技术机制、应用与问题</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.feidaoshuo.com/post/559.html">飞刀说-纯 CSS 实现网页内部锚点跳转时上下偏移</a></li>

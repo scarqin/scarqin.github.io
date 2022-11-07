@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="上篇文档-如何使用 Mock 提到我们公司使用 Eolinker 管理 Mock，本文详细说明 Eolinker Mock 写法以及每种方式的适用场景。首先让我们来看看如下示例在 Eolinker 三种格式里面分别需要怎么写。 12345678910111213141516Mock.mock(&amp;#123; &quot;string|1-10&quot;: &quot;★&quot;,&#x2F;&#x2F;随机生成">
+    <meta name="description" content="上篇文档-如何使用 Mock 提到我们公司使用 Eolinker 管理 Mock，本文详细说明 Eolinker Mock 写法以及每种方式的适用场景。                                                                                                            首先让我们来看看如下示例在 Eo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何填写 Eolinker  Mock API 响应内容">
 <meta property="og:url" content="http://scar.site/2020/07/21/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="上篇文档-如何使用 Mock 提到我们公司使用 Eolinker 管理 Mock，本文详细说明 Eolinker Mock 写法以及每种方式的适用场景。首先让我们来看看如下示例在 Eolinker 三种格式里面分别需要怎么写。 12345678910111213141516Mock.mock(&amp;#123; &quot;string|1-10&quot;: &quot;★&quot;,&#x2F;&#x2F;随机生成">
+<meta property="og:description" content="上篇文档-如何使用 Mock 提到我们公司使用 Eolinker 管理 Mock，本文详细说明 Eolinker Mock 写法以及每种方式的适用场景。                                                                                                            首先让我们来看看如下示例在 Eo">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://images.scar.site/20220224233050.png">
 <meta property="og:image" content="https://images.scar.site/20220222231633.png">
@@ -177,16 +177,69 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>上篇文档-<a target="_blank" rel="noopener" href="https://juejin.im/post/6844904202607525896">如何使用 Mock</a> 提到我们公司使用 Eolinker 管理 Mock，本文详细说明 Eolinker Mock 写法以及每种方式的适用场景。<br><img src="https://images.scar.site/20220224233050.png"><br>首先让我们来看看如下示例在 Eolinker 三种格式里面分别需要怎么写。</p>
+            <p>上篇文档-<a target="_blank" rel="noopener" href="https://juejin.im/post/6844904202607525896">如何使用 Mock</a> 提到我们公司使用 Eolinker 管理 Mock，本文详细说明 Eolinker Mock 写法以及每种方式的适用场景。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233050.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>首先让我们来看看如下示例在 Eolinker 三种格式里面分别需要怎么写。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Mock.mock(&#123;</span><br><span class="line"> &quot;string|1-10&quot;: &quot;★&quot;,//随机生成 1-10 个字符串&quot;★&quot;</span><br><span class="line"> &quot;string2|3&quot;: &quot;★&quot;,//固定生成 3 个字符串&quot;★&quot;</span><br><span class="line"> &quot;number|+1&quot;: 202,//每次请求自增 1,初始值为 202</span><br><span class="line"> &quot;number2|1-100.1-10&quot;: 1,//生成一个浮点数，整数部分1-100，小数部分保留1-10 位。。</span><br><span class="line"> &quot;boolean|1-2&quot;: true,//值为 true 的概率是 1/(1+2)，值为 false 的概率同样是 2/3。</span><br><span class="line"> &quot;regexp&quot;: /[a-z][A-Z][0-9]/,//随机生成满足正则的字符串</span><br><span class="line"> &quot;object|2&quot;: &#123;</span><br><span class="line">   &quot;310000&quot;: &quot;上海市&quot;,</span><br><span class="line">   &quot;320000&quot;: &quot;江苏省&quot;,</span><br><span class="line">   &quot;440000&quot;:&quot;广东省&quot;</span><br><span class="line"> &#125;,//对象中随机选取 2 个属性，生成对象</span><br><span class="line"> &quot;array|1&quot;: [ &quot;AMD&quot;,&quot;CMD&quot;],//数组中随机选取 1 个元素，最终生成值</span><br><span class="line"> &quot;arrayRepeat|3&quot;: [&quot;AMD&quot;,&quot;CMD&quot;],//重复数组元素 3 次，最终生成数组</span><br><span class="line"> &quot;date&quot;:&quot;@date&quot;//生成随机日期</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/20220222231633.png"><br>上文提到过，Mock 数据模板定义规范由属性名，生成规则以及属性值组成，其中属性值可以是不同类型的值，也可以是 Mock 官方提供生成常见格式（例如日期）的占位符。</p>
-<h3 id="JSON-编辑器"><a href="#JSON-编辑器" class="headerlink" title="JSON 编辑器"></a>JSON 编辑器</h3><p>JSON 编辑器，快速生成随机值，可以导入文档的返回参数结构。我们只需要把 Mock 规则相应位置的值填入表单，如下图：<br><img src="https://images.scar.site/20220224233301.png"><br>预览生成值<br><img src="https://images.scar.site/20220224233253.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222231633.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>上文提到过，Mock 数据模板定义规范由属性名，生成规则以及属性值组成，其中属性值可以是不同类型的值，也可以是 Mock 官方提供生成常见格式（例如日期）的占位符。</p>
+<h3 id="JSON-编辑器"><a href="#JSON-编辑器" class="headerlink" title="JSON 编辑器"></a>JSON 编辑器</h3><p>JSON 编辑器，快速生成随机值，可以导入文档的返回参数结构。我们只需要把 Mock 规则相应位置的值填入表单，如下图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233301.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>预览生成值</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233253.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <p>需要注意的是，Eolinker 的 Mock 比我们平时写的 Mock.mock 多了一个类型，他指的是什么类型呢？</p>
 <p>例如 “array|1”: [ “AMD”,”CMD”]，生成的值为 “AMD” 或者<br>“CMD”，我们在表单里选择的是 [array],所以类型指 Mock 规则中属性值的类型。</p>
-<h3 id="raw"><a href="#raw" class="headerlink" title="raw"></a>raw</h3><p>raw 类型每次请求都返回 <strong>Raw 编辑器填写的内容</strong>，如果不要求随机数据，可以使用 Raw。<br><img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/21/1736ed1c239de619~tplv-t2oaga2asx-image.image"></p>
-<h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h3><p>JavaScript 内置 Mock 语法 1.可以生成复杂的数据，例如多个数据之间有数据关联：属性 c&#x3D;属性 a+属性 b， 2.可以生成与 API 请求有关的数据，Eolinker 内置 url、请求头部、请求体参数等对象。<br>最后使用 return 语句返回生成的对象。<br><img src="https://images.scar.site/20220224233326.png"></p>
-<p><img src="https://images.scar.site/20220224233344.png"></p>
+<h3 id="raw"><a href="#raw" class="headerlink" title="raw"></a>raw</h3><p>raw 类型每次请求都返回 <strong>Raw 编辑器填写的内容</strong>，如果不要求随机数据，可以使用 Raw。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/7/21/1736ed1c239de619~tplv-t2oaga2asx-image.image" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h3 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h3><p>JavaScript 内置 Mock 语法 1.可以生成复杂的数据，例如多个数据之间有数据关联：属性 c&#x3D;属性 a+属性 b， 2.可以生成与 API 请求有关的数据，Eolinker 内置 url、请求头部、请求体参数等对象。<br>最后使用 return 语句返回生成的对象。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233326.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233344.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 
         </div>
 

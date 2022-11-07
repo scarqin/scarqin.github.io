@@ -175,12 +175,27 @@
             <h3 id="prefers-color-scheme"><a href="#prefers-color-scheme" class="headerlink" title="prefers-color-scheme"></a>prefers-color-scheme</h3><p>媒体查询属性，根据用户系统不同的主题色（亮色、暗色）来匹配样式。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@media (prefers-color-scheme: dark) &#123;</span><br><span class="line">  .day.dark-scheme   &#123; background:  #333; color: white; &#125;</span><br><span class="line">  .night.dark-scheme &#123; background: black; color:  #ddd; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="CSSStyleDeclaration-getPropertyValue"><a href="#CSSStyleDeclaration-getPropertyValue" class="headerlink" title="CSSStyleDeclaration.getPropertyValue()"></a>CSSStyleDeclaration.getPropertyValue()</h3><p>获取 Dom CSS 属性<br><img src="https://images.scar.site/WEBRESOURCE10497416680083415deb72827d51a9e3.png" alt="image.png"></p>
+<h3 id="CSSStyleDeclaration-getPropertyValue"><a href="#CSSStyleDeclaration-getPropertyValue" class="headerlink" title="CSSStyleDeclaration.getPropertyValue()"></a>CSSStyleDeclaration.getPropertyValue()</h3><p>获取 Dom CSS 属性</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE10497416680083415deb72827d51a9e3.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
 <h3 id="protobuf"><a href="#protobuf" class="headerlink" title="protobuf"></a>protobuf</h3><p>Google 定义的一种数据序列化协议，储存信息的格式，类似于 JSON、XML。</p>
 <h3 id="JSON-stringify-函数的意义是什么？"><a href="#JSON-stringify-函数的意义是什么？" class="headerlink" title="JSON.stringify 函数的意义是什么？"></a>JSON.stringify 函数的意义是什么？</h3><p>遍历 JSON.stringify 的对象树，入参数是键名和键值，如果某个键对应的键值没有被 return，则不再继续遍历。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">      a1: &#123;</span><br><span class="line">        a2: &#x27;a2&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      a21: [&#123;</span><br><span class="line">        arr_a21: &#x27;test&#x27;</span><br><span class="line">      &#125;]</span><br><span class="line">    &#125;,</span><br><span class="line">    b: &#123;</span><br><span class="line">      b1: &#x27;b1&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  console.log(&#x27;origin&#x27;, obj)</span><br><span class="line">  let result=JSON.stringify(obj, (key, value) =&gt; &#123;</span><br><span class="line">    console.log(key, value)</span><br><span class="line">      return value;</span><br><span class="line">  &#125;)</span><br><span class="line">  console.log(result)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/WEBRESOURCE24d17748af02707ba003dab25c51d0f4.png" alt="image.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE24d17748af02707ba003dab25c51d0f4.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
 <h3 id="什么是-webservice"><a href="#什么是-webservice" class="headerlink" title="什么是 webservice"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/97640202">什么是 webservice</a></h3><p>WebService一般基于HTTP协议、使用 XML作为请求&#x2F;返回格式</p>
 
         </div>

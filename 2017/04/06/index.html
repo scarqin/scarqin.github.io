@@ -174,8 +174,23 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="1-例题"><a href="#1-例题" class="headerlink" title="1. 例题"></a>1. 例题</h2><p><a target="_blank" rel="noopener" href="http://exercise.acmcoder.com/online/online_judge_ques?ques_id=4382&amp;konwledgeId=169">http://exercise.acmcoder.com/online/online_judge_ques?ques_id=4382&amp;konwledgeId=169</a><br>作为国内领先的酒店预订平台，去哪儿网为了广大用户能住到更舒适的酒店，根据实际用户的居住评价对各酒店进行动态评级和排名。去哪儿网会从酒店整体环境、客房舒适度、服务质量、配套设施和交通情况 5 的方面进行评价收集，并给与 1-5 星的评分（整数）。现希望开发者编写程序根据一定的规则对酒店进行排序。规则如下：</p>
-<p>1.优先按照最低星数进行排序，最低星数高者居前。 2.在最低星数相同时，按照平均星数排序，平均星数高者居前。 3.如果最低星数和平均星数均相同，则序号（数据里出现的顺序编号，从 0 开始）小者居前。<br><img src="https://images.scar.site/20220223235855.png"></p>
-<h2 id="2-相关知识点"><a href="#2-相关知识点" class="headerlink" title="2. 相关知识点"></a>2. 相关知识点</h2><h3 id="2-1-排序算法"><a href="#2-1-排序算法" class="headerlink" title="2.1 排序算法"></a>2.1 排序算法</h3><p><img src="https://images.scar.site/20220223235902.png"></p>
+<p>1.优先按照最低星数进行排序，最低星数高者居前。 2.在最低星数相同时，按照平均星数排序，平均星数高者居前。 3.如果最低星数和平均星数均相同，则序号（数据里出现的顺序编号，从 0 开始）小者居前。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223235855.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="2-相关知识点"><a href="#2-相关知识点" class="headerlink" title="2. 相关知识点"></a>2. 相关知识点</h2><h3 id="2-1-排序算法"><a href="#2-1-排序算法" class="headerlink" title="2.1 排序算法"></a>2.1 排序算法</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223235902.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h4 id="常见的稳定排序"><a href="#常见的稳定排序" class="headerlink" title="常见的稳定排序"></a>常见的稳定排序</h4><h5 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1. 冒泡排序"></a>1. 冒泡排序</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function bubbleSort(arr) &#123;</span><br><span class="line">    var len = arr.length;</span><br><span class="line">    for (var i = 0; i &lt; len - 1; i++) &#123;</span><br><span class="line">        for (var j = 0; j &lt; len - 1 - i; j++) &#123;</span><br><span class="line">            if (arr[j] &gt; arr[j+1]) &#123;        // 相邻元素两两对比</span><br><span class="line">                var temp = arr[j+1];        // 元素交换</span><br><span class="line">                arr[j+1] = arr[j];</span><br><span class="line">                arr[j] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-直接插入排序"><a href="#2-直接插入排序" class="headerlink" title="2. 直接插入排序"></a>2. 直接插入排序</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function insertionSort(arr) &#123;</span><br><span class="line">    var len = arr.length;</span><br><span class="line">    var preIndex, current;</span><br><span class="line">    for (var i = 1; i &lt; len; i++) &#123;</span><br><span class="line">        preIndex = i - 1;</span><br><span class="line">        current = arr[i];</span><br><span class="line">        while(preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current) &#123;</span><br><span class="line">            arr[preIndex+1] = arr[preIndex];</span><br><span class="line">            preIndex--;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[preIndex+1] = current;</span><br><span class="line">    &#125;</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -202,7 +217,15 @@
 <blockquote>
 <p>The sort is not necessarily stable (that is, elements that compare equal do not necessarily remain in their original order)</p>
 </blockquote>
-<p>所以不同浏览器实现 array.sort()的算法不一样，array.sort()在各个浏览器的稳定性<br><img src="https://images.scar.site/20220223235917.png"></p>
+<p>所以不同浏览器实现 array.sort()的算法不一样，array.sort()在各个浏览器的稳定性</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223235917.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h5 id="修改-array-sort-后实现稳定性的方法"><a href="#修改-array-sort-后实现稳定性的方法" class="headerlink" title="修改 array.sort()后实现稳定性的方法"></a>修改 array.sort()后实现稳定性的方法</h5><p>通过记录元素原位置 j，当对比到两个相同的元素（a.i&#x3D;b.i）时，按照原始的位置排序。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.stableSort = function (fn) &#123;</span><br><span class="line">  // 用新数组记录位置</span><br><span class="line">  var newArr = this.map(function (i, j) &#123; return &#123;i:i, j:j&#125;; &#125;);</span><br><span class="line">  return newArr.sort(function (a, b) &#123;</span><br><span class="line">    result = fn(a.i, b.i);</span><br><span class="line">    if (result === 0) &#123;</span><br><span class="line">      // 按原先元素位置排序，升序</span><br><span class="line">      return a.j - b.j;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">  &#125;).map(function (i) &#123; return i.i; &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 

@@ -218,7 +218,14 @@
 <p>下载!&#x3D;执行</p>
 <p>标准里面代码中引用文件都是按顺序解析下载的。但是现代浏览器都做了优化：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/chuaWeb/p/5796405.html">浏览器的<strong>预解析</strong></a>，所以 &lt;script&gt; 和 &lt;link&gt; 会优先下载&#x2F;加载。</p>
 <p>但是<strong>执行顺序</strong>和引用顺序相同，所以谁在后面谁的优先级高，即使某些脚本先下载完成，也是排到后面执行。</p>
-<h1 id="腾讯一系列低代码平台"><a href="#腾讯一系列低代码平台" class="headerlink" title="腾讯一系列低代码平台"></a>腾讯一系列低代码平台</h1><p><img src="https://img-blog.csdnimg.cn/img_convert/8d2f9a4e2acf6c75813aabcd15672c06.png" alt="Python成神之路- 2021 大前端技术回顾及未来展望"></p>
+<h1 id="腾讯一系列低代码平台"><a href="#腾讯一系列低代码平台" class="headerlink" title="腾讯一系列低代码平台"></a>腾讯一系列低代码平台</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/img_convert/8d2f9a4e2acf6c75813aabcd15672c06.png" alt="Python成神之路- 2021 大前端技术回顾及未来展望" title="">
+                </div>
+                <div class="image-caption">Python成神之路- 2021 大前端技术回顾及未来展望</div>
+            </figure>
+
 <h1 id="Design-Token"><a href="#Design-Token" class="headerlink" title="Design Token"></a>Design Token</h1><p><em>Design Token 是设计系统中的视觉设计原子。它们是一组有着统一命名规则的实体，用于存储视觉设计部分的具体参数，比如 HEX 色值、间距、尺寸的像素等。使用它可以有帮助为 UI 开发工作维护一套具备可扩展性、一致性的视觉体系。</em></p>
 <h2 id="CSS-Modules"><a href="#CSS-Modules" class="headerlink" title="CSS Modules"></a>CSS Modules</h2><p><a target="_blank" rel="noopener" href="https://github.com/css-modules/css-modules">CSS Modules</a> 有所不同。它不是将 CSS 改造成编程语言，而是功能很单纯，只加入了局部作用域和模块依赖（继承等）。我们需要把所有的标签写到 Javascript 文件里。下面是一个简单的示例：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">&quot;./styles.css&quot;</span>;</span><br><span class="line"></span><br><span class="line">element.<span class="property">innerHTML</span> = </span><br><span class="line">  <span class="string">`&lt;h1 class=&quot;<span class="subst">$&#123;styles.title&#125;</span>&quot;&gt;     An example heading   &lt;/h1&gt;`</span>;</span><br></pre></td></tr></table></figure>
@@ -243,7 +250,14 @@
 <p>提供拦截 Javascript 操作的方法，很多都可以找到对应的操作。</p>
 <p>例如 Reflect.has 和 in 操作符一样</p>
 <p>Reflect.apply 和 Function.prototype.apply() 方法类似</p>
-<p><img src="https://images.scar.site/2022-03-31-00-08-31-image.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/2022-03-31-00-08-31-image.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h1 id="puperteer-如何监听请求"><a href="#puperteer-如何监听请求" class="headerlink" title="puperteer 如何监听请求"></a>puperteer 如何监听请求</h1><p>Chrome 内核开放了 chrome devtools 能力，可以通过监听它定义的协议获取到浏览器请求</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome.exe --remote-debugging-port=9222</span><br></pre></td></tr></table></figure>
 

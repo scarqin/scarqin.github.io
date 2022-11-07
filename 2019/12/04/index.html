@@ -175,7 +175,15 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>随着互联网的崛起，对 Web 服务应用的安全性要求越来越高。在前后端分离的开发模式中，服务端使用特定的加密方式生成 token，客户端储存 token 作为授权传递给服务端，验证身份等信息是保障安全性的一种方式。其中 JWT（JSON Web Token）这种用于通信双方之间以 JSON 对象的形式传递信息的轻量鉴权方式受到越来越多的开发者喜爱。</p>
-<h1 id="什么是鉴权"><a href="#什么是鉴权" class="headerlink" title="什么是鉴权"></a>什么是鉴权</h1><p>如果没有鉴权信息,他人能够轻而易举的调用 API 对我们的数据进行操作。下图是一种常见的鉴权流程。客户端输入用户名密码等身份信息，服务端生成一个 token（token 可以是 user 唯一能识别身份的非敏感信息通过鉴权的加密方式生成），然后再将 token 返回给浏览器客户端，再次访问服务器时带上 token 信息，服务器会使用同样的鉴权方式对 token 进行验证，token 验证一致后执行具体操作。<br><img src="https://images.scar.site/20220225001302.png"></p>
+<h1 id="什么是鉴权"><a href="#什么是鉴权" class="headerlink" title="什么是鉴权"></a>什么是鉴权</h1><p>如果没有鉴权信息,他人能够轻而易举的调用 API 对我们的数据进行操作。下图是一种常见的鉴权流程。客户端输入用户名密码等身份信息，服务端生成一个 token（token 可以是 user 唯一能识别身份的非敏感信息通过鉴权的加密方式生成），然后再将 token 返回给浏览器客户端，再次访问服务器时带上 token 信息，服务器会使用同样的鉴权方式对 token 进行验证，token 验证一致后执行具体操作。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001302.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
 <h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>我需要一下将 json 信息使用 jwt 鉴权方式生成 token。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;scar&quot;,</span><br><span class="line">  &quot;role&quot;: &quot;admin&quot;,</span><br><span class="line">  &quot;expirationData&quot;: &quot;2018-10-24 17:05:00&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -231,9 +239,30 @@
 <h1 id="实现的代码"><a href="#实现的代码" class="headerlink" title="实现的代码"></a>实现的代码</h1><p>首先引入加密库 CryptoJS 与 jsrsasign，</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//和普通 base64 加密不一样</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">base64UrlEncode</span>(<span class="params">str</span>) &#123;</span><br><span class="line"><span class="keyword">var</span> encodedSource = <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Base64</span>.<span class="title function_">stringify</span>(str);</span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&#x27;/&#x27;</span>, <span class="string">&#x27;g&#x27;</span>);</span><br><span class="line">encodedSource = encodedSource.<span class="title function_">replace</span>(<span class="regexp">/=+$/</span>,<span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/\+/g</span>,<span class="string">&#x27;-&#x27;</span>).<span class="title function_">replace</span>(reg,<span class="string">&#x27;\_&#x27;</span>);</span><br><span class="line"><span class="keyword">return</span> encodedSource;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> header = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line"><span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>,</span><br><span class="line"><span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> payload =<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;scar&quot;</span>,</span><br><span class="line"><span class="string">&quot;role&quot;</span>: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line"><span class="string">&quot;expirationData&quot;</span>: <span class="string">&quot;2018-10-24 17:05:00&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> secretSalt = <span class="string">&quot;user&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> before_sign = <span class="title function_">base64UrlEncode</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(header)) + <span class="string">&#x27;.&#x27;</span> + <span class="title function_">base64UrlEncode</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(payload));</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> signature =<span class="title class_">CryptoJS</span>.<span class="title class_">HmacSHA256</span>(before_sign, secretSalt);</span><br><span class="line">signature = <span class="title function_">base64UrlEncode</span>(signature);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> final_sign = before_sign + <span class="string">&#x27;.&#x27;</span> + signature;</span><br><span class="line"><span class="comment">//final_sign:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoic2NhciIsInJvbGUiOiJhZG1pbiIsImV4cGlyYXRpb25EYXRhIjoiMjAxOC0xMC0yNCAxNzowNTowMCJ9.bVc48JsxiM7ZZgtZch1QnRpLyt08M9LepwoLvs_aejI</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://images.scar.site/20220225001321.png" alt="图片来自jwt.io"><br>使用 javascript 实现有一定的加密算法限制，目前 ES512（ECDSA with curve P-521 and SHA-512）是不被支持的。</p>
-<h1 id="使用-eoLinker-做验证"><a href="#使用-eoLinker-做验证" class="headerlink" title="使用 eoLinker 做验证"></a>使用 eoLinker 做验证</h1><p><img src="https://images.scar.site/20220225001328.png"><br>填写好响应的信息，此处我将 jwt 鉴权 token 放在请求头部的 Authorization 中。</p>
-<p>点击测试后，得到和我们的加密函数一样的结果<br><img src="https://images.scar.site/20220225001349.png"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001321.png" alt="图片来自jwt.io" title="">
+                </div>
+                <div class="image-caption">图片来自jwt.io</div>
+            </figure>
+<p>使用 javascript 实现有一定的加密算法限制，目前 ES512（ECDSA with curve P-521 and SHA-512）是不被支持的。</p>
+<h1 id="使用-eoLinker-做验证"><a href="#使用-eoLinker-做验证" class="headerlink" title="使用 eoLinker 做验证"></a>使用 eoLinker 做验证</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001328.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>填写好响应的信息，此处我将 jwt 鉴权 token 放在请求头部的 Authorization 中。</p>
+<p>点击测试后，得到和我们的加密函数一样的结果</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001349.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <pre><code>
 </code></pre>
 
