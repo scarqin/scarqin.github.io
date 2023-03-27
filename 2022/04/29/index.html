@@ -21,14 +21,14 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="这是一个超详细的实例，跟着做完你会：  光速入门 Vercel、Serverless Functions 得到一个和图片一模一样的专属的 API 工具                                                                                                              一、概念解析1. Server">
+    <meta name="description" content="这是一个超详细的实例，跟着做完你会：  光速入门 Vercel、Serverless Functions 得到一个和图片一模一样的专属的 API 工具，可以在线测试 API                                                                                                               一、概">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Eoapi+Vercel+Serverless，部署一个 API 调试工具">
 <meta property="og:url" content="http://scar.site/2022/04/29/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="这是一个超详细的实例，跟着做完你会：  光速入门 Vercel、Serverless Functions 得到一个和图片一模一样的专属的 API 工具                                                                                                              一、概念解析1. Server">
+<meta property="og:description" content="这是一个超详细的实例，跟着做完你会：  光速入门 Vercel、Serverless Functions 得到一个和图片一模一样的专属的 API 工具，可以在线测试 API                                                                                                               一、概">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images.scar.site/20220606091130.png">
+<meta property="og:image" content="https://docs.eoapi.io/images/eoapi-demo.png">
 <meta property="og:image" content="https://images.scar.site/20220606091150.png">
 <meta property="og:image" content="https://images.scar.site/20220606091306.png">
 <meta property="og:image" content="https://images.scar.site/20220606091540.png">
@@ -36,15 +36,15 @@
 <meta property="og:image" content="https://images.scar.site/20220606091617.png">
 <meta property="og:image" content="https://images.scar.site/20220606091636.png">
 <meta property="og:image" content="https://images.scar.site/20220606091649.png">
-<meta property="og:image" content="https://images.scar.site/20220606091658.png">
+<meta property="og:image" content="https://docs.eoapi.io/images/eoapi-demo.png">
 <meta property="og:image" content="https://images.scar.site/20220606091717.png">
-<meta property="og:image" content="https://images.scar.site/20220606091734.png">
+<meta property="og:image" content="https://images.scar.site/20221110121119.png">
 <meta property="og:image" content="https://images.scar.site/20220606091937.png">
 <meta property="article:published_time" content="2022-04-29T07:30:00.000Z">
-<meta property="article:modified_time" content="2022-07-24T13:35:35.114Z">
+<meta property="article:modified_time" content="2022-11-10T04:12:15.506Z">
 <meta property="article:author" content="秦一">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.scar.site/20220606091130.png">
+<meta name="twitter:image" content="https://docs.eoapi.io/images/eoapi-demo.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
@@ -185,15 +185,16 @@
             <p>这是一个超详细的实例，跟着做完你会：</p>
 <ul>
 <li>光速入门 Vercel、Serverless Functions</li>
-<li>得到一个和图片一模一样的专属的 API 工具</li>
+<li>得到一个和图片一模一样的专属的 API 工具，可以在线测试 API</li>
 </ul>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://images.scar.site/20220606091130.png" alt="" title="">
+                    <img src="https://docs.eoapi.io/images/eoapi-demo.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
+
 
 <h1 id="一、概念解析"><a href="#一、概念解析" class="headerlink" title="一、概念解析"></a>一、概念解析</h1><h2 id="1-Serverless-是什么？"><a href="#1-Serverless-是什么？" class="headerlink" title="1. Serverless 是什么？"></a>1. Serverless 是什么？</h2><p>Serverless 架构即“无服务器”架构，它是一种全新的架构方式，是云计算时代一种革命性的架构模式。</p>
 <p>Serverless 的核心思想是让<strong>作为计算资源的服务器不再需要被使用者关注</strong>。</p>
@@ -207,7 +208,7 @@
 
 <p>FaaS（Functions as a Service）函数即服务，FaaS是 Serverless 计算的一种形式，后续我们将用 Serverless API 实现一个使用 Node 帮助客户端发送 API 请求得到响应的服务。</p>
 <p>如果看完还是云里雾里，冇嘢冇嘢接着看。</p>
-<h2 id="2-Eoapi-是什么？"><a href="#2-Eoapi-是什么？" class="headerlink" title="2. Eoapi 是什么？"></a>2. Eoapi 是什么？</h2><p>一个可拓展的开源 API 工具，就是开头的那个配图，可以用它快速调试 API，可以体验一下 <a target="_blank" rel="noopener" href="https://demo.eoapi.io/">Demo 地址</a>。</p>
+<h2 id="2-Eoapi-是什么？"><a href="#2-Eoapi-是什么？" class="headerlink" title="2. Eoapi 是什么？"></a>2. Eoapi 是什么？</h2><p>一个可拓展的开源 API 工具，就是开头的那个配图，可以用它快速调试 API，可以体验一下 <a href="www.eoapi.io?utm_source=gf&utm_content=tn&utm_campaign=self-yy">https://eoapi.io</a>。</p>
 <h2 id="3-Vercel-是什么？"><a href="#3-Vercel-是什么？" class="headerlink" title="3. Vercel 是什么？"></a>3. Vercel 是什么？</h2><p>Vercel 是一个站点托管平台， 类似于 <code>Github Pages</code>，你丢上去网页的构建后的代码，还你一个 Web 服务链接，同时支持持续集成， 可以关联 Push、PR，提交代码后自动部署 。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -273,10 +274,12 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://images.scar.site/20220606091658.png" alt="" title="">
+                    <img src="https://docs.eoapi.io/images/eoapi-demo.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
+
+
 
 
 <h1 id="三、Serverless-Funcions"><a href="#三、Serverless-Funcions" class="headerlink" title="三、Serverless Funcions"></a>三、Serverless Funcions</h1><h2 id="1-源码解析"><a href="#1-源码解析" class="headerlink" title="1. 源码解析"></a>1. 源码解析</h2><figure class="image-bubble">
@@ -293,7 +296,7 @@
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://images.scar.site/20220606091734.png" alt="" title="">
+                    <img src="https://images.scar.site/20221110121119.png" alt="" title="">
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -304,7 +307,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g vercel</span><br><span class="line"></span><br><span class="line">vercel dev</span><br></pre></td></tr></table></figure>
 
 <p>剩下的跟着命令行指引配置完后就可以在本地调试 Serverless Functions 了</p>
-<h1 id="四、作者心得"><a href="#四、作者心得" class="headerlink" title="四、作者心得"></a>四、作者心得</h1><p>我是 Eoapi 的一名开发者，<a target="_blank" rel="noopener" href="https://demo.eoapi.io/">Live Demo</a>就是使用上面的步骤配置出来的，如果大家对项目感兴趣，欢迎大家持续关注我们项目：<a target="_blank" rel="noopener" href="https://github.com/eolinker/eoapi%E3%80%82">https://github.com/eolinker/eoapi。</a></p>
+<h1 id="四、作者心得"><a href="#四、作者心得" class="headerlink" title="四、作者心得"></a>四、作者心得</h1><p>我是 Eoapi 的一名开发者，<a href="www.eoapi.io?utm_source=gf&utm_content=tn&utm_campaign=self-yy">https://eoapi.io</a> 就是使用上面的步骤配置出来的，如果大家对项目感兴趣，欢迎大家持续关注我们项目：<a target="_blank" rel="noopener" href="https://github.com/eolinker/eoapi">https://github.com/eolinker/eoapi</a>。</p>
 <p>说实话我第一次配置 Vercel 的时候还是踩了不少坑，但总体来说体验还是很不错的。</p>
 <p>我手头上所有的网站基本上都迁移到了 Vercel。除了 Eoapi，我还部署了我的官网、一个抽奖程序，很酷炫。</p>
 <p>嘿嘿，你也可以部署试试看，作为检验自己是否掌握知识点的小作业。</p>
@@ -333,7 +336,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2022-07-24T13:35:35.114Z" itemprop="dateUpdated">2022-07-24 21:35:35</time>
+    Last updated: <time datetime="2022-11-10T04:12:15.506Z" itemprop="dateUpdated">2022-11-10 12:12:15</time>
 </span><br>
 
 
@@ -474,7 +477,7 @@
         </p>
     </div>
     <div class="bottom">
-        <p><span>秦一 &copy; 2015 - 2022</span>
+        <p><span>秦一 &copy; 2015 - 2023</span>
             <span>
                 
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
