@@ -14,3 +14,9 @@ git checkout scar
 ```
 npm start
 ```
+
+# Push
+
+```
+npm run release
+```

@@ -8,9 +8,10 @@ categories: 技术
 这是一个超详细的实例，跟着做完你会：
 
 - 光速入门 Vercel、Serverless Functions
-- 得到一个和图片一模一样的专属的 API 工具
+- 得到一个和图片一模一样的专属的 API 工具，可以在线测试 API
 
-![](https://images.scar.site/20220606091130.png)
+![](https://docs.eoapi.io/images/eoapi-demo.png)
+
 
 # 一、概念解析
 
@@ -28,8 +29,7 @@ FaaS（Functions as a Service）函数即服务，FaaS是 Serverless 计算的�
 
 ## 2. Eoapi 是什么？
 
-一个可拓展的开源 API 工具，就是开头的那个配图，可以用它快速调试 API，可以体验一下 [Demo 地址](https://demo.eoapi.io/)。
-
+一个可拓展的开源 API 工具，就是开头的那个配图，可以用它快速调试 API，可以体验一下 [https://eoapi.io](www.eoapi.io?utm_source=gf&utm_content=tn&utm_campaign=self-yy)。
  ## 3. Vercel 是什么？
 
 Vercel 是一个站点托管平台， 类似于 `Github Pages`，你丢上去网页的构建后的代码，还你一个 Web 服务链接，同时支持持续集成， 可以关联 Push、PR，提交代码后自动部署 。
@@ -71,7 +71,9 @@ Fork 成功后可以在自己的 Repositories 看到 eoapi。
 
 ![](https://images.scar.site/20220606091649.png)
 
-![](https://images.scar.site/20220606091658.png)
+![](https://docs.eoapi.io/images/eoapi-demo.png)
+
+
 
 
 # 三、Serverless Funcions
@@ -85,7 +87,7 @@ Fork 成功后可以在自己的 Repositories 看到 eoapi。
 
 Serverless Functions 让我们写接口和写纯函数一样简单
 
-![](https://images.scar.site/20220606091734.png)
+![](https://images.scar.site/20221110121119.png)
 
 我们只需要 exports 一个纯函数，通过函数第一个入参 req 拿到请求体，再通过 res.end() 返回响应体，就可以快速发布一个 API。
 
@@ -127,8 +129,7 @@ vercel dev
 剩下的跟着命令行指引配置完后就可以在本地调试 Serverless Functions 了
 
 # 四、作者心得
-
-我是 Eoapi 的一名开发者，[Live Demo](<https://demo.eoapi.io/ >)就是使用上面的步骤配置出来的，如果大家对项目感兴趣，欢迎大家持续关注我们项目：https://github.com/eolinker/eoapi。
+我是 Eoapi 的一名开发者，[https://eoapi.io](www.eoapi.io?utm_source=gf&utm_content=tn&utm_campaign=self-yy) 就是使用上面的步骤配置出来的，如果大家对项目感兴趣，欢迎大家持续关注我们项目：[https://github.com/eolinker/eoapi](https://github.com/eolinker/eoapi)。
 
 说实话我第一次配置 Vercel 的时候还是踩了不少坑，但总体来说体验还是很不错的。
 
@@ -136,7 +137,7 @@ vercel dev
 
 嘿嘿，你也可以部署试试看，作为检验自己是否掌握知识点的小作业。
 
-Github 地址：https://github.com/moshang-xc/lottery
+Github 地址：[https://github.com/moshang-xc/lottery](https://github.com/moshang-xc/lottery)
 
 ![](https://images.scar.site/20220606091937.png)
 
