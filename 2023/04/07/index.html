@@ -24,12 +24,12 @@
     <meta name="description" content="Electron 源码目录结构分析Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。  browser——主窗口、UI、主进程 renderer——渲染进程 common——同时被主进程和渲染进程用到的代码 app ——系统入口代码  Signals 是什么响应式更新&#x2F;细粒度更新。  状态（observable） 副作用（computed） 衍生状态（pu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023_04学习笔记">
-<meta property="og:url" content="http://scar.site/2022/04/07/index.html">
+<meta property="og:url" content="http://scar.site/2023/04/07/index.html">
 <meta property="og:site_name" content="秦一">
 <meta property="og:description" content="Electron 源码目录结构分析Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。  browser——主窗口、UI、主进程 renderer——渲染进程 common——同时被主进程和渲染进程用到的代码 app ——系统入口代码  Signals 是什么响应式更新&#x2F;细粒度更新。  状态（observable） 副作用（computed） 衍生状态（pu">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-05-08T05:59:20.847Z">
+<meta property="article:published_time" content="2023-04-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-05-27T07:56:20.707Z">
 <meta property="article:author" content="秦一">
 <meta name="twitter:card" content="summary">
     
@@ -121,8 +121,8 @@
         <h1 class="title">2023_04学习笔记</h1>
         <h5 class="subtitle">
             
-                <time datetime="2022-04-06T16:00:00.000Z" itemprop="datePublished" class="page-time">
-  2022-04-07
+                <time datetime="2023-04-06T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2023-04-07
 </time>
 
 
@@ -154,7 +154,7 @@
     <div class="post-card">
         <h1 class="post-card-title">2023_04学习笔记</h1>
         <div class="post-meta">
-            <time class="post-time" title="2022-04-07 00:00:00" datetime="2022-04-06T16:00:00.000Z"  itemprop="datePublished">2022-04-07</time>
+            <time class="post-time" title="2023-04-07 00:00:00" datetime="2023-04-06T16:00:00.000Z"  itemprop="datePublished">2023-04-07</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
@@ -187,7 +187,7 @@
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/608897758">https://zhuanlan.zhihu.com/p/608897758</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/angular/angular/discussions/49090">https://github.com/angular/angular/discussions/49090</a></p>
 </blockquote>
-<h1 id="import-maps"><a href="#import-maps" class="headerlink" title="import maps"></a>import maps</h1><p><code>import map</code>直译过来是 <strong>导入映射</strong>，它与模块的使用有关，一般我们在项目中导入模块，会调用<code>require</code>方法，或者使用<code>import</code>语句或方法，引入的模块通常使用npm之类的包管理器进行管理。但是<code>import map</code>提供了一种支持，让我们可以直接在页面上管理模块，不需要通过打包构建。</p>
+<h1 id="import-maps"><a href="#import-maps" class="headerlink" title="import maps"></a>import maps</h1><p><code>import map</code>直译过来是 <strong>导入映射</strong>，它与模块的使用有关，一般我们在项目中导入模块，会调用<code>require</code>方法，或者使用<code>import</code>语句或方法，引入的模块通常使用 npm 之类的包管理器进行管理。但是<code>import map</code>提供了一种支持，让我们可以直接在页面上管理模块，不需要通过打包构建。</p>
 <p>优势：</p>
 <ul>
 <li>支持动态加载模块</li>
@@ -196,7 +196,7 @@
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定义模块关系 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;importmap&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">   &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&#x27;module1&#x27;</span>: <span class="string">&#x27;module1.js&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&#x27;module2&#x27;</span>: &#123; <span class="attr">deps</span>: [<span class="string">&#x27;module1&#x27;</span>], <span class="attr">url</span>: <span class="string">&#x27;module2.js&#x27;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&#x27;module3&#x27;</span>: &#123; <span class="attr">deps</span>: [<span class="string">&#x27;module1&#x27;</span>], <span class="attr">url</span>: <span class="string">&#x27;module3.js&#x27;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载模块</span></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([</span><br><span class="line">  <span class="title function_">import</span>(moduleMap[<span class="string">&#x27;module1&#x27;</span>].<span class="property">url</span>),</span><br><span class="line">  <span class="title function_">import</span>(moduleMap[<span class="string">&#x27;module2&#x27;</span>].<span class="property">url</span>),</span><br><span class="line">  <span class="title function_">import</span>(moduleMap[<span class="string">&#x27;module3&#x27;</span>].<span class="property">url</span>),</span><br><span class="line">]).<span class="title function_">then</span>(<span class="function">(<span class="params">[module1, module2, module3]</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载模块</span></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="title function_">import</span>(moduleMap[<span class="string">&quot;module1&quot;</span>].<span class="property">url</span>), <span class="title function_">import</span>(moduleMap[<span class="string">&quot;module2&quot;</span>].<span class="property">url</span>), <span class="title function_">import</span>(moduleMap[<span class="string">&quot;module3&quot;</span>].<span class="property">url</span>)]).<span class="title function_">then</span>(<span class="function">(<span class="params">[module1, module2, module3]</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <h1 id="DefineProperty-enumerable"><a href="#DefineProperty-enumerable" class="headerlink" title="DefineProperty enumerable"></a>DefineProperty enumerable</h1><p>为什么 enumerable 默认为 false</p>
 <h1 id="开发团队如何管理琐碎、突发性任务？"><a href="#开发团队如何管理琐碎、突发性任务？" class="headerlink" title="开发团队如何管理琐碎、突发性任务？"></a>开发团队如何管理琐碎、突发性任务？</h1><p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/1xgi5mqffx33cavflaar">https://www.infoq.cn/article/1xgi5mqffx33cavflaar</a></p>
@@ -207,7 +207,7 @@
 <p>“像鸭子一样走路并且嘎嘎叫的就叫鸭子。” – James Whitecomb Riley</p>
 </blockquote>
 <p>实现接口实际上是检测对象是否拥有接口定义的所有方法。</p>
-<p>接口只是用来定义某些方法名称，它并不需要实现这些方法，比如 Duck 接口中不需要实现 swim方法。接口要做的是记住方法名称。</p>
+<p>接口只是用来定义某些方法名称，它并不需要实现这些方法，比如 Duck 接口中不需要实现 swim 方法。接口要做的是记住方法名称。</p>
 <h1 id="HTMX"><a href="#HTMX" class="headerlink" title="HTMX"></a><a target="_blank" rel="noopener" href="https://github.com/bigskysoftware/htmx">HTMX</a></h1><p>感慨时尚是一个圈，框架发展的弊端又开始让我们回归旧的潮流，但今时不同往日，即使用法一致背后的实现可能也是千差万别。</p>
 <p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/veskosrskc9xgiyygyku">https://www.infoq.cn/article/veskosrskc9xgiyygyku</a></p>
 <h1 id="可视化了解-React"><a href="#可视化了解-React" class="headerlink" title="可视化了解 React"></a>可视化了解 React</h1><p>很有意思的网站～</p>
@@ -220,7 +220,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2023-05-08T05:59:20.847Z" itemprop="dateUpdated">2023-05-08 13:59:20</time>
+    Last updated: <time datetime="2023-05-27T07:56:20.707Z" itemprop="dateUpdated">2023-05-27 15:56:20</time>
 </span><br>
 
 
@@ -248,7 +248,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2022/04/07/&title=《2023_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2023/04/07/&title=《2023_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -258,22 +258,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2022/04/07/&title=《2023_04学习笔记》 — 秦一&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2023/04/07/&title=《2023_04学习笔记》 — 秦一&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2022/04/07/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2023/04/07/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_04学习笔记》 — 秦一&url=http://scar.site/2022/04/07/&via=http://scar.site" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_04学习笔记》 — 秦一&url=http://scar.site/2023/04/07/&via=http://scar.site" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2022/04/07/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2023/04/07/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -296,18 +296,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2022/04/09/" id="post-prev" class="post-nav-link">
+      <a href="/2023/05/03/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">拖延前你会干什么</h4>
+        <h4 class="title">2023_05学习笔记</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2022/04/06/" id="post-next" class="post-nav-link">
+      <a href="/2023/03/27/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">警惕第一反应说不</h4>
+        <h4 class="title">第三种黑猩猩</h4>
       </a>
     </div>
   
@@ -379,7 +379,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2022/04/07/&title=《2023_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2023/04/07/&title=《2023_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -389,22 +389,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2022/04/07/&title=《2023_04学习笔记》 — 秦一&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2023/04/07/&title=《2023_04学习笔记》 — 秦一&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2022/04/07/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2023/04/07/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_04学习笔记》 — 秦一&url=http://scar.site/2022/04/07/&via=http://scar.site" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_04学习笔记》 — 秦一&url=http://scar.site/2023/04/07/&via=http://scar.site" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2022/04/07/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2023/04/07/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -415,7 +415,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/2022/04/07/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/2023/04/07/" alt="微信分享二维码">
 </div>
 
 
