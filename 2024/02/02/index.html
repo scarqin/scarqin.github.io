@@ -14,26 +14,24 @@
     
     
     
-    <title>2024_01 学习笔记 | 秦一</title>
+    <title>2024_02 学习笔记 | 秦一</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="Rush 是什么今年概念性的内容看得比较多，实践体验项目做得比较少，接下来希望可以积极贡献一个热门的开源项目； 目前对组件库&#x2F;Angular 新特性相关的内容比较感兴趣。 否定运算符｜非按位运算符https:&#x2F;&#x2F;j11y.io&#x2F;cool-stuff&#x2F;double-bitwise-not&#x2F;">
+    <meta name="description" content="React 动画库 https:&#x2F;&#x2F;www.framer.com&#x2F;motion&#x2F;examples&#x2F;（个人最喜欢） https:&#x2F;&#x2F;www.react-spring.dev&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2024_01 学习笔记">
-<meta property="og:url" content="http://scar.site/2024/01/13/index.html">
+<meta property="og:title" content="2024_02 学习笔记">
+<meta property="og:url" content="http://scar.site/2024/02/02/index.html">
 <meta property="og:site_name" content="秦一">
-<meta property="og:description" content="Rush 是什么今年概念性的内容看得比较多，实践体验项目做得比较少，接下来希望可以积极贡献一个热门的开源项目； 目前对组件库&#x2F;Angular 新特性相关的内容比较感兴趣。 否定运算符｜非按位运算符https:&#x2F;&#x2F;j11y.io&#x2F;cool-stuff&#x2F;double-bitwise-not&#x2F;">
+<meta property="og:description" content="React 动画库 https:&#x2F;&#x2F;www.framer.com&#x2F;motion&#x2F;examples&#x2F;（个人最喜欢） https:&#x2F;&#x2F;www.react-spring.dev&#x2F;">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://images.scar.site/img_v3_0278_728bd9d7-cab3-4f67-bb7d-0f49e8ae519g.jpg">
-<meta property="article:published_time" content="2024-01-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-02-02T06:49:11.677Z">
+<meta property="article:published_time" content="2024-02-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-02T14:44:55.717Z">
 <meta property="article:author" content="秦一">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://images.scar.site/img_v3_0278_728bd9d7-cab3-4f67-bb7d-0f49e8ae519g.jpg">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
@@ -98,7 +96,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">2024_01 学习笔记</div>
+        <div class="flex-col header-title ellipsis">2024_02 学习笔记</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -120,11 +118,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">2024_01 学习笔记</h1>
+        <h1 class="title">2024_02 学习笔记</h1>
         <h5 class="subtitle">
             
-                <time datetime="2024-01-12T16:00:00.000Z" itemprop="datePublished" class="page-time">
-  2024-01-13
+                <time datetime="2024-02-01T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2024-02-02
 </time>
 
 
@@ -145,18 +143,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Rush-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-text">Rush 是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%90%A6%E5%AE%9A%E8%BF%90%E7%AE%97%E7%AC%A6%EF%BD%9C%E9%9D%9E%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="post-toc-text">否定运算符｜非按位运算符</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AF%B7%E5%88%A0%E6%8E%89-99-%E7%9A%84-useMemo"><span class="post-toc-text">请删掉 99%的 useMemo</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#React-%E5%8A%A8%E7%94%BB%E5%BA%93"><span class="post-toc-text">React 动画库</span></a></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-知识卡片/2024_01学习笔记"
+<article id="post-知识卡片/2024_02学习笔记"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">2024_01 学习笔记</h1>
+        <h1 class="post-card-title">2024_02 学习笔记</h1>
         <div class="post-meta">
-            <time class="post-time" title="2024-01-13 00:00:00" datetime="2024-01-12T16:00:00.000Z"  itemprop="datePublished">2024-01-13</time>
+            <time class="post-time" title="2024-02-02 00:00:00" datetime="2024-02-01T16:00:00.000Z"  itemprop="datePublished">2024-02-02</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
@@ -171,26 +169,9 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="Rush-是什么"><a href="#Rush-是什么" class="headerlink" title="Rush 是什么"></a><a target="_blank" rel="noopener" href="https://rushjs.io/pages/intro/welcome/">Rush 是什么</a></h1><p>今年概念性的内容看得比较多，实践体验项目做得比较少，接下来希望可以积极贡献一个热门的开源项目；</p>
-<p>目前对组件库&#x2F;Angular 新特性相关的内容比较感兴趣。</p>
-<h1 id="否定运算符｜非按位运算符"><a href="#否定运算符｜非按位运算符" class="headerlink" title="否定运算符｜非按位运算符"></a>否定运算符｜非按位运算符</h1><p><a target="_blank" rel="noopener" href="https://j11y.io/cool-stuff/double-bitwise-not/">https://j11y.io/cool-stuff/double-bitwise-not/</a></p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://images.scar.site/img_v3_0278_728bd9d7-cab3-4f67-bb7d-0f49e8ae519g.jpg" alt="img_v3_0278_728bd9d7-cab3-4f67-bb7d-0f49e8ae519g" title="">
-                </div>
-                <div class="image-caption">img_v3_0278_728bd9d7-cab3-4f67-bb7d-0f49e8ae519g</div>
-            </figure>
-
-<h1 id="请删掉-99-的-useMemo"><a href="#请删掉-99-的-useMemo" class="headerlink" title="请删掉 99%的 useMemo"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aQclSEHFER-Tsr2LaYtm-A">请删掉 99%的 useMemo</a></h1><p>使用 useMemo 进行优化仅在少数情况下有价值：</p>
-<ul>
-<li><p>你明确知道这个计算非常的昂贵，而且它的依赖关系很少改变。</p>
-</li>
-<li><p>如果当前的计算结果将作为 memo 包裹组件的 props 传递。计算结果没有改变，可以利用 useMemo 缓存结果，跳过重渲染。</p>
-</li>
-</ul>
-<ul>
-<li>当前计算的结果作为某些 hook 的依赖项。比如其他的 useMemo&#x2F;useEffect 依赖当前的计算结果。</li>
+            <h1 id="React-动画库"><a href="#React-动画库" class="headerlink" title="React 动画库"></a>React 动画库</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.framer.com/motion/examples/%EF%BC%88%E4%B8%AA%E4%BA%BA%E6%9C%80%E5%96%9C%E6%AC%A2%EF%BC%89">https://www.framer.com/motion/examples/（个人最喜欢）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.react-spring.dev/">https://www.react-spring.dev/</a></li>
 </ul>
 
         </div>
@@ -200,7 +181,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2024-02-02T06:49:11.677Z" itemprop="dateUpdated">2024-02-02 14:49:11</time>
+    Last updated: <time datetime="2024-02-02T14:44:55.717Z" itemprop="dateUpdated">2024-02-02 22:44:55</time>
 </span><br>
 
 
@@ -228,7 +209,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2024/01/13/&title=《2024_01 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2024/02/02/&title=《2024_02 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -238,22 +219,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2024/01/13/&title=《2024_01 学习笔记》 — 秦一&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2024/02/02/&title=《2024_02 学习笔记》 — 秦一&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2024/01/13/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2024/02/02/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2024_01 学习笔记》 — 秦一&url=http://scar.site/2024/01/13/&via=http://scar.site" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2024_02 学习笔记》 — 秦一&url=http://scar.site/2024/02/02/&via=http://scar.site" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2024/01/13/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2024/02/02/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -273,21 +254,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2024/01/13/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">prompt 提示词学习 - scar 笔记</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2024/01/10/" id="post-next" class="post-nav-link">
+      <a href="/2024/01/20/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">提示词工程-笔记</h4>
+        <h4 class="title">2023 掘金开发者大会</h4>
       </a>
     </div>
   
@@ -359,7 +333,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2024/01/13/&title=《2024_01 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2024/02/02/&title=《2024_02 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -369,22 +343,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2024/01/13/&title=《2024_01 学习笔记》 — 秦一&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2024/02/02/&title=《2024_02 学习笔记》 — 秦一&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2024/01/13/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2024/02/02/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2024_01 学习笔记》 — 秦一&url=http://scar.site/2024/01/13/&via=http://scar.site" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2024_02 学习笔记》 — 秦一&url=http://scar.site/2024/02/02/&via=http://scar.site" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2024/01/13/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2024/02/02/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -395,7 +369,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/2024/01/13/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/2024/02/02/" alt="微信分享二维码">
 </div>
 
 

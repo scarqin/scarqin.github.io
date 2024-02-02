@@ -2920,6 +2920,9 @@ a[title="站长统计"] {
   }
 }
 @media screen and (max-width: 760px) {
+  .container {
+    min-width: auto;
+  }
   #main {
     width: 100%;
     overflow-x: hidden;
@@ -3618,7 +3621,7 @@ pre .javascript .function {
 }
 .post-widget + .post-article {
   float: left;
-  width: 80%;
+  width: 80vw;
   padding-right: 30px;
 }
 .post-toc-wrap {
@@ -4032,8 +4035,8 @@ pre .javascript .function {
   }
   .post-article {
     float: none;
-    width: 100%!important;
-    padding-right: 0!important;
+    width: 100% !important;
+    padding-right: 0 !important;
   }
   .post-card {
     position: relative;
