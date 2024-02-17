@@ -10,22 +10,29 @@ categories:
 
 # 项目实践
 
-# ChatGPT 使用
+# 视频
+
+## ChatGPT 使用
 
 - https://platform.openai.com/docs/guides/prompt-engineering
 - https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/1/introduction
 - https://learn-prompting.webflow.io/courses
 
-# 模型开发
+## 模型开发
 
 - https://learn.deeplearning.ai/langchain/lesson/1/introduction
 - https://www.tensorflow.org/js/models?hl=zh-cn
+
+## 其他
+
+- [从零开始学习大语言模型（一）
+  ](https://www.bilibili.com/video/BV1v4421w7pU/?buvid=Y74BA5755275F78B410384BC86B5CFA8F931&from_spmid=united.player-video-detail.0.0&is_story_h5=false&mid=Kz1JvX2sJnA1zfI3Kuzm3w%3D%3D&p=1&plat_id=116&share_from=ugc&share_medium=iphone&share_plat=ios&share_session_id=08F51BAC-CF55-4985-9B91-69EC4C6174A9&share_source=COPY&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1708173068&unique_k=MXSHEDT&up_id=4401694&vd_source=5bef9f029d9d84b450be299409947c15)
 
 # 书籍
 
 - [AI 未来进行式-李开复](https://weread.qq.com/web/reader/0bc32b20813ab6d9fg0114c1?)
 
-# 资料
+# 杂文
 
 - [AI 大模型的语言不平等：英语最便宜，其它语言要贵得多](https://m.ithome.com/html/709207.htm?s_trans=2778047213_&s_channel=4)
 
