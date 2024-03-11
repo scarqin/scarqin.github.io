@@ -25,6 +25,7 @@ categories:
 
 ## 其他
 
+- Andrej Karpathy 的课程，浅显易懂
 - [从零开始学习大语言模型（一）
   ](https://www.bilibili.com/video/BV1v4421w7pU/?buvid=Y74BA5755275F78B410384BC86B5CFA8F931&from_spmid=united.player-video-detail.0.0&is_story_h5=false&mid=Kz1JvX2sJnA1zfI3Kuzm3w%3D%3D&p=1&plat_id=116&share_from=ugc&share_medium=iphone&share_plat=ios&share_session_id=08F51BAC-CF55-4985-9B91-69EC4C6174A9&share_source=COPY&share_tag=s_i&spmid=united.player-video-detail.0.0&timestamp=1708173068&unique_k=MXSHEDT&up_id=4401694&vd_source=5bef9f029d9d84b450be299409947c15)
 
