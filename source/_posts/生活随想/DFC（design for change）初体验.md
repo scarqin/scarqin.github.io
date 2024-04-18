@@ -2,14 +2,13 @@
 title: DFC（design for change）初体验
 date: 2016/05/05 12:00:30
 description:
-categories: 生活随想
+categories: 碎碎念
 ---
 
 [DFC 官网](http://dfcchina.net/index.html)
 
 > DFC 视频分享
-> [台湾-捷足先登](http://v.youku.com/v_show/id_XMTM1MjIwNTgyMA)
-> [heal-眼睛肿瘤的孩子](http://v.youku.com/v_show/id_XMTM1MjIwMzc2MA)
+> [台湾-捷足先登](http://v.youku.com/v_show/id_XMTM1MjIwNTgyMA) > [heal-眼睛肿瘤的孩子](http://v.youku.com/v_show/id_XMTM1MjIwMzc2MA)
 
 ![孩童创意](https://images.scar.site/20220223005814.png)
 

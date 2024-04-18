@@ -2,7 +2,7 @@
 title: DFC 实战1
 date: 2016/05/15 12:47
 description:
-categories: 生活随想
+categories: 碎碎念
 ---
 
 此次是 dfc 的前两个阶段  

@@ -2,7 +2,7 @@
 title: A 的爱情观
 date: 2015/12/22 20:12:23
 description:
-categories: 生活随想
+categories: 碎碎念
 ---
 
 # 突来的电话
