@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2022_02学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="What does “–” (double-dash) mean?比较合理的解释是 – 可以将后面的字符标记成字符串，而不是 -，所以它是为了让命令行区分是配置还是字符串。 例如： 123npm run build -- -v #实际上执行npm run build &quot;-v&quot;  Angular 路由跳转123&lt;a routerLink&#x3D;&quot;&#x2F;heroes&#x2F;&amp;#12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022_02学习笔记">
+<meta property="og:url" content="http://scar.site/1bfee1fd707f/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="What does “–” (double-dash) mean?比较合理的解释是 – 可以将后面的字符标记成字符串，而不是 -，所以它是为了让命令行区分是配置还是字符串。 例如： 123npm run build -- -v #实际上执行npm run build &quot;-v&quot;  Angular 路由跳转123&lt;a routerLink&#x3D;&quot;&#x2F;heroes&#x2F;&amp;#12">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdn.net/20180619101018799?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pwb2lzb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200702154504476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phc29uX2ppYWhvbmdmZWk=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-c68248bb5d9b4d64d22600571e996446_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://pic2.zhimg.com/80/v2-e64bf72c5c04412f626b21753aa9e1a1_720w.jpg?source=1940ef5c">
+<meta property="og:image" content="https://www.ruanyifeng.com/blogimg/asset/2017/bg2017072301.jpg">
+<meta property="article:published_time" content="2022-01-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.776Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20180619101018799?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pwb2lzb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2022_02学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2022_02学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-01-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2022-02-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#What-does-%E2%80%9C%E2%80%93%E2%80%9D-double-dash-mean"><span class="post-toc-number">1.</span> <span class="post-toc-text">What does “–” (double-dash) mean?</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Angular-%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC"><span class="post-toc-number">2.</span> <span class="post-toc-text">Angular 路由跳转</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Stencil"><span class="post-toc-number">3.</span> <span class="post-toc-text">Stencil</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SOA-%E3%80%81ESB%E3%80%81%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="post-toc-number">4.</span> <span class="post-toc-text">SOA 、ESB、微服务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SOA"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">SOA</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">微服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ESB"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">ESB</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B5%84%E6%96%99"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">资料</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BA%B7%E5%A8%81%E5%AE%9A%E5%BE%8B"><span class="post-toc-number">5.</span> <span class="post-toc-text">什么是康威定律</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8-token-%E4%BB%A3%E6%9B%BF-cookie-%E9%98%B2%E6%AD%A2-xss-%E6%94%BB%E5%87%BB"><span class="post-toc-number">6.</span> <span class="post-toc-text">为什么不用 token 代替 cookie 防止 xss 攻击</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%8E%E4%B9%88%E6%89%A3%E5%BE%AE%E4%BF%A1%E9%98%85%E8%AF%BB%E7%9A%84-API"><span class="post-toc-number">7.</span> <span class="post-toc-text">怎么扣微信阅读的 API</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#generate-204-web-I-regularly-see-gstatic-com-in-the-status-bar-what-is-that-domain-Super-User"><span class="post-toc-number">8.</span> <span class="post-toc-text">[generate_204](web - I regularly see gstatic.com in the status bar, what is that domain? - Super User)</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%92%8C%E5%BE%AE%E5%89%8D%E7%AB%AF"><span class="post-toc-number">9.</span> <span class="post-toc-text">微服务和微前端</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1-1"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">微服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%BE%AE%E5%89%8D%E7%AB%AF"><span class="post-toc-number">9.2.</span> <span class="post-toc-text">微前端</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%8E%9F%E5%88%99"><span class="post-toc-number">10.</span> <span class="post-toc-text">依赖倒置&#x2F;依赖注入原则</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E6%84%8F%E4%B9%89"><span class="post-toc-number">11.</span> <span class="post-toc-text">单元测试的意义</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%89%80%E6%9C%89%E7%9A%84Git-Tag"><span class="post-toc-number">12.</span> <span class="post-toc-text">如何删除所有的Git Tag</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Git-LFS%EF%BC%9F"><span class="post-toc-number">13.</span> <span class="post-toc-text">什么是 Git LFS？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Pass%E3%80%81Sass%E3%80%81IaaS-%E5%8C%BA%E5%88%AB"><span class="post-toc-number">14.</span> <span class="post-toc-text">Pass、Sass、IaaS 区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ISV-%E5%92%8C-SI-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">15.</span> <span class="post-toc-text">ISV 和 SI 是什么？</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2022_02学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2022_02学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-02-01 00:00:00" datetime="2022-01-31T16:00:00.000Z"  itemprop="datePublished">2022-02-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="What-does-“–”-double-dash-mean"><a href="#What-does-“–”-double-dash-mean" class="headerlink" title="What does “–” (double-dash) mean?"></a><a target="_blank" rel="noopener" href="https://unix.stackexchange.com/questions/11376/what-does-double-dash-mean">What does “–” (double-dash) mean?</a></h1><p>比较合理的解释是 – 可以将后面的字符标记成字符串，而不是 -<command-options>，所以它是为了让命令行区分是配置还是字符串。</p>
+<p>例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm run build -- -v </span><br><span class="line">#实际上执行</span><br><span class="line">npm run build &quot;-v&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Angular-路由跳转"><a href="#Angular-路由跳转" class="headerlink" title="Angular 路由跳转"></a>Angular 路由跳转</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">routerLink</span>=<span class="string">&quot;/heroes/&#123;&#123;id&#125;&#125;&quot;</span>&gt;</span>点击查看文章详情<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--or--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> [<span class="attr">routerLink</span>]=<span class="string">&quot;[&#x27;/heroes&#x27;, num]&quot;</span>&gt;</span>点击查看文章详情<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//110 是 rest 参数</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">router</span>.<span class="title function_">navigate</span>([<span class="string">&#x27;/index&#x27;</span>,<span class="number">110</span>], &#123; <span class="attr">queryParams</span>: &#123; <span class="attr">productId</span>: <span class="string">&#x27;1&#x27;</span>, <span class="attr">title</span>: <span class="string">&#x27;moon&#x27;</span> &#125; &#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="Stencil"><a href="#Stencil" class="headerlink" title="Stencil"></a><a target="_blank" rel="noopener" href="https://github.com/ionic-team/stencil">Stencil</a></h1><p>Stencil - 生成 Web Components 的框架</p>
+<p>也是一种框架，语言类似于 Angular+React，用它写的组件可以编译成 Web Component 在任何框架运行。</p>
+<h1 id="SOA-、ESB、微服务"><a href="#SOA-、ESB、微服务" class="headerlink" title="SOA 、ESB、微服务"></a>SOA 、ESB、微服务</h1><h2 id="SOA"><a href="#SOA" class="headerlink" title="SOA"></a>SOA</h2><p>Service Oriented Architecture，一种指导理念</p>
+<h2 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h2><p>微服务是一种通过多个小型服务组合来构建单个应用的架构风格，这些服务围绕业务能力而非特定的技术标准来构建。各个服务可以采用不同的编程语言，不同的数据存储技术，运行在不同的进程之中。服务采取轻量级的通信机制和自动化的部署机制实现通信与运维。</p>
+<h2 id="ESB"><a href="#ESB" class="headerlink" title="ESB"></a>ESB</h2><p>一种实现 SOA 实现的方案&#x2F;框架</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdn.net/20180619101018799?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pwb2lzb24=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30477325">SOA、ESB、微服务的关系梳理</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101341556">为什么微服务一定要有网关？</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zpoison/article/details/80729052">SOA架构和微服务架构的区别</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://icyfenix.cn/architecture/architect-history/microservices.html">微服务时代 </a></p>
+</li>
+</ul>
+<h1 id="什么是康威定律"><a href="#什么是康威定律" class="headerlink" title="什么是康威定律"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/jason_jiahongfei/article/details/107085078">什么是康威定律</a></h1><blockquote>
+<p>organizations which design systems … are constrained to produce designs which are copies of the communication structures of these organizations</p>
+</blockquote>
+<p>设计系統的架构受制于产生这些设计的组织的沟通结构。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20200702154504476.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2phc29uX2ppYWhvbmdmZWk=,size_16,color_FFFFFF,t_70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="为什么不用-token-代替-cookie-防止-xss-攻击"><a href="#为什么不用-token-代替-cookie-防止-xss-攻击" class="headerlink" title="为什么不用 token 代替 cookie 防止 xss 攻击"></a>为什么不用 token 代替 cookie 防止 xss 攻击</h1><ul>
+<li><p>cookie 可以让前端不需要关注登录逻辑</p>
+</li>
+<li><p>前后端不分离的话，后端代码不方便操作 localStorage 等浏览器储存库存取 token</p>
+</li>
+</ul>
+<h1 id="怎么扣微信阅读的-API"><a href="#怎么扣微信阅读的-API" class="headerlink" title="怎么扣微信阅读的 API"></a>怎么扣微信阅读的 API</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// web 上获取 API</span><br><span class="line">https://weread.qq.com/web/review/list?bookId=36557713&amp;listType=3&amp;maxIdx=0&amp;count=3&amp;listMode=2&amp;code=fake&amp;synckey=0</span><br><span class="line"></span><br><span class="line">//将 weread.qq.com/web 改为 i.weread.qq.com 变成</span><br><span class="line">https://weread.qq.com/web/review/list?bookId=36557713&amp;listType=3&amp;maxIdx=0&amp;count=3&amp;listMode=2&amp;code=fake&amp;synckey=0</span><br></pre></td></tr></table></figure>
+
+<h1 id="generate-204-web-I-regularly-see-gstatic-com-in-the-status-bar-what-is-that-domain-Super-User"><a href="#generate-204-web-I-regularly-see-gstatic-com-in-the-status-bar-what-is-that-domain-Super-User" class="headerlink" title="[generate_204](web - I regularly see gstatic.com in the status bar, what is that domain? - Super User)"></a>[generate_204](<a target="_blank" rel="noopener" href="https://superuser.com/questions/64716/i-regularly-see-gstatic-com-in-the-status-bar-what-is-that-domain/64724#64724">web - I regularly see gstatic.com in the status bar, what is that domain? - Super User</a>)</h1><p>谷歌储存静态资源的地址，分离静态资源减少带宽的占用，为终端用户提升网络性能。</p>
+<p>好处：</p>
+<ul>
+<li><p>浏览器一般会限制与单个服务器的建连数，一般是 2 个，虽然可配置但是一般用户不去关心，所以如果静态资源分离到不同域名（不同服务器），可以提交建连数</p>
+</li>
+<li><p>通过禁用 cookies 和其他 HTTP 请求头部来减少网络传输占据的带宽</p>
+</li>
+<li><p>分离动静态资源可以更方便的将资源托管到 CDN，只托管静态资源。</p>
+</li>
+</ul>
+<h1 id="微服务和微前端"><a href="#微服务和微前端" class="headerlink" title="微服务和微前端"></a>微服务和微前端</h1><h2 id="微服务-1"><a href="#微服务-1" class="headerlink" title="微服务"></a>微服务</h2><p>后端将应用拆分成一个能独立运行的服务，通过 RPC（例如 HTTP）进行通信。</p>
+<p>好处：</p>
+<ul>
+<li><p>技术栈无关</p>
+</li>
+<li><p>可以独立运行、独立部署</p>
+</li>
+<li><p>代码拆分，减少复杂度，只关注自己负责部分的代码</p>
+</li>
+</ul>
+<h2 id="微前端"><a href="#微前端" class="headerlink" title="微前端"></a>微前端</h2><p>微服务在前端应用的概念，前端将应用拆分成多个微小应用，可以在同一个运行环境下运行，通过自定义的通信手段进行服务间的通信。</p>
+<p>好处和微服务一致。</p>
+<h1 id="依赖倒置-依赖注入原则"><a href="#依赖倒置-依赖注入原则" class="headerlink" title="依赖倒置&#x2F;依赖注入原则"></a>依赖倒置&#x2F;依赖注入原则</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic2.zhimg.com/80/v2-c68248bb5d9b4d64d22600571e996446_720w.jpg?source=1940ef5c" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pic2.zhimg.com/80/v2-e64bf72c5c04412f626b21753aa9e1a1_720w.jpg?source=1940ef5c" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ul>
+<li><p>把原本的高层建筑依赖底层建筑“倒置”过来，变成底层建筑依赖<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E9%AB%98%E5%B1%82%E5%BB%BA%E7%AD%91&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:169698662%7D">高层建筑</a>。高层建筑决定需要什么，底层去实现这样的需求，但是高层并不用管底层是怎么实现的。这样就不会出现前面的“牵一发动全身”的情况。</p>
+</li>
+<li><p><strong>所谓依赖注入，就是把底层类作为参数传入上层类，实现上层类对下层类的“控制</strong>”。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23277575">https://www.zhihu.com/question/23277575</a></p>
+<h1 id="单元测试的意义"><a href="#单元测试的意义" class="headerlink" title="单元测试的意义"></a>单元测试的意义</h1><ul>
+<li><p>测试驱动开发</p>
+</li>
+<li><p>保证代码质量</p>
+</li>
+<li><p>重构的定海神针</p>
+</li>
+<li><p>使用示例</p>
+</li>
+<li><p>关注质量的意识</p>
+</li>
+</ul>
+<h1 id="如何删除所有的Git-Tag"><a href="#如何删除所有的Git-Tag" class="headerlink" title="如何删除所有的Git Tag"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/44702757/how-to-remove-all-git-origin-and-local-tags">如何删除所有的Git Tag</a></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git tag -d $(git tag -l)</span><br><span class="line">git fetch</span><br><span class="line">git push origin --delete $(git tag -l) </span><br><span class="line">git tag -d $(git tag -l)</span><br></pre></td></tr></table></figure>
+
+<h1 id="什么是-Git-LFS？"><a href="#什么是-Git-LFS？" class="headerlink" title="什么是 Git LFS？"></a><strong>什么是 Git LFS？</strong></h1><p>Git 是<em>分布式</em> 版本控制系统，这意味着在克隆过程中会将仓库的整个历史记录传输到客户端。对于包涵大文件（尤其是经常被修改的大文件）的项目，初始克隆需要大量时间，因为客户端会下载每个文件的每个版本。</p>
+<p><strong>Git LFS</strong>（Large File Storage）是由 Atlassian, GitHub 以及其他开源贡献者开发的 Git 扩展，它通过延迟地（lazily）下载大文件的相关版本来减少大文件在仓库中的影响，具体来说，大文件是在 checkout 的过程中下载的，而不是 clone 或 fetch 过程中下载的（<strong>这意味着你在后台定时 fetch 远端仓库内容到本地时，并不会下载大文件内容，而是在你 checkout 到工作区的时候才会真正去下载大文件的内容</strong>）。</p>
+<h1 id="Pass、Sass、IaaS-区别"><a href="#Pass、Sass、IaaS-区别" class="headerlink" title="Pass、Sass、IaaS 区别"></a>Pass、Sass、IaaS 区别</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://www.ruanyifeng.com/blogimg/asset/2017/bg2017072301.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ul>
+<li><p><strong>SaaS</strong> 是软件的开发、管理、部署都交给第三方，不需要关心技术问题，可以拿来即用。普通用户接触到的互联网服务，几乎都是 SaaS，下面是一些例子。</p>
+</li>
+<li><p><strong>PaaS</strong> 提供软件部署平台（runtime），抽象掉了硬件和操作系统细节，可以无缝地扩展（scaling）。开发者只需要关注自己的业务逻辑，不需要关注底层。**下面这些都属于 PaaS。</p>
+</li>
+<li><p><strong>IaaS</strong> 是云服务的最底层，主要提供一些基础资源。它与 PaaS 的区别是，用户需要自己控制底层，实现基础设施的使用逻辑。下面这些都属于 IaaS。</p>
+</li>
+</ul>
+<h1 id="ISV-和-SI-是什么？"><a href="#ISV-和-SI-是什么？" class="headerlink" title="ISV 和 SI 是什么？"></a>ISV 和 SI 是什么？</h1><ul>
+<li><p>ISV 是 Independent Software Vendors 的英文缩写，意为“独立软件开发商”，特指专门从事软件的开发、生产、销售和服务的企业，如微软（Microsoft）、甲骨文（Oracle）等。</p>
+</li>
+<li><p>SI 系统集成商（英文System Integrator），是指具备系统资质，能对行业用户实施系统集成的企业。系统集成包括</p>
+<ul>
+<li><p>设备系统集成（硬件系统集成商、弱电集成商）</p>
+<ul>
+<li><p>智能建筑系统集成商</p>
+</li>
+<li><p>计算机网络系统集成商</p>
+</li>
+<li><p>安防系统集成商（安防工程商）</p>
+</li>
+</ul>
+</li>
+<li><p>应用系统集成（行业信息化方案解决商）</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Salesforce.com has two partner programs. Select your primary program of interest.</p>
+<ul>
+<li>The Independent Software Vendor (ISV) program is for partners who want to <strong>build and sell apps</strong>.</li>
+<li>The System Integrator (SI) program is for partners who plan to <strong>deliver services</strong> related to salesforce.com.</li>
+</ul>
+</blockquote>
+<p>还有另外的说法，ISV 是自产自销的，SI 是协助售卖  salesforce.com 上的应用</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.776Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/1bfee1fd707f/&title=《2022_02学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/1bfee1fd707f/&title=《2022_02学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/1bfee1fd707f/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_02学习笔记》 — 秦一&url=http://scar.site/1bfee1fd707f/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/1bfee1fd707f/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/89d776dd63d1/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">开源一个微信阅读导出插件</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/a570913b7af4/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2022_01学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/1bfee1fd707f/&title=《2022_02学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/1bfee1fd707f/&title=《2022_02学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/1bfee1fd707f/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_02学习笔记》 — 秦一&url=http://scar.site/1bfee1fd707f/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/1bfee1fd707f/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/1bfee1fd707f/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

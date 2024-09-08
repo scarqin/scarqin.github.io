@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>使用 JavaScript 实现 JWT 鉴权 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="随着互联网的崛起，对 Web 服务应用的安全性要求越来越高。在前后端分离的开发模式中，服务端使用特定的加密方式生成 token，客户端储存 token 作为授权传递给服务端，验证身份等信息是保障安全性的一种方式。其中 JWT（JSON Web Token）这种用于通信双方之间以 JSON 对象的形式传递信息的轻量鉴权方式受到越来越多的开发者喜爱。 什么是鉴权如果没有鉴权信息,他人能够轻而易举的调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 JavaScript 实现 JWT 鉴权">
+<meta property="og:url" content="http://scar.site/a49b5cc8dcd3/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="随着互联网的崛起，对 Web 服务应用的安全性要求越来越高。在前后端分离的开发模式中，服务端使用特定的加密方式生成 token，客户端储存 token 作为授权传递给服务端，验证身份等信息是保障安全性的一种方式。其中 JWT（JSON Web Token）这种用于通信双方之间以 JSON 对象的形式传递信息的轻量鉴权方式受到越来越多的开发者喜爱。 什么是鉴权如果没有鉴权信息,他人能够轻而易举的调用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220225001302.png">
+<meta property="og:image" content="https://images.scar.site/20220225001321.png">
+<meta property="og:image" content="https://images.scar.site/20220225001328.png">
+<meta property="og:image" content="https://images.scar.site/20220225001349.png">
+<meta property="article:published_time" content="2019-12-03T16:13:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.769Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220225001302.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">使用 JavaScript 实现 JWT 鉴权</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">使用 JavaScript 实现 JWT 鉴权</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-03T16:13:00.000Z" itemprop="datePublished" class="page-time">
+  2019-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%89%B4%E6%9D%83"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是鉴权</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BA%94%E7%94%A8"><span class="post-toc-number">2.</span> <span class="post-toc-text">应用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#JWT-%E9%89%B4%E6%9D%83"><span class="post-toc-number">3.</span> <span class="post-toc-text">JWT 鉴权</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="post-toc-number">4.</span> <span class="post-toc-text">实现的代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-eoLinker-%E5%81%9A%E9%AA%8C%E8%AF%81"><span class="post-toc-number">5.</span> <span class="post-toc-text">使用 eoLinker 做验证</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/使用 JavaScript 实现 JWT 鉴权"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">使用 JavaScript 实现 JWT 鉴权</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-04 00:13:00" datetime="2019-12-03T16:13:00.000Z"  itemprop="datePublished">2019-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>随着互联网的崛起，对 Web 服务应用的安全性要求越来越高。在前后端分离的开发模式中，服务端使用特定的加密方式生成 token，客户端储存 token 作为授权传递给服务端，验证身份等信息是保障安全性的一种方式。其中 JWT（JSON Web Token）这种用于通信双方之间以 JSON 对象的形式传递信息的轻量鉴权方式受到越来越多的开发者喜爱。</p>
+<h1 id="什么是鉴权"><a href="#什么是鉴权" class="headerlink" title="什么是鉴权"></a>什么是鉴权</h1><p>如果没有鉴权信息,他人能够轻而易举的调用 API 对我们的数据进行操作。下图是一种常见的鉴权流程。客户端输入用户名密码等身份信息，服务端生成一个 token（token 可以是 user 唯一能识别身份的非敏感信息通过鉴权的加密方式生成），然后再将 token 返回给浏览器客户端，再次访问服务器时带上 token 信息，服务器会使用同样的鉴权方式对 token 进行验证，token 验证一致后执行具体操作。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001302.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>我需要一下将 json 信息使用 jwt 鉴权方式生成 token。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;scar&quot;,</span><br><span class="line">  &quot;role&quot;: &quot;admin&quot;,</span><br><span class="line">  &quot;expirationData&quot;: &quot;2018-10-24 17:05:00&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JWT-鉴权"><a href="#JWT-鉴权" class="headerlink" title="JWT 鉴权"></a>JWT 鉴权</h1><p>JWT 由三部分组成。</p>
+<p>1.头部 Header</p>
+<p>json 格式，指定了加密算法(alg)和 token 类型(typ)。</p>
+<p>2.有效信息 payload</p>
+<p>json 格式，标准中的注册可选参数以及需要传输的待加密信息，官方提供了可选参数如下表。</p>
+<p><strong>payload 官方可选参数</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">可选参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">iss</td>
+<td align="left">jwt 签发者</td>
+</tr>
+<tr>
+<td align="left">sub</td>
+<td align="left">jwt 所面向的用户</td>
+</tr>
+<tr>
+<td align="left">aud</td>
+<td align="left">接收 jwt 的一方</td>
+</tr>
+<tr>
+<td align="left">exp</td>
+<td align="left">jwt 的过期时间，这个过期时间必须要大于签发时间</td>
+</tr>
+<tr>
+<td align="left">nbf</td>
+<td align="left">定义在什么时间之前，该 jwt 都是不可用的</td>
+</tr>
+<tr>
+<td align="left">iat</td>
+<td align="left">jwt 的签发时间</td>
+</tr>
+<tr>
+<td align="left">jti</td>
+<td align="left">jwt 的唯一身份标识，主要用来作为一次性 token,从而回避重放攻击</td>
+</tr>
+</tbody></table>
+<p>3.签名 signature</p>
+<p>由 Header 和 Payload 经过处理得到，防止信息被篡改。</p>
+<p>将 Header 和 Payload 分别经过 base64UrlEncode 加密，得到 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">before_sign = <span class="title function_">base64UrlEncode</span>(<span class="title class_">Header</span>).<span class="title function_">base64UrlEncode</span>(<span class="title class_">Payload</span>)；</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>中间用英文句号连接，然后将 before_sign 作为加密函数的第一个传参，Secret Salt（盐）作为加密函数的第二个传参，通过 Header 里面定义好的 alg 加密方式进行加密；</p>
+<p>最后用英文句号连接 before_sign 和加密后的 before_sign。final_sign&#x3D;before_sign+’.’+HS256(before_sign, secretSalt);</p>
+<h1 id="实现的代码"><a href="#实现的代码" class="headerlink" title="实现的代码"></a>实现的代码</h1><p>首先引入加密库 CryptoJS 与 jsrsasign，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//和普通 base64 加密不一样</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">base64UrlEncode</span>(<span class="params">str</span>) &#123;</span><br><span class="line"><span class="keyword">var</span> encodedSource = <span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Base64</span>.<span class="title function_">stringify</span>(str);</span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&#x27;/&#x27;</span>, <span class="string">&#x27;g&#x27;</span>);</span><br><span class="line">encodedSource = encodedSource.<span class="title function_">replace</span>(<span class="regexp">/=+$/</span>,<span class="string">&#x27;&#x27;</span>).<span class="title function_">replace</span>(<span class="regexp">/\+/g</span>,<span class="string">&#x27;-&#x27;</span>).<span class="title function_">replace</span>(reg,<span class="string">&#x27;\_&#x27;</span>);</span><br><span class="line"><span class="keyword">return</span> encodedSource;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> header = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line"><span class="string">&quot;alg&quot;</span>: <span class="string">&quot;HS256&quot;</span>,</span><br><span class="line"><span class="string">&quot;typ&quot;</span>: <span class="string">&quot;JWT&quot;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> payload =<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line"><span class="string">&quot;name&quot;</span>: <span class="string">&quot;scar&quot;</span>,</span><br><span class="line"><span class="string">&quot;role&quot;</span>: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line"><span class="string">&quot;expirationData&quot;</span>: <span class="string">&quot;2018-10-24 17:05:00&quot;</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> secretSalt = <span class="string">&quot;user&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> before_sign = <span class="title function_">base64UrlEncode</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(header)) + <span class="string">&#x27;.&#x27;</span> + <span class="title function_">base64UrlEncode</span>(<span class="title class_">CryptoJS</span>.<span class="property">enc</span>.<span class="property">Utf8</span>.<span class="title function_">parse</span>(payload));</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> signature =<span class="title class_">CryptoJS</span>.<span class="title class_">HmacSHA256</span>(before_sign, secretSalt);</span><br><span class="line">signature = <span class="title function_">base64UrlEncode</span>(signature);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> final_sign = before_sign + <span class="string">&#x27;.&#x27;</span> + signature;</span><br><span class="line"><span class="comment">//final_sign:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoic2NhciIsInJvbGUiOiJhZG1pbiIsImV4cGlyYXRpb25EYXRhIjoiMjAxOC0xMC0yNCAxNzowNTowMCJ9.bVc48JsxiM7ZZgtZch1QnRpLyt08M9LepwoLvs_aejI</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001321.png" alt="图片来自jwt.io" title="">
+                </div>
+                <div class="image-caption">图片来自jwt.io</div>
+            </figure>
+<p>使用 javascript 实现有一定的加密算法限制，目前 ES512（ECDSA with curve P-521 and SHA-512）是不被支持的。</p>
+<h1 id="使用-eoLinker-做验证"><a href="#使用-eoLinker-做验证" class="headerlink" title="使用 eoLinker 做验证"></a>使用 eoLinker 做验证</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001328.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>填写好响应的信息，此处我将 jwt 鉴权 token 放在请求头部的 Authorization 中。</p>
+<p>点击测试后，得到和我们的加密函数一样的结果</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220225001349.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<pre><code>
+</code></pre>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.769Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/a49b5cc8dcd3/&title=《使用 JavaScript 实现 JWT 鉴权》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/a49b5cc8dcd3/&title=《使用 JavaScript 实现 JWT 鉴权》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/a49b5cc8dcd3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用 JavaScript 实现 JWT 鉴权》 — 秦一&url=http://scar.site/a49b5cc8dcd3/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/a49b5cc8dcd3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/d6997d0016d9/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【译】JSON.stringify 如何 kill 掉我的 express server</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/eff2eaf17cf6/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2019_12学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/a49b5cc8dcd3/&title=《使用 JavaScript 实现 JWT 鉴权》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/a49b5cc8dcd3/&title=《使用 JavaScript 实现 JWT 鉴权》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/a49b5cc8dcd3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用 JavaScript 实现 JWT 鉴权》 — 秦一&url=http://scar.site/a49b5cc8dcd3/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/a49b5cc8dcd3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/a49b5cc8dcd3/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CSS Footer固定到底部 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="你想要怎么放置你的 Footer？风雨不动稳如狗固定在可视窗口最底部，页面滚动也仍然固定在最底部。 能屈能伸页面内容高度不确定，希望 Footer 放置在页面内容的最下方。我是一个 demo 页面内容少，无法撑开，在可视窗口最底部">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Footer固定到底部">
+<meta property="og:url" content="http://scar.site/178816412600/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="你想要怎么放置你的 Footer？风雨不动稳如狗固定在可视窗口最底部，页面滚动也仍然固定在最底部。 能屈能伸页面内容高度不确定，希望 Footer 放置在页面内容的最下方。我是一个 demo 页面内容少，无法撑开，在可视窗口最底部">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220223224549.png">
+<meta property="og:image" content="https://images.scar.site/20220223224606.png">
+<meta property="og:image" content="https://images.scar.site/20220223224738.png">
+<meta property="og:image" content="https://images.scar.site/20220223224754.png">
+<meta property="article:published_time" content="2016-06-09T07:30:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.766Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220223224549.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS Footer固定到底部</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CSS Footer固定到底部</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2016-06-09T07:30:00.000Z" itemprop="datePublished" class="page-time">
+  2016-06-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%A0%E6%83%B3%E8%A6%81%E6%80%8E%E4%B9%88%E6%94%BE%E7%BD%AE%E4%BD%A0%E7%9A%84-Footer%EF%BC%9F"><span class="post-toc-number">1.</span> <span class="post-toc-text">你想要怎么放置你的 Footer？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%A3%8E%E9%9B%A8%E4%B8%8D%E5%8A%A8%E7%A8%B3%E5%A6%82%E7%8B%97"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">风雨不动稳如狗</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%83%BD%E5%B1%88%E8%83%BD%E4%BC%B8"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">能屈能伸</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A"><span class="post-toc-number">2.</span> <span class="post-toc-text">怎么做</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E8%AE%BE%E7%BD%AE-min-height"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. 设置 min-height</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-main-padding-bottom-%E5%86%99%E6%B3%95"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. .main[padding-bottom] 写法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-wrapper%EF%BC%9Aafter-%E5%86%99%E6%B3%95"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3.wrapper：after 写法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-flex-%E5%B8%83%E5%B1%80"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">4. flex 布局</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-Grid-%E5%B8%83%E5%B1%80"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">5. Grid 布局</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/CSS Footer固定到底部"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CSS Footer固定到底部</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2016-06-09 15:30:00" datetime="2016-06-09T07:30:00.000Z"  itemprop="datePublished">2016-06-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="你想要怎么放置你的-Footer？"><a href="#你想要怎么放置你的-Footer？" class="headerlink" title="你想要怎么放置你的 Footer？"></a>你想要怎么放置你的 Footer？</h2><h3 id="风雨不动稳如狗"><a href="#风雨不动稳如狗" class="headerlink" title="风雨不动稳如狗"></a>风雨不动稳如狗</h3><p>固定在可视窗口最底部，页面滚动也仍然固定在最底部。</p>
+<h3 id="能屈能伸"><a href="#能屈能伸" class="headerlink" title="能屈能伸"></a>能屈能伸</h3><p>页面内容高度不确定，希望 Footer 放置在页面内容的最下方。<br><strong><a target="_blank" rel="noopener" href="http://htmlpreview.github.io/?https://github.com/scarqin/footer-demo/blob/master/footer/method.html">我是一个 demo</a></strong></p>
+<p><em>页面内容少，无法撑开，在可视窗口最底部</em></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223224549.png" alt="页面内容少" title="">
+                </div>
+                <div class="image-caption">页面内容少</div>
+            </figure>
+<p><em>页面内容多，在页面最底部</em></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223224606.png" alt="页面内容多" title="">
+                </div>
+                <div class="image-caption">页面内容多</div>
+            </figure>
+
+<h2 id="怎么做"><a href="#怎么做" class="headerlink" title="怎么做"></a>怎么做</h2><p>你想要风雨不动稳如狗，使用下列代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">positon: fixed;</span><br><span class="line"><span class="attribute">bottom</span>: <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>对于第二种能屈能伸的情况，你可以</p>
+<h3 id="1-设置-min-height"><a href="#1-设置-min-height" class="headerlink" title="1. 设置 min-height"></a>1. 设置 min-height</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>© Scarqin<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.miitbeian.gov.cn/&quot;</span>&gt;</span>粤ICP备15111480号-1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">58px</span>); <span class="comment">/*58px为footer的高度+margin*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.footer</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">58px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-main-padding-bottom-写法"><a href="#2-main-padding-bottom-写法" class="headerlink" title="2. .main[padding-bottom] 写法"></a>2. .main[padding-bottom] 写法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>© Scarqin<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.miitbeian.gov.cn/&quot;</span>&gt;</span>粤ICP备15111480号-1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*margin 写法*/</span></span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto -<span class="number">58px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">padding-bottom</span>: <span class="number">58px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-wrapper：after-写法"><a href="#3-wrapper：after-写法" class="headerlink" title="3.wrapper：after 写法"></a>3.wrapper：after 写法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>© Scarqin<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.miitbeian.gov.cn/&quot;</span>&gt;</span>粤ICP备15111480号-1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*after 写法*/</span></span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">margin-bottom</span>: -<span class="number">58px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.wrapper</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.footer</span>,</span><br><span class="line"><span class="selector-class">.wrapper</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">58px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-flex-布局"><a href="#4-flex-布局" class="headerlink" title="4. flex 布局"></a>4. flex 布局</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>© Scarqin<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.miitbeian.gov.cn/&quot;</span>&gt;</span>粤ICP备15111480号-1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*flex写法*/</span></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">flex-direction</span>: column;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：vh 兼容性表，兼容性还不错，只是安卓 4.3 以下都不兼容。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223224738.png" alt="红色为不兼容 黄色为部分兼容 绿色为兼容" title="">
+                </div>
+                <div class="image-caption">红色为不兼容 黄色为部分兼容 绿色为兼容</div>
+            </figure>
+
+<h3 id="5-Grid-布局"><a href="#5-Grid-布局" class="headerlink" title="5. Grid 布局"></a>5. Grid 布局</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">&quot;body-grid&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;menu&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;main&quot;</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">footer</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>© Scarqin<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.miitbeian.gov.cn/&quot;</span>&gt;</span>粤ICP备15111480号-1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.body-grid</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: auto <span class="number">1</span>fr auto;</span><br><span class="line">  <span class="comment">/*页面划分为三部分，menu 高度 auto,.main 占满整个高度,.footer 高度 auto。*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>兼容性不如 flex 布局，预计 95% 的用户能在遇到它时保证页面布局不出错。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223224754.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>综上，如果内容多的话，不去捣鼓 footer 也行，当内容不确定的时候，上面方法可以一直保持在页面内容的最底部。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li>设置 after （<a target="_blank" rel="noopener" href="https://css-tricks.com/snippets/css/sticky-footer/"><strong>Sticky Footer</strong></a> 此插件实现原理）</li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23220983">用 CSS 固定 footer 在底部的疑问?</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/35290742?f3fb8ead20=ade2a5e2273b54a8931defdc33010ec4">网页中的底部 foot 一般是如何定位的？</a></li>
+<li><a target="_blank" rel="noopener" href="http://caniuse.com/#info_about">caniuse -兼容性查询</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.766Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/178816412600/&title=《CSS Footer固定到底部》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/178816412600/&title=《CSS Footer固定到底部》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/178816412600/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS Footer固定到底部》 — 秦一&url=http://scar.site/178816412600/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/178816412600/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/0a1c84c3dc46/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">贵州支教</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/d86f556b8900/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">无状态协议中的状态指的是什么？</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/178816412600/&title=《CSS Footer固定到底部》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/178816412600/&title=《CSS Footer固定到底部》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/178816412600/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS Footer固定到底部》 — 秦一&url=http://scar.site/178816412600/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/178816412600/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/178816412600/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

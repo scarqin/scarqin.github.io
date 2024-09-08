@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>开发chrome插件入门-天气预报 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="chrome 拓展是基于 chrome 平台的小程序，集合了一系列文件，这些文件包括 HTML 文件、CSS 样式文件、JavaScript 脚本文件、图片等静态文件以及 manifest.json。本拓展可以作为 chrome 拓展入门练习。详细的 chrome 拓展资料可以翻看 《Chrome 扩展及应用开发》，介绍得很详细~ 开发准备 代码编辑器  我使用的是Sublime Text，轻量实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发chrome插件入门-天气预报">
+<meta property="og:url" content="http://scar.site/c0f8fd92a8bd/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="chrome 拓展是基于 chrome 平台的小程序，集合了一系列文件，这些文件包括 HTML 文件、CSS 样式文件、JavaScript 脚本文件、图片等静态文件以及 manifest.json。本拓展可以作为 chrome 拓展入门练习。详细的 chrome 拓展资料可以翻看 《Chrome 扩展及应用开发》，介绍得很详细~ 开发准备 代码编辑器  我使用的是Sublime Text，轻量实">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220224091930.png">
+<meta property="og:image" content="https://images.scar.site/20220224091948.png">
+<meta property="og:image" content="https://images.scar.site/20220224092000.png">
+<meta property="article:published_time" content="2018-03-24T16:02:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.770Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220224091930.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">开发chrome插件入门-天气预报</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">开发chrome插件入门-天气预报</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-24T16:02:00.000Z" itemprop="datePublished" class="page-time">
+  2018-03-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%80%E5%8F%91%E5%87%86%E5%A4%87"><span class="post-toc-number">1.</span> <span class="post-toc-text">开发准备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="post-toc-number">2.</span> <span class="post-toc-text">代码解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AF%BC%E5%85%A5-chrome-%E6%8B%93%E5%B1%95"><span class="post-toc-number">3.</span> <span class="post-toc-text">导入 chrome 拓展</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C%E5%A6%82%E5%9B%BE"><span class="post-toc-number">4.</span> <span class="post-toc-text">最终效果如图</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%B5%84%E6%96%99"><span class="post-toc-number"></span> <span class="post-toc-text">资料</span></a>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/开发chrome插件入门-天气预报"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">开发chrome插件入门-天气预报</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-25 00:02:00" datetime="2018-03-24T16:02:00.000Z"  itemprop="datePublished">2018-03-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>chrome 拓展是基于 chrome 平台的小程序，集合了一系列文件，这些文件包括 HTML 文件、CSS 样式文件、JavaScript 脚本文件、图片等静态文件以及 manifest.json。本拓展可以作为 chrome 拓展入门练习。详细的 chrome 拓展资料可以翻看 <a target="_blank" rel="noopener" href="http://www.ituring.com.cn/book/1472">《Chrome 扩展及应用开发》</a>，介绍得很详细~</p>
+<h3 id="开发准备"><a href="#开发准备" class="headerlink" title="开发准备"></a>开发准备</h3><ol>
+<li>代码编辑器</li>
+</ol>
+<p>我使用的是<strong>Sublime Text</strong>，轻量实用</p>
+<ol start="2">
+<li>天气预报接口</li>
+</ol>
+<p>书里面提供的接口无法使用，看了几家接口商店后选用了<a target="_blank" rel="noopener" href="https://www.apishop.net/#/">API SHOP 接口商店</a>的天气预报接口（它可以免费试用 100 次哈哈哈~）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224091930.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>上图接口，申请后传接口商店的 apiKey 和接口对应参数即可，每个用户有自己专属的 ApiKey，注册后在 API Shop 的控制台复制 ApiKey 调用接口。</p>
+<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><p>每个插件都有 mainifest.json（清单）文件，它是整个扩展的入口。</p>
+<ul>
+<li>mainifest.json</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;manifest_version&quot;: 2,//对于chrome拓展只能为2</span><br><span class="line">    &quot;name&quot;: &quot;天气预报&quot;,//拓展名</span><br><span class="line">    &quot;version&quot;: &quot;1.0&quot;,//拓展版本号，每次上传谷歌商店都需要与上次版本号不一样</span><br><span class="line">    &quot;description&quot;: &quot;查看未来15天的天气情况&quot;,</span><br><span class="line">    &quot;icons&quot;: &#123;</span><br><span class="line">        &quot;16&quot;: &quot;images/icon16.png&quot;,</span><br><span class="line">        &quot;48&quot;: &quot;images/icon48.png&quot;,</span><br><span class="line">        &quot;128&quot;: &quot;images/icon128.png&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;browser_action&quot;: &#123;</span><br><span class="line">        &quot;default_icon&quot;: &#123;</span><br><span class="line">            &quot;19&quot;: &quot;images/icon19.png&quot;,</span><br><span class="line">            &quot;38&quot;: &quot;images/icon38.png&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;default_title&quot;: &quot;天气预报&quot;,</span><br><span class="line">        &quot;default_popup&quot;: &quot;popup.html&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;options_page&quot;: &quot;options.html&quot;,</span><br><span class="line">    &quot;permissions&quot;: [</span><br><span class="line">        &quot;api.apishop.net/common/weather/get15DaysWeatherByArea&quot;//chrome请求权限</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>weather.js 文件</li>
+</ul>
+<p>都是基本 js 的语法，不需要介绍了嘻嘻</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">function httpRequest(url, callback) &#123;</span><br><span class="line">    var xhr = new XMLHttpRequest();</span><br><span class="line">    xhr.open(&quot;POST&quot;, url, true);</span><br><span class="line">    xhr.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;);</span><br><span class="line">    xhr.send(&quot;apiKey=GU6qekR17503a6b2326f09fbc4e3a7c03874c733300****&amp;city=广州&amp;areaID=101280101&quot;);</span><br><span class="line">    //apishop注册后就有apiKey，在API Shop的控制台查看</span><br><span class="line">    xhr.onreadystatechange = function() &#123;</span><br><span class="line">        if (xhr.readyState == 4) &#123;</span><br><span class="line">            callback(xhr.responseText);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function showWeather(result) &#123;</span><br><span class="line">    console.log(result)</span><br><span class="line">    result = JSON.parse(result);</span><br><span class="line">    var list = result.result.dayList;</span><br><span class="line">    var table = &#x27;&lt;table&gt;&lt;tr&gt;&lt;th&gt;日期&lt;/th&gt;&lt;th&gt;天气&lt;/th&gt;&lt;th&gt;最低温度&lt;/th&gt;&lt;th&gt;最高温度&lt;/th&gt;&lt;/tr&gt;&#x27;;</span><br><span class="line">    for (var i in list) &#123;</span><br><span class="line">        table += &#x27;&lt;tr&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; +list[i].daytime + &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; + list[i].day_weather + &#x27;&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; + Math.round(list[i].night_air_temperature ) + &#x27; °C&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;td&gt;&#x27; + Math.round(list[i].day_air_temperature) + &#x27; °C&lt;/td&gt;&#x27;;</span><br><span class="line">        table += &#x27;&lt;/tr&gt;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    table += &#x27;&lt;/table&gt;&#x27;;</span><br><span class="line">    document.getElementById(&#x27;weather&#x27;).innerHTML = table;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var url = &#x27;http://api.apishop.net/common/weather/get15DaysWeatherByArea&#x27;;</span><br><span class="line">httpRequest(url, showWeather);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="导入-chrome-拓展"><a href="#导入-chrome-拓展" class="headerlink" title="导入 chrome 拓展"></a>导入 chrome 拓展</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224091948.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>manifest.json 的上一层目录，拖入浏览器即可</p>
+<h3 id="最终效果如图"><a href="#最终效果如图" class="headerlink" title="最终效果如图"></a>最终效果如图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224092000.png" alt="预览图" title="">
+                </div>
+                <div class="image-caption">预览图</div>
+            </figure>
+
+<p>具体代码和文件结构可以上我的 github 浏览!</p>
+<p><strong>地址:<a target="_blank" rel="noopener" href="https://github.com/scarqin/chrome-extension-wether">https://github.com/scarqin/chrome-extension-wether</a></strong></p>
+<p>写完教程后其实有很多可以优化的点，比如可以选择城市、当天点开天气预报后存储数据（仅发一次请求）等等，欢迎大家和我交流讨论。</p>
+<h1 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="http://www.ituring.com.cn/book/1472">Chrome 扩展及应用开发</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.apishop.net/#/">API SHOP 接口商店</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.770Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/c0f8fd92a8bd/&title=《开发chrome插件入门-天气预报》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/c0f8fd92a8bd/&title=《开发chrome插件入门-天气预报》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/c0f8fd92a8bd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开发chrome插件入门-天气预报》 — 秦一&url=http://scar.site/c0f8fd92a8bd/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/c0f8fd92a8bd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/11702db99ece/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2019_1学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/70bccb827e8f/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS实现HTTP请求头-Basic Authorization</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/c0f8fd92a8bd/&title=《开发chrome插件入门-天气预报》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/c0f8fd92a8bd/&title=《开发chrome插件入门-天气预报》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/c0f8fd92a8bd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开发chrome插件入门-天气预报》 — 秦一&url=http://scar.site/c0f8fd92a8bd/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/c0f8fd92a8bd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/c0f8fd92a8bd/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

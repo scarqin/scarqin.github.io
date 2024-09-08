@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2023_12 学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="今年概念性的内容看得比较多，实践体验项目做得比较少，接下来希望可以积极贡献一个热门的开源项目； 目前对组件库&#x2F;Angular 新特性相关的内容比较感兴趣。 什么叫 headless 版本Headless UI 一套基于 React Hooks 的组件开发设计理念，强调只负责组件的状态及交互逻辑，而不管标签和样式。 其本质思想其实就是关注点分离：将组件的“状态及交互逻辑”和“UI 展示层”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023_12 学习笔记">
+<meta property="og:url" content="http://scar.site/50db6522e4df/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="今年概念性的内容看得比较多，实践体验项目做得比较少，接下来希望可以积极贡献一个热门的开源项目； 目前对组件库&#x2F;Angular 新特性相关的内容比较感兴趣。 什么叫 headless 版本Headless UI 一套基于 React Hooks 的组件开发设计理念，强调只负责组件的状态及交互逻辑，而不管标签和样式。 其本质思想其实就是关注点分离：将组件的“状态及交互逻辑”和“UI 展示层”">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-02T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.784Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2023_12 学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2023_12 学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2023-12-02T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2023-12-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E5%8F%AB-headless-%E7%89%88%E6%9C%AC"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么叫 headless 版本</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%93%8D%E5%BA%94%E5%BC%8F-composition-API%E3%80%81signals%E3%80%81Facade-%E6%A8%A1%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">2.</span> <span class="post-toc-text">响应式 composition API、signals、Facade 模式是什么？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%BF%99%E4%BA%9B-API-%E6%98%AF%E5%90%8C%E4%B8%80%E4%B8%AA%E5%B1%82%E9%9D%A2%E7%9A%84%E6%A6%82%E5%BF%B5%E5%90%97%EF%BC%9F%E5%A6%82%E6%9E%9C%E4%B8%8D%E6%98%AF%EF%BC%8C%E9%83%BD%E5%88%86%E5%88%AB%E4%B8%BA%E4%BA%86%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%8C%E8%BF%98%E6%9C%89%E5%85%B6%E4%BB%96%E7%B1%BB%E4%BC%BC%E7%9A%84%E6%A6%82%E5%BF%B5%E5%90%97%EF%BC%9F"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">这些 API 是同一个层面的概念吗？如果不是，都分别为了解决什么问题，还有其他类似的概念吗？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B5%84%E6%96%99"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">资料</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ECS-%E3%80%81K8s%E3%80%81Docker"><span class="post-toc-number">3.</span> <span class="post-toc-text">ECS 、K8s、Docker</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%9C%8D%E5%8A%A1%E9%80%82%E5%90%88-Serverless-API%EF%BC%9F"><span class="post-toc-number">4.</span> <span class="post-toc-text">什么服务适合 Serverless API？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%8A%92%E6%A0%BC%E5%A6%82%E6%AD%A4%E8%80%8C%E6%B4%BB%EF%BC%8C%E4%B8%80%E7%94%9F%E8%B6%B3%E7%9F%A3"><span class="post-toc-number">5.</span> <span class="post-toc-text">芒格如此而活，一生足矣</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2023_12学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2023_12 学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2023-12-03 00:00:00" datetime="2023-12-02T16:00:00.000Z"  itemprop="datePublished">2023-12-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>今年概念性的内容看得比较多，实践体验项目做得比较少，接下来希望可以积极贡献一个热门的开源项目；</p>
+<p>目前对组件库&#x2F;Angular 新特性相关的内容比较感兴趣。</p>
+<h1 id="什么叫-headless-版本"><a href="#什么叫-headless-版本" class="headerlink" title="什么叫 headless 版本"></a>什么叫 headless 版本</h1><p>Headless UI 一套基于 React Hooks 的组件开发设计理念，强调只负责组件的状态及交互逻辑，而不管标签和样式。</p>
+<p><strong>其本质思想其实就是</strong>关注点分离：将组件的“状态及交互逻辑”和“UI 展示层”实现解耦。</p>
+<p>Angular CDK（Component Dev Kit）和 Headless UI 是两个不同的工具&#x2F;库，用于构建用户界面的不同方面。</p>
+<ol>
+<li><strong>Angular CDK:</strong><ul>
+<li><strong>简介：</strong> Angular CDK 是由 Angular 团队提供的一组工具，用于帮助开发人员构建可重用、灵活且高性能的组件。它提供了一系列的指令和服务，用于处理通用的 UI 组件功能，例如弹出框、拖放、虚拟滚动等。</li>
+<li><strong>特点：</strong> Angular CDK 的主要目标是提供一组工具，使开发人员能够更容易地构建自定义组件和复杂的 UI 功能，同时保持可访问性和性能。</li>
+</ul>
+</li>
+<li><strong>Headless UI:</strong><ul>
+<li><strong>简介：</strong> Headless UI 不是特定于 Angular 的库，而是一个跨框架的库，通常用于构建无样式组件，这些组件不包含样式，开发者可以根据自己的设计系统进行定制。</li>
+<li><strong>特点：</strong> Headless UI 提供了许多无样式的组件，使您能够更轻松地集成它们到您的应用中，而无需处理外观。这使开发人员能够使用自己的 CSS 或框架的样式对组件进行样式化。</li>
+</ul>
+</li>
+</ol>
+<p>总结：</p>
+<ul>
+<li><p>Headless 是 UI 库，提供了可灵活配置 UI 的组件库功能</p>
+</li>
+<li><p>Angular CDK 是工具库，更多的是提供所有组件通用的 Dom 处理，可用于快速搭建组件库</p>
+</li>
+</ul>
+<p>关联文章：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://chakra-ui.com/docs/components/accordion/theming">chakra 组件库</a></li>
+<li><a target="_blank" rel="noopener" href="https://headlessui.com/">headless ui</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MjM5MTA1MjAxMQ==&mid=2651261270&idx=1&sn=84eac89ba883e0c7edf1f1160c8b2641&chksm=bd48d0d28a3f59c496b4d5745795107153934e299849d5148409b834530f40303aff1c35c00e&scene=21#wechat_redirect">【第2885期】精读《Headless 组件用法与原理》</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/GfpcQLlkpTJq0UemyObrZg">【第2886期】无渲染组件</a></li>
+</ol>
+<h1 id="响应式-composition-API、signals、Facade-模式是什么？"><a href="#响应式-composition-API、signals、Facade-模式是什么？" class="headerlink" title="响应式 composition API、signals、Facade 模式是什么？"></a>响应式 composition API、signals、Facade 模式是什么？</h1><h2 id="这些-API-是同一个层面的概念吗？如果不是，都分别为了解决什么问题，还有其他类似的概念吗？"><a href="#这些-API-是同一个层面的概念吗？如果不是，都分别为了解决什么问题，还有其他类似的概念吗？" class="headerlink" title="这些 API 是同一个层面的概念吗？如果不是，都分别为了解决什么问题，还有其他类似的概念吗？"></a>这些 API 是同一个层面的概念吗？如果不是，都分别为了解决什么问题，还有其他类似的概念吗？</h2><h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><h1 id="ECS-、K8s、Docker"><a href="#ECS-、K8s、Docker" class="headerlink" title="ECS 、K8s、Docker"></a>ECS 、K8s、Docker</h1><p>看完没有理解差异，但了解到是两家不同公司的容器&#x2F;微服务编排解决方案</p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/679535">https://developer.aliyun.com/article/679535</a></p>
+<p><a target="_blank" rel="noopener" href="https://aws.amazon.com/cn/compare/the-difference-between-kubernetes-and-docker/">https://aws.amazon.com/cn/compare/the-difference-between-kubernetes-and-docker/</a></p>
+<ul>
+<li>ECS：容器编排工具+可自动预置底层基础设施资源的完全托管式服务</li>
+</ul>
+<p>和运维同学了解之后发现实际上是不同的概念，ECS 全程是<strong>弹性容器服务</strong>，是亚马逊推出的一套弹性管理容器的解决，包括<strong>容器编排工具</strong>和<strong>自动预置底层基础设施资源</strong>。</p>
+<ul>
+<li>Docker 是一个容器运行时技术，用于打包软件成为容器（标准化单元）。</li>
+<li>K8S 是一个具体的容器编排工具，用于大规模的管理、协调和调度容器。</li>
+</ul>
+<h1 id="什么服务适合-Serverless-API？"><a href="#什么服务适合-Serverless-API？" class="headerlink" title="什么服务适合 Serverless API？"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/yBAcM8fPw2HqBShh7xFG7w">什么服务适合 Serverless API？</a></h1><ul>
+<li>具有流量潮汐特性，希望计算资源有较强的扩展能力</li>
+<li>希望计算资源独立</li>
+</ul>
+<p>云厂商还会提供一些函数触发器（有点类似于 Angular 的 Pipe 概念，可以预处理一些内容），例如定时触发、MQTT 触发。</p>
+<blockquote>
+<p> 有机会的话会在 APIKit 验证一下，弹性流量很动人，适合我们定时任务的潮汐流量属性</p>
+</blockquote>
+<h1 id="芒格如此而活，一生足矣"><a href="#芒格如此而活，一生足矣" class="headerlink" title="芒格如此而活，一生足矣"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/JtKmhM94UAwAywtORU-4Fw">芒格如此而活，一生足矣</a></h1><blockquote>
+<p>但为了留住并吸引更多的投资者，我也不得不作了一段时间的妥协。有两三年的时间内，我也不得不通过做长短仓（Long-Short）对冲去管理旗下基金的波动性。和做多（Long）相比，做空交易（Short）就很难被用于长期投资。原因有三：第一，做空的利润上限只有100%，但损失空间几乎是无穷的，这正好同做多相反。第二，做空要通过借债完成，所以即使做空的决定完全正确，但如果时机不对，操作者也会面临损失，甚至破产。第三，最好的做空投资机会一般是各种各样的舞弊情况，但舞弊作假往往被掩盖得很好，需要很长时间才会败露。例如麦道夫的骗局持续几十年才被发现。基于这三点原因，做空需要随时关注市场的起落，不断交易。</p>
+</blockquote>
+<blockquote>
+<p>近代很多第一流的专家学者能够在自己狭小的研究领域内做到相对客观，但一旦离开自己的领域不远，就开始变得主观、教条、僵化，或者干脆就失去了自我学习的能力，所以大都免不了瞎子摸象的局限。查理的脑子就从来没有任何学科的条条框框。他的思想辐射到事业、人生、知识的每一个角落。在他看来，世间宇宙万物都是一个相互作用的整体，人类所有的知识都是对这一整体研究的部分尝试，只有把这些知识结合起来，并贯穿在一个思想框架中，才能对正确的认知和决策起到帮助作用。所以<strong>他提倡要学习在所有学科中真正重要的理论，并在此基础上形成所谓的“普世智慧”，以此为利器去研究商业投资领域的重要问题。查理在本书中详细地阐述了如何才能获得这样的“普世智慧”。</strong></p>
+</blockquote>
+<blockquote>
+<p>但即使这样，一个人在一生中真正可以得到的远见卓识仍然非常有限，所以正确的决策必须局限在自己的“能力圈”以内。一种不能够界定其边界的能力当然不能称为真正的能力。怎么才能界定自己的能力圈呢？查理说，如果我要拥有一种观点，如果我不能够比全世界最聪明、最有能力、最有资格反驳这个观点的人更能够证否自己，我就不配拥有这个观点。所以当查理真正地持有某个观点时，他的想法既原创、独特，又几乎从不犯错。</p>
+</blockquote>
+<blockquote>
+<p>在整个阅读与思考的过程中，我愈发觉得，中国文明的灵魂其实就是士大夫文化，士大夫的价值观所体现的就是一个如何提高自我修养，实现自我超越的过程。《大学》曰：正心，修身，齐家，治国，平天下。这套价值系统在儒家各派中都得到了广泛的阐述，这应该说是中国文明最核心的灵魂价值所在。士大夫文明的载体是科举制度。科举制度不仅帮助儒家的追随者塑造自身的人格，而且还提供了他们发挥才能的平台，使得他们能够通过科举考试进入政府为官，乃至到达社会的最上层，从而学有所用，实现自我价值。</p>
+</blockquote>
+<blockquote>
+<p>查理对中国的未来充满信心，对中国的文化也很钦佩。近几十年来儒教文明在亚洲取得的巨大的商业成就也让越来越多的人对中国文明的复兴更具信心。在“五四”近百年之后，今天的我们也许不必再纠缠于“中学”“西学”的“体用”之争，只需要一方面坦然地学习和接受全世界所有有用的知识，另一方面心平气和地将吾心归属于中国人数千年来共敬共守、以之安身立命的道德价值体系之内。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.784Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/50db6522e4df/&title=《2023_12 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/50db6522e4df/&title=《2023_12 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/50db6522e4df/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_12 学习笔记》 — 秦一&url=http://scar.site/50db6522e4df/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/50db6522e4df/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/ae04eebd6fd9/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Coze 产品调研</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/87cb8439bf3e/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2023.12 AI 学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/50db6522e4df/&title=《2023_12 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/50db6522e4df/&title=《2023_12 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/50db6522e4df/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_12 学习笔记》 — 秦一&url=http://scar.site/50db6522e4df/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/50db6522e4df/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/50db6522e4df/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

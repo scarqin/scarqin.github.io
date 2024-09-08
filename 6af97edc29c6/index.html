@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2024_02 学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="React 动画库 https:&#x2F;&#x2F;www.framer.com&#x2F;motion&#x2F;examples&#x2F;（个人最喜欢） https:&#x2F;&#x2F;www.react-spring.dev&#x2F;  SEO 分享 https:&#x2F;&#x2F;twitter.com&#x2F;meditic&#x2F;status&#x2F;1752845300165906613?s&#x3D;46  中国的 SEO：  业务关键字排序需要花钱，不花钱靠前很难 可以取一个生僻但好记的名字（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024_02 学习笔记">
+<meta property="og:url" content="http://scar.site/6af97edc29c6/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="React 动画库 https:&#x2F;&#x2F;www.framer.com&#x2F;motion&#x2F;examples&#x2F;（个人最喜欢） https:&#x2F;&#x2F;www.react-spring.dev&#x2F;  SEO 分享 https:&#x2F;&#x2F;twitter.com&#x2F;meditic&#x2F;status&#x2F;1752845300165906613?s&#x3D;46  中国的 SEO：  业务关键字排序需要花钱，不花钱靠前很难 可以取一个生僻但好记的名字（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/img_v3_027o_9dc45447-fca6-434d-95c8-175adc78702g.png">
+<meta property="article:published_time" content="2024-02-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.785Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/img_v3_027o_9dc45447-fca6-434d-95c8-175adc78702g.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2024_02 学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2024_02 学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2024-02-01T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2024-02-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#React-%E5%8A%A8%E7%94%BB%E5%BA%93"><span class="post-toc-number">1.</span> <span class="post-toc-text">React 动画库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SEO-%E5%88%86%E4%BA%AB"><span class="post-toc-number">2.</span> <span class="post-toc-text">SEO 分享</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#React-%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98"><span class="post-toc-number">3.</span> <span class="post-toc-text">React 性能调优</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E7%BB%84%E4%BB%B6%E7%BA%A7%E5%88%AB%E7%9A%84-store"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何创建组件级别的 store</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#React-%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8"><span class="post-toc-number">5.</span> <span class="post-toc-text">React 文本编辑器</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Arber%E2%80%99s-%E7%A2%8E%E7%A2%8E%E5%BF%B5%E4%B9%8B2024%E7%89%88"><span class="post-toc-number">6.</span> <span class="post-toc-text">Arber’s 碎碎念之2024版</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Javascript-%E6%97%A5%E6%9C%9F%E5%B7%A5%E5%85%B7%E5%BA%93"><span class="post-toc-number">7.</span> <span class="post-toc-text">Javascript 日期工具库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#WaitingList%EF%BD%9CLanding-Page-%E5%B7%A5%E5%85%B7"><span class="post-toc-number">8.</span> <span class="post-toc-text">WaitingList｜Landing Page 工具</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%94%B6%E5%BD%95%E7%8B%AC%E7%AB%8B%E5%BC%80%E5%8F%91%E8%80%85%E5%87%BA%E6%B5%B7%E6%8A%80%E6%9C%AF%E6%A0%88%E5%92%8C%E5%B7%A5%E5%85%B7"><span class="post-toc-number">9.</span> <span class="post-toc-text">收录独立开发者出海技术栈和工具</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#vercel-ntf"><span class="post-toc-number">10.</span> <span class="post-toc-text">vercel&#x2F;ntf</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTP-3"><span class="post-toc-number">11.</span> <span class="post-toc-text">HTTP&#x2F;3</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%80%9F%E5%BA%A6%E8%B6%85%E5%BF%AB%E7%9A%84%E6%A8%A1%E5%9E%8B-Groq"><span class="post-toc-number">12.</span> <span class="post-toc-text">速度超快的模型 Groq</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AD%A6%E4%B9%A0-AI"><span class="post-toc-number">13.</span> <span class="post-toc-text">学习 AI</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2024_02学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2024_02 学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2024-02-02 00:00:00" datetime="2024-02-01T16:00:00.000Z"  itemprop="datePublished">2024-02-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="React-动画库"><a href="#React-动画库" class="headerlink" title="React 动画库"></a>React 动画库</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.framer.com/motion/examples/%EF%BC%88%E4%B8%AA%E4%BA%BA%E6%9C%80%E5%96%9C%E6%AC%A2%EF%BC%89">https://www.framer.com/motion/examples/（个人最喜欢）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.react-spring.dev/">https://www.react-spring.dev/</a></li>
+</ul>
+<h1 id="SEO-分享"><a href="#SEO-分享" class="headerlink" title="SEO 分享"></a>SEO 分享</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://twitter.com/meditic/status/1752845300165906613?s=46">https://twitter.com/meditic/status/1752845300165906613?s=46</a></p>
+</blockquote>
+<p>中国的 SEO：</p>
+<ol>
+<li>业务关键字排序需要花钱，不花钱靠前很难</li>
+<li>可以取一个生僻但好记的名字（国内没有类似名字）</li>
+<li>尝试小红书</li>
+</ol>
+<p>中国以外的 SEO：</p>
+<p><strong>1）Technical SEO；</strong> </p>
+<p><strong>2）Keywords &amp; Quality Content;</strong></p>
+<p><strong>3）Monitoring &amp; Optimization</strong></p>
+<h1 id="React-性能调优"><a href="#React-性能调优" class="headerlink" title="React 性能调优"></a>React 性能调优</h1><ol>
+<li><p>善用 memo、useCallback 减少内存</p>
+</li>
+<li><p>善用工具排查卡点：<a target="_blank" rel="noopener" href="https://innei.in/posts/programming/experience-in-performance-optimization-in-react-applications-1">React 应用中性能优化的经验（一）</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.developerway.com/posts/react-re-renders-guide">React re-renders guide: everything, all at once</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://dev.to/eraywebdev/optimizing-zustand-how-to-prevent-unnecessary-re-renders-in-your-react-app-59do">Optimizing Zustand: How to Prevent Unnecessary Re-renders in Your React App</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/521900991">性能优化，有时候是件体力活</a></p>
+</li>
+</ol>
+<hr>
+<p>最后才用的方式是：拆组件、上缓存、状态管理 Zustand 加上 equal 判断。</p>
+<p>夸一个 React devtools 看 re-render 的功能真的太好用了！</p>
+<p>如果是其他框架，可以用 Chrome Devtools 自带的定位重渲染功能</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/img_v3_027o_9dc45447-fca6-434d-95c8-175adc78702g.png" alt="Rerender" title="">
+                </div>
+                <div class="image-caption">Rerender</div>
+            </figure>
+
+<h1 id="如何创建组件级别的-store"><a href="#如何创建组件级别的-store" class="headerlink" title="如何创建组件级别的 store"></a>如何创建组件级别的 store</h1><p><strong>props drilling</strong>: 深层次嵌套 props</p>
+<p><a target="_blank" rel="noopener" href="https://notes.boshkuo.com/docs/React/zustand#%E6%9B%B4%E6%96%B0-nested-object">https://notes.boshkuo.com/docs/React/zustand#%E6%9B%B4%E6%96%B0-nested-object</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv20831770/">https://www.bilibili.com/read/cv20831770/</a></p>
+<h1 id="React-文本编辑器"><a href="#React-文本编辑器" class="headerlink" title="React 文本编辑器"></a><a target="_blank" rel="noopener" href="https://uiwjs.github.io/react-textarea-code-editor/">React 文本编辑器</a></h1><p>提供 React 编辑器的 Github 组织，还有 Monaco 等代码编辑器的接入</p>
+<h1 id="Arber’s-碎碎念之2024版"><a href="#Arber’s-碎碎念之2024版" class="headerlink" title="Arber’s 碎碎念之2024版"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/toe0Kj3y89hvXlR9UjQErw">Arber’s 碎碎念之2024版</a></h1><ul>
+<li><p>AI助手类应用如果纯工具视角很难赚钱，只有作为一个连接器把 C 端用户的需求 B 端的产品和服务串起来形成一个闭环才会有价值。而作为一个<em><strong>AI能力提供方，也只有和B端产业共生共荣才有粘性。</strong></em></p>
+</li>
+<li><p><em><strong>无论软件和AI怎么进化，数据和场景始终是两端的核心，没有场景就没有清晰的价值点，没有数据闭环就没有壁垒。</strong></em></p>
+</li>
+<li><p><em><strong>用科技能力解决真实世界的问题才会有力量。</strong></em></p>
+<blockquote>
+<p>这一点深表认同，享受创造，更享受创造带来的价值带来的自我认同</p>
+</blockquote>
+</li>
+<li><p>人的心理素质分为三个方面：最最重要的就是心理动力，即为什么总是能对挑战充满激情，这个大部分和青少年时期的教育相关，人生早期的各种探索是否受到充分的正面鼓励有没有好的榜样指引；其次是心理能力，这是在做事过程中不断人与事相互磨合有足够的熟悉度之后可以面对问题和挑战的能力；最后是心理特质，这个各人不相同，有的人粗犷有的人细腻有的人乐观有的人悲观，人要根据自己的心理特质选对职业，否则就会拧巴。</p>
+</li>
+</ul>
+<h1 id="Javascript-日期工具库"><a href="#Javascript-日期工具库" class="headerlink" title="Javascript 日期工具库"></a>Javascript 日期工具库</h1><p><a target="_blank" rel="noopener" href="https://tempo.formkit.com/#format">https://tempo.formkit.com/#format</a></p>
+<h1 id="WaitingList｜Landing-Page-工具"><a href="#WaitingList｜Landing-Page-工具" class="headerlink" title="WaitingList｜Landing Page 工具"></a>WaitingList｜Landing Page 工具</h1><p><a target="_blank" rel="noopener" href="https://earlybird.im/">https://earlybird.im/</a></p>
+<h1 id="收录独立开发者出海技术栈和工具"><a href="#收录独立开发者出海技术栈和工具" class="headerlink" title="收录独立开发者出海技术栈和工具"></a>收录独立开发者出海技术栈和工具</h1><p><a target="_blank" rel="noopener" href="https://github.com/weijunext/indie-hacker-tools?tab=readme-ov-file">https://github.com/weijunext/indie-hacker-tools?tab=readme-ov-file</a></p>
+<p>插件框架：</p>
+<p><a target="_blank" rel="noopener" href="https://www.plasmo.com/">https://www.plasmo.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://wxt.dev/">https://wxt.dev/</a></p>
+<h1 id="vercel-ntf"><a href="#vercel-ntf" class="headerlink" title="vercel&#x2F;ntf"></a><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@vercel/nft">vercel&#x2F;ntf</a></h1><p>运行时检测文件有没有被使用到，减少打包&#x2F;镜像体积</p>
+<h1 id="HTTP-3"><a href="#HTTP-3" class="headerlink" title="HTTP&#x2F;3"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/ShRY3EUIhHkWqKNGoNlflg">HTTP&#x2F;3</a></h1><ul>
+<li>HTTP&#x2F;3 是一个更为温和的演进</li>
+<li>HTTP&#x2F;2 流和优先级实现不算理想，所以（减少的）资源捆绑甚至分片在某些情况下仍然是最佳实践。</li>
+<li>HTTP&#x2F;3 是为了过度 TCP 到 TCP&#x2F;2（QUIC） 的中间协议，我们对于 HTTP&#x2F;3 的主要期望功能（更快的连接设置、较少的排头阻塞、连接迁移等）实际上都来自于 QUIC</li>
+<li>QUIC 直接集成了 TLS1.3，默认无明文，将传输和加密握手合并，加速加密过程</li>
+</ul>
+<h1 id="速度超快的模型-Groq"><a href="#速度超快的模型-Groq" class="headerlink" title="速度超快的模型 Groq"></a><a target="_blank" rel="noopener" href="https://groq.com/">速度超快的模型 Groq</a></h1><p>体验了下比搜索引擎都快，太酷了，下个月我要考虑不购买 GPT-4，用这个模型替代或者购买我们的 buffup</p>
+<h1 id="学习-AI"><a href="#学习-AI" class="headerlink" title="学习 AI"></a>学习 AI</h1><p><a target="_blank" rel="noopener" href="https://learnprompting.org/docs/basics/intro">https://learnprompting.org/docs/basics/intro</a></p>
+<p>Learn how to effectively and safely use AI. Courses crafted for professionals with real-world applications</p>
+<p>学习如何有效率&#x2F;安全使用 AI</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.785Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/6af97edc29c6/&title=《2024_02 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/6af97edc29c6/&title=《2024_02 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/6af97edc29c6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2024_02 学习笔记》 — 秦一&url=http://scar.site/6af97edc29c6/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/6af97edc29c6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/ef2c654f61dc/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端路由策略</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/32172f0585f1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2023 掘金开发者大会</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/6af97edc29c6/&title=《2024_02 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/6af97edc29c6/&title=《2024_02 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/6af97edc29c6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2024_02 学习笔记》 — 秦一&url=http://scar.site/6af97edc29c6/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/6af97edc29c6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/6af97edc29c6/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

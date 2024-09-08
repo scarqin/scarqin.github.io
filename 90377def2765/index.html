@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2020_4学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="ng-class作用 只添加第一个满足条件的class 满足条件则在元素上加入此class                                                                                             image.png              经过测试是第二点  findIndex和indexOf的区别 findInde">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020_4学习笔记">
+<meta property="og:url" content="http://scar.site/90377def2765/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="ng-class作用 只添加第一个满足条件的class 满足条件则在元素上加入此class                                                                                             image.png              经过测试是第二点  findIndex和indexOf的区别 findInde">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCEd54f32d9a038be0f87997cd30fcf0c88.png">
+<meta property="article:published_time" content="2020-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.774Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/WEBRESOURCEd54f32d9a038be0f87997cd30fcf0c88.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2020_4学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2020_4学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2020-04-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ng-class%E4%BD%9C%E7%94%A8"><span class="post-toc-number">1.</span> <span class="post-toc-text">ng-class作用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#findIndex%E5%92%8CindexOf%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-number">2.</span> <span class="post-toc-text">findIndex和indexOf的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Why-is-setTimeout-fn-0-sometimes-useful"><span class="post-toc-number">3.</span> <span class="post-toc-text">Why is setTimeout(fn, 0) sometimes useful?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#arr-sort%E5%87%BD%E6%95%B0%E4%BC%9A%E6%94%B9%E5%8F%98%E5%8E%9F%E6%9D%A5%E6%95%B0%E7%BB%84%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="post-toc-number">4.</span> <span class="post-toc-text">arr.sort函数会改变原来数组的顺序</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%98%E5%90%89%E5%B0%94"><span class="post-toc-number">5.</span> <span class="post-toc-text">丘吉尔</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%86%E9%A2%91%E9%80%9A%E4%BF%A1"><span class="post-toc-number">6.</span> <span class="post-toc-text">浏览器视频通信</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A3%80%E6%9F%A5%E6%9C%89%E6%97%A0adblock%E7%9A%84%E6%96%B9%E6%B3%95"><span class="post-toc-number">7.</span> <span class="post-toc-text">检查有无adblock的方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#input-type-file-%E4%B8%A4%E6%AC%A1%E4%B8%8A%E4%BC%A0%E5%90%8C%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%8D%E8%A7%A6%E5%8F%91change%E5%87%BD%E6%95%B0%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="post-toc-number">8.</span> <span class="post-toc-text">input[type&#x3D;file] 两次上传同一个文件不触发change函数的解决方案</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#button-disabled%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%9F%E6%95%88"><span class="post-toc-number">9.</span> <span class="post-toc-text">button disabled为什么不生效</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2020_4学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2020_4学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-01 00:00:00" datetime="2020-03-31T16:00:00.000Z"  itemprop="datePublished">2020-04-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="ng-class作用"><a href="#ng-class作用" class="headerlink" title="ng-class作用"></a>ng-class作用</h3><ul>
+<li>只添加第一个满足条件的class</li>
+<li>满足条件则在元素上加入此class<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCEd54f32d9a038be0f87997cd30fcf0c88.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+经过测试是第二点</li>
+</ul>
+<h3 id="findIndex和indexOf的区别"><a href="#findIndex和indexOf的区别" class="headerlink" title="findIndex和indexOf的区别"></a>findIndex和indexOf的区别</h3><ul>
+<li>findIndex传入找元素序号的函数，例如arr.findIndex(val&#x3D;&gt;val.value&gt;0)，返回第一个找到的序号</li>
+<li>indexOf返回第一个等于传入值的元素序号</li>
+<li>若无找到数组下标，都返回-1</li>
+</ul>
+<h3 id="Why-is-setTimeout-fn-0-sometimes-useful"><a href="#Why-is-setTimeout-fn-0-sometimes-useful" class="headerlink" title="Why is setTimeout(fn, 0) sometimes useful?"></a>Why is setTimeout(fn, 0) sometimes useful?</h3><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful">https://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful</a></p>
+<h3 id="arr-sort函数会改变原来数组的顺序"><a href="#arr-sort函数会改变原来数组的顺序" class="headerlink" title="arr.sort函数会改变原来数组的顺序"></a>arr.sort函数会改变原来数组的顺序</h3><h3 id="丘吉尔"><a href="#丘吉尔" class="headerlink" title="丘吉尔"></a>丘吉尔</h3><p>战争时，你要坚定不移；失败时，你要绝不屈服；胜利时，你要宽容大度；和平时，你要满怀善意。（In war, resolution; in defeat, defiance; in victory, magnanimity; in peace, goodwill.）</p>
+<h3 id="浏览器视频通信"><a href="#浏览器视频通信" class="headerlink" title="浏览器视频通信"></a>浏览器视频通信</h3><p><a target="_blank" rel="noopener" href="https://github.com/ianramzy/decentralized-video-chat">https://github.com/ianramzy/decentralized-video-chat</a></p>
+<h3 id="检查有无adblock的方法"><a href="#检查有无adblock的方法" class="headerlink" title="检查有无adblock的方法"></a>检查有无adblock的方法</h3><p><a target="_blank" rel="noopener" href="https://blog.rampatra.com/how-to-know-whether-a-user-is-using-an-adblocker">https://blog.rampatra.com/how-to-know-whether-a-user-is-using-an-adblocker</a></p>
+<h3 id="input-type-file-两次上传同一个文件不触发change函数的解决方案"><a href="#input-type-file-两次上传同一个文件不触发change函数的解决方案" class="headerlink" title="input[type&#x3D;file] 两次上传同一个文件不触发change函数的解决方案"></a>input[type&#x3D;file] 两次上传同一个文件不触发change函数的解决方案</h3><p>每次上传后，将input的change置空</p>
+<h3 id="button-disabled为什么不生效"><a href="#button-disabled为什么不生效" class="headerlink" title="button disabled为什么不生效"></a>button disabled为什么不生效</h3><p>button内部有其他元素的时候就不生效</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.774Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/90377def2765/&title=《2020_4学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/90377def2765/&title=《2020_4学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/90377def2765/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2020_4学习笔记》 — 秦一&url=http://scar.site/90377def2765/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/90377def2765/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/09b4ba0e51ca/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">锚点定位被顶部固定导航栏遮住的解决方案</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/5117fe4ada5e/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">require 和 import 的区别</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/90377def2765/&title=《2020_4学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/90377def2765/&title=《2020_4学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/90377def2765/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2020_4学习笔记》 — 秦一&url=http://scar.site/90377def2765/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/90377def2765/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/90377def2765/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

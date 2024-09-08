@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2022_10学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content=".flat将会返回一个包含将数组与子数组中所有元素的新数组。 12345678910111213141516var arr1 &#x3D; [1, 2, [3, 4]];arr1.flat();&#x2F;&#x2F; [1, 2, 3, 4]var arr2 &#x3D; [1, 2, [3, 4, [5, 6]]];arr2.flat();&#x2F;&#x2F; [1, 2, 3, 4, [5, 6]]var arr3 &#x3D; [1, 2, [3, 4,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022_10学习笔记">
+<meta property="og:url" content="http://scar.site/69f6c8dbcde3/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content=".flat将会返回一个包含将数组与子数组中所有元素的新数组。 12345678910111213141516var arr1 &#x3D; [1, 2, [3, 4]];arr1.flat();&#x2F;&#x2F; [1, 2, 3, 4]var arr2 &#x3D; [1, 2, [3, 4, [5, 6]]];arr2.flat();&#x2F;&#x2F; [1, 2, 3, 4, [5, 6]]var arr3 &#x3D; [1, 2, [3, 4,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/ed1f8c9e-d633-4c93-b76e-4b1bd7fecb26.png">
+<meta property="og:image" content="https://images.scar.site/DL9Y9fTUTt.png">
+<meta property="article:published_time" content="2022-10-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.779Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/ed1f8c9e-d633-4c93-b76e-4b1bd7fecb26.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2022_10学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2022_10学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-10-07T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2022-10-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#flat"><span class="post-toc-number">1.</span> <span class="post-toc-text">.flat</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AF%B9%E6%AF%94%E6%B5%8B%E8%AF%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">2.</span> <span class="post-toc-text">对比测试是什么？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BC%B9%E6%A1%86%E6%8C%89%E9%92%AE%E6%94%BE%E5%93%AA%E9%87%8C%EF%BC%9F"><span class="post-toc-number">3.</span> <span class="post-toc-text">弹框按钮放哪里？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Public-static-fields"><span class="post-toc-number">4.</span> <span class="post-toc-text">Public static fields</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%BF%99%E4%B8%80%E5%B9%B4%EF%BC%8C%E6%88%91%E5%AF%B9%E7%BB%88%E7%AB%AF%E7%BB%84%E7%BB%87%E4%B8%8E%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E7%9A%84%E6%80%9D%E8%80%83"><span class="post-toc-number">5.</span> <span class="post-toc-text">这一年，我对终端组织与技术架构的思考</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Playwright-%E5%AD%A6%E4%B9%A0"><span class="post-toc-number">6.</span> <span class="post-toc-text">Playwright 学习</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#safeify-%E6%9B%BF%E6%8D%A2-vm-%E6%B2%99%E7%AE%B1"><span class="post-toc-number">7.</span> <span class="post-toc-text">safeify 替换 vm 沙箱</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SaaS-%E4%BA%A7%E5%93%81%E6%8C%87%E6%A0%87"><span class="post-toc-number">8.</span> <span class="post-toc-text">SaaS 产品指标</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2022_10学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2022_10学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-10-08 00:00:00" datetime="2022-10-07T16:00:00.000Z"  itemprop="datePublished">2022-10-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="flat"><a href="#flat" class="headerlink" title=".flat"></a>.flat</h1><p>将会返回一个包含将数组与子数组中所有元素的新数组。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>]];</span><br><span class="line">arr1.<span class="title function_">flat</span>();</span><br><span class="line"><span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>]]];</span><br><span class="line">arr2.<span class="title function_">flat</span>();</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, [5, 6]]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr3 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>]]];</span><br><span class="line">arr3.<span class="title function_">flat</span>(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5, 6]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 Infinity，可展开任意深度的嵌套数组</span></span><br><span class="line"><span class="keyword">var</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>, [<span class="number">3</span>, <span class="number">4</span>, [<span class="number">5</span>, <span class="number">6</span>, [<span class="number">7</span>, <span class="number">8</span>, [<span class="number">9</span>, <span class="number">10</span>]]]]];</span><br><span class="line">arr4.<span class="title function_">flat</span>(<span class="title class_">Infinity</span>);</span><br><span class="line"><span class="comment">// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="对比测试是什么？"><a href="#对比测试是什么？" class="headerlink" title="对比测试是什么？"></a>对比测试是什么？</h1><blockquote>
+<p>有点像产品的 A&#x2F;B</p>
+</blockquote>
+<p>A&#x2F;B 测试（也被称为对比测试和分桶测试）<strong>旨在用于对比两个版本的内容的效果，识别哪一个版本对于访客&#x2F;查看者更具吸引力</strong>。 它将测试对照(A) 版本与变量(B) 版本，基于您的关键指标来衡量哪一个版本更成功。</p>
+<h1 id="弹框按钮放哪里？"><a href="#弹框按钮放哪里？" class="headerlink" title="弹框按钮放哪里？"></a>弹框按钮放哪里？</h1><ul>
+<li><p>一般放右下角</p>
+</li>
+<li><p>（核心功能）想突出操作的时候放在弹框里面，例如登录、邀请人员等</p>
+</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/ed1f8c9e-d633-4c93-b76e-4b1bd7fecb26.png" alt="ed1f8c9e-d633-4c93-b76e-4b1bd7fecb26" title="">
+                </div>
+                <div class="image-caption">ed1f8c9e-d633-4c93-b76e-4b1bd7fecb26</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/DL9Y9fTUTt.png" alt="DL9Y9fTUTt" title="">
+                </div>
+                <div class="image-caption">DL9Y9fTUTt</div>
+            </figure>
+
+<h1 id="Public-static-fields"><a href="#Public-static-fields" class="headerlink" title="Public static fields"></a>Public static fields</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Public_class_fields">Public class fields - JavaScript | MDN</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6944506173882105863">探寻public class fields - 掘金</a></p>
+</blockquote>
+<p>private&#x2F;static&#x2F;public</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ClassWithStaticField</span> &#123;</span><br><span class="line">  <span class="keyword">static</span> staticField = <span class="string">&#x27;static field&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">ClassWithStaticField</span>.<span class="property">staticField</span>);</span><br><span class="line"><span class="comment">//staticField</span></span><br><span class="line"><span class="keyword">let</span> a=<span class="keyword">new</span> <span class="title class_">ClassWithStaticField</span>();</span><br><span class="line">a.<span class="property">staticField</span></span><br><span class="line"><span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="这一年，我对终端组织与技术架构的思考"><a href="#这一年，我对终端组织与技术架构的思考" class="headerlink" title="这一年，我对终端组织与技术架构的思考"></a>这一年，我对终端组织与技术架构的思考</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/bzg8k9DCErPgTLD8gYwZrw">https://mp.weixin.qq.com/s/bzg8k9DCErPgTLD8gYwZrw</a></p>
+</blockquote>
+<h1 id="Playwright-学习"><a href="#Playwright-学习" class="headerlink" title="Playwright 学习"></a>Playwright 学习</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://playwright.dev/docs/selectorshttps://playwright.dev/docs/selectors">https://playwright.dev/docs/selectorshttps://playwright.dev/docs/selectors</a></p>
+</blockquote>
+<p>总体感受下来体验不错，但是元素筛选不准确，Hover 无法被录制等问题还是在上手时花费了一些时间。</p>
+<h1 id="safeify-替换-vm-沙箱"><a href="#safeify-替换-vm-沙箱" class="headerlink" title="safeify 替换 vm 沙箱"></a>safeify 替换 vm 沙箱</h1><p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1871363">YAPI安全漏洞问题，一文全解决 - 腾讯云开发者社区-腾讯云</a></p>
+<h1 id="SaaS-产品指标"><a href="#SaaS-产品指标" class="headerlink" title="SaaS 产品指标"></a>SaaS 产品指标</h1><p><strong>ARR</strong>：年经常收入</p>
+<p><strong>MRR</strong>：月经常收入</p>
+<p><strong>SPU</strong>：标准化产品单元</p>
+<p><strong>SKU</strong>：库存量单位（区分单品）</p>
+<p><strong>毛利率</strong>：毛利率&#x3D;（销售收入-销售成本）&#x2F;销售收入×100%&#x3D;（不含税售价－不含税进价）&#x2F;不含税售价×100%</p>
+<p>Rule of 40：增长率和利润率相加，如果大于 40% 则可以说明公司在盈利</p>
+<p><strong>CAC</strong>：用户获取成本</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.779Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/69f6c8dbcde3/&title=《2022_10学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/69f6c8dbcde3/&title=《2022_10学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/69f6c8dbcde3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_10学习笔记》 — 秦一&url=http://scar.site/69f6c8dbcde3/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/69f6c8dbcde3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/c91ca3895fd5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2022_11学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4a567141d4fc/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2022_09学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/69f6c8dbcde3/&title=《2022_10学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/69f6c8dbcde3/&title=《2022_10学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/69f6c8dbcde3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_10学习笔记》 — 秦一&url=http://scar.site/69f6c8dbcde3/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/69f6c8dbcde3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/69f6c8dbcde3/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

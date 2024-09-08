@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Cookie 从入门到进阶：一文彻底弄懂其原理以及应用 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Cookie 是什么？                                                                                             Fortune cookie               Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。 在浏览器中，Cook">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cookie 从入门到进阶：一文彻底弄懂其原理以及应用">
+<meta property="og:url" content="http://scar.site/c38f36f56d05/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="Cookie 是什么？                                                                                             Fortune cookie               Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。 在浏览器中，Cook">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220222222828.png">
+<meta property="og:image" content="https://images.scar.site/2022-02-18-00-06-27-image.png">
+<meta property="og:image" content="https://images.scar.site/2022-02-18-00-07-42-image.png">
+<meta property="og:image" content="https://images.scar.site/20220222225339.png">
+<meta property="og:image" content="https://images.scar.site/20220222225602.png">
+<meta property="og:image" content="https://images.scar.site/20220222225708.png">
+<meta property="og:image" content="https://images.scar.site/20220222225829.png">
+<meta property="og:image" content="https://images.scar.site/20220312181822.png">
+<meta property="og:image" content="https://images.scar.site/20220314225720.png">
+<meta property="og:image" content="https://images.scar.site/notebook.png">
+<meta property="article:published_time" content="2022-03-15T02:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.766Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220222222828.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Cookie 从入门到进阶：一文彻底弄懂其原理以及应用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Cookie 从入门到进阶：一文彻底弄懂其原理以及应用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-03-15T02:00:00.000Z" itemprop="datePublished" class="page-time">
+  2022-03-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Cookie-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.</span> <span class="post-toc-text">Cookie 是什么？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Cookie-%E5%BA%94%E7%94%A8"><span class="post-toc-number">2.</span> <span class="post-toc-text">Cookie 应用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE-Cookie"><span class="post-toc-number">3.</span> <span class="post-toc-text">如何设置 Cookie</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">速查表</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">详细说明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%EF%BC%9ASet-Cookie"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">服务端：Set-Cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%9Adocument-cookie"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">客户端：document.cookie</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%EF%BC%9ACookie-Store-API"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">客户端：Cookie Store API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C"><span class="post-toc-number">3.2.3.1.</span> <span class="post-toc-text">异步操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%94%99%E8%AF%AF%E6%8A%9B%E5%87%BA%E6%9C%BA%E5%88%B6"><span class="post-toc-number">3.2.3.2.</span> <span class="post-toc-text">错误抛出机制</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#service-workers-%E6%94%AF%E6%8C%81"><span class="post-toc-number">3.2.3.3.</span> <span class="post-toc-text">service workers 支持</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Set-Cookie-%E8%AF%A6%E8%A7%A3"><span class="post-toc-number">4.</span> <span class="post-toc-text">Set-Cookie 详解</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cookie-%E5%89%8D%E7%BC%80"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Cookie 前缀</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cookie-%E9%94%AE%E5%80%BC%E5%AF%B9"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Cookie 键值对</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cookie-%E5%B1%9E%E6%80%A7"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Cookie 属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%80%9F%E6%9F%A5%E8%A1%A8-1"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">速查表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E-1"><span class="post-toc-number">4.3.2.</span> <span class="post-toc-text">详细说明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Domain"><span class="post-toc-number">4.3.2.1.</span> <span class="post-toc-text">Domain</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Path"><span class="post-toc-number">4.3.2.2.</span> <span class="post-toc-text">Path</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Expires"><span class="post-toc-number">4.3.2.3.</span> <span class="post-toc-text">Expires</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Max-Age"><span class="post-toc-number">4.3.2.4.</span> <span class="post-toc-text">Max-Age</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HttpOnly"><span class="post-toc-number">4.3.2.5.</span> <span class="post-toc-text">HttpOnly</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Secure"><span class="post-toc-number">4.3.2.6.</span> <span class="post-toc-text">Secure</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SameSite"><span class="post-toc-number">4.3.2.7.</span> <span class="post-toc-text">SameSite</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#SameSite-%E5%92%8C-Domain-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-number">4.3.2.7.1.</span> <span class="post-toc-text">SameSite 和 Domain 的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#SameParty"><span class="post-toc-number">4.3.2.8.</span> <span class="post-toc-text">SameParty</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Priority"><span class="post-toc-number">4.3.2.9.</span> <span class="post-toc-text">Priority</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Q-A"><span class="post-toc-number">5.</span> <span class="post-toc-text">Q&amp;A</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Cookie-%E7%9A%84%E9%99%90%E5%88%B6"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">1. Cookie 的限制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">大小限制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E9%87%8F%E9%99%90%E5%88%B6"><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">数量限制</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%92%8C-Cookie-%E7%9B%B8%E5%85%B3%E7%9A%84%E4%B8%8D%E5%AE%89%E5%85%A8%E4%BA%8B%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">2. 和 Cookie 相关的不安全事件有哪些？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CSRF-%E6%94%BB%E5%87%BB"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">CSRF 攻击</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XSS-%E6%94%BB%E5%87%BB"><span class="post-toc-number">5.2.2.</span> <span class="post-toc-text">XSS 攻击</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Floc-%E6%9B%BF%E4%BB%A3%E7%AC%AC%E4%B8%89%E6%96%B9-Cookie%EF%BC%9F"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">3. Floc 替代第三方 Cookie？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-%E5%90%8C%E5%90%8D-Cookie-%E5%8F%91%E9%80%81%E6%97%B6%EF%BC%8C%E4%BC%98%E5%85%88%E7%BA%A7%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%EF%BC%9F"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">4. 同名 Cookie 发送时，优先级如何判断？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%B0%83%E8%AF%95-Cookie"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">5. 如何快速调试 Cookie</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%B5%84%E6%96%99"><span class="post-toc-number">7.</span> <span class="post-toc-text">资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/Cookie 详解"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Cookie 从入门到进阶：一文彻底弄懂其原理以及应用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-03-15 10:00:00" datetime="2022-03-15T02:00:00.000Z"  itemprop="datePublished">2022-03-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Cookie-是什么？"><a href="#Cookie-是什么？" class="headerlink" title="Cookie 是什么？"></a>Cookie 是什么？</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222222828.png" alt="Fortune cookie" title="">
+                </div>
+                <div class="image-caption">Fortune cookie</div>
+            </figure>
+
+<p>Cookie，它的名字源自一种叫 Fortune cookie 的饼干，这种饼干里面有一张写着精辟句子的小纸条。</p>
+<p>在浏览器中，Cookie 是服务器让浏览器帮忙携带信息的手段，就像饼干里的纸条，<strong>浏览器会储存它，并且在后续的 HTTP 请求中再次发送给服务器</strong>。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/2022-02-18-00-06-27-image.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/2022-02-18-00-07-42-image.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="Cookie-应用"><a href="#Cookie-应用" class="headerlink" title="Cookie 应用"></a>Cookie 应用</h1><p>主要用于以下三个方面：</p>
+<ul>
+<li>会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息）</li>
+<li>个性化设置（如用户自定义设置、主题等）</li>
+<li>浏览器行为跟踪（如跟踪分析用户行为等）</li>
+</ul>
+<p>因为 HTTP 是无状态的，所以为了协助 Web 保持状态，Cookie 诞生了。在 HTML5 的 localStorage、sessionStorage 出现之前，它作为当时唯一的储存手段也曾一度被用于客户端储存。</p>
+<p>随着浏览器储存机制的完善，为了减小不必要的性能开销（因为每次请求浏览器都会携带 Cookie 数据），一些<strong>客户端需要而服务器不需要的数据的场景渐渐被其他储存方式替代</strong>，例如记住用户的主题信息，Cookie 的应用场景也渐渐回归初心。</p>
+<p>目前 Cookie 主要用于会话状态管理，以用户登录-退出登陆为例，Cookie 的生命周期如下：</p>
+<p>前端通过用户登录 API 向后端传递用户信息，后端核对与数据库信息是否匹配。</p>
+<p>匹配后<strong>在登录 API 返回头部 <code>set-cookie</code> 返回记录用户状态的 cookie 值 userToken：</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225339.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>浏览器按照 <code>set-cookie</code> 的规则解析后存入浏览器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225602.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>后续浏览器会自动将 userToken 加到满足条件（域名、路径）的 API 的 请求头部 cookie 中</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225708.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>如果退出登陆，返回头部的 <code>set-cookie</code> 会拜托浏览器帮忙删除 userToken，浏览器的 cookie 储存库就会将 userToken 字段删除，后续的 API 请求头部 <code>cookie</code> 也不会发送它</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220222225829.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="如何设置-Cookie"><a href="#如何设置-Cookie" class="headerlink" title="如何设置 Cookie"></a>如何设置 Cookie</h1><p>服务端和浏览器有不同设置 Cookie 的方式。</p>
+<h2 id="速查表"><a href="#速查表" class="headerlink" title="速查表"></a>速查表</h2><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>操作示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>服务端</td>
+<td>set-cookie: &lt;cookie-name&gt;&#x3D;&lt;cookie-value&gt;</td>
+<td>服务端通过设置 set-cookie 控制 Cookie</td>
+</tr>
+<tr>
+<td>浏览器 <br> document.cookie</td>
+<td>document.cookie &#x3D; “name&#x3D;scar”;</td>
+<td>获取并设置与当前文档相关联的 cookie，操作不灵活。</td>
+</tr>
+<tr>
+<td>浏览器<br>Cookie Store API</td>
+<td>cookieStore.set(“name”, “scar”)</td>
+<td>新特性，仅支持在 HTTPS 使用，目前还在实验阶段。</td>
+</tr>
+</tbody></table>
+<h2 id="详细说明"><a href="#详细说明" class="headerlink" title="详细说明"></a>详细说明</h2><h3 id="服务端：Set-Cookie"><a href="#服务端：Set-Cookie" class="headerlink" title="服务端：Set-Cookie"></a>服务端：Set-Cookie</h3><blockquote>
+<p>服务端以 Node.js 为例，不同语言有不同的用法，但 Cookie 设置逻辑是一样的</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line">http</span><br><span class="line">  .<span class="title function_">createServer</span>(<span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&quot;/read&quot;</span>) &#123;</span><br><span class="line">      <span class="comment">// 读取 Cookie</span></span><br><span class="line">      res.<span class="title function_">end</span>(<span class="string">`Read Cookie: <span class="subst">$&#123;req.headers.cookie || <span class="string">&quot;&quot;</span>&#125;</span>`</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&quot;/write&quot;</span>) &#123;</span><br><span class="line">      <span class="comment">// 设置 Cookie</span></span><br><span class="line">      res.<span class="title function_">setHeader</span>(<span class="string">&quot;Set-Cookie&quot;</span>, [</span><br><span class="line">        <span class="string">`name=scar;`</span>,</span><br><span class="line">        <span class="comment">//set-cookie 属性大小写不敏感，你可以写成 path=/ 或者 Path=/</span></span><br><span class="line">        <span class="string">`language=javascript;Path=/; HttpOnly;Expires=<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(</span></span></span><br><span class="line"><span class="subst"><span class="string">          <span class="built_in">Date</span>.now() + <span class="number">1000</span></span></span></span><br><span class="line"><span class="subst"><span class="string">        ).toUTCString()&#125;</span>;`</span>,</span><br><span class="line">      ]);</span><br><span class="line">      res.<span class="title function_">end</span>(<span class="string">&quot;Write Success&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (req.<span class="property">url</span> === <span class="string">&quot;/delete&quot;</span>) &#123;</span><br><span class="line">      <span class="comment">// 删除 cookie</span></span><br><span class="line">      res.<span class="title function_">setHeader</span>(<span class="string">&quot;Set-Cookie&quot;</span>, [</span><br><span class="line">        <span class="comment">// 设置过期时间为过去的时间</span></span><br><span class="line">        <span class="string">`name=;expires=<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">1</span>).toUTCString()&#125;</span>`</span>,</span><br><span class="line">        <span class="comment">// 有效期 max-age 设置成 0 或 -1 这种无效秒，让 cookie 当场去世</span></span><br><span class="line">        <span class="comment">// 有些浏览器不支持 max-age 属性，所以用此方法需要考虑兼容性</span></span><br><span class="line">        <span class="string">&quot;language=javascript; max-age=0&quot;</span>,</span><br><span class="line">      ]);</span><br><span class="line">      res.<span class="title function_">end</span>(<span class="string">&quot;Delete Success&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      res.<span class="title function_">end</span>(<span class="string">&quot;Not Found&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端：document-cookie"><a href="#客户端：document-cookie" class="headerlink" title="客户端：document.cookie"></a>客户端：document.cookie</h3><p>客户端通过浏览器方法 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie">document.cookie</a> 读写当前界面的 Cookie。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 编辑 ookie</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;name=scar&quot;</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;language=javascript&quot;</span>;</span><br><span class="line"><span class="comment">// 读取 Cookie</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">cookie</span>);</span><br><span class="line"><span class="comment">//name=scar; language=javascript</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除 Cookie</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;name=scar;expires=Thu, 01 Jan 1970 00:00:01 GMT&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="客户端：Cookie-Store-API"><a href="#客户端：Cookie-Store-API" class="headerlink" title="客户端：Cookie Store API"></a>客户端：Cookie Store API</h3><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStore">Cookie Store</a> API 目前正在试验阶段，Firefox、Safari 浏览器 还不支持，所以不建议在生产环境使用，相信在将来我们会用上它更方便地操作 Cookie。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取 Cookie</span></span><br><span class="line"><span class="keyword">await</span> cookieStore.<span class="title function_">get</span>(<span class="string">&quot;enName&quot;</span>);</span><br><span class="line"><span class="keyword">await</span> cookieStore.<span class="title function_">getAll</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 Cookie</span></span><br><span class="line"><span class="keyword">const</span> day = <span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">1000</span>;</span><br><span class="line">cookieStore</span><br><span class="line">  .<span class="title function_">set</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;enName&quot;</span>,</span><br><span class="line">    <span class="attr">value</span>: <span class="string">&quot;scar&quot;</span>,</span><br><span class="line">    <span class="attr">expires</span>: <span class="title class_">Date</span>.<span class="title function_">now</span>() + day,</span><br><span class="line">    <span class="attr">domain</span>: <span class="string">&quot;scar.siteÏ&quot;</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">then</span>(</span><br><span class="line">    <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;It worked!&quot;</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">function</span> (<span class="params">reason</span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;It failed: &quot;</span>, reason);</span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除 Cookie</span></span><br><span class="line"><span class="keyword">await</span> cookieStore.<span class="title function_">delete</span>(<span class="string">&quot;session_id&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听 Cookie 变化</span></span><br><span class="line">cookieStore.<span class="title function_">addEventListener</span>(<span class="string">&quot;change&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> cookie <span class="keyword">of</span> event.<span class="property">changed</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (cookie.<span class="property">name</span> === <span class="string">&quot;name&quot;</span>) <span class="title function_">sessionCookieChanged</span>(cookie.<span class="property">value</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> cookie <span class="keyword">of</span> event.<span class="property">deleted</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (cookie.<span class="property">name</span> === <span class="string">&quot;enName&quot;</span>) <span class="title function_">sessionCookieChanged</span>(<span class="literal">null</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>除了更方便的用法，他还有以下特性：</p>
+<h4 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h4><p>它可以异步访问 Cookie，不阻塞主进程，document.cookie 是同步操作。</p>
+<h4 id="错误抛出机制"><a href="#错误抛出机制" class="headerlink" title="错误抛出机制"></a>错误抛出机制</h4><p>Cookie Store API 有一个明确的机制来报告 Cookie 存储错误，而 document.cookie 如果设置失败也不会提醒，所以需要轮询查 Cookie 的方法来确保设置成功。</p>
+<h4 id="service-workers-支持"><a href="#service-workers-支持" class="headerlink" title="service workers 支持"></a>service workers 支持</h4><p>因为 document.cookie 的同步设计，所以 service workers 不支持。Cookie Store API 的异步特性更适合，所以 service workers 支持通过它访问 Cookie。</p>
+<h1 id="Set-Cookie-详解"><a href="#Set-Cookie-详解" class="headerlink" title="Set-Cookie 详解"></a>Set-Cookie 详解</h1><p>从语法可以看出，Set-Cookie 由<strong>前缀、键值对、属性</strong>三部分组成。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>&lt;cookie-name&gt;=&lt;cookie-value&gt;</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>&lt;cookie-name&gt;=&lt;cookie-value&gt;; Expires=&lt;date&gt;</span><br><span class="line"></span><br><span class="line">// 同时指定多个属性 Domain、Secure、HttpOnly</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>&lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;; Secure; HttpOnly</span><br><span class="line"></span><br><span class="line">// cookie 前缀，值可能性为 __Secure-、__Host-</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>&lt;cookie-prefix&gt;&lt;cookie-name&gt;=&lt;cookie-value&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>前缀[非必须]</p>
+<ul>
+<li>示例：<code>Set-cookie: __Secure-lol=foo;Domain=example.xxx</code>， _Sercure- 就是前缀</li>
+<li>Cookie 前缀需配合属性使用，使 Cookie 更安全</li>
+</ul>
+</li>
+<li><p>键值对（名称&#x3D;值）</p>
+<ul>
+<li>示例：<code>Set-cookie: __Secure-lol=foo</code>。</li>
+<li>Cookie 携带信息</li>
+</ul>
+</li>
+<li><p>属性[非必须]</p>
+<ul>
+<li>示例：<code>Domain=somecompany.co.uk; Path=/; Expires=Wed, 30 Aug 2019 00:00:00 GMT</code></li>
+<li>Cookie 的设置，告诉客户端如何使用 Cookie 信息，可以设置 Cookie 生效的时间、域名等等信息。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Cookie-前缀"><a href="#Cookie-前缀" class="headerlink" title="Cookie 前缀"></a>Cookie 前缀</h2><p>Cookie 前缀是一种在 Cookie 名称中携带信息的方式，它必须和某些属性同时出现，否则 Cookie 无法设置成功。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>__Secure-</td>
+<td>必须同时设置 Secure 属性</td>
+</tr>
+<tr>
+<td>__Host-</td>
+<td>必须同时设置 Path&#x3D;&#x2F; 和 Secure 属性，且不能设置 Domain 属性。<br>限制来自安全域的 Cookie 被作用在不安全的域上</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 支持 Cookie 前缀的收到下面设置的时候会拒绝，因为没有同时设置 Secure 属性</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;__Secure-invalid-without-secure=1&quot;</span>;</span><br><span class="line"><span class="comment">// 这样设置才能成功！</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;__Secure-valid-with-secure=1; Secure&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 当响应来自于一个安全域（HTTPS）的时候，二者都可以被客户端接受</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>__Secure-ID=123; Secure; Domain=example.com</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>__Host-ID=123; Secure; Path=/</span><br><span class="line"></span><br><span class="line">// 缺少 Secure 属性，会被拒绝</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>__Secure-id=1</span><br><span class="line"></span><br><span class="line">// 缺少 Path=/ ，会被拒绝</span><br><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>__Host-id=1; Secure</span><br></pre></td></tr></table></figure>
+
+<p>说实话这个前缀我之前从没见过，孤陋寡闻了。</p>
+<p>除了 IE 不支持，其他各大浏览器基本支持。不同浏览器限制可能不同，例如：<code>Set-Cookie: __Host-id=1; Secure</code>设置 <code>__Host-</code>前缀的时候，即使缺少 <code>Path=/</code>，FireFox 可以设置成功，而 Chrome 会拒绝。</p>
+<blockquote>
+<p><strong>但为什么有 <code>Secure</code> 属性还要加个 <code>__Secure-</code> 前缀呢？</strong></p>
+<p>因为 <code>Secure</code> 属性设置后是可以被人恶意移除的，而 Cookie 名称被人移除前缀，服务器不会认它，所以更加安全。</p>
+</blockquote>
+<h2 id="Cookie-键值对"><a href="#Cookie-键值对" class="headerlink" title="Cookie 键值对"></a>Cookie 键值对</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;cookie-name&gt;=&lt;cookie-value&gt;</span><br></pre></td></tr></table></figure>
+
+<p>真正携带信息的部分，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">id=38afes7a8</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;cookie-name&gt;</code>  可以是除了控制字符 (CTLs)、空格 (spaces) 或制表符 (tab)之外的任何 US-ASCII 字符。同时不能包含以下分隔字符： ( ) &lt; &gt; @ , ; : \ “ &#x2F;  [ ] ? &#x3D; { }。</p>
+<p><code>&lt;cookie-value&gt;</code>  非必填，如果有值，那么需要包含在双引号里面。支持除了控制字符（CTLs）、空格（whitespace）、双引号（double quotes）、逗号（comma）、分号（semicolon）以及反斜线（backslash）之外的任意 US-ASCII 字符。</p>
+<h2 id="Cookie-属性"><a href="#Cookie-属性" class="headerlink" title="Cookie 属性"></a>Cookie 属性</h2><p>Cookie 属性可以理解为 Cookie 的配置项，告诉浏览器 Cookie 的一些额外信息，例如什么时候失效</p>
+<h3 id="速查表-1"><a href="#速查表-1" class="headerlink" title="速查表"></a>速查表</h3><table>
+<thead>
+<tr>
+<th>Cookie 属性</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Domain</td>
+<td>生效域名</td>
+<td>String</td>
+<td>当前访问地址中的 host 部分</td>
+<td>scar.site</td>
+</tr>
+<tr>
+<td>Path</td>
+<td>生效路径</td>
+<td>String</td>
+<td>&#x2F;</td>
+<td>&#x2F;docs</td>
+</tr>
+<tr>
+<td>Expires</td>
+<td>过期时间</td>
+<td><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Date">Date</a></td>
+<td>浏览器会话关闭时间</td>
+<td>Thu, 22 Jul 2021 00:53:13 GMT</td>
+</tr>
+<tr>
+<td>Max-Age</td>
+<td>有效期，单位秒</td>
+<td>Number</td>
+<td></td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Secure</td>
+<td>仅 HTTPS 可用</td>
+<td></td>
+<td></td>
+<td><code>无值</code>，出现即设置</td>
+</tr>
+<tr>
+<td>HttpOnly</td>
+<td>设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 进行访问</td>
+<td></td>
+<td></td>
+<td><code>无值</code>，出现即设置</td>
+</tr>
+<tr>
+<td>SameSite</td>
+<td>允许服务器设定 Cookie 不随着跨站请求一起发送</td>
+<td>string</td>
+<td>Lax</td>
+<td>值可能性为:<br>Lax<br>Strict<br>None</td>
+</tr>
+<tr>
+<td>SameParty</td>
+<td>允许特定条件跨域共享 Cookie</td>
+<td></td>
+<td></td>
+<td><code>无值</code>，出现即设置</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>优先级，仅 Chrome 支持</td>
+<td></td>
+<td>Medium</td>
+<td>值可能性为:<br>Low<br>Medium<br>High</td>
+</tr>
+</tbody></table>
+<h3 id="详细说明-1"><a href="#详细说明-1" class="headerlink" title="详细说明"></a>详细说明</h3><h4 id="Domain"><a href="#Domain" class="headerlink" title="Domain"></a>Domain</h4><p><code>Domain</code> 指定了哪些主机地址可以接收 Cookie。来看看如下设置：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>__Secure-ID=123; Secure; Domain=example.com</span><br></pre></td></tr></table></figure>
+
+<p>表示只要请求的目标地址匹配 Domain 规则，那 Cookie 就会被发送过去，所即使<code>scar.site</code> 向 <code>example.com</code> 发起的请求，Cookie 会被发送过去。<strong>所以不要再误会 <code>Domain</code>是发起请求的域名啦，其实是接受请求的域名</strong>。</p>
+<p>如果不设置，默认为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Origin">origin</a>，<strong>不包含子域名</strong>，如果指定了<code>Domain</code>，则一般包含子域名，例如，如果设置 <code>Domain=mozilla.org</code>，则 Cookie 也包含在子域名中（如<code>developer.mozilla.org</code>）。</p>
+<blockquote>
+<p>当前大多数浏览器遵循 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6265">RFC 6265</a>，设置 <code>Domain</code> 时 不需要加前导点。浏览器不遵循该规范，则需要加前导点，例如：<code>Domain=.mozilla.org</code></p>
+</blockquote>
+<h4 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h4><p><code>Path</code> 标识指定了主机下的哪些路径可以接受 Cookie（该 URL 路径必须存在于请求 URL 中）。以字符 <code>%x2F</code> (“&#x2F;“) 作为路径分隔符，子路径也会被匹配。</p>
+<p>例如，设置 <code>Path=/docs</code>，则以下地址都会匹配：</p>
+<ul>
+<li><code>/docs</code></li>
+<li><code>/docs/Web/</code></li>
+<li><code>/docs/Web/HTTP</code></li>
+</ul>
+<h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>设置过期时间，可以传一个符合 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Date">HTTP-Date</a> 格式的值，例如： <code>expires=Mon, 14 Mar 2022 15:39:34 GMT;</code></p>
+<p>如果不设置 <code>Expires</code>，则默认为会话关闭时间;</p>
+<blockquote>
+<p>会话是浏览器的一个概念，一般是一个浏览器 Tab 窗口。</p>
+<p>如果浏览器提供了会话恢复功能，恢复回话之时，Cookie 也会一起恢复，就好像会话从来没有关闭一样。</p>
+</blockquote>
+<h4 id="Max-Age"><a href="#Max-Age" class="headerlink" title="Max-Age"></a>Max-Age</h4><p>在 Cookie 失效之前需要经过的秒数。秒数为 0 或 -1 将会使 cookie 直接过期。一些老的浏览器（IE 6、IE 7 和 IE 8）不支持这个属性。</p>
+<p>如果 <code>Expires</code> 和<code>Max-Age</code> 同时存在时，<code>Max-Age</code>优先级更高。</p>
+<blockquote>
+<p>Expires&#x2F;Max-age 最大值在 chrome 是 400 天，详情可见：<a target="_blank" rel="noopener" href="https://chromestatus.com/feature/4887741241229312">Cookie Expires&#x2F;Max-Age attribute upper limit - Chrome Platform Status</a></p>
+</blockquote>
+<h4 id="HttpOnly"><a href="#HttpOnly" class="headerlink" title="HttpOnly"></a>HttpOnly</h4><p>设置了 HttpOnly 属性的 cookie 不能使用 JavaScript 经由  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie"><code>Document.cookie</code></a> 属性、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/XMLHttpRequest"><code>XMLHttpRequest</code></a> 和  <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Request"><code>Request</code></a> APIs、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/CookieStorechr"><code>Cookie Store</code></a> APIs 进行访问。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220312181822.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h4 id="Secure"><a href="#Secure" class="headerlink" title="Secure"></a>Secure</h4><p>标记为 <code>Secure</code> 的 Cookie 只应通过被 HTTPS 协议加密过的请求发送给服务端，因此可以预防 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/MitM">man-in-the-middle</a> 攻击。</p>
+<p>但即便设置了 <code>Secure</code> 标记，敏感信息也不应该通过 Cookie 传输，因为 Cookie 固有的不安全性，<code>Secure</code> 标记也无法提供确实的安全保障，例如：可以访问客户端硬盘的人可以读取它。</p>
+<h4 id="SameSite"><a href="#SameSite" class="headerlink" title="SameSite"></a>SameSite</h4><p>服务器要求某个 Cookie 在跨站请求时不会被发送，从而可以阻止<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/CSRF">跨站请求伪造攻击</a>。</p>
+<p>SameSite 可以有下面三种值：</p>
+<ul>
+<li><p>**<code>None</code>**：浏览器会在同站请求、跨站请求下继续发送 Cookies，不区分大小写。</p>
+</li>
+<li><p>**<code>Strict</code>**：浏览器将只在访问站点与 Cookie 生效的域相同时发送 Cookie。</p>
+</li>
+<li><p>**<code>Lax</code>**：新版本浏览器默认设置为 Lax。与 <code>Strict</code> 类似，但是特定条件也可以发送跨域请求：</p>
+<ul>
+<li><p>URL 必须发生变化</p>
+</li>
+<li><p>HTTP 请求方式必须是<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP">安全</a>的，例如 <code>GET</code>、<code>HEAD</code>、<code>OPTIONS</code>，它们不改变数据。</p>
+</li>
+</ul>
+<p>举个例子，用户从 a.com 跳转到 b.com，URL 发生了变化的同时请求方式为 GET，所以 设置了 <code>Lax</code>的 Cookie 会被发送过去 ，除此之外还有图片加载、iframe 调用等等。</p>
+</li>
+</ul>
+<h5 id="SameSite-和-Domain-的区别"><a href="#SameSite-和-Domain-的区别" class="headerlink" title="SameSite 和 Domain 的区别"></a>SameSite 和 Domain 的区别</h5><p>上面提到过，<code>Domain</code> 可以指定 Cookie 生效的域名，那它和 <code>Domain</code>的区别是什么呢？</p>
+<p><strong><code>Domain</code> 属性限制了接收 Cookie 的域名，而 <code>SameSite</code>属性限制了发送 Cookie 的域名</strong></p>
+<p>举个例子：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>Foo=bar; Path=/; Secure; Domain=scar.site;</span><br></pre></td></tr></table></figure>
+
+<p>无论是从 <code>scar.site</code> 还是 <code>foo.example.com</code> 发起的请求，只要被发送到了 <code>scar.site</code> 或者它的子域名，那 Cookie 就能发过去。 </p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Set-Cookie</span><span class="punctuation">: </span>name=scar; Path=/; Secure; Domain=scar.site;SameSite=strict;</span><br></pre></td></tr></table></figure>
+
+<p>如果设置了 <code>SameSite=strict</code>,那么这个请求只能从 <code>scar.site</code> 发起 Cookie 才能带过去。</p>
+<h4 id="SameParty"><a href="#SameParty" class="headerlink" title="SameParty"></a>SameParty</h4><blockquote>
+<p>目前还在实验阶段</p>
+</blockquote>
+<p>配合  <code>First-Party Sets</code> 实现跨域共享属性，详细可以访问：<a target="_blank" rel="noopener" href="https://juejin.cn/post/7002011181221167118">详解 Cookie 新增的 SameParty 属性</a>。</p>
+<!-- #### Partition Key -->
+
+<h4 id="Priority"><a href="#Priority" class="headerlink" title="Priority"></a>Priority</h4><blockquote>
+<p>目前只有 Chrome 实现了这个<a target="_blank" rel="noopener" href="https://datatracker.ietf.org/doc/html/draft-west-cookie-priority">提案</a></p>
+</blockquote>
+<p>因为 Cookie 有数量限制，所以在 Cookie 超过一定数量时，浏览器会清除最早过期的 Cookie。</p>
+<p>如果设置了 Priority，Chrome 会先将优先级低的清除，并且每种优先级 Cookie 至少保留一个。可以有下面三种值：</p>
+<ul>
+<li><p>Low：低优先级</p>
+</li>
+<li><p>Medium：默认值，中优先级</p>
+</li>
+<li><p>High：高优先级</p>
+</li>
+</ul>
+<h1 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><p>一些关于 Cookie 的疑问和新特性，以 Q&amp;A 形式记录。比较杂、比较散，可以说没什么知识点全是感情，属于那种你知道了可能没什么用但是就是想把它弄懂。</p>
+<h2 id="1-Cookie-的限制"><a href="#1-Cookie-的限制" class="headerlink" title="1. Cookie 的限制"></a>1. Cookie 的限制</h2><h3 id="大小限制"><a href="#大小限制" class="headerlink" title="大小限制"></a>大小限制</h3><p>大多数浏览器支持最大为 4KB 的 Cookie，4KB 是针对 Cookie 单条记录的 Value 值。</p>
+<h3 id="数量限制"><a href="#数量限制" class="headerlink" title="数量限制"></a>数量限制</h3><p>Cookie 有数量限制，而且只允许每个站点存储一定数量的 Cookie，当超过时，最早过期的 Cookie 便被删除。</p>
+<p>不同浏览器支持的数量可能不同, 基于 Webkit 内核的是 180 个，基于 gecko 内核的是 150 个，感兴趣可以访问<a target="_blank" rel="noopener" href="https://zhengjiangtao.cn/show/zj/cookie.html">江涛学编程-编写的 Cookie 实验</a> 试试自己的浏览器 Cookie 数量限制</p>
+<blockquote>
+<p>实际上影响 Cookie 被删除的要素不止是 <code>Expires</code> 和 <code>Max-Age</code>，还有 <code>Priority</code>、<code>Secure</code>，对移除策略感兴趣的可以看：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50541175">Cookie 知识二则</a></p>
+</blockquote>
+<h2 id="2-和-Cookie-相关的不安全事件有哪些？"><a href="#2-和-Cookie-相关的不安全事件有哪些？" class="headerlink" title="2. 和 Cookie 相关的不安全事件有哪些？"></a>2. 和 Cookie 相关的不安全事件有哪些？</h2><h3 id="CSRF-攻击"><a href="#CSRF-攻击" class="headerlink" title="CSRF 攻击"></a>CSRF 攻击</h3><blockquote>
+<p>CSRF：跨站请求攻击，简单地说，是攻击者通过一些技术手段欺骗用户的浏览器去访问一个自己曾经认证过的网站并运行一些操作（如发邮件，发消息，甚至财产操作如转账和购买商品）。</p>
+</blockquote>
+<p>举个例子，一家银行用以运行转账操作的 URL 如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://www.examplebank.com/withdraw?account=AccoutName&amp;amount=1000&amp;for=PayeeName</span><br></pre></td></tr></table></figure>
+
+<p>那么，一个恶意攻击者可以在另一个网站上放置如下代码： </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;&lt;http://www.examplebank.com/withdraw?account=scar&amp;amount=1000&amp;for=Badman&gt;&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果有账户名为 Alice 的用户访问了恶意站点，而她之前刚访问过银行不久，登录信息尚未过期，导致发起请求后后端以为是用户正常操作，于是进行扣款操作，那么她就会损失 1000 资金。通过设置 <code>sameSite</code> 可以防止跨域发送 Cookie，抵御 CSRF。</p>
+<h3 id="XSS-攻击"><a href="#XSS-攻击" class="headerlink" title="XSS 攻击"></a>XSS 攻击</h3><blockquote>
+<p>跨站脚本（Cross-site scripting）是一种网站应用程序的安全漏洞攻击，简称为 CSS, 但这会与层叠样式表（Cascading Style Sheets）CSS的缩写混淆。因此，跨站脚本攻击缩写为 XSS。</p>
+</blockquote>
+<p>XSS 攻击通常指的是通过利用网页开发时留下的漏洞，通过巧妙的方法注入恶意指令代码到网页，使用户加载并执行攻击者恶意制造的网页程序。攻击成功后，攻击者可能得到 Cookie 从而实现攻击。</p>
+<h2 id="3-Floc-替代第三方-Cookie？"><a href="#3-Floc-替代第三方-Cookie？" class="headerlink" title="3. Floc 替代第三方 Cookie？"></a>3. Floc 替代第三方 Cookie？</h2><blockquote>
+<p>引用自：<a target="_blank" rel="noopener" href="https://sspai.com/post/66056">如果不用第三方 Cookie，Google FLoC 会是更好的替代者吗？ - 少数派</a></p>
+</blockquote>
+<p>FLoC 是一种新的广告追踪技术，全称为 Federated Learning of Cohorts，即「同类群组联合学习」。FLoC 的工作原理是监视你的浏览记录，为访客的汇总行为分配一个 ID，然后将具有类似浏览行为的浏览器分组在一起。这些群组的数据称为同类群组，然后用于向人们展示针对性更强的广告。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220314225720.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><strong>FLoC 在自身设计层面，是比 Cookie 隐私性更好的</strong>，但是首先它依然是一个广告追踪技术，其次才是一个相对保护隐私的广告追踪技术。</p>
+<p>FLoC 由 Google 主导，所以三方团体担忧：当所有的浏览器开始默认屏蔽第三方 Cookie，广告商转向使用 FLoC 以后，Google 将在广告追踪市场一家独大。</p>
+<!-- ## 跨域 Cookie
+
+[authentication - Set cookies for cross origin requests - Stack Overflow](https://stackoverflow.com/questions/46288437/set-cookies-for-cross-origin-requests) -->
+
+<h2 id="4-同名-Cookie-发送时，优先级如何判断？"><a href="#4-同名-Cookie-发送时，优先级如何判断？" class="headerlink" title="4. 同名 Cookie 发送时，优先级如何判断？"></a>4. 同名 Cookie 发送时，优先级如何判断？</h2><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Cookie</span><span class="punctuation">: </span>a=2; a=1</span><br></pre></td></tr></table></figure>
+
+<p>首先来看看 <code>Cookie</code> 发送顺序，<a target="_blank" rel="noopener" href="https://www.rfc-editor.org/rfc/rfc6265#section-5.4">RFC 6265</a>提案提到：</p>
+<ul>
+<li><p><code>Path</code> 属性较长的应该在前面</p>
+</li>
+<li><p>如果 <code>Path</code> 路径一样，创建时间早的在前面</p>
+</li>
+</ul>
+<p>具体的浏览器表现我没有去探究，但提案只是倡导，所以每个客户端不一定会按照它实现 Cookie 的发送顺序。</p>
+<p>除了考虑发送顺序，还要考虑不同的服务器框架可能有不同的接收逻辑，所以笔者推荐尽量避免出现同名 Cookie，减少端表现不统一带来的不确定性。</p>
+<h2 id="5-如何快速调试-Cookie"><a href="#5-如何快速调试-Cookie" class="headerlink" title="5. 如何快速调试 Cookie"></a>5. 如何快速调试 Cookie</h2><p>F12 打开控制台可以快速看到本域下的所有 Cookie</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/notebook.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>通过分析 Cookie 属性来定位问题。</p>
+<p>例如某个 Cookie 导致了业务问题，如果它设置了 HttpOnly，那么代表客户端无法操作 Cookie，可以快速的把问题定位到 API 层面。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>本来我在写：Cookie、Session、Token ，写着写着发现 Cookie 的篇幅比较多，而那篇文章的重点不在于这些部分，所以摘了出来。如果对 Cookie、Session、Token 感兴趣的可以持续关注一下我，近期会发哦～</p>
+<p>作为一名前端人员，平时用得少所以不熟悉，但了解后其实也没有什么难点，相信你们看完这篇就可以彻底了解了。如果文章中还有关于 Cookie 你想知道但是我没写的部分都可以评论，我会回复。</p>
+<h1 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies">Cookies - mozilla</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookies - mozilla</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/116668">Cookie 前缀如何让 Cookie 更安全？- 阿里云社区</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cookiepro.com/knowledge/what-is-a-session-cookie/">What is a Session Cookie?</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/devtools/storage/cookies/?utm_source=devtools">View, edit, and delete cookies</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5285940/correct-way-to-delete-cookies-server-side">Correct way to delete cookies server-side</a></li>
+<li><a target="_blank" rel="noopener" href="https://chromestatus.com/feature/5658847691669504">Feature: Cookie Store API</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904102544031757">面试：彻底理解 Cookie 以及 Cookie 安全</a></li>
+<li><a target="_blank" rel="noopener" href="https://sspai.com/post/66056">如果不用第三方 Cookie，Google FLoC 会是更好的替代者吗？ - 少数派</a></li>
+<li><a target="_blank" rel="noopener" href="https://ruby-china.org/topics/41320">FLoC 是什么？以及你为什么需要在 Chrome 浏览器中禁用它 · Ruby China</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cnroadbridge/p/13552566.html">分享一个关于 Cookie 做的实验结果 - ataola - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/57090774/what-are-the-security-differences-between-cookies-with-domain-vs-samesite-strict">What are the security differences between cookies with Domain vs SameSite strict? - Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/59990864/what-is-difference-between-samesite-lax-and-samesite-strict">What is difference between SameSite&#x3D;&quot;Lax&quot; and SameSite&#x3D;&quot;Strict&quot;? - Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50541175">Cookie 知识二则</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4056306/how-to-handle-multiple-cookies-with-the-same-name">How to handle multiple cookies with the same name? - Stack Overflow</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.766Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/c38f36f56d05/&title=《Cookie 从入门到进阶：一文彻底弄懂其原理以及应用》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/c38f36f56d05/&title=《Cookie 从入门到进阶：一文彻底弄懂其原理以及应用》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/c38f36f56d05/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Cookie 从入门到进阶：一文彻底弄懂其原理以及应用》 — 秦一&url=http://scar.site/c38f36f56d05/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/c38f36f56d05/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/29515ed6dc68/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">孩子们的诗</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/903028b87136/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">焦虑的人</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/c38f36f56d05/&title=《Cookie 从入门到进阶：一文彻底弄懂其原理以及应用》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/c38f36f56d05/&title=《Cookie 从入门到进阶：一文彻底弄懂其原理以及应用》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/c38f36f56d05/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Cookie 从入门到进阶：一文彻底弄懂其原理以及应用》 — 秦一&url=http://scar.site/c38f36f56d05/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/c38f36f56d05/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/c38f36f56d05/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

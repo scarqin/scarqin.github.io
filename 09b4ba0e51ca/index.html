@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>锚点定位被顶部固定导航栏遮住的解决方案 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。 同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置， 如图所示：                                                                                                             如果使用锚点实现目录的跳转">
+<meta property="og:type" content="article">
+<meta property="og:title" content="锚点定位被顶部固定导航栏遮住的解决方案">
+<meta property="og:url" content="http://scar.site/09b4ba0e51ca/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。 同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置， 如图所示：                                                                                                             如果使用锚点实现目录的跳转">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220224233544.png">
+<meta property="og:image" content="https://images.scar.site/20220224233602.png">
+<meta property="og:image" content="https://images.scar.site/20220224233626.png">
+<meta property="og:image" content="https://images.scar.site/20220224233909.png">
+<meta property="og:image" content="https://images.scar.site/52ccac5e90034a75b79b54a6dc530939_tplv-k3u1fbpfcp-zoom-1.gif">
+<meta property="og:image" content="https://images.scar.site/20220224234148.png">
+<meta property="og:image" content="https://images.scar.site/20220224233731.png">
+<meta property="og:image" content="https://images.scar.site/20220224233741.png">
+<meta property="og:image" content="https://images.scar.site/20220224234240.png">
+<meta property="og:image" content="https://images.scar.site/20220224233750.png">
+<meta property="article:published_time" content="2020-04-09T01:28:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.771Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220224233544.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">锚点定位被顶部固定导航栏遮住的解决方案</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">锚点定位被顶部固定导航栏遮住的解决方案</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-04-09T01:28:00.000Z" itemprop="datePublished" class="page-time">
+  2020-04-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%94%9A%E7%82%B9%E5%AE%9A%E4%BD%8D%E6%9C%BA%E5%88%B6"><span class="post-toc-number">1.</span> <span class="post-toc-text">锚点定位机制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="post-toc-number">2.</span> <span class="post-toc-text">解决方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-%E6%BB%9A%E5%8A%A8%E5%85%83%E7%B4%A0%E8%AE%BE%E7%BD%AE-scroll-padding-top"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">方法一 滚动元素设置 scroll-padding-top</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-padding-margin"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">方法二 padding+margin</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89-%E7%94%A8span%E6%88%96a%E6%A0%87%E7%AD%BE%E4%BD%9C%E4%B8%BA%E9%94%9A%E7%82%B9%E5%85%83%E7%B4%A0"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">方法三 用span或a标签作为锚点元素</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95%E5%9B%9B-%E6%9A%97%E9%94%9A%E7%82%B9"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">方法四 暗锚点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%94-target%E4%BC%AA%E7%B1%BB"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">方法五 :target伪类</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考资料</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%87%B4%E8%B0%A2"><span class="post-toc-number">4.</span> <span class="post-toc-text">致谢</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/锚点定位被顶部固定导航栏遮住的解决方案"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">锚点定位被顶部固定导航栏遮住的解决方案</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-04-09 09:28:00" datetime="2020-04-09T01:28:00.000Z"  itemprop="datePublished">2020-04-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>很多网站都有一个固定在上方的导航栏，方便用户搜索和跳转到其他页面。</p>
+<p>同时为了方便用户浏览长文档，都会加上目录，点击段落标题跳转到段落所在的位置，</p>
+<p>如图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233544.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>如果使用锚点实现目录的跳转，会遇到 fixed 导航栏遮住了标题的问题。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233602.png" alt="fixed 导航栏遮住了标题" title="">
+                </div>
+                <div class="image-caption">fixed 导航栏遮住了标题</div>
+            </figure>
+
+<h2 id="锚点定位机制"><a href="#锚点定位机制" class="headerlink" title="锚点定位机制"></a>锚点定位机制</h2><ul>
+<li>如果没有滚动条，锚点失效。</li>
+<li>如果有滚动条，滚动条滚动到地址 hash （地址 # 号后面的内容）对应的锚点元素 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model"><code>padding-box</code></a>上边缘位置。</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/scarqin/footer-demo/blob/master/fixedMenuAndAnchor">示例源码</a></li>
+<li><a target="_blank" rel="noopener" href="http://htmlpreview.github.io/?https://github.com/scarqin/footer-demo/blob/master/fixedMenuAndAnchor">示例在线预览</a></li>
+</ul>
+<h3 id="方法一-滚动元素设置-scroll-padding-top"><a href="#方法一-滚动元素设置-scroll-padding-top" class="headerlink" title="方法一 滚动元素设置 scroll-padding-top"></a>方法一 滚动元素设置 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding-top">scroll-padding-top</a></h3><p>示例的滚动条属于 <code>html</code>，所以在 html 元素上设置。</p>
+<p>如果滚动条在其他元素上，将 scroll-padding-top 设置到附滚动条的元素即可。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">scroll-padding-top</span>: <span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>浏览器内置的支持，用法超轻便</strong>，兼容性如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233626.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h3 id="方法二-padding-margin"><a href="#方法二-padding-margin" class="headerlink" title="方法二 padding+margin"></a>方法二 padding+margin</h3><p>padding 影响锚点元素的定位，margin 不影响锚点元素的定位。所以使用 padding 调整锚点元素跳转后的位置，使用 margin 抵消 padding 对布局的影响。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;heading first&quot;</span> <span class="attr">id</span>=<span class="string">&quot;first&quot;</span>&gt;</span>1.出现的时间、地点不同<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.first</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">60px</span>; <span class="comment">/* 60px是导航栏高度 */</span></span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233909.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>优点</strong></p>
+<p>此方案无需添加额外的元素，直接使用 css 可解决问题。</p>
+<p><strong>缺点</strong></p>
+<p>当标题的文档层级和段落的文档层级不一致时会导致遮盖其他元素。</p>
+<p>例如：标题使用了 <code>relative</code> 定位提升了文档层级。会出现鼠标无法选中标题上方被布局遮挡的段落，从而导致无法复制文档。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/52ccac5e90034a75b79b54a6dc530939_tplv-k3u1fbpfcp-zoom-1.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h3 id="方法三-用span或a标签作为锚点元素"><a href="#方法三-用span或a标签作为锚点元素" class="headerlink" title="方法三 用span或a标签作为锚点元素"></a>方法三 用<code>span</code>或<code>a</code>标签作为锚点元素</h3><p>非替换内联元素的<code>padding</code>不影响布局，但可以影响锚点位置。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;heading&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;second&quot;</span> <span class="attr">class</span>=<span class="string">&quot;title_placeholder&quot;</span>&gt;</span></span><br><span class="line">    2. require/exports 是运行时动态加载，import/export 是静态编译</span><br><span class="line">  <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.title_placeholder</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224234148.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><strong>缺点</strong></p>
+<p>同方案（1）</p>
+<h3 id="方法四-暗锚点"><a href="#方法四-暗锚点" class="headerlink" title="方法四 暗锚点"></a>方法四 暗锚点</h3><p>在需要定位的元素上方加入不影响布局的空白锚点元素。</p>
+<p>因为锚点跳转后的位置会落在元素的<code>padding-box</code>上边缘，设置 <code>height</code>影响锚点位置，设置<code>margin-top</code>抵消暗锚对布局对影响。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;dark_anchor&quot;</span> <span class="attr">id</span>=<span class="string">&quot;third&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;heading&quot;</span>&gt;</span></span><br><span class="line">  3. require/exports 输出的是一个值的拷贝，import/export 模块输出的是值的引用</span><br><span class="line"><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.dark_anchor</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233731.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p><strong>优点</strong></p>
+<p>不影响其他元素的鼠标选择</p>
+<p><strong>缺点</strong></p>
+<p>此方案的定位元素的<code>margin</code>会影响锚点跳转后的位置，和直接设置标题为锚点元素的表现不一致。</p>
+<p>例如：标题（定位元素）有 20px 的边距，锚点跳转后 20px 的边距依旧保留。如果希望锚点跳转后标题置顶不受 <code>margin</code>影响的同学慎用此方案。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233741.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h3 id="方法五-target伪类"><a href="#方法五-target伪类" class="headerlink" title="方法五 :target伪类"></a>方法五 <code>:target</code>伪类</h3><p><code>:target</code></p>
+<blockquote>
+<p>CSS 伪类 代表一个唯一的页面元素(目标元素)，其 id 与当前 URL 片段匹配 .</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">id</span>=<span class="string">&quot;forth&quot;</span> <span class="attr">class</span>=<span class="string">&quot;heading&quot;</span>&gt;</span>4. 用法不一致<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#forth</span><span class="selector-pseudo">:target</span> &#123;</span><br><span class="line">  <span class="attribute">padding-top</span>: <span class="number">60px</span>;</span><br><span class="line">  <span class="attribute">margin-top</span>: -<span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224234240.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>此方案和方案（1）有异曲同工之妙，当跳转到某个（类）锚点时，锚点元素应用 <code>:target</code> 样式。</p>
+<p>使用<code>:target</code>需要注意兼容性，目前 IE6-IE8 浏览器不支持。</p>
+<p><strong>浏览器兼容性</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224233750.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2013/08/url-anchor-html-%E9%94%9A%E7%82%B9%E5%AE%9A%E4%BD%8D%E6%9C%BA%E5%88%B6-%E5%BA%94%E7%94%A8-%E9%97%AE%E9%A2%98/">张鑫旭-URL 锚点 HTML 定位技术机制、应用与问题</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.feidaoshuo.com/post/559.html">飞刀说-纯 CSS 实现网页内部锚点跳转时上下偏移</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/kakaxiD/article/details/78603024">kakaxiD-当锚点遇到 fixed 定位</a></li>
+</ul>
+<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h2><p><code>scroll-padding-top</code> 的用法是读者<a target="_blank" rel="noopener" href="https://www.zhihu.com/people/kuai-jin-dao-de-bao-yi-wai-bei-zha">知乎用户名字</a>提醒后补充的，在分享解决方案的同时学习到了新的套路，感恩。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.771Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/09b4ba0e51ca/&title=《锚点定位被顶部固定导航栏遮住的解决方案》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/09b4ba0e51ca/&title=《锚点定位被顶部固定导航栏遮住的解决方案》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/09b4ba0e51ca/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《锚点定位被顶部固定导航栏遮住的解决方案》 — 秦一&url=http://scar.site/09b4ba0e51ca/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/09b4ba0e51ca/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/3040280932a5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2019看的书</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/90377def2765/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2020_4学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/09b4ba0e51ca/&title=《锚点定位被顶部固定导航栏遮住的解决方案》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/09b4ba0e51ca/&title=《锚点定位被顶部固定导航栏遮住的解决方案》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/09b4ba0e51ca/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《锚点定位被顶部固定导航栏遮住的解决方案》 — 秦一&url=http://scar.site/09b4ba0e51ca/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/09b4ba0e51ca/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/09b4ba0e51ca/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

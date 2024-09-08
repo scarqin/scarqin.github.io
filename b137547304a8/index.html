@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2021_09学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Cookie 的 4KB 值得是 Cookie 总大小还是单个键值对在一定条件下，基于Webkit内核的浏览器，Cookie呈现如下规律，当单个域名下Cookie数到达180个的时候，再次添加会删除最开始的30个Cookie里路，然后从150的基数依次往上增加直至180个后，浏览器会循环前面的操作。 在一定条件下，基于gecko内核的浏览器，Cookie呈现如下规律，当单个域名下Cookie数到达">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021_09学习笔记">
+<meta property="og:url" content="http://scar.site/b137547304a8/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="Cookie 的 4KB 值得是 Cookie 总大小还是单个键值对在一定条件下，基于Webkit内核的浏览器，Cookie呈现如下规律，当单个域名下Cookie数到达180个的时候，再次添加会删除最开始的30个Cookie里路，然后从150的基数依次往上增加直至180个后，浏览器会循环前面的操作。 在一定条件下，基于gecko内核的浏览器，Cookie呈现如下规律，当单个域名下Cookie数到达">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://image-static.segmentfault.com/368/338/3683380041-764dd660f259b1f0">
+<meta property="og:image" content="https://image-static.segmentfault.com/170/146/170146538-48afefd3ed3cdb77_fix732">
+<meta property="og:image" content="https://image-static.segmentfault.com/334/125/3341257700-27a8116c47a33986_fix732">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190718223319835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9taW5nZWx2,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2021-08-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.776Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://image-static.segmentfault.com/368/338/3683380041-764dd660f259b1f0">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2021_09学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2021_09学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-08-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2021-09-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cookie-%E7%9A%84-4KB-%E5%80%BC%E5%BE%97%E6%98%AF-Cookie-%E6%80%BB%E5%A4%A7%E5%B0%8F%E8%BF%98%E6%98%AF%E5%8D%95%E4%B8%AA%E9%94%AE%E5%80%BC%E5%AF%B9"><span class="post-toc-number">1.</span> <span class="post-toc-text">Cookie 的 4KB 值得是 Cookie 总大小还是单个键值对</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E5%92%8C%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-number">2.</span> <span class="post-toc-text">对称加密和非对称加密的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%85%83%E7%B4%A0%E6%BB%9A%E5%8A%A8%E5%88%B0%E7%9B%B8%E5%BA%94%E4%BD%8D%E7%BD%AE"><span class="post-toc-number">3.</span> <span class="post-toc-text">元素滚动到相应位置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MVC%EF%BC%8CMVP-%E5%92%8C-MVVM-%E7%9A%84%E5%9B%BE%E7%A4%BA"><span class="post-toc-number">4.</span> <span class="post-toc-text">[MVC，MVP 和 MVVM 的图示]</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%A4%E6%97%A9%E7%9A%84-MVC"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">古早的  MVC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MVP-%E5%B0%B1%E6%98%AF-MVC"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">MVP 就是 MVC</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MVVM"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">MVVM</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E6%BB%B4%E7%AD%94%E6%B8%85%E5%8D%95-Open-API"><span class="post-toc-number">5.</span> <span class="post-toc-text">如何调用滴答清单 Open API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%8C%E5%BB%BA%E7%AB%8B-APP%EF%BC%8C%E8%8E%B7%E5%8F%96-client-id"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">第一步，建立  APP，获取 client_id</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%8COauth-%E6%8E%88%E6%9D%83"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">第二步，Oauth 授权</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%8C%E6%8B%BF%E5%88%B0%E9%87%8D%E5%AE%9A%E5%90%91%E7%9A%84-code"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">第三步，拿到重定向的 code</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#STAR-%E9%9D%A2%E8%AF%95%E6%B3%95"><span class="post-toc-number">6.</span> <span class="post-toc-text">STAR 面试法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Node-%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E6%A8%A1%E5%9D%97"><span class="post-toc-number">7.</span> <span class="post-toc-text">Node 如何查找模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E5%A6%82%E4%BD%95%E4%B8%80%E8%A1%8C%E8%BD%AC%E4%B8%BA%E5%AF%B9%E8%B1%A1"><span class="post-toc-number">8.</span> <span class="post-toc-text">数组如何一行转为对象</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PostCSS-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">9.</span> <span class="post-toc-text">PostCSS 是什么</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OWASP"><span class="post-toc-number">10.</span> <span class="post-toc-text">OWASP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E9%80%92%E5%BD%92%E5%92%8C%E8%BF%AD%E4%BB%A3%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">11.</span> <span class="post-toc-text">递归和迭代的区别是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Javascript-%E8%8E%B7%E5%8F%96-query-%E5%8F%82%E6%95%B0"><span class="post-toc-number">12.</span> <span class="post-toc-text">Javascript 获取 query 参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ESB-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">13.</span> <span class="post-toc-text">ESB 是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%90%8C%E6%9E%84%E7%B3%BB%E7%BB%9F%E5%92%8C%E5%BC%82%E6%9E%84%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="post-toc-number">14.</span> <span class="post-toc-text">同构系统和异构系统的区别？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%82%E6%9E%84"><span class="post-toc-number">14.1.</span> <span class="post-toc-text">异构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%90%8C%E6%9E%84"><span class="post-toc-number">14.2.</span> <span class="post-toc-text">同构</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2021_09学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2021_09学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-09-01 00:00:00" datetime="2021-08-31T16:00:00.000Z"  itemprop="datePublished">2021-09-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Cookie-的-4KB-值得是-Cookie-总大小还是单个键值对"><a href="#Cookie-的-4KB-值得是-Cookie-总大小还是单个键值对" class="headerlink" title="Cookie 的 4KB 值得是 Cookie 总大小还是单个键值对"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cnroadbridge/p/13552566.html">Cookie 的 4KB 值得是 Cookie 总大小还是单个键值对</a></h2><p>在一定条件下，基于Webkit内核的浏览器，Cookie呈现如下规律，当单个域名下Cookie数到达180个的时候，再次添加会删除最开始的30个Cookie里路，然后从150的基数依次往上增加直至180个后，浏览器会循环前面的操作。</p>
+<p>在一定条件下，基于gecko内核的浏览器，Cookie呈现如下规律，当单个域名下Cookie数到达150个后，再次添加它会删除最前面的Cookie记录以腾出位置给添加的Cookie记录。</p>
+<p>在一定条件下，<strong>Cookie单条记录的Value值允许大小近似于4KB</strong>。</p>
+<h2 id="对称加密和非对称加密的区别"><a href="#对称加密和非对称加密的区别" class="headerlink" title="对称加密和非对称加密的区别"></a>对称加密和非对称加密的区别</h2><p>1、对称加密中加密和解密使用的秘钥是同一个；非对称加密中采用两个密钥，一般使用公钥进行加密，私钥进行解密。</p>
+<p>2、对称加密解密的速度比较快，非对称加密和解密花费的时间长、速度相对较慢。</p>
+<p>3、对称加密的安全性相对较低，非对称加密的安全性较高。</p>
+<h2 id="元素滚动到相应位置"><a href="#元素滚动到相应位置" class="headerlink" title="元素滚动到相应位置"></a>元素滚动到相应位置</h2><p>element.scrollIntoView();</p>
+<h2 id="MVC，MVP-和-MVVM-的图示"><a href="#MVC，MVP-和-MVVM-的图示" class="headerlink" title="[MVC，MVP 和 MVVM 的图示]"></a>[MVC，MVP 和 MVVM 的图示]</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html">阮一峰-MVC，MVP 和 MVVM 的图示
+</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000023325805">winter-谈谈UI架构设计的演化
+</a></li>
+</ul>
+<h3 id="古早的-MVC"><a href="#古早的-MVC" class="headerlink" title="古早的  MVC"></a>古早的  MVC</h3><ul>
+<li>Model:数据层，包括处理数据、业务的逻辑</li>
+<li>View:视图层</li>
+<li>Controller:通过获取视图输入的数据处理</li>
+</ul>
+<p>古早的软件需要自己编写鼠标、键盘事件，所以 Controller 主要指的是这部分逻辑。例如通过使用 TextView 和 TextEditor 配合来完成文本的选中、插入&#x2F;覆盖模式切换、换行、退格、双击、拖拽等逻辑。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://image-static.segmentfault.com/368/338/3683380041-764dd660f259b1f0" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>若是在控件系统中，<strong>再令所有用户输入流经一个controller则可谓不伦不类、本末倒置</strong>。</p>
+<p>MVVM的提出者，微软架构师John Gossman曾言：“我倾向于认为它(指controller)只是隐藏到后台了，它仍然存在，但是我们不需要像是1979年那样考虑那么多事情了”</p>
+<h3 id="MVP-就是-MVC"><a href="#MVP-就是-MVC" class="headerlink" title="MVP 就是 MVC"></a>MVP 就是 MVC</h3><p>Model-View-Presenter是在MVC的基础上，进一步规定了Controller中的一些概念。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://image-static.segmentfault.com/170/146/170146538-48afefd3ed3cdb77_fix732" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<blockquote>
+<p>Mike的论文里说了“we refer to this kind（指应用程序全局且使用interactor, command以及selection概念的） of controller as a presenter”。presenter它就是一种controller啊！</p>
+</blockquote>
+<h3 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h3><p>在MVVM模式中，数据绑定是最重要的概念，在MVC和MVP中的view和model的互相通讯，被以双向绑定的方式替代，这进一步把逻辑代码变成了声明模式。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://image-static.segmentfault.com/334/125/3341257700-27a8116c47a33986_fix732" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>控制层被融合进 view（控件） 里的，浏览器&#x2F;系统可以直接让我们从 View 通过数据绑定获取数据，不需要再通过 Controller 自己处理。</p>
+<h2 id="如何调用滴答清单-Open-API"><a href="#如何调用滴答清单-Open-API" class="headerlink" title="如何调用滴答清单 Open API"></a>如何调用滴答清单 Open API</h2><h3 id="第一步，建立-APP，获取-client-id"><a href="#第一步，建立-APP，获取-client-id" class="headerlink" title="第一步，建立  APP，获取 client_id"></a>第一步，建立  APP，获取 client_id</h3><h3 id="第二步，Oauth-授权"><a href="#第二步，Oauth-授权" class="headerlink" title="第二步，Oauth 授权"></a>第二步，Oauth 授权</h3><p><a target="_blank" rel="noopener" href="https://api.dida365.com/oauth/custom_authorize?scope=tasks:write&client_id=qX1oIw8Gt44dQMrNi2&state=state&redirect_uri=https://www.eolinker.com&response_type=code">https://api.dida365.com/oauth/custom_authorize?scope=tasks%3Awrite&amp;client_id=qX1oIw8Gt44dQMrNi2&amp;state=state&amp;redirect_uri=https%3A%2F%2Fwww.eolinker.com&amp;response_type=code</a></p>
+<h3 id="第三步，拿到重定向的-code"><a href="#第三步，拿到重定向的-code" class="headerlink" title="第三步，拿到重定向的 code"></a>第三步，拿到重定向的 code</h3><h2 id="STAR-面试法"><a href="#STAR-面试法" class="headerlink" title="STAR 面试法"></a>STAR 面试法</h2><ul>
+<li>S——Situation 事情是在什么情况下发生</li>
+<li>T——Task 你是如何明确你的任务的</li>
+<li>A——Action 针对这样的情况分析，你采用了什么行动方式</li>
+<li>R——Result 结果怎样，在这样的情况下你学习到了什么</li>
+</ul>
+<h2 id="Node-如何查找模块"><a href="#Node-如何查找模块" class="headerlink" title="Node 如何查找模块"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000020950339">Node 如何查找模块</a></h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20190718223319835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3hpYW9taW5nZWx2,size_16,color_FFFFFF,t_70" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://typescript.bootcss.com/module-resolution.html">typescript 模块解析</a></li>
+</ul>
+<h2 id="数组如何一行转为对象"><a href="#数组如何一行转为对象" class="headerlink" title="数组如何一行转为对象"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4215737/convert-array-to-object/36388401#36388401">数组如何一行转为对象</a></h2><p>转为类数组</p>
+<ul>
+<li><p>Object.assign</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(&#123;&#125;, [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;]); // &#123;0:&quot;a&quot;, 1:&quot;b&quot;, 2:&quot;c&quot;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解构赋值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; ...[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;] &#125;</span><br></pre></td></tr></table></figure>
+
+<p>转为自定义值的数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;].reduce((a, v) =&gt; (&#123; ...a, [v]: v&#125;), &#123;&#125;) </span><br><span class="line">// &#123; a: &quot;a&quot;, b: &quot;b&quot;, c: &quot;c&quot; &#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="PostCSS-是什么"><a href="#PostCSS-是什么" class="headerlink" title="PostCSS 是什么"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000003909268">PostCSS 是什么</a></h2><p>PostCSS 提供了一个解析器，它能够将 CSS 解析成抽象语法树（AST）。</p>
+<h2 id="OWASP"><a href="#OWASP" class="headerlink" title="OWASP"></a><a target="_blank" rel="noopener" href="https://owasp.org/">OWASP</a></h2><p>开放式Web应用程序安全项目（OWASP）是一个在线社区，在Web应用安全领域提供免费的文章，方法，文档，工具和技术</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/juice-shop/juice-shop#demo">遵循 OWASP 的 Javascript 渗透测试靶场</a></p>
+<h2 id="递归和迭代的区别是什么？"><a href="#递归和迭代的区别是什么？" class="headerlink" title="递归和迭代的区别是什么？"></a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20278387">递归和迭代的区别是什么？</a></h2><p>电影故事例证：</p>
+<ul>
+<li>迭代——《明日边缘》:一个是不断重复回到同一个场景解决</li>
+<li>递归——《盗梦空间》:不断到回溯下一层梦境，直到底层再回来</li>
+</ul>
+<h2 id="Javascript-获取-query-参数"><a href="#Javascript-获取-query-参数" class="headerlink" title="Javascript 获取 query 参数"></a>Javascript 获取 query 参数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const urlSearchParams = new URLSearchParams(window.location.search);</span><br><span class="line">const params = Object.fromEntries(urlSearchParams.entries());</span><br></pre></td></tr></table></figure>
+
+<h2 id="ESB-是什么？"><a href="#ESB-是什么？" class="headerlink" title="ESB 是什么？"></a>ESB 是什么？</h2><p>ESB（企业服务总线）是一种模式，可让集中式软件组件执行后端系统集成（以及数据模型转换、深度连接、路由和请求），并将这些集成和转换作为服务接口提供，以供新应用程序复用。</p>
+<p>通常使用专用的集成运行时和工具集来实施 ESB 模式，以确保最佳的生产力。</p>
+<h2 id="同构系统和异构系统的区别？"><a href="#同构系统和异构系统的区别？" class="headerlink" title="同构系统和异构系统的区别？"></a>同构系统和异构系统的区别？</h2><h3 id="异构"><a href="#异构" class="headerlink" title="异构"></a>异构</h3><p>多个不同类型的物体参与完成某一件事情，异构系统的各个组成部分具有自身的自治性，实现数据共享的前提下，仍保留有自己的应用特性，完整特性，安全特性。</p>
+<h3 id="同构"><a href="#同构" class="headerlink" title="同构"></a>同构</h3><p>多个相同类型的物体参与完成某一件事情。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.776Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/b137547304a8/&title=《2021_09学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/b137547304a8/&title=《2021_09学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/b137547304a8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_09学习笔记》 — 秦一&url=http://scar.site/b137547304a8/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/b137547304a8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/bf753d38c19d/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2021_10学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/421a2bc9e617/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2021_08学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/b137547304a8/&title=《2021_09学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/b137547304a8/&title=《2021_09学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/b137547304a8/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_09学习笔记》 — 秦一&url=http://scar.site/b137547304a8/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/b137547304a8/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/b137547304a8/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

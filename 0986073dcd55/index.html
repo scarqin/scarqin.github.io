@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>吃货如何理解01背包问题 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="背包问题                                                                                                            先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择    食物 质量&#x2F;weight （">
+<meta property="og:type" content="article">
+<meta property="og:title" content="吃货如何理解01背包问题">
+<meta property="og:url" content="http://scar.site/0986073dcd55/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="背包问题                                                                                                            先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择    食物 质量&#x2F;weight （">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220223234709.png">
+<meta property="og:image" content="https://images.scar.site/20220223234716.png">
+<meta property="og:image" content="https://images.scar.site/20220223234811.png">
+<meta property="article:published_time" content="2017-03-31T14:32:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.770Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220223234709.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">吃货如何理解01背包问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">吃货如何理解01背包问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-31T14:32:00.000Z" itemprop="datePublished" class="page-time">
+  2017-03-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.</span> <span class="post-toc-text">背包问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B%E5%BC%8F"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">状态转移方程式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E4%BE%8B%E9%A2%98"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 例题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E8%B5%84%E6%96%99"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/吃货如何理解01背包问题"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">吃货如何理解01背包问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-31 22:32:00" datetime="2017-03-31T14:32:00.000Z"  itemprop="datePublished">2017-03-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/%E7%AE%97%E6%B3%95/">算法</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234709.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>先从栗子出发，你是一个有理想的吃货，你的肚子只能容纳 500g 的食物，为了保证你得到的价值（营养）最大化，有以下几份食物可以选择</p>
+<table>
+<thead>
+<tr>
+<th>食物</th>
+<th>质量&#x2F;weight （100g）</th>
+<th>价值&#x2F;value（10g）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>米饭</td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>黄瓜</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr>
+<td>西红柿</td>
+<td>1</td>
+<td>8</td>
+</tr>
+<tr>
+<td>牛肉</td>
+<td>3</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<p>动动吃货的小脑筋，就知道，营养价值最大化的选择是<br>牛肉+黄瓜+西红柿 共 23（10g）营养！<br>可是该怎么使用程序计算出答案呢？</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234716.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>肚子的资源有限，对每一种食物有两种选择：吃或者不吃。<br>判断的依据有两点：</p>
+<p>（1）肚子能否装得下食物？</p>
+<p>（2）吃他的价值，是否比不吃他的价值大？大则吃下，不大则不吃。</p>
+<p>假设 d（i，w）表示肚子剩 w（g）时，有 i 样食物可供选择，我们能得到的最大价值。i 表示第 i 样食物。<strong>我们需要求的是 d（4，5）</strong></p>
+<p>根据上面的逻辑（1）</p>
+<ul>
+<li><p>如果肚子装不下，因为食物 i 没装进去，那么 d(i,w) &#x3D; d(i-1,w)</p>
+</li>
+<li><p>肚子装得下，那我需要判断 [不放] d(i-1,w) 和 [放] d(i-1,w-w[i])+v[i] 谁大。</p>
+</li>
+</ul>
+<p>结合上面两条规律，我们得到:</p>
+<h4 id="状态转移方程式"><a href="#状态转移方程式" class="headerlink" title="状态转移方程式"></a>状态转移方程式</h4><blockquote>
+<p>d(i, w)&#x3D;max{ d(i-1, w), d(i-1,w-w[i]) + v[i] }</p>
+</blockquote>
+<p>我们给每样食物加上序号</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>食物</th>
+<th>质量&#x2F;weight （100g）</th>
+<th>价值&#x2F;value（10g）</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>米饭</td>
+<td>2</td>
+<td>4</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>黄瓜</td>
+<td>1</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>西红柿</td>
+<td>1</td>
+<td>8</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>牛肉</td>
+<td>3</td>
+<td>10</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>假如我们考虑吃或不吃从下向上按照序号顺序 4，3，2，1</p>
+<p>d（4，5）表示只有牛肉、西红柿、黄瓜、米饭可以选择时，能得到的最大价值。考虑是否放牛肉（3 kg），所以如果我知道 d（3，5）和 d（3，2），我就能得到 d（4，5）</p>
+<blockquote>
+<p>d(4 , 5)&#x3D;max{ d(3,5) , d(3,5-3) }&#x3D;max{ d(3,5) , d(3,2) + 10}</p>
+</blockquote>
+<p>d（3，5）表示只有西红柿、黄瓜、米饭可以选择时，能得到的最大价值。考虑是否放西红柿（1 kg），如果我知道 d（2，5）和 d（2，4），我就能得到 d（3，5）</p>
+<blockquote>
+<p>d(3 , 5)&#x3D;max{d(2,5) , d(2,4)}</p>
+</blockquote>
+<p>按照上面的往下分解,最终都会指向 d(0,w)～逻辑如下图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220223234811.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<blockquote>
+<p>d(0,w)代表选 0 件物品的放入背包容量为 w 的背包的最大价值，所以为 0。d(i,0)代表选 i 件物品放入背包容量为 0 的背包的最大价值，也为 0。</p>
+</blockquote>
+<p>将树图的 d 值继续整理得到<strong>最优价值表</strong></p>
+<table>
+<thead>
+<tr>
+<th>质量&#x2F;weight（100g）</th>
+<th>价值&#x2F;value（10g）</th>
+<th>i\w</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>8</td>
+<td>3</td>
+<td>0</td>
+<td>8</td>
+<td>13</td>
+<td>13</td>
+<td>17</td>
+<td>17</td>
+</tr>
+<tr>
+<td>1</td>
+<td>5</td>
+<td>2</td>
+<td>0</td>
+<td>5</td>
+<td>5</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10</td>
+<td>4</td>
+<td>0</td>
+<td>8</td>
+<td>13</td>
+<td>13</td>
+<td>18</td>
+<td>23</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var value = [5, 8, 4, 10],</span><br><span class="line">    size = [1, 1, 2, 3],</span><br><span class="line">    d = [],</span><br><span class="line">    n = 4,</span><br><span class="line">    C = 5;</span><br><span class="line">//初始化数组</span><br><span class="line">for (var k = 0; k &lt;= n; ++k) &#123;</span><br><span class="line">    d[k] = [];</span><br><span class="line">&#125;</span><br><span class="line">for (var i = 0; i &lt;= n; ++i) &#123;</span><br><span class="line">    for (var w = 0; w &lt;= C; ++w) &#123;</span><br><span class="line">        d[i][w] = (i == 0) ? 0 : d[i - 1][w];</span><br><span class="line">        if (i &gt; 0 &amp;&amp; w &gt;= size[i - 1])</span><br><span class="line">            d[i][w] = Math.max(d[i - 1][w], d[i - 1][w - size[i - 1]] + value[i - 1]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> console.log(d[4][5])//23</span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>01 背包问题的这种解法让我感受到了递归的强大，将大问题转换成小问题，然后得到小问题的答案向上求解！</p>
+<h2 id="2-例题"><a href="#2-例题" class="headerlink" title="2. 例题"></a>2. 例题</h2><p>链接：<a target="_blank" rel="noopener" href="https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa">https://www.nowcoder.com/questionTerminal/9ba85699e2824bc29166c92561da77fa</a><br>来源：牛客网<br>一种双核 CPU 的两个核能够同时的处理任务，现在有 n 个已知数据量的任务需要交给 CPU 处理，假设已知 CPU 的每个核 1 秒可以处理 1kb，每个核同时只能处理一项任务。n 个任务可以按照任意顺序放入 CPU 进行处理，现在需要设计一个方案让 CPU 处理完这批任务所需的时间最少，求这个最小的时间。</p>
+<h2 id="3-资料"><a href="#3-资料" class="headerlink" title="3. 资料"></a>3. 资料</h2><p><a target="_blank" rel="noopener" href="http://hawstein.com/2013/03/01/dp-knapsack/">动态规划之背包问题（一）</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.csdn.net/mu399/article/details/7722810">动态规划之 01 背包问题</a>–表格思路来源</p>
+<p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/SDJL/archive/2008/08/22/1274312.html">通过金矿模型介绍动态规划</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.770Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/0986073dcd55/&title=《吃货如何理解01背包问题》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/0986073dcd55/&title=《吃货如何理解01背包问题》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/0986073dcd55/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《吃货如何理解01背包问题》 — 秦一&url=http://scar.site/0986073dcd55/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/0986073dcd55/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/3ddd30e77bec/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2017 看的书</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/9bb0bfb2d1d5/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Jquery ContentType的设置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/0986073dcd55/&title=《吃货如何理解01背包问题》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/0986073dcd55/&title=《吃货如何理解01背包问题》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/0986073dcd55/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《吃货如何理解01背包问题》 — 秦一&url=http://scar.site/0986073dcd55/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/0986073dcd55/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/0986073dcd55/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

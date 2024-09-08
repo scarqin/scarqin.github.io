@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2019_11学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="scrollTop设置无效的原因 元素没有设置高度 元素没有超过滚动条 元素有non-scrollable属性 元素不可见时，设置scrollTop无效  获取数组差集1let differenceParam &#x3D; viewQuery.concat(nowSelectedQuery).filter(val &#x3D;&gt; (!viewQuery.includes(val) || !nowSelected">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019_11学习笔记">
+<meta property="og:url" content="http://scar.site/2766afb8d86e/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="scrollTop设置无效的原因 元素没有设置高度 元素没有超过滚动条 元素有non-scrollable属性 元素不可见时，设置scrollTop无效  获取数组差集1let differenceParam &#x3D; viewQuery.concat(nowSelectedQuery).filter(val &#x3D;&gt; (!viewQuery.includes(val) || !nowSelected">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE60869d080caa1112f6db3ea093048f90.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE4a76d5df6d72d3ffab462dfc86404deb.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE8b3ae421fcb5983c7f3142432fe6ca02.png">
+<meta property="article:published_time" content="2019-10-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.772Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/WEBRESOURCE60869d080caa1112f6db3ea093048f90.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2019_11学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2019_11学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-11-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#scrollTop%E8%AE%BE%E7%BD%AE%E6%97%A0%E6%95%88%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="post-toc-number">1.</span> <span class="post-toc-text">scrollTop设置无效的原因</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E5%B7%AE%E9%9B%86"><span class="post-toc-number">2.</span> <span class="post-toc-text">获取数组差集</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%89%93%E5%BC%80%E5%92%8C%E7%9B%B4%E6%8E%A5%E6%89%93%E5%BC%80index-html%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="post-toc-number">3.</span> <span class="post-toc-text">本地服务器打开和直接打开index.html有什么区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#macOS-10-15-%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80%E8%BD%AF%E4%BB%B6%E6%8F%90%E7%A4%BA%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E2%80%9Capp%E2%80%9D%EF%BC%8C%E5%9B%A0%E4%B8%BAApple%E6%97%A0%E6%B3%95%E6%A3%80%E6%9F%A5%E5%85%B6%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6%E3%80%82%E2%80%9C%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93%E2%80%9D%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%EF%BC%81"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">macOS 10.15 不能打开软件提示无法打开“app”，因为Apple无法检查其是否包含恶意软件。“移到废纸篓”无法打开的解决方法！</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Unix-%E5%92%8C-Linux-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="post-toc-number">4.</span> <span class="post-toc-text">Unix 和 Linux 有什么区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AutoCannon"><span class="post-toc-number">5.</span> <span class="post-toc-text">AutoCannon</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#IO%E5%AF%86%E9%9B%86%E5%92%8CCPU%E5%AF%86%E9%9B%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">6.</span> <span class="post-toc-text">IO密集和CPU密集是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#API%E4%BB%A3%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">7.</span> <span class="post-toc-text">API代理是什么？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81%E8%AF%AD%E8%A8%80%E5%92%8C%E9%9D%99%E6%80%81%E8%AF%AD%E8%A8%80%E5%8C%BA%E5%88%AB"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">动态语言和静态语言区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#libuv%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">libuv是什么？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#zsh%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">zsh是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Io-js%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">7.4.</span> <span class="post-toc-text">Io.js是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node-ChakraCore%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">7.5.</span> <span class="post-toc-text">Node-ChakraCore是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#merge%E5%85%B6%E4%BD%99%E5%88%86%E6%94%AF%EF%BC%8C%E5%8F%AA%E7%94%9F%E6%88%90%E4%B8%80%E6%AC%A1commit"><span class="post-toc-number">7.6.</span> <span class="post-toc-text">merge其余分支，只生成一次commit</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%AA%E5%AE%89%E8%A3%85dependencies%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9F"><span class="post-toc-number">7.7.</span> <span class="post-toc-text">如何只安装dependencies下的内容？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E6%B8%85%E9%99%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%B0%E4%BD%8F%E7%9A%84auth"><span class="post-toc-number">7.8.</span> <span class="post-toc-text">如何清除浏览器记住的auth</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="post-toc-number">7.9.</span> <span class="post-toc-text">如何描述问题？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E7%BB%84%E6%80%8E%E4%B9%88%E8%B7%B3%E5%87%BA%E5%BE%AA%E7%8E%AF"><span class="post-toc-number">7.10.</span> <span class="post-toc-text">数组怎么跳出循环</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Node-js%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87"><span class="post-toc-number">7.11.</span> <span class="post-toc-text">Node.js服务器-常规排查的指标</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#colgroup-%E5%92%8C-col-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-number">7.12.</span> <span class="post-toc-text">colgroup 和 col 的作用</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2019_11学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2019_11学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-11-01 00:00:00" datetime="2019-10-31T16:00:00.000Z"  itemprop="datePublished">2019-11-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="scrollTop设置无效的原因"><a href="#scrollTop设置无效的原因" class="headerlink" title="scrollTop设置无效的原因"></a>scrollTop设置无效的原因</h2><ul>
+<li>元素没有设置高度</li>
+<li>元素没有超过滚动条</li>
+<li>元素有non-scrollable属性</li>
+<li>元素不可见时，设置scrollTop无效<br><img src="https://images.scar.site/WEBRESOURCE60869d080caa1112f6db3ea093048f90.png" alt="image.png"></li>
+</ul>
+<h2 id="获取数组差集"><a href="#获取数组差集" class="headerlink" title="获取数组差集"></a>获取数组差集</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let differenceParam = viewQuery.concat(nowSelectedQuery).filter(val =&gt; (!viewQuery.includes(val) || !nowSelectedQuery.includes(val)) &amp;&amp; vm.data.loadStorageQuery.indexAddress[val]);</span><br></pre></td></tr></table></figure>
+
+<h2 id="本地服务器打开和直接打开index-html有什么区别"><a href="#本地服务器打开和直接打开index-html有什么区别" class="headerlink" title="本地服务器打开和直接打开index.html有什么区别"></a>本地服务器打开和直接打开index.html有什么区别</h2><ul>
+<li>协议差别，直接打开file协议，服务器打开http协议</li>
+</ul>
+<h3 id="macOS-10-15-不能打开软件提示无法打开“app”，因为Apple无法检查其是否包含恶意软件。“移到废纸篓”无法打开的解决方法！"><a href="#macOS-10-15-不能打开软件提示无法打开“app”，因为Apple无法检查其是否包含恶意软件。“移到废纸篓”无法打开的解决方法！" class="headerlink" title="macOS 10.15 不能打开软件提示无法打开“app”，因为Apple无法检查其是否包含恶意软件。“移到废纸篓”无法打开的解决方法！"></a><a target="_blank" rel="noopener" href="https://juejin.im/post/5da68a73f265da5b616de149">macOS 10.15 不能打开软件提示无法打开“app”，因为Apple无法检查其是否包含恶意软件。“移到废纸篓”无法打开的解决方法！</a></h3><h2 id="Unix-和-Linux-有什么区别"><a href="#Unix-和-Linux-有什么区别" class="headerlink" title="Unix 和 Linux 有什么区别"></a>Unix 和 Linux 有什么区别</h2><p>从系统的来源角度：Linux是Unix的开源实现，Unix一开始的时候也是开源的，后来才以授权方式闭源，这时候在原始Unix基础上诞生了AIX，HP-UX等这些都是正统Unix，但BSD被认为是Unix精神的继承者（BSD同样也是Unix的另外一个开源实现）也是Unix的一种，Linux为什么比BSD发展的好这里不讨论。从这里看Linux是Unix的一个模仿者之一。站在时间和发展的角度：这两个操作系统可以认为是同一个操作系统的不同时期 UNIX是过去的UNIX，Linux是现在的UNIX，就像大清王国和中国的关系吧，你把Linux说成UNIX也没有错，只不过是个商标而已，Unix要是没有闭源Unix应该就和现在的Linux差不多了。</p>
+<h2 id="AutoCannon"><a href="#AutoCannon" class="headerlink" title="AutoCannon"></a><a target="_blank" rel="noopener" href="https://github.com/mcollina/autocannon">AutoCannon</a></h2><p>一个 Node.js 写的 Web 服务器负载性能测试工具。</p>
+<h2 id="IO密集和CPU密集是什么？"><a href="#IO密集和CPU密集是什么？" class="headerlink" title="IO密集和CPU密集是什么？"></a>IO密集和CPU密集是什么？</h2><ul>
+<li><p>CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读&#x2F;写I&#x2F;O(硬盘&#x2F;内存)，I&#x2F;O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。</p>
+</li>
+<li><p>IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I&#x2F;O (硬盘&#x2F;内存) 的读&#x2F;写操作，此时CPU Loading并不高。</p>
+</li>
+</ul>
+<h2 id="API代理是什么？"><a href="#API代理是什么？" class="headerlink" title="API代理是什么？"></a>API代理是什么？</h2><p>为前端提供，主要对后端的API进行再处理，以便更好适应前端开发</p>
+<h3 id="动态语言和静态语言区别"><a href="#动态语言和静态语言区别" class="headerlink" title="动态语言和静态语言区别"></a>动态语言和静态语言区别</h3><h3 id="libuv是什么？"><a href="#libuv是什么？" class="headerlink" title="libuv是什么？"></a>libuv是什么？</h3><p><a target="_blank" rel="noopener" href="http://luohaha.github.io/Chinese-uvbook/source/introduction.html">libuv</a>是一个高性能的，事件驱动的I&#x2F;O库，并且提供了跨平台（如windows, linux）的API。</p>
+<h3 id="zsh是什么"><a href="#zsh是什么" class="headerlink" title="zsh是什么"></a>zsh是什么</h3><p>一种mac终端</p>
+<h3 id="Io-js是什么"><a href="#Io-js是什么" class="headerlink" title="Io.js是什么"></a>Io.js是什么</h3><p>node-forward 用于研究未来的发展方向</p>
+<p>Io.js 继续完成 Node Forward 之前在 node-forward&#x2F;node 中的工作。我们希望在将来的某个时间点可以合并回原始的 Node.js 项目中。</p>
+<h3 id="Node-ChakraCore是什么"><a href="#Node-ChakraCore是什么" class="headerlink" title="Node-ChakraCore是什么"></a>Node-ChakraCore是什么</h3><p>微软发布了Node-ChakraCore 引擎的一个新预览。 其基于Node.js 8 打造，可在Windows、macOS、以及Linux 运行。 … 刚刚看了，Node-ChakraCore 是edge 浏览器的引擎，现在也跨平台。</p>
+<h3 id="merge其余分支，只生成一次commit"><a href="#merge其余分支，只生成一次commit" class="headerlink" title="merge其余分支，只生成一次commit"></a>merge其余分支，只生成一次commit</h3><p> git merge –squash [branchName]</p>
+<h3 id="如何只安装dependencies下的内容？"><a href="#如何只安装dependencies下的内容？" class="headerlink" title="如何只安装dependencies下的内容？"></a>如何只安装dependencies下的内容？</h3><p> npm install –production</p>
+<h3 id="如何清除浏览器记住的auth"><a href="#如何清除浏览器记住的auth" class="headerlink" title="如何清除浏览器记住的auth"></a>如何清除浏览器记住的auth</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE4a76d5df6d72d3ffab462dfc86404deb.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h3 id="如何描述问题？"><a href="#如何描述问题？" class="headerlink" title="如何描述问题？"></a>如何描述问题？</h3><ul>
+<li><p>明确期望值<br>你的目标是什么？正常情况应该这样的吗？这个目标是可衡量的吗？</p>
+</li>
+<li><p>精准定位现状<br>区分事实和观点，尽量用事实去陈述问题</p>
+</li>
+<li><p>使用落差精准描述问题</p>
+<blockquote>
+<p>你的业绩为什么那么差<br>-》<br>你之前三个月的业绩分别是100万，110万，105万，而这个月变成了80万，我们来讨论下，下个月如何做到120万</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="数组怎么跳出循环"><a href="#数组怎么跳出循环" class="headerlink" title="数组怎么跳出循环"></a>数组怎么跳出循环</h3><p>Array.forEach无法跳出循环</p>
+<p>Array.some return true跳出整个循环</p>
+<p>Array.every return false跳出整个循环</p>
+<h3 id="Node-js服务器-常规排查的指标"><a href="#Node-js服务器-常规排查的指标" class="headerlink" title="Node.js服务器-常规排查的指标"></a><a target="_blank" rel="noopener" href="https://github.com/aliyun-node/Node.js-Troubleshooting-Guide/blob/master/0x01_%E9%A2%84%E5%A4%87%E7%AF%87_%E5%B8%B8%E8%A7%84%E6%8E%92%E6%9F%A5%E7%9A%84%E6%8C%87%E6%A0%87.md">Node.js服务器-常规排查的指标</a></h3><h3 id="colgroup-和-col-的作用"><a href="#colgroup-和-col-的作用" class="headerlink" title="colgroup 和 col 的作用"></a>colgroup 和 col 的作用</h3><p>使用 colgroup 对表格各列进行分组，col 定义列的行数赋予列的意义。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE8b3ae421fcb5983c7f3142432fe6ca02.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.772Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2766afb8d86e/&title=《2019_11学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2766afb8d86e/&title=《2019_11学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2766afb8d86e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2019_11学习笔记》 — 秦一&url=http://scar.site/2766afb8d86e/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2766afb8d86e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/0247f00da4ac/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">VS Code 常用快捷指南</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/4cace163c295/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2019_10学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/2766afb8d86e/&title=《2019_11学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/2766afb8d86e/&title=《2019_11学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/2766afb8d86e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2019_11学习笔记》 — 秦一&url=http://scar.site/2766afb8d86e/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/2766afb8d86e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/2766afb8d86e/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

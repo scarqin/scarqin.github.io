@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Eoapi+Vercel+Serverless，部署一个 API 调试工具 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="这是一个超详细的实例，跟着做完你会：  光速入门 Vercel、Serverless Functions 得到一个和图片一模一样的专属的 API 工具，可以在线测试 API                                                                                                               一、概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eoapi+Vercel+Serverless，部署一个 API 调试工具">
+<meta property="og:url" content="http://scar.site/91aa8086cfd6/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="这是一个超详细的实例，跟着做完你会：  光速入门 Vercel、Serverless Functions 得到一个和图片一模一样的专属的 API 工具，可以在线测试 API                                                                                                               一、概">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://docs.eoapi.io/images/eoapi-demo.png">
+<meta property="og:image" content="https://images.scar.site/20220606091150.png">
+<meta property="og:image" content="https://images.scar.site/20220606091306.png">
+<meta property="og:image" content="https://images.scar.site/20220606091540.png">
+<meta property="og:image" content="https://images.scar.site/20220606091607.png">
+<meta property="og:image" content="https://images.scar.site/20220606091617.png">
+<meta property="og:image" content="https://images.scar.site/20220606091636.png">
+<meta property="og:image" content="https://images.scar.site/20220606091649.png">
+<meta property="og:image" content="https://docs.eoapi.io/images/eoapi-demo.png">
+<meta property="og:image" content="https://images.scar.site/20220606091717.png">
+<meta property="og:image" content="https://images.scar.site/20221110121119.png">
+<meta property="og:image" content="https://images.scar.site/20220606091937.png">
+<meta property="article:published_time" content="2022-04-29T07:30:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.766Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://docs.eoapi.io/images/eoapi-demo.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Eoapi+Vercel+Serverless，部署一个 API 调试工具</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Eoapi+Vercel+Serverless，部署一个 API 调试工具</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-04-29T07:30:00.000Z" itemprop="datePublished" class="page-time">
+  2022-04-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E5%BF%B5%E8%A7%A3%E6%9E%90"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、概念解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Serverless-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. Serverless 是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-Eoapi-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. Eoapi 是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-Vercel-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. Vercel 是什么？</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%8C%E3%80%81%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%EF%BC%81"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、快速开始！</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-Fork-Eoapi-%E4%BB%93%E5%BA%93"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1. Fork Eoapi 仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E9%85%8D%E7%BD%AE-Vercel"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2. 配置 Vercel</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%89%E3%80%81Serverless-Funcions"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、Serverless Funcions</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1. 源码解析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%A6%82%E4%BD%95%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2. 如何本地调试</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9B%9B%E3%80%81%E4%BD%9C%E8%80%85%E5%BF%83%E5%BE%97"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、作者心得</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BA%94%E3%80%81%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/Eoapi+Vercel+Serverless"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Eoapi+Vercel+Serverless，部署一个 API 调试工具</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-04-29 15:30:00" datetime="2022-04-29T07:30:00.000Z"  itemprop="datePublished">2022-04-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>这是一个超详细的实例，跟着做完你会：</p>
+<ul>
+<li>光速入门 Vercel、Serverless Functions</li>
+<li>得到一个和图片一模一样的专属的 API 工具，可以在线测试 API</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://docs.eoapi.io/images/eoapi-demo.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<h1 id="一、概念解析"><a href="#一、概念解析" class="headerlink" title="一、概念解析"></a>一、概念解析</h1><h2 id="1-Serverless-是什么？"><a href="#1-Serverless-是什么？" class="headerlink" title="1. Serverless 是什么？"></a>1. Serverless 是什么？</h2><p>Serverless 架构即“无服务器”架构，它是一种全新的架构方式，是云计算时代一种革命性的架构模式。</p>
+<p>Serverless 的核心思想是让<strong>作为计算资源的服务器不再需要被使用者关注</strong>。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091150.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>FaaS（Functions as a Service）函数即服务，FaaS是 Serverless 计算的一种形式，后续我们将用 Serverless API 实现一个使用 Node 帮助客户端发送 API 请求得到响应的服务。</p>
+<p>如果看完还是云里雾里，冇嘢冇嘢接着看。</p>
+<h2 id="2-Eoapi-是什么？"><a href="#2-Eoapi-是什么？" class="headerlink" title="2. Eoapi 是什么？"></a>2. Eoapi 是什么？</h2><p>一个可拓展的开源 API 工具，就是开头的那个配图，可以用它快速调试 API，可以体验一下 <a href="www.eoapi.io?utm_source=gf&utm_content=tn&utm_campaign=self-yy">https://eoapi.io</a>。</p>
+<h2 id="3-Vercel-是什么？"><a href="#3-Vercel-是什么？" class="headerlink" title="3. Vercel 是什么？"></a>3. Vercel 是什么？</h2><p>Vercel 是一个站点托管平台， 类似于 <code>Github Pages</code>，你丢上去网页的构建后的代码，还你一个 Web 服务链接，同时支持持续集成， 可以关联 Push、PR，提交代码后自动部署 。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091306.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="二、快速开始！"><a href="#二、快速开始！" class="headerlink" title="二、快速开始！"></a>二、快速开始！</h1><h2 id="1-Fork-Eoapi-仓库"><a href="#1-Fork-Eoapi-仓库" class="headerlink" title="1. Fork Eoapi 仓库"></a>1. Fork Eoapi 仓库</h2><p>访问：<a target="_blank" rel="noopener" href="https://github.com/eolinker/eoapi">https://github.com/eolinker/eoapi</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091540.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>Fork 成功后可以在自己的 Repositories 看到 eoapi。</p>
+<h2 id="2-配置-Vercel"><a href="#2-配置-Vercel" class="headerlink" title="2. 配置 Vercel"></a>2. 配置 Vercel</h2><p>访问：<a target="_blank" rel="noopener" href="https://vercel.com/">https://vercel.com/</a></p>
+<p>注册成功后点击新建项目</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091607.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>配置 Vercel 访问 Github 项目的权限，选中 Eoapi</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091617.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<p>配置安装、构建命令以及构建后文件夹，配置好之后点击构建按钮。</p>
+<ul>
+<li>BUILD COMMAND：<code>cd src/workbench/browser&amp;&amp;yarn build:web</code></li>
+<li>OUTPUT DIRECTORY：<code>src/workbench/browser/dist</code></li>
+<li>INSTALL ：<code>yarn</code></li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091636.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>通过这个链接就可以访问你的专属 API 工具啦！</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091649.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://docs.eoapi.io/images/eoapi-demo.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+
+
+<h1 id="三、Serverless-Funcions"><a href="#三、Serverless-Funcions" class="headerlink" title="三、Serverless Funcions"></a>三、Serverless Funcions</h1><h2 id="1-源码解析"><a href="#1-源码解析" class="headerlink" title="1. 源码解析"></a>1. 源码解析</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091717.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+<p><code>api</code> 文件夹下有一个名为 unit.js 的文件，当我们部署到服务器时，它就变成了一个 HTTP 接口，一个文件一个接口，接口地址就是 <code>api/&lt;file_name&gt;</code>，是不是简单粗暴~</p>
+<p>Serverless Functions 让我们写接口和写纯函数一样简单</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20221110121119.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>我们只需要 exports 一个纯函数，通过函数第一个入参 req 拿到请求体，再通过 res.end() 返回响应体，就可以快速发布一个 API。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> _LibsFlowCommon = <span class="built_in">require</span>(<span class="string">&#x27;../src/workbench/node/request/unit.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> _LibsCommon = <span class="built_in">require</span>(<span class="string">&#x27;../src/workbench/node/request/libs/common.js&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> data = req.<span class="property">body</span>.<span class="property">data</span>;</span><br><span class="line"></span><br><span class="line">    data.<span class="property">env</span> = _LibsCommon.<span class="title function_">parseEnv</span>(data.<span class="property">env</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">new</span> _LibsFlowCommon.<span class="title function_">core</span>().<span class="title function_">main</span>(data, <span class="function">(<span class="params">tmpInputReport, tmpInputHistory</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">      res.<span class="title function_">send</span>(</span><br><span class="line">        <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(<span class="string">&#x27;i am response&#x27;</span>)</span><br><span class="line">      );</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;unit.js&#x27;</span>, e, req.<span class="property">body</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="2-如何本地调试"><a href="#2-如何本地调试" class="headerlink" title="2. 如何本地调试"></a>2. 如何本地调试</h2><p>Vercel 官方提供了 cli 工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i -g vercel</span><br><span class="line"></span><br><span class="line">vercel dev</span><br></pre></td></tr></table></figure>
+
+<p>剩下的跟着命令行指引配置完后就可以在本地调试 Serverless Functions 了</p>
+<h1 id="四、作者心得"><a href="#四、作者心得" class="headerlink" title="四、作者心得"></a>四、作者心得</h1><p>我是 Eoapi 的一名开发者，<a href="www.eoapi.io?utm_source=gf&utm_content=tn&utm_campaign=self-yy">https://eoapi.io</a> 就是使用上面的步骤配置出来的，如果大家对项目感兴趣，欢迎大家持续关注我们项目：<a target="_blank" rel="noopener" href="https://github.com/eolinker/eoapi">https://github.com/eolinker/eoapi</a>。</p>
+<p>说实话我第一次配置 Vercel 的时候还是踩了不少坑，但总体来说体验还是很不错的。</p>
+<p>我手头上所有的网站基本上都迁移到了 Vercel。除了 Eoapi，我还部署了我的官网、一个抽奖程序，很酷炫。</p>
+<p>嘿嘿，你也可以部署试试看，作为检验自己是否掌握知识点的小作业。</p>
+<p>Github 地址：<a target="_blank" rel="noopener" href="https://github.com/moshang-xc/lottery">https://github.com/moshang-xc/lottery</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220606091937.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="五、参考资料"><a href="#五、参考资料" class="headerlink" title="五、参考资料"></a>五、参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903904224903181#heading-0">Serverless(无服务)基础知识 - 掘金</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/340882159">三分钟了解 Serverless 是什么</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000041223777">https://segmentfault.com/a/1190000041223777</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31386919">什么是Serverless架构和FaaS函数即服务？</a></li>
+<li><a target="_blank" rel="noopener" href="https://vercel.com/cli">Download Vercel CLI – Vercel</a></li>
+<li><a target="_blank" rel="noopener" href="https://vercel.com/docs/concepts/functions/serverless-functions">https://vercel.com/docs/concepts/functions/serverless-functions</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.766Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/91aa8086cfd6/&title=《Eoapi+Vercel+Serverless，部署一个 API 调试工具》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/91aa8086cfd6/&title=《Eoapi+Vercel+Serverless，部署一个 API 调试工具》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/91aa8086cfd6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Eoapi+Vercel+Serverless，部署一个 API 调试工具》 — 秦一&url=http://scar.site/91aa8086cfd6/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/91aa8086cfd6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/f29a60bd800a/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2022_05学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/09a73df0d6fb/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">持续 API 管理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/91aa8086cfd6/&title=《Eoapi+Vercel+Serverless，部署一个 API 调试工具》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/91aa8086cfd6/&title=《Eoapi+Vercel+Serverless，部署一个 API 调试工具》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/91aa8086cfd6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Eoapi+Vercel+Serverless，部署一个 API 调试工具》 — 秦一&url=http://scar.site/91aa8086cfd6/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/91aa8086cfd6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/91aa8086cfd6/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

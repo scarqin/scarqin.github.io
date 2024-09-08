@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2021_03学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="DPLDPL是一份文档化的说明，面向的是UED全体设计人员。DPL的背面是技术实现，一般体现在JS框架里，比如YUI的widgets库，jQuery的UI插件库等等，这些封装好的代码组件面向的是程序开发人员。 flex 布局为什么设置 width 为 0父元素填充剩余宽度，不设置其 width 为 0的话，子元素的宽度会撑开父元素的宽度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021_03学习笔记">
+<meta property="og:url" content="http://scar.site/7c9a5350e040/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="DPLDPL是一份文档化的说明，面向的是UED全体设计人员。DPL的背面是技术实现，一般体现在JS框架里，比如YUI的widgets库，jQuery的UI插件库等等，这些封装好的代码组件面向的是程序开发人员。 flex 布局为什么设置 width 为 0父元素填充剩余宽度，不设置其 width 为 0的话，子元素的宽度会撑开父元素的宽度。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE9779b7bb15ffab4ea4b07ae536e104e2.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCEc60b0030d5abd0f3c7bf883a02bd9c4b.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE4638b988d7cde26ad3ae66ffb1909953.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE5d5c6860b54339d7d4695d9bbee9cb7b.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE20ea0c80099b9acfb45e8e63b958dfe0.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCEc38c251e20768f5c88a212bd981ecfc7.png">
+<meta property="article:published_time" content="2021-02-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.775Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/WEBRESOURCE9779b7bb15ffab4ea4b07ae536e104e2.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2021_03学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2021_03学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-02-28T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2021-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DPL"><span class="post-toc-number">1.</span> <span class="post-toc-text">DPL</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex-%E5%B8%83%E5%B1%80%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE-width-%E4%B8%BA-0"><span class="post-toc-number">2.</span> <span class="post-toc-text">flex 布局为什么设置 width 为 0</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%89%8D%E7%AB%AF-19-%E5%B9%B4%E6%8A%80%E6%9C%AF%E5%88%86%E6%9E%90"><span class="post-toc-number">3.</span> <span class="post-toc-text">前端 19 年技术分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%80%E5%A4%B4%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E7%BC%96%E7%A0%81%EF%BC%9F"><span class="post-toc-number">4.</span> <span class="post-toc-text">&amp;#开头的是什么编码？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CA-%E8%AF%81%E4%B9%A6%E5%92%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%81%E4%B9%A6%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="post-toc-number">5.</span> <span class="post-toc-text">CA 证书和客户端证书有什么区别？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%87%E6%8D%A2-python-%E8%84%9A%E6%9C%AC%E7%89%88%E6%9C%AC"><span class="post-toc-number">6.</span> <span class="post-toc-text">切换 python 脚本版本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%85%A8%E6%A0%88%E5%B7%A5%E7%A8%8B%E5%B8%88"><span class="post-toc-number">7.</span> <span class="post-toc-text">全栈工程师</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8A%80%E6%9C%AF%E4%BA%BA%E5%9C%A8%E5%9B%A2%E9%98%9F%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E6%83%85%E5%86%B5"><span class="post-toc-number">8.</span> <span class="post-toc-text">技术人在团队中的各种情况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">9.</span> <span class="post-toc-text">人工智能是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%9B%E4%B8%9A%E7%9A%84%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%EF%BC%8CCTO-%E6%89%BF%E6%8B%85%E4%BB%80%E4%B9%88%E8%A7%92%E8%89%B2"><span class="post-toc-number">10.</span> <span class="post-toc-text">创业的不同阶段，CTO 承担什么角色</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E6%88%90%E4%B8%BA%E6%8A%80%E6%9C%AF%E9%A2%86%E5%9F%9F-KOL%EF%BC%9F"><span class="post-toc-number">11.</span> <span class="post-toc-text">如何成为技术领域 KOL？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP-%E7%BC%93%E5%AD%98-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98-%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98"><span class="post-toc-number">12.</span> <span class="post-toc-text">HTTP 缓存&#x2F;浏览器缓存&#x2F;前端缓存</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-JS-%E6%89%A7%E8%A1%8C-htmlDecode"><span class="post-toc-number">13.</span> <span class="post-toc-text">如何使用 JS 执行 htmlDecode</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#performance-now"><span class="post-toc-number">14.</span> <span class="post-toc-text">performance.now()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%86%85%E5%AE%B9%E5%8F%AF%E8%A7%81%E6%80%A7%EF%BC%88content-visibility%EF%BC%89"><span class="post-toc-number">15.</span> <span class="post-toc-text">内容可见性（content-visibility）</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2021_03学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2021_03学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-03-01 00:00:00" datetime="2021-02-28T16:00:00.000Z"  itemprop="datePublished">2021-03-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="DPL"><a href="#DPL" class="headerlink" title="DPL"></a>DPL</h3><p>DPL是一份文档化的说明，面向的是UED全体设计人员。DPL的背面是技术实现，一般体现在JS框架里，比如YUI的widgets库，jQuery的UI插件库等等，这些封装好的代码组件面向的是程序开发人员。</p>
+<h3 id="flex-布局为什么设置-width-为-0"><a href="#flex-布局为什么设置-width-为-0" class="headerlink" title="flex 布局为什么设置 width 为 0"></a>flex 布局为什么设置 width 为 0</h3><p>父元素填充剩余宽度，不设置其 width 为 0的话，子元素的宽度会撑开父元素的宽度。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE9779b7bb15ffab4ea4b07ae536e104e2.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCEc60b0030d5abd0f3c7bf883a02bd9c4b.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h3 id="前端-19-年技术分析"><a href="#前端-19-年技术分析" class="headerlink" title="前端 19 年技术分析"></a>前端 19 年技术分析</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE4638b988d7cde26ad3ae66ffb1909953.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h3 id="开头的是什么编码？"><a href="#开头的是什么编码？" class="headerlink" title="&amp;#开头的是什么编码？"></a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/21390312/answer/18091465">&amp;#开头的是什么编码？</a></h3><p>不是编码，是 HTML、XML 等 SGML 类语言的转义序列。通过一定规则表示 Unicode 编码，可以用于转义任何 Unicode 字符。</p>
+<h3 id="CA-证书和客户端证书有什么区别？"><a href="#CA-证书和客户端证书有什么区别？" class="headerlink" title="CA 证书和客户端证书有什么区别？"></a>CA 证书和客户端证书有什么区别？</h3><p>CA 根证书验证服务器、客户端证书是否合法，合法则继续发送证书，服务端和客户端再继续根据公私钥加解密数据。<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/269817944">https://zhuanlan.zhihu.com/p/269817944</a></p>
+<h3 id="切换-python-脚本版本"><a href="#切换-python-脚本版本" class="headerlink" title="切换 python 脚本版本"></a>切换 python 脚本版本</h3><p>使用 (pyenv)[<a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv#installation]">https://github.com/pyenv/pyenv#installation]</a></p>
+<h3 id="全栈工程师"><a href="#全栈工程师" class="headerlink" title="全栈工程师"></a>全栈工程师</h3><p>一个真正的 Full Stack Engineer ，他从生活中发现问题，洞察需求，他设计解决方案，并开发出初始版本的产品。为了达到目标，他愿意去学习任何领域的技能和知识。同时他不追求一个人完成所有工作，如果有人可以比他在某方面做得更出色，便会十分热情的邀请他们加入。</p>
+<p>作者：顾鹏<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/22420900/answer/21770992">https://www.zhihu.com/question/22420900/answer/21770992</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<h3 id="技术人在团队中的各种情况"><a href="#技术人在团队中的各种情况" class="headerlink" title="技术人在团队中的各种情况"></a>技术人在团队中的各种情况</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE5d5c6860b54339d7d4695d9bbee9cb7b.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h3 id="人工智能是什么"><a href="#人工智能是什么" class="headerlink" title="人工智能是什么"></a>人工智能是什么</h3><p>人工智能是对人类学习过程的阐释，人类思维过程的量化，人类行为的澄清，以及对人的智力的理解</p>
+<h3 id="创业的不同阶段，CTO-承担什么角色"><a href="#创业的不同阶段，CTO-承担什么角色" class="headerlink" title="创业的不同阶段，CTO 承担什么角色"></a>创业的不同阶段，CTO 承担什么角色</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE20ea0c80099b9acfb45e8e63b958dfe0.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h3 id="如何成为技术领域-KOL？"><a href="#如何成为技术领域-KOL？" class="headerlink" title="如何成为技术领域 KOL？"></a>如何成为技术领域 KOL？</h3><p>方向清晰，细节自定，值得深读。<br><a target="_blank" rel="noopener" href="https://posts.careerengine.us/p/5ee80c6567ae4f52f7d76486">https://posts.careerengine.us/p/5ee80c6567ae4f52f7d76486</a></p>
+<h3 id="HTTP-缓存-浏览器缓存-前端缓存"><a href="#HTTP-缓存-浏览器缓存-前端缓存" class="headerlink" title="HTTP 缓存&#x2F;浏览器缓存&#x2F;前端缓存"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903747357769742">HTTP 缓存&#x2F;浏览器缓存&#x2F;前端缓存</a></h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCEc38c251e20768f5c88a212bd981ecfc7.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+
+<h3 id="如何使用-JS-执行-htmlDecode"><a href="#如何使用-JS-执行-htmlDecode" class="headerlink" title="如何使用 JS 执行 htmlDecode"></a>如何使用 JS 执行 htmlDecode</h3><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7394748/whats-the-right-way-to-decode-a-string-that-has-special-html-entities-in-it">https://stackoverflow.com/questions/7394748/whats-the-right-way-to-decode-a-string-that-has-special-html-entities-in-it</a></p>
+<h3 id="performance-now"><a href="#performance-now" class="headerlink" title="performance.now()"></a>performance.now()</h3><p>计算执行代码的时间，和 Date().now 的区别：</p>
+<ul>
+<li>performance.now 是微秒级，Date().now 是毫秒</li>
+<li>performance.now 始终以恒定速率增加，相对于系统时间独立</li>
+</ul>
+<h3 id="内容可见性（content-visibility）"><a href="#内容可见性（content-visibility）" class="headerlink" title="内容可见性（content-visibility）"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/6886258269137043464#heading-17">内容可见性（content-visibility）</a></h3><p>内容不可见时可以不渲染。</p>
+<p>可以接受 <code>visible</code>、<code>auto</code> 和 <code>hidden</code> 三个属性值，我们可以在一个元素上使用 <code>content-visibility:auto</code> 来直接的提升页面的渲染性能。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.775Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/7c9a5350e040/&title=《2021_03学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/7c9a5350e040/&title=《2021_03学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/7c9a5350e040/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_03学习笔记》 — 秦一&url=http://scar.site/7c9a5350e040/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/7c9a5350e040/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/9bf8416cff41/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">偷影子的人</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/f6451d0a6e65/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">海边的卡夫卡</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/7c9a5350e040/&title=《2021_03学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/7c9a5350e040/&title=《2021_03学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/7c9a5350e040/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_03学习笔记》 — 秦一&url=http://scar.site/7c9a5350e040/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/7c9a5350e040/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/7c9a5350e040/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

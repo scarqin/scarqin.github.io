@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2023_11 学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Javascript 如何不需要指定 await 异步转同步公司的业务里面有类似需求，将一些浏览器异步的操作转为同步操作  使用新的 deasync 库，支持 Promise，https:&#x2F;&#x2F;github.com&#x2F;Kaciras&#x2F;deasync Http 请求改为同步 HTTP，原理参考：https:&#x2F;&#x2F;github.com&#x2F;ForbesLindesay&#x2F;sync-request&#x2F;tree&#x2F;mas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023_11 学习笔记">
+<meta property="og:url" content="http://scar.site/01cf975b8d1a/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="Javascript 如何不需要指定 await 异步转同步公司的业务里面有类似需求，将一些浏览器异步的操作转为同步操作  使用新的 deasync 库，支持 Promise，https:&#x2F;&#x2F;github.com&#x2F;Kaciras&#x2F;deasync Http 请求改为同步 HTTP，原理参考：https:&#x2F;&#x2F;github.com&#x2F;ForbesLindesay&#x2F;sync-request&#x2F;tree&#x2F;mas">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/image-20231118110541153.png">
+<meta property="og:image" content="https://images.scar.site/image-20231129221232928.png">
+<meta property="og:image" content="https://images.scar.site/image-20231129221301348.png">
+<meta property="article:published_time" content="2023-11-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.783Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/image-20231118110541153.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2023_11 学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2023_11 学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2023-11-03T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2023-11-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Javascript-%E5%A6%82%E4%BD%95%E4%B8%8D%E9%9C%80%E8%A6%81%E6%8C%87%E5%AE%9A-await-%E5%BC%82%E6%AD%A5%E8%BD%AC%E5%90%8C%E6%AD%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text">Javascript 如何不需要指定 await 异步转同步</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%AD%A6%E4%B9%A0-AgentGPT-%E4%BD%BF%E7%94%A8"><span class="post-toc-number">2.</span> <span class="post-toc-text">学习 AgentGPT 使用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Sci-fi-%E7%85%A7%E8%BF%9B%E7%8E%B0%E5%AE%9E%EF%BC%8C%E4%BB%8E-xAI-%E7%9C%8B%E2%80%9C%E9%A9%AC%E6%96%AF%E5%85%8B%E7%BB%8F%E6%B5%8E%E5%AD%A6%E2%80%9D-%E4%B8%AD%E7%9A%84-AI-%E5%B8%83%E5%B1%80%E4%B8%8E%E5%89%8D%E6%B2%BF%E5%BA%94%E7%94%A8"><span class="post-toc-number">3.</span> <span class="post-toc-text">Sci-fi 照进现实，从 xAI 看“马斯克经济学” 中的 AI 布局与前沿应用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E7%9C%8B-Linux-%E6%9D%83%E9%99%90%E7%B3%BB%E7%BB%9F%E6%9D%83%E9%99%90"><span class="post-toc-number">4.</span> <span class="post-toc-text">如何看 Linux 权限系统权限</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%B0%88%E8%B0%88%E9%92%89%E9%92%89%E5%B7%A5%E4%BD%9C%E5%8F%B0%E7%9A%84%E4%BD%93%E9%AA%8C%E4%BC%98%E5%8C%96%E5%8F%8A%E6%8A%80%E6%9C%AF%E6%80%9D%E8%80%83"><span class="post-toc-number">5.</span> <span class="post-toc-text">谈谈钉钉工作台的体验优化及技术思考</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Wardley-Map"><span class="post-toc-number">6.</span> <span class="post-toc-text">Wardley Map</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Postman-%E7%9A%84-Wardley-Map-%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="post-toc-number">6.0.1.</span> <span class="post-toc-text">Postman 的 Wardley Map 示例：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#https-www-meshy-ai"><span class="post-toc-number">7.</span> <span class="post-toc-text">https:&#x2F;&#x2F;www.meshy.ai&#x2F;</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2023_11学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2023_11 学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2023-11-04 00:00:00" datetime="2023-11-03T16:00:00.000Z"  itemprop="datePublished">2023-11-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Javascript-如何不需要指定-await-异步转同步"><a href="#Javascript-如何不需要指定-await-异步转同步" class="headerlink" title="Javascript 如何不需要指定 await 异步转同步"></a>Javascript 如何不需要指定 await 异步转同步</h1><p>公司的业务里面有类似需求，将一些浏览器异步的操作转为同步操作</p>
+<ol>
+<li>使用新的 deasync 库，支持 Promise，<a target="_blank" rel="noopener" href="https://github.com/Kaciras/deasync">https://github.com/Kaciras/deasync</a></li>
+<li>Http 请求改为同步 HTTP，原理参考：<a target="_blank" rel="noopener" href="https://github.com/ForbesLindesay/sync-request/tree/master%EF%BC%8C%E4%BD%BF%E7%94%A8">https://github.com/ForbesLindesay/sync-request/tree/master，使用</a> sync-rpc 将异步代码放到同步进程去执行</li>
+<li>【停止维护】<a target="_blank" rel="noopener" href="https://github.com/node-modules/urllib-sync">https://github.com/node-modules/urllib-sync</a></li>
+<li>Worker + <code>Atomics.wait()</code>：<a target="_blank" rel="noopener" href="https://github.com/un-ts/synckit">https://github.com/un-ts/synckit</a></li>
+<li>AST 解析加 async await：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6945812252410773517">https://juejin.cn/post/6945812252410773517</a></li>
+<li>使用 worker 库：<a target="_blank" rel="noopener" href="https://github.com/sindresorhus/make-synchronous">https://github.com/sindresorhus/make-synchronous</a></li>
+</ol>
+<h1 id="学习-AgentGPT-使用"><a href="#学习-AgentGPT-使用" class="headerlink" title="学习 AgentGPT 使用"></a>学习 AgentGPT 使用</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/reworkd/AgentGPT/blob/main/docs/README.zh-HANS.md">https://github.com/reworkd/AgentGPT/blob/main/docs/README.zh-HANS.md</a></p>
+</blockquote>
+<p>痛点：检测分支更新</p>
+<h1 id="Sci-fi-照进现实，从-xAI-看“马斯克经济学”-中的-AI-布局与前沿应用"><a href="#Sci-fi-照进现实，从-xAI-看“马斯克经济学”-中的-AI-布局与前沿应用" class="headerlink" title="Sci-fi 照进现实，从 xAI 看“马斯克经济学” 中的 AI 布局与前沿应用"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/pNzW0EChAwDdlQiGw4XCEQ">Sci-fi 照进现实，从 xAI 看“马斯克经济学” 中的 AI 布局与前沿应用</a></h1><blockquote>
+<p>进一步往下的是，这个量级的推理并不能通过纯资本来解决，马斯克认为这需要电力能源的承担，需要降压变压器，而在两年后，世界可能因为 AI 训练开始出现电力能源的紧缺问题。</p>
+</blockquote>
+<blockquote>
+<p>最后，关于竞争优势，在马斯克看来真正的竞争优势在于你创新低速度，而不是任何但一定创新，事实上 SpaceX 几乎没有专利，特斯拉开放专利让更多人免费使用，只要创新的速度足够快，那就是对抗竞争的真正防线，而不是拼接专利或者隐藏某些东西。</p>
+</blockquote>
+<p>关于竞争优势的观点有所感触；他选择开放技术，但却选择封闭 X 上的数据不被其他人引用，为什么？</p>
+<ul>
+<li><p>核心技术的开放意味着会有更多人投入创新，贡献这门技术，这是探索边界的事情。</p>
+</li>
+<li><p>X 上是数据资源，获取并不会丰富 X 平台。</p>
+</li>
+</ul>
+<h1 id="如何看-Linux-权限系统权限"><a href="#如何看-Linux-权限系统权限" class="headerlink" title="如何看 Linux 权限系统权限"></a>如何看 Linux 权限系统权限</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/image-20231118110541153.png" alt="image-20231118110541153" title="">
+                </div>
+                <div class="image-caption">image-20231118110541153</div>
+            </figure>
+
+<p>第一个字符 -  是文件类型，</p>
+<p>然后每三个字符是一个单位，分别代表所有者的权限、所属组的权限、其他用户的权限。</p>
+<p>例如第一个 <code>-rwxr-xr-x</code> 代表：</p>
+<p>-：普通文件</p>
+<p>wxr：所有者有 write、read、execute 权限</p>
+<p>r-x：所属组有 read、execute 权限</p>
+<p>r-x：同上</p>
+<h1 id="谈谈钉钉工作台的体验优化及技术思考"><a href="#谈谈钉钉工作台的体验优化及技术思考" class="headerlink" title="谈谈钉钉工作台的体验优化及技术思考"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jAvU34fOwyJzW62l9QekQA">谈谈钉钉工作台的体验优化及技术思考</a></h1><p>一个性能优化纬度解析的好案例</p>
+<h1 id="Wardley-Map"><a href="#Wardley-Map" class="headerlink" title="Wardley Map"></a>Wardley Map</h1><p>Wardley Map 是由英国的Simon Wardley 提出的一种战略地图工具，用于可视化组织的业务战略和技术演化。</p>
+<h3 id="Postman-的-Wardley-Map-示例："><a href="#Postman-的-Wardley-Map-示例：" class="headerlink" title="Postman 的 Wardley Map 示例："></a>Postman 的 Wardley Map 示例：</h3><ol>
+<li><strong>明确焦点：</strong> Postman 业务、产品或技术。</li>
+<li><strong>确定价值链：</strong><ul>
+<li><strong>用户需求：</strong> 定义用户对 Postman 的需求。</li>
+<li><strong>API创建和测试：</strong> 创建和测试 API 请求和响应。</li>
+<li><strong>协作和分享：</strong> 协作团队、分享 API 请求和文档。</li>
+<li><strong>性能监控：</strong> 监控 API 的性能。</li>
+<li><strong>自动化测试：</strong> 自动化 API 测试流程。</li>
+</ul>
+</li>
+<li><strong>标记进化阶段：</strong><ul>
+<li><strong>Genesis（起源）：</strong> Postman 诞生时可能是一个新的创意工具。</li>
+<li><strong>Custom Built（定制构建）：</strong> 针对特定需求的自定义 API 测试工具。</li>
+<li><strong>Product（产品）：</strong> Postman 成为广泛使用的 API 测试工具。</li>
+<li><strong>Commodity（商品）：</strong> Postman 的特定功能成为行业标准。</li>
+<li><strong>Utility（公用事业）：</strong> Postman 成为 API 测试的基础设施。</li>
+</ul>
+</li>
+<li><strong>标记竞争力：</strong><ul>
+<li>根据每个阶段的竞争力标记在地图的纵轴上。</li>
+<li>随着进化，Postman 的竞争力可能从创新和功能丰富性转向可靠性和生态系统整合。</li>
+</ul>
+</li>
+<li><strong>添加演化的信号：</strong><ul>
+<li>标记可能触发变化的信号，比如新技术的出现、市场需求变化等。</li>
+</ul>
+</li>
+<li><strong>制定战略：</strong><ul>
+<li>根据地图的分析制定战略，例如，加速新功能的发布，拓展生态系统合作，优化性能监控等。</li>
+</ul>
+</li>
+<li><strong>更新和演化：</strong><ul>
+<li>Wardley Map 是动态的，需要根据环境变化不断更新。</li>
+</ul>
+</li>
+</ol>
+<h1 id="https-www-meshy-ai"><a href="#https-www-meshy-ai" class="headerlink" title="https://www.meshy.ai/"></a><a target="_blank" rel="noopener" href="https://www.meshy.ai/">https://www.meshy.ai/</a></h1><p>AI 3D 生成工具</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/image-20231129221232928.png" alt="image-20231129221232928" title="">
+                </div>
+                <div class="image-caption">image-20231129221232928</div>
+            </figure>
+
+<p>生成动物的时候，哈哈哈哈哈哈哈哈秦天说是毕加索再世</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/image-20231129221301348.png" alt="image-20231129221301348" title="">
+                </div>
+                <div class="image-caption">image-20231129221301348</div>
+            </figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.783Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/01cf975b8d1a/&title=《2023_11 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/01cf975b8d1a/&title=《2023_11 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/01cf975b8d1a/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_11 学习笔记》 — 秦一&url=http://scar.site/01cf975b8d1a/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/01cf975b8d1a/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/87cb8439bf3e/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2023.12 AI 学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/1a7965d4721d/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2023看的书</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/01cf975b8d1a/&title=《2023_11 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/01cf975b8d1a/&title=《2023_11 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/01cf975b8d1a/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_11 学习笔记》 — 秦一&url=http://scar.site/01cf975b8d1a/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/01cf975b8d1a/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/01cf975b8d1a/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2021_07学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="sessionStorage 共享问题同会话（session）共享,什么是同一个会话呢？同一个域下的所有窗口？ 同一个域下非手动输入地址打开的窗口，通过页面打开的窗口 session 共享，但是通过新开标签，浏览器输入地址的 session不共享。  Opening a page in a new tab or window will cause a new session to be initi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021_07学习笔记">
+<meta property="og:url" content="http://scar.site/07fe76047569/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="sessionStorage 共享问题同会话（session）共享,什么是同一个会话呢？同一个域下的所有窗口？ 同一个域下非手动输入地址打开的窗口，通过页面打开的窗口 session 共享，但是通过新开标签，浏览器输入地址的 session不共享。  Opening a page in a new tab or window will cause a new session to be initi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://segmentfault.com/img/bVZ1iz?w=841&h=108">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCEd7627f2a54ac20da2636f803f6097071.png">
+<meta property="og:image" content="https://dubbo.apache.org/imgs/user/dubbo-architecture-roadmap.jpg">
+<meta property="article:published_time" content="2021-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.775Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVZ1iz?w=841&h=108">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2021_07学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2021_07学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-06-30T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2021-07-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#sessionStorage-%E5%85%B1%E4%BA%AB%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.</span> <span class="post-toc-text">sessionStorage 共享问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8F%8D%E7%88%AC%E8%99%AB%E7%A6%81%E6%AD%A2%E6%B5%8F%E8%A7%88%E5%99%A8%E8%B0%83%E8%AF%95"><span class="post-toc-number">2.</span> <span class="post-toc-text">反爬虫禁止浏览器调试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UV%E3%80%81PV%E3%80%81IP"><span class="post-toc-number">3.</span> <span class="post-toc-text">UV、PV、IP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83"><span class="post-toc-number">4.</span> <span class="post-toc-text">注册中心</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%BD%91%E7%AB%99%E5%BA%94%E7%94%A8%E7%9A%84%E6%BC%94%E8%BF%9B"><span class="post-toc-number">5.</span> <span class="post-toc-text">网站应用的演进</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8D%95%E4%B8%80%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">单一应用架构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%9E%82%E7%9B%B4%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">垂直应用架构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">分布式服务架构</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B5%81%E5%8A%A8%E8%AE%A1%E7%AE%97%E6%9E%B6%E6%9E%84"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">流动计算架构</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%B0%BE%E9%80%92%E5%BD%92"><span class="post-toc-number">6.</span> <span class="post-toc-text">什么是尾递归</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8-blob-%E6%96%87%E4%BB%B6%E6%94%AF%E6%8C%81%E5%A4%9A%E5%A4%A7"><span class="post-toc-number">7.</span> <span class="post-toc-text">浏览器 blob 文件支持多大</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#In-Memory-Storage-Limit"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">In-Memory Storage Limit</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Disk-Storage-Limit"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">Disk Storage Limit</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2021_07学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2021_07学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-07-01 00:00:00" datetime="2021-06-30T16:00:00.000Z"  itemprop="datePublished">2021-07-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="sessionStorage-共享问题"><a href="#sessionStorage-共享问题" class="headerlink" title="sessionStorage 共享问题"></a><a target="_blank" rel="noopener" href="https://github.com/lmk123/blog/issues/66">sessionStorage 共享问题</a></h3><p>同会话（session）共享,什么是同一个会话呢？同一个域下的所有窗口？</p>
+<p>同一个域下非手动输入地址打开的窗口，通过页面打开的窗口 session 共享，但是通过新开标签，浏览器输入地址的 session不共享。</p>
+<blockquote>
+<p>Opening a page in a new tab or window will cause a new session to be initiated</p>
+</blockquote>
+<p>那如果我在当前窗口，将地址改为另一个域，最后又改回来呢？</p>
+<p>经过 Chrome 试验，session 是保持的，所以一个窗口可以保持多个 session，手动新开一个窗口等于新的 session</p>
+<h3 id="反爬虫禁止浏览器调试"><a href="#反爬虫禁止浏览器调试" class="headerlink" title="反爬虫禁止浏览器调试"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012359015">反爬虫禁止浏览器调试</a></h3><ul>
+<li>在Chrome控制台的Source Tab页点击Deactivate breakpoints按钮</li>
+<li>按下Ctrl + f8(下图)。<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://segmentfault.com/img/bVZ1iz?w=841&h=108" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
+</ul>
+<h3 id="UV、PV、IP"><a href="#UV、PV、IP" class="headerlink" title="UV、PV、IP"></a>UV、PV、IP</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCEd7627f2a54ac20da2636f803f6097071.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h3 id="注册中心"><a href="#注册中心" class="headerlink" title="注册中心"></a>注册中心</h3><p><a target="_blank" rel="noopener" href="https://pic4.zhimg.com/v2-636cdc84e5139cf5380dd38c88c03b97_b.jpg"></a><br>微服务架构管理服务的中心，可以提供以下能力：</p>
+<ul>
+<li>服务注册</li>
+<li>服务异常降级</li>
+<li>服务宕机下线</li>
+</ul>
+<p>注册中心主要用于解耦服务调用中的定位问题，是分布式系统必须面对的一个问题</p>
+<h3 id="网站应用的演进"><a href="#网站应用的演进" class="headerlink" title="网站应用的演进"></a><a target="_blank" rel="noopener" href="https://dubbo.apache.org/zh/docs/v2.7/user/preface/background/">网站应用的演进</a></h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://dubbo.apache.org/imgs/user/dubbo-architecture-roadmap.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h4 id="单一应用架构"><a href="#单一应用架构" class="headerlink" title="单一应用架构"></a>单一应用架构</h4><p>当网站流量很小时，只需一个应用，将所有功能都部署在一起，以减少部署节点和成本。此时，用于简化增删改查工作量的数据访问框架(ORM)是关键。</p>
+<h4 id="垂直应用架构"><a href="#垂直应用架构" class="headerlink" title="垂直应用架构"></a>垂直应用架构</h4><p>当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，提升效率的方法之一是将应用拆成互不相干的几个应用，以提升效率。此时，用于加速前端页面开发的Web框架(MVC)是关键。</p>
+<h4 id="分布式服务架构"><a href="#分布式服务架构" class="headerlink" title="分布式服务架构"></a>分布式服务架构</h4><p>当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的分布式服务框架(RPC)是关键。</p>
+<h4 id="流动计算架构"><a href="#流动计算架构" class="headerlink" title="流动计算架构"></a>流动计算架构</h4><p>当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的资源调度和治理中心(SOA)是关键。</p>
+<h3 id="什么是尾递归"><a href="#什么是尾递归" class="headerlink" title="什么是尾递归"></a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20761771">什么是尾递归</a></h3><p>尾递归是一种形式, 只是用这种形式表达出的概念可以被某些编译器优化.</p>
+<p>尾递归的特殊形式决定了这种递归代码在执行过程中是可以不需要回溯的(通常的递归都是需要回溯的). 如果编译器针对尾递归形式的递归代码作了这种优化,<br>就可能把原本需要线性复杂度栈内存空间的执行过程用常数复杂度的空间完成.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">story</span>(<span class="params"></span>) &#123;    从前有座山，山上有座庙，庙里有个老和尚，一天老和尚对小和尚讲故事：<span class="title function_">story</span>()</span><br><span class="line"><span class="comment">// 尾递归，进入下一个函数不再需要上一个函数的环境了，得出结果以后直接返回。&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">story</span>(<span class="params"></span>) &#123;    从前有座山，山上有座庙，庙里有个老和尚，一天老和尚对小和尚讲故事：<span class="title function_">story</span>()，</span><br><span class="line">小和尚听了，找了块豆腐撞死了 </span><br><span class="line"><span class="comment">// 非尾递归，下一个函数结束以后此函数还有后续，所以必须保存本身的环境以供处理返回值。&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="浏览器-blob-文件支持多大"><a href="#浏览器-blob-文件支持多大" class="headerlink" title="浏览器 blob 文件支持多大"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/28307789/is-there-any-limitation-on-javascript-max-blob-size">浏览器 blob 文件支持多大</a></h3><p>跟随系统设置，物理内存&#x2F;5</p>
+<h4 id="In-Memory-Storage-Limit"><a href="#In-Memory-Storage-Limit" class="headerlink" title="In-Memory Storage Limit"></a>In-Memory Storage Limit</h4><p>If the architecture is x64 and NOT ChromeOS or Android: 2GB</p>
+<p>Otherwise: total_physical_memory &#x2F; 5</p>
+<h4 id="Disk-Storage-Limit"><a href="#Disk-Storage-Limit" class="headerlink" title="Disk Storage Limit"></a>Disk Storage Limit</h4><p>If ChromeOS: disk_size &#x2F; 2</p>
+<p>If Android: disk_size &#x2F; 20</p>
+<p>Else: disk_size &#x2F; 10</p>
+<blockquote>
+<p>Note: ChromeOS’s disk is part of the user partition, which is separate from the system partition.</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.775Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/07fe76047569/&title=《2021_07学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/07fe76047569/&title=《2021_07学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/07fe76047569/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_07学习笔记》 — 秦一&url=http://scar.site/07fe76047569/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/07fe76047569/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/157faf47f527/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">被讨厌的勇气</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/8133cc657d31/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">为什么设置了 autocomplete，浏览器仍然会自动填充密码？</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/07fe76047569/&title=《2021_07学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/07fe76047569/&title=《2021_07学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/07fe76047569/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_07学习笔记》 — 秦一&url=http://scar.site/07fe76047569/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/07fe76047569/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/07fe76047569/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

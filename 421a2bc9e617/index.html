@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2021_08学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Ajax 请求发送 binary 数据失败12345var arrBuff &#x3D; new ArrayBuffer(file.result.length);var writer &#x3D; new Uint8Array(arrBuff);for (var i &#x3D; 0, len &#x3D; file.result.length; i &lt; len; i++) &#123;    writer[i] &#x3D; file.r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021_08学习笔记">
+<meta property="og:url" content="http://scar.site/421a2bc9e617/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="Ajax 请求发送 binary 数据失败12345var arrBuff &#x3D; new ArrayBuffer(file.result.length);var writer &#x3D; new Uint8Array(arrBuff);for (var i &#x3D; 0, len &#x3D; file.result.length; i &lt; len; i++) &#123;    writer[i] &#x3D; file.r">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.775Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2021_08学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2021_08学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-07-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2021-08-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Ajax-%E8%AF%B7%E6%B1%82%E5%8F%91%E9%80%81-binary-%E6%95%B0%E6%8D%AE%E5%A4%B1%E8%B4%A5"><span class="post-toc-number">1.</span> <span class="post-toc-text">Ajax 请求发送 binary 数据失败</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%EF%BC%9F"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是单点登陆？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E7%94%A8%E5%85%83%E7%B4%A0%E6%9B%BF%E4%BB%A3"><span class="post-toc-number">3.</span> <span class="post-toc-text">什么情况下用&lt;section&gt;元素替代&lt;div&gt;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%8F%92%E4%BB%B6%E5%A4%9A%E6%AC%A1%E8%AF%B7%E6%B1%82-500-%E6%8E%A5%E5%8F%A3%E6%8A%A5%E9%94%99"><span class="post-toc-number">4.</span> <span class="post-toc-text">浏览器插件多次请求 500 接口报错</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#man-book"><span class="post-toc-number">5.</span> <span class="post-toc-text">man book</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%8D%95%E7%82%B9%E7%99%BB%E9%99%86%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">6.</span> <span class="post-toc-text">单点登陆是什么?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Conventional-Commits"><span class="post-toc-number">7.</span> <span class="post-toc-text">Conventional Commits</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#npx-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">8.</span> <span class="post-toc-text">npx 是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%B9%82%E7%AD%89%E6%95%B0%E6%8D%AE%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="post-toc-number">9.</span> <span class="post-toc-text">幂等数据是什么意思</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mustache-%E6%96%87%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">10.</span> <span class="post-toc-text">Mustache 文件是什么？</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2021_08学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2021_08学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-08-01 00:00:00" datetime="2021-07-31T16:00:00.000Z"  itemprop="datePublished">2021-08-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Ajax-请求发送-binary-数据失败"><a href="#Ajax-请求发送-binary-数据失败" class="headerlink" title="Ajax 请求发送 binary 数据失败"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11448578/how-to-send-binary-data-via-jquery-ajax-put-method">Ajax 请求发送 binary 数据失败</a></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrBuff = <span class="keyword">new</span> <span class="title class_">ArrayBuffer</span>(file.<span class="property">result</span>.<span class="property">length</span>);</span><br><span class="line"><span class="keyword">var</span> writer = <span class="keyword">new</span> <span class="title class_">Uint8Array</span>(arrBuff);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = file.<span class="property">result</span>.<span class="property">length</span>; i &lt; len; i++) &#123;</span><br><span class="line">    writer[i] = file.<span class="property">result</span>.<span class="title function_">charCodeAt</span>(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="什么是单点登陆？"><a href="#什么是单点登陆？" class="headerlink" title="什么是单点登陆？"></a>什么是单点登陆？</h2><h2 id="什么情况下用元素替代"><a href="#什么情况下用元素替代" class="headerlink" title="什么情况下用&lt;section&gt;元素替代&lt;div&gt;"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6066689/in-what-scenarios-do-you-use-section-tag-of-html-5-in-place-of-div">什么情况下用&lt;section&gt;元素替代&lt;div&gt;</a></h2><p><a target="_blank" rel="noopener" href="https://www.thoughtco.com/html5-section-element-3467994">https://www.thoughtco.com/html5-section-element-3467994</a></p>
+<p>文档业务逻辑&#x2F;功能块的划分用 section，例如首页里面的介绍、新闻、最热推荐栏，这是三个不同的功能逻辑块。</p>
+<p>满足样式&#x2F;布局&#x2F;JS 操作 Dom 需要的盒子用 div</p>
+<h2 id="浏览器插件多次请求-500-接口报错"><a href="#浏览器插件多次请求-500-接口报错" class="headerlink" title="浏览器插件多次请求 500 接口报错"></a><a target="_blank" rel="noopener" href="http://dev.chromium.org/throttling">浏览器插件多次请求 500 接口报错</a></h2><p>浏览器防止 DDoS 攻击的策略，如果一个请求多次服务器错误，浏览器会拦截这个请求。</p>
+<h2 id="man-book"><a href="#man-book" class="headerlink" title="man book"></a>man book</h2><p>manual book，操作手册的意思</p>
+<h2 id="单点登陆是什么"><a href="#单点登陆是什么" class="headerlink" title="单点登陆是什么?"></a><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/636281">单点登陆是什么?</a></h2><p>单点登录英文全称Single Sign On，简称就是SSO。</p>
+<p>它的解释是：在多个应用系统中，只需要登录一次，就可以访问其他相互信任的应用系统。</p>
+<h2 id="Conventional-Commits"><a href="#Conventional-Commits" class="headerlink" title="Conventional Commits"></a>Conventional Commits</h2><p>类 Angular 团队规范的提交规范，继承了工具链（npm 包，VSCode）</p>
+<h2 id="npx-是什么？"><a href="#npx-是什么？" class="headerlink" title="npx 是什么？"></a>npx 是什么？</h2><p>npx是一个工具，它是npm v5.2.0引入的一条命令（npx），是npm的一个包执行器，只要为了提高从npm注册表使用软件包的体验。 </p>
+<p>npx 会自动查找当前依赖包中的可执行文件，如果找不到，就会去环境变量里面的PATH 里找。 如果依然找不到，就会帮你安装！</p>
+<h2 id="幂等数据是什么意思"><a href="#幂等数据是什么意思" class="headerlink" title="幂等数据是什么意思"></a>幂等数据是什么意思</h2><p>因为数据类型不一样，一般分为两种类型的数据<br>1、记录型数据：类似监控报告，这些是一个报告一条数据，这些数据丢了就会影响数据的完整性，直观感觉就是：少了报告</p>
+<p>2、幂等性数据：这类数据主要是保证最终一致性，新的记录会把旧的记录覆盖，比如对于当天请求次数来说，10点10次，11点100次，此时即时我十点的时候没有更新到mysql中，只要我确保11点更到了数据库，这时当天的次数的准确性和完整性是不受影响的，新的会把旧的给覆盖</p>
+<h2 id="Mustache-文件是什么？"><a href="#Mustache-文件是什么？" class="headerlink" title="Mustache 文件是什么？"></a>Mustache 文件是什么？</h2><p>Mustache 是一个轻逻辑的模板语言（ Logic-less templates），mustache 是一个js模板,用于展示和js分离，它的优势在于可以应用在Javascript、PHP、Python、Perl 等多种编程语言中</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.775Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/421a2bc9e617/&title=《2021_08学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/421a2bc9e617/&title=《2021_08学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/421a2bc9e617/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_08学习笔记》 — 秦一&url=http://scar.site/421a2bc9e617/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/421a2bc9e617/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/b137547304a8/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2021_09学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/157faf47f527/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">被讨厌的勇气</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/421a2bc9e617/&title=《2021_08学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/421a2bc9e617/&title=《2021_08学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/421a2bc9e617/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_08学习笔记》 — 秦一&url=http://scar.site/421a2bc9e617/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/421a2bc9e617/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/421a2bc9e617/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>require 和 import 的区别 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="当前端应用越来越复杂时，我们想要将代码分割成不同的模块，便于复用、按需加载等。 require 和 import 分别是不同模块化规范下引入模块的语句，下文将介绍这两种方式的不同之处。 1. 出现的时间、地点不同    年份 出处    require&#x2F;exports 2009 CommonJS   import&#x2F;export 2015 ECMAScript2015（ES6）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="require 和 import 的区别">
+<meta property="og:url" content="http://scar.site/5117fe4ada5e/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="当前端应用越来越复杂时，我们想要将代码分割成不同的模块，便于复用、按需加载等。 require 和 import 分别是不同模块化规范下引入模块的语句，下文将介绍这两种方式的不同之处。 1. 出现的时间、地点不同    年份 出处    require&#x2F;exports 2009 CommonJS   import&#x2F;export 2015 ECMAScript2015（ES6）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-10T15:49:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.769Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">require 和 import 的区别</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">require 和 import 的区别</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-10T15:49:00.000Z" itemprop="datePublished" class="page-time">
+  2020-03-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-%E5%87%BA%E7%8E%B0%E7%9A%84%E6%97%B6%E9%97%B4%E3%80%81%E5%9C%B0%E7%82%B9%E4%B8%8D%E5%90%8C"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 出现的时间、地点不同</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E4%B8%8D%E5%90%8C%E7%AB%AF-%E5%AE%A2%E6%88%B7%E7%AB%AF-%E6%9C%8D%E5%8A%A1%E5%99%A8-%E7%9A%84%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 不同端(客户端&#x2F;服务器)的使用限制</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-require-exports-%E6%98%AF%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%EF%BC%8Cimport-export-%E6%98%AF%E9%9D%99%E6%80%81%E7%BC%96%E8%AF%91"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. require&#x2F;exports 是运行时动态加载，import&#x2F;export 是静态编译</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-require-exports-%E8%BE%93%E5%87%BA%E7%9A%84%E6%98%AF%E4%B8%80%E4%B8%AA%E5%80%BC%E7%9A%84%E6%8B%B7%E8%B4%9D%EF%BC%8Cimport-export-%E6%A8%A1%E5%9D%97%E8%BE%93%E5%87%BA%E7%9A%84%E6%98%AF%E5%80%BC%E7%9A%84%E5%BC%95%E7%94%A8"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. require&#x2F;exports 输出的是一个值的拷贝，import&#x2F;export 模块输出的是值的引用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-%E7%94%A8%E6%B3%95%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. 用法不一致</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-require-exports-%E7%9A%84%E7%94%A8%E6%B3%95"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">(1). require&#x2F;exports 的用法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-import-export-%E7%9A%84%E5%86%99%E6%B3%95"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">(2). import&#x2F;export 的写法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-import-export-%E4%B8%8D%E8%83%BD%E5%AF%B9%E5%BC%95%E5%85%A5%E6%A8%A1%E5%9D%97%E9%87%8D%E6%96%B0%E8%B5%8B%E5%80%BC-%E5%AE%9A%E4%B9%89"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">(3). import&#x2F;export 不能对引入模块重新赋值&#x2F;定义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-ES6-%E6%A8%A1%E5%9D%97%E5%8F%AF%E4%BB%A5%E5%9C%A8-import-%E5%BC%95%E7%94%A8%E8%AF%AD%E5%8F%A5%E5%89%8D%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%EF%BC%8CCommonJS-%E5%88%99%E9%9C%80%E8%A6%81%E5%85%88%E5%BC%95%E7%94%A8%E5%90%8E%E4%BD%BF%E7%94%A8"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">(4). ES6 模块可以在 import 引用语句前使用模块，CommonJS 则需要先引用后使用</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-import-export-%E5%8F%AA%E8%83%BD%E5%9C%A8%E6%A8%A1%E5%9D%97%E9%A1%B6%E5%B1%82%E4%BD%BF%E7%94%A8%EF%BC%8C%E4%B8%8D%E8%83%BD%E5%9C%A8%E5%87%BD%E6%95%B0%E3%80%81%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5%E7%AD%89%E4%BB%A3%E7%A0%81%E5%9D%97%E4%B9%8B%E4%B8%AD%E5%BC%95%E7%94%A8%EF%BC%9Brequire-exports-%E5%8F%AF%E4%BB%A5%E3%80%82"><span class="post-toc-number">5.5.</span> <span class="post-toc-text">(5). import&#x2F;export 只能在模块顶层使用，不能在函数、判断语句等代码块之中引用；require&#x2F;exports 可以。</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-%E6%98%AF%E5%90%A6%E9%87%87%E7%94%A8%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. 是否采用严格模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-%E5%85%B6%E4%BB%96%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E6%B3%95"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 其他模块化方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%8A%A8%E6%80%81%E5%AF%BC%E5%85%A5"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">动态导入</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="post-toc-number">8.</span> <span class="post-toc-text">8. 参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/require和import的区别"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">require 和 import 的区别</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-10 23:49:00" datetime="2020-03-10T15:49:00.000Z"  itemprop="datePublished">2020-03-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>当前端应用越来越复杂时，我们想要将代码分割成不同的模块，便于复用、按需加载等。</p>
+<p>require 和 import 分别是不同模块化规范下引入模块的语句，下文将介绍这两种方式的不同之处。</p>
+<h3 id="1-出现的时间、地点不同"><a href="#1-出现的时间、地点不同" class="headerlink" title="1. 出现的时间、地点不同"></a>1. 出现的时间、地点不同</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>年份</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>require&#x2F;exports</td>
+<td>2009</td>
+<td>CommonJS</td>
+</tr>
+<tr>
+<td>import&#x2F;export</td>
+<td>2015</td>
+<td>ECMAScript2015（ES6）</td>
+</tr>
+</tbody></table>
+<h3 id="2-不同端-客户端-服务器-的使用限制"><a href="#2-不同端-客户端-服务器-的使用限制" class="headerlink" title="2. 不同端(客户端&#x2F;服务器)的使用限制"></a>2. 不同端(客户端&#x2F;服务器)的使用限制</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>require&#x2F;exports</th>
+<th>import&#x2F;export</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Node.js</td>
+<td>所有版本</td>
+<td>Node 9.0+（启动需加上 flag –experimental-modules）<br>Node 13.2+（直接启动） <a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/module-loader#Node-js-%E5%8A%A0%E8%BD%BD">如何使用？</a></td>
+</tr>
+<tr>
+<td>Chrome</td>
+<td>不支持</td>
+<td>61+</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>不支持</td>
+<td>60+</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>不支持</td>
+<td>10.1+</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>不支持</td>
+<td>16+</td>
+</tr>
+</tbody></table>
+<p><code>CommonJS</code> 模块化方案 <code>require/exports</code> 是为服务器端开发设计的。服务器模块系统<strong>同步读取模块文件内容</strong>，编译执行后得到模块接口。（<code>Node.js</code> 是 <code>CommonJS</code> 规范的实现）。</p>
+<p>在浏览器端，因为其<strong>异步加载脚本文件</strong>的特性，<code>CommonJS</code> 规范无法正常加载。所以出现了 <code>RequireJS</code>、<code>SeaJS</code> 等（兼容 <code>CommonJS</code> ）为浏览器设计的模块化方案。</p>
+<p>两种方案各有各的限制，需要注意以下几点：</p>
+<ul>
+<li><p><strong>原生浏览器不支持 require&#x2F;imports</strong>，可使用支持 CommonJS 模块规范的 <code>Browsersify</code>、<code>webpack</code> 等打包工具，它们会将 require&#x2F;imports 转换成能在浏览器使用的代码。</p>
+</li>
+<li><p><strong>import&#x2F;export 在浏览器中无法直接使用</strong>，我们需要在引入模块的 <code>&lt;script\&gt;</code> 元素上添加<code>type=&quot;module</code>属性。</p>
+</li>
+<li><p>即使 <code>Node.js</code> 13.2+ 可以通过修改文件后缀为 <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2020/08/how-nodejs-use-es6-module.html">.mjs</a> 来支持 <code>ES6</code> 模块 <code>import/export</code>，<strong>但是 Node.js 官方不建议在正式环境使用</strong>。目前可以使用 <a target="_blank" rel="noopener" href="https://babeljs.io/">babel</a> 将 <code>ES6</code> 的模块系统编译成 <code>CommonJS</code> 规范（注意：语法一样，但具体实现还是 require&#x2F;exports）。</p>
+</li>
+</ul>
+<h3 id="3-require-exports-是运行时动态加载，import-export-是静态编译"><a href="#3-require-exports-是运行时动态加载，import-export-是静态编译" class="headerlink" title="3. require&#x2F;exports 是运行时动态加载，import&#x2F;export 是静态编译"></a>3. require&#x2F;exports 是运行时动态加载，import&#x2F;export 是静态编译</h3><blockquote>
+<p><code>CommonJS</code> 加载的是一个对象（即 module.exports 属性），该对象只有在脚本运行完才会生成。而 ES6 模块不是对象，它的对外接口只是一种静态定义，在代码静态解析阶段就会生成。- 阮一峰</p>
+</blockquote>
+<h3 id="4-require-exports-输出的是一个值的拷贝，import-export-模块输出的是值的引用"><a href="#4-require-exports-输出的是一个值的拷贝，import-export-模块输出的是值的引用" class="headerlink" title="4. require&#x2F;exports 输出的是一个值的拷贝，import&#x2F;export 模块输出的是值的引用"></a>4. <a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/module-loader#ES6-%E6%A8%A1%E5%9D%97%E4%B8%8E-CommonJS-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%AE%E5%BC%82">require&#x2F;exports 输出的是一个值的拷贝，import&#x2F;export 模块输出的是值的引用</a></h3><p><code>require/exports</code> 输出的是值的拷贝。也就是说，一旦输出一个值，模块内部的变化就影响不到这个值。</p>
+<p><code>import/export</code> 模块输出的是值的引用。JS 引擎对脚本静态分析的时候，遇到模块加载命令 import，就会生成一个只读引用。等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。</p>
+<p>若文件引用的模块值改变，require 引入的模块值不会改变，而 import 引入的模块值会改变。</p>
+<h3 id="5-用法不一致"><a href="#5-用法不一致" class="headerlink" title="5. 用法不一致"></a>5. 用法不一致</h3><h4 id="1-require-exports-的用法"><a href="#1-require-exports-的用法" class="headerlink" title="(1). require&#x2F;exports 的用法"></a>(1). require&#x2F;exports 的用法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const fs = require(&#x27;fs&#x27;)</span><br><span class="line">exports.fs = fs</span><br><span class="line">module.exports = fs</span><br></pre></td></tr></table></figure>
+
+<p>exports 是对 <code>module.exports</code> 的引用，相当于</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exports = module.exports = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在不改变 <code>exports</code> 指向的情况下，使用 <code>exports</code> 和 <code>module.exports</code> 没有区别；如果将 <code>exports</code> 指向了其他对象，<code>exports</code> 改变不会改变模块输出值。示例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//utils.js</span><br><span class="line">let a = 100;</span><br><span class="line"></span><br><span class="line">exports.a = 200;</span><br><span class="line">console.log(module.exports) //&#123;a : 200&#125;</span><br><span class="line">exports = &#123;a:300&#125;; //exports 指向其他内存区</span><br><span class="line"></span><br><span class="line">//test.js</span><br><span class="line"></span><br><span class="line">var a = require(&#x27;./utils&#x27;);</span><br><span class="line">console.log(a) // 打印为 &#123;a : 200&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-import-export-的写法"><a href="#2-import-export-的写法" class="headerlink" title="(2). import&#x2F;export 的写法"></a>(2). import&#x2F;export 的写法</h4><p>import fs from ‘fs’</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;readFile&#125; <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span> <span class="comment">//从 fs 导入 readFile 模块</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="keyword">default</span> <span class="keyword">as</span> fs&#125; <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span> <span class="comment">//从 fs 中导入使用 export default 导出的模块</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> fileSystem <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span> <span class="comment">//从 fs 所有导出模块，引用对象名为 fileSystem</span></span><br><span class="line"><span class="keyword">import</span> &#123;readFile <span class="keyword">as</span> read&#125; <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span> <span class="comment">//从 fs 导入 readFile 模块，引用对象名为 read</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fs</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> readFile</span><br><span class="line"><span class="keyword">export</span> &#123;readFile, read&#125;</span><br><span class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建议 1：建议明确列出我们要引用的内容。，使用 * 虽然很方便，但是不利于现代的构建工具检测未被使用的函数，影响代码优化。</p>
+</blockquote>
+<p>同时需要注意</p>
+<ol>
+<li>引入 <code>export default</code> 导出的模块不用加 {},引入非 <code>export default</code> 导出的模块需要加 {}。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import fileSystem, &#123;readFile&#125; from &#x27;fs&#x27;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>一个文件只能导出一个 <code>default</code> 模块。</p>
+</li>
+<li><p>在验证代码的时候遇到如下报错</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">access to script from origin &#x27;null&#x27; has been blocked by CORS policy</span><br></pre></td></tr></table></figure>
+
+<p>前面提到过，浏览器引入模块的 <code>&lt;script&gt;</code> 元素要添加 <code>type=&quot;module</code> 属性，但 <strong>module 不支持 file:&#x2F;&#x2F; 文件协议，只支持 HTTP 协议</strong>，所以本地需要使用 http-server 等<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903559851425805">本地网络服务器</a>打开网页文件。</p>
+<h4 id="3-import-export-不能对引入模块重新赋值-定义"><a href="#3-import-export-不能对引入模块重新赋值-定义" class="headerlink" title="(3). import&#x2F;export 不能对引入模块重新赋值&#x2F;定义"></a>(3). import&#x2F;export 不能对引入模块重新赋值&#x2F;定义</h4><p>当我尝试给 import 的模块重新赋值时</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; e1 &#125; <span class="keyword">from</span> <span class="string">&quot;./webUtils.js&quot;</span>;</span><br><span class="line">e1 = <span class="number">234</span>;</span><br></pre></td></tr></table></figure>
+
+<p>浏览器显示</p>
+<blockquote>
+<p>Uncaught TypeError: Assignment to constant variable.</p>
+</blockquote>
+<p>当我重新定义引用的模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; e1 &#125; <span class="keyword">from</span> <span class="string">&quot;./webUtils.js&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> e1 = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>浏览器显示</p>
+<blockquote>
+<p>(index):17 Uncaught SyntaxError: Identifier ‘e1’ has already been declared</p>
+</blockquote>
+<h4 id="4-ES6-模块可以在-import-引用语句前使用模块，CommonJS-则需要先引用后使用"><a href="#4-ES6-模块可以在-import-引用语句前使用模块，CommonJS-则需要先引用后使用" class="headerlink" title="(4). ES6 模块可以在 import 引用语句前使用模块，CommonJS 则需要先引用后使用"></a>(4). ES6 模块可以在 import 引用语句前使用模块，CommonJS 则需要先引用后使用</h4><p>ES6 模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//webUtils.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> e = <span class="string">&quot;export&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(e); <span class="comment">//export</span></span><br><span class="line"><span class="keyword">import</span> &#123; e &#125; <span class="keyword">from</span> <span class="string">&quot;./webUtils.js&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(e); <span class="comment">//export</span></span><br></pre></td></tr></table></figure>
+
+<p>CommonJS</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//utils.js</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">e</span> = <span class="string">&quot;export&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line">a = <span class="built_in">require</span>(<span class="string">&quot;./utils&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br></pre></td></tr></table></figure>
+
+<p>程序报错</p>
+<blockquote>
+<p>ReferenceError: a is not defined</p>
+</blockquote>
+<h4 id="5-import-export-只能在模块顶层使用，不能在函数、判断语句等代码块之中引用；require-exports-可以。"><a href="#5-import-export-只能在模块顶层使用，不能在函数、判断语句等代码块之中引用；require-exports-可以。" class="headerlink" title="(5). import&#x2F;export 只能在模块顶层使用，不能在函数、判断语句等代码块之中引用；require&#x2F;exports 可以。"></a>(5). import&#x2F;export 只能在模块顶层使用，不能在函数、判断语句等代码块之中引用；require&#x2F;exports 可以。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&quot;./webUtils.js&quot;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">a</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">import</span> &#123; e1 &#125; <span class="keyword">from</span> <span class="string">&quot;./webUtils.js&quot;</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(e1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">a</span>();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">fs</span>());</span><br></pre></td></tr></table></figure>
+
+<p>程序报错</p>
+<blockquote>
+<p>Uncaught SyntaxError: Unexpected token ‘{‘<br>前面提到过 import&#x2F;export 在代码静态解析阶段就会生成，不会去分析代码块里面的 import&#x2F;export，所以程序报语法错误，而不是运行时错误。</p>
+</blockquote>
+<h3 id="6-是否采用严格模式"><a href="#6-是否采用严格模式" class="headerlink" title="6. 是否采用严格模式"></a>6. 是否采用严格模式</h3><blockquote>
+<p>严格模式是采用具有限制性 JavaScript 变体的一种方式</p>
+</blockquote>
+<p><code>import/export</code> 导出的模块默认调用严格模式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="title function_">fun</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  mistypedVaraible = <span class="number">17</span>; <span class="comment">//报错，mistypedVaraible is not defined</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> fun;</span><br></pre></td></tr></table></figure>
+
+<p><code>require/exports</code> 默认不使用严格模式，可以自定义是否使用严格模式。<br>例如</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exports</span>.<span class="property">fun</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  mistypedVaraible = <span class="number">17</span>; <span class="comment">//没有调用严格模式，不会报错</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-其他模块化方法"><a href="#7-其他模块化方法" class="headerlink" title="7. 其他模块化方法"></a>7. 其他模块化方法</h3><h4 id="动态导入"><a href="#动态导入" class="headerlink" title="动态导入"></a><a target="_blank" rel="noopener" href="https://zh.javascript.info/modules-dynamic-imports">动态导入</a></h4><p>import(modulePath) 表达式加载模块并返回一个 promise，该 promise resolve 为一个包含其所有导出的模块对象。</p>
+<p>我们可以在代码中的任意位置动态地使用它。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import(&#x27;/modules/my-module.js&#x27;) //动态导入</span><br><span class="line">  .then((module) =&gt; &#123;</span><br><span class="line">    // Do something with the module.</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>建议: 请不要滥用动态导入 import()（只有在必要情况下采用）。静态框架能更好的初始化依赖，而且更有利于静态分析工具和 tree shaking 发挥作用</p>
+</blockquote>
+<h3 id="8-参考资料"><a href="#8-参考资料" class="headerlink" title="8. 参考资料"></a>8. 参考资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/module-loader#ES6-%E6%A8%A1%E5%9D%97%E4%B8%8E-CommonJS-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%AE%E5%BC%82">阮一峰-ECMAScript 6 入门</a></li>
+</ul>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/56820346">寸志-知乎回答-require，import 区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/seajs/seajs/issues/269">从 CommonJS 到 Sea.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75980415">sunshine-前端模块化（AMD、CommonJS、UMD）总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903826600755214#1999---2009">橡树上-JavaScript 模块化总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2018/08/browser-native-es6-export-import-module/">张鑫旭-万岁，浏览器原生支持 ES6 export 和 import 模块啦！</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903489257095181">城南-exports、module.exports 和 export、export default 到底是咋回事</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903585805762573">lvcq617-ES6 export &amp;&amp; export default 差异总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.javascript.info/import-export">JAVASCRIPT.INFO-导入和导出</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.769Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/5117fe4ada5e/&title=《require 和 import 的区别》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/5117fe4ada5e/&title=《require 和 import 的区别》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/5117fe4ada5e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《require 和 import 的区别》 — 秦一&url=http://scar.site/5117fe4ada5e/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/5117fe4ada5e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/90377def2765/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2020_4学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/5dcd3b1b4281/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2020_3学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/5117fe4ada5e/&title=《require 和 import 的区别》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/5117fe4ada5e/&title=《require 和 import 的区别》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/5117fe4ada5e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《require 和 import 的区别》 — 秦一&url=http://scar.site/5117fe4ada5e/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/5117fe4ada5e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/5117fe4ada5e/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2019_1学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="在线同步协作文档的难点实现一个多人协作在线文档有哪些技术难点？ 主题 : 揭秘实时协作文档    讲师 : 许海浩 chrome.alarmshttps:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;17727734&#x2F;how-to-use-chrome-alarms-for-google-chrome-extension 2018新的正则表达式特性JavaScript 一直缺乏像 P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019_1学习笔记">
+<meta property="og:url" content="http://scar.site/11702db99ece/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="在线同步协作文档的难点实现一个多人协作在线文档有哪些技术难点？ 主题 : 揭秘实时协作文档    讲师 : 许海浩 chrome.alarmshttps:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;17727734&#x2F;how-to-use-chrome-alarms-for-google-chrome-extension 2018新的正则表达式特性JavaScript 一直缺乏像 P">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.772Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2019_1学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2019_1学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2019-01-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%9C%A8%E7%BA%BF%E5%90%8C%E6%AD%A5%E5%8D%8F%E4%BD%9C%E6%96%87%E6%A1%A3%E7%9A%84%E9%9A%BE%E7%82%B9"><span class="post-toc-number">1.</span> <span class="post-toc-text">在线同步协作文档的难点</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#chrome-alarms"><span class="post-toc-number">2.</span> <span class="post-toc-text">chrome.alarms</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2018%E6%96%B0%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%89%B9%E6%80%A7"><span class="post-toc-number">3.</span> <span class="post-toc-text">2018新的正则表达式特性</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#WebAssembly%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">4.</span> <span class="post-toc-text">WebAssembly是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8A%A8%E7%94%BB-Web-Animations-API"><span class="post-toc-number">5.</span> <span class="post-toc-text">动画 Web Animations API</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2019_1学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2019_1学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-01 00:00:00" datetime="2018-12-31T16:00:00.000Z"  itemprop="datePublished">2019-01-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="在线同步协作文档的难点"><a href="#在线同步协作文档的难点" class="headerlink" title="在线同步协作文档的难点"></a>在线同步协作文档的难点</h1><p>实现一个多人协作在线文档有哪些技术难点？</p>
+<p>主题 : 揭秘实时协作文档    讲师 : 许海浩</p>
+<h1 id="chrome-alarms"><a href="#chrome-alarms" class="headerlink" title="chrome.alarms"></a>chrome.alarms</h1><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/17727734/how-to-use-chrome-alarms-for-google-chrome-extension">https://stackoverflow.com/questions/17727734/how-to-use-chrome-alarms-for-google-chrome-extension</a></p>
+<h1 id="2018新的正则表达式特性"><a href="#2018新的正则表达式特性" class="headerlink" title="2018新的正则表达式特性"></a>2018新的正则表达式特性</h1><p>JavaScript 一直缺乏像 Python 这样语言的一些更高级的正则表达式功能 —— 直到现在才推出类似的特性。ES2018 增加了四个新特性：</p>
+<ul>
+<li><p>后行断言（lookbehind assertions），为自 1999 年以来一直使用该语言的先行断言（ lookahead assertions） 提供了缺失的补充。</p>
+</li>
+<li><p>s（dotAll）标志，它匹配除行终止符之外的任何单个字符。</p>
+</li>
+<li><p>命名捕获组，通过基于属性的捕获组查找，可以更轻松地使用正则表达式。</p>
+</li>
+<li><p>Unicode 属性转义，可以编写能够识别 Unicode 编码的正则表达式了。</p>
+</li>
+</ul>
+<p>虽然这些新特性中的许多功能多年来都有解决方法和替代库，但它们都没有原生实现的速度快。</p>
+<h1 id="WebAssembly是什么"><a href="#WebAssembly是什么" class="headerlink" title="WebAssembly是什么"></a>WebAssembly是什么</h1><ol>
+<li><p>由Google, Microsoft, Mozilla，Apple等几家大公司合作发起的一个关于面向Web的通用二进制和文本格式的项目</p>
+</li>
+<li><p>C,C++，Java等原生语言编写的模块运行在浏览器上，弥补Javascript语言原生的一些缺陷</p>
+</li>
+<li><p>WebAssembly是一种新的字节码格式。它的缩写是”.wasm”，.wasm 为文件名后缀，是一种新的底层安全的二进制语法。</p>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012110615">https://segmentfault.com/a/1190000012110615</a></p>
+<h1 id="动画-Web-Animations-API"><a href="#动画-Web-Animations-API" class="headerlink" title="动画 Web Animations API"></a>动画 Web Animations API</h1><p>大多数现代 Web 应用程序使用动画作为用户体验的重要部分。像 Google 的 Material Design 这样的框架把动画作为其设计语言的重要组成部分，并认为它们对于创造富有表现力和易于理解的用户体验至关重要。鉴于它们的重要性的提高，最近推出了一个更强大的 JavaScript 动画 API，这个就是 Web Animations API（WAAPI）。</p>
+<p>正如 CSS-Tricks 所说，WAAPI 提供了比 CSS 动画更好的开发人员体验，你可以轻松地记录和操作 JS 或 CSS 中定义的动画状态。目前浏览器支持主要限于 Chrome 和 Firefox，但有一个官方的 polyfill 可以满足你的需求。</p>
+<p>性能一直是 Web 动画的一个问题，Animation Worklet 解决了这个问题。这个新的 API 允许复杂的动画并行运行 —— 这意味着更高的帧速率动画不受主线程卡顿的影响。Animation Worklet 遵循与 Web Animations API 相同的接口，但在 Worklet 执行上下文中。</p>
+<p>它将在 Chrome 71（截至撰写本文时的下一个版本）发布，而其他浏览器可能会在明年某个时候发布。如果想今天就试试，可以在 GitHub 上找到官方的 polyfill 和示例仓库。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.772Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/11702db99ece/&title=《2019_1学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/11702db99ece/&title=《2019_1学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/11702db99ece/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2019_1学习笔记》 — 秦一&url=http://scar.site/11702db99ece/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/11702db99ece/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/f663d18af672/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2019_3学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/c0f8fd92a8bd/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">开发chrome插件入门-天气预报</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/11702db99ece/&title=《2019_1学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/11702db99ece/&title=《2019_1学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/11702db99ece/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2019_1学习笔记》 — 秦一&url=http://scar.site/11702db99ece/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/11702db99ece/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/11702db99ece/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

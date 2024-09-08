@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2023_08 学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Angular JIT 和 AIT 的区别https:&#x2F;&#x2F;medium.com&#x2F;taager-tech-blog&#x2F;angular-what-is-aot-vs-jit-compilation-and-how-it-works-a52c81bc58f webflow建站工具，通过拖拉拽建立官网 AI 产品CortexAI Agents大爆发：软件2.0雏形初现，OpenAI的下一步LLM 关键组件：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023_08 学习笔记">
+<meta property="og:url" content="http://scar.site/16f82a014de0/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="Angular JIT 和 AIT 的区别https:&#x2F;&#x2F;medium.com&#x2F;taager-tech-blog&#x2F;angular-what-is-aot-vs-jit-compilation-and-how-it-works-a52c81bc58f webflow建站工具，通过拖拉拽建立官网 AI 产品CortexAI Agents大爆发：软件2.0雏形初现，OpenAI的下一步LLM 关键组件：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/image-20230813221355477.png">
+<meta property="og:image" content="https://static.geekbang.org/infoq/5c6bce24ba464.png">
+<meta property="og:image" content="https://blog.getcontrast.io/content/images/2023/08/Untitled-4.png">
+<meta property="article:published_time" content="2023-07-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.783Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/image-20230813221355477.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2023_08 学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2023_08 学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2023-07-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2023-08-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Angular-JIT-%E5%92%8C-AIT-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-number">1.</span> <span class="post-toc-text">Angular JIT 和 AIT 的区别</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#webflow"><span class="post-toc-number">2.</span> <span class="post-toc-text">webflow</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#AI-%E4%BA%A7%E5%93%81"><span class="post-toc-number">3.</span> <span class="post-toc-text">AI 产品</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Cortex"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Cortex</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AI-Agents%E5%A4%A7%E7%88%86%E5%8F%91%EF%BC%9A%E8%BD%AF%E4%BB%B62-0%E9%9B%8F%E5%BD%A2%E5%88%9D%E7%8E%B0%EF%BC%8COpenAI%E7%9A%84%E4%B8%8B%E4%B8%80%E6%AD%A5"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">AI Agents大爆发：软件2.0雏形初现，OpenAI的下一步</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%8A%95-AI-%E6%9C%80%E7%8C%9B%E7%9A%84%E4%BA%BA-%E5%AF%B9%E8%B0%88%E5%BC%A0%E6%B4%A5%E5%89%91"><span class="post-toc-number">4.</span> <span class="post-toc-text">投 AI 最猛的人 | 对谈张津剑</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%9C%89%E4%BB%80%E4%B9%88%E7%BB%99%E9%A6%96%E6%AC%A1%E5%88%9B%E4%B8%9A%E8%80%85%E7%9A%84%E5%BB%BA%E8%AE%AE"><span class="post-toc-number">5.</span> <span class="post-toc-text">有什么给首次创业者的建议</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Schema-%E6%A0%A1%E9%AA%8C%E5%B7%A5%E5%85%B7"><span class="post-toc-number">6.</span> <span class="post-toc-text">Schema 校验工具</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Modular-Forms"><span class="post-toc-number">7.</span> <span class="post-toc-text">Modular Forms</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Builder-io"><span class="post-toc-number">8.</span> <span class="post-toc-text">Builder.io</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#dynaboard"><span class="post-toc-number">9.</span> <span class="post-toc-text">dynaboard</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7"><span class="post-toc-number">10.</span> <span class="post-toc-text">前端性能监控</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E7%8E%B0%E7%94%BB%E4%B8%AD%E7%94%BB-%E5%BD%95%E5%B1%8F"><span class="post-toc-number">11.</span> <span class="post-toc-text">浏览器实现画中画&#x2F;录屏</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Fuite"><span class="post-toc-number">12.</span> <span class="post-toc-text">Fuite</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%A1%85%E8%B0%B7AI%E6%8A%95%E8%B5%84%E5%8F%8C%E5%AD%90%E6%98%9F%EF%BC%9A-Nat-Friedman-%E4%B8%8E-Daniel-Gross-%E5%A6%82%E4%BD%95%E6%8A%95%E5%87%BA%E7%BE%8E%E5%9B%BD%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%9A%84%E5%8D%8A%E5%A3%81%E6%B1%9F%E5%B1%B1%EF%BC%9F"><span class="post-toc-number">13.</span> <span class="post-toc-text">硅谷AI投资双子星： Nat Friedman 与 Daniel Gross 如何投出美国人工智能的半壁江山？</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2023_08学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2023_08 学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2023-08-01 00:00:00" datetime="2023-07-31T16:00:00.000Z"  itemprop="datePublished">2023-08-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Angular-JIT-和-AIT-的区别"><a href="#Angular-JIT-和-AIT-的区别" class="headerlink" title="Angular JIT 和 AIT 的区别"></a>Angular JIT 和 AIT 的区别</h1><p><a target="_blank" rel="noopener" href="https://medium.com/taager-tech-blog/angular-what-is-aot-vs-jit-compilation-and-how-it-works-a52c81bc58f">https://medium.com/taager-tech-blog/angular-what-is-aot-vs-jit-compilation-and-how-it-works-a52c81bc58f</a></p>
+<h1 id="webflow"><a href="#webflow" class="headerlink" title="webflow"></a><a target="_blank" rel="noopener" href="https://webflow.com/?gspk=MzgyMjMwNw&gsxid=3c4EL68b9qHK&utm_medium=affiliate">webflow</a></h1><p>建站工具，通过拖拉拽建立官网</p>
+<h1 id="AI-产品"><a href="#AI-产品" class="headerlink" title="AI 产品"></a>AI 产品</h1><h2 id="Cortex"><a href="#Cortex" class="headerlink" title="Cortex"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/NsZSaU44DJDi0ytTaMuwtg">Cortex</a></h2><h2 id="AI-Agents大爆发：软件2-0雏形初现，OpenAI的下一步"><a href="#AI-Agents大爆发：软件2-0雏形初现，OpenAI的下一步" class="headerlink" title="AI Agents大爆发：软件2.0雏形初现，OpenAI的下一步"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Jb8HBbaKYXXxTSQOBsP5Wg">AI Agents大爆发：软件2.0雏形初现，OpenAI的下一步</a></h2><p>LLM 关键组件：</p>
+<ul>
+<li>规划：</li>
+<li>记忆</li>
+<li>工具使用</li>
+</ul>
+<h1 id="投-AI-最猛的人-对谈张津剑"><a href="#投-AI-最猛的人-对谈张津剑" class="headerlink" title="投 AI 最猛的人 | 对谈张津剑"></a><a target="_blank" rel="noopener" href="https://www.xiaoyuzhoufm.com/episode/64c542a399e1e7669e56d4da?s=eyJ1IjoiNjRjNzMwOTBlZGNlNjcxMDRhODIxYzQ3In0=">投 AI 最猛的人 | 对谈张津剑</a></h1><ul>
+<li><p>相信周期本身，相信一个生命体在发展里面的必经之路</p>
+</li>
+<li><p>为什么寒冬会出大家伙，寒冬的时候没有那么时间去造，泡沫到寒冬的时候给了足够多的时间去脱壳去成长</p>
+</li>
+<li><p>人在思考&#x2F;想象问题的时候会在已有的世界去映射下一个世界，带着所有的 ego 进入新的世界，真正的未来应该是基于未来去思考的</p>
+</li>
+<li><p>DAU（产品日活），消费时代的原住民是人，移动互联网的原住民是 DAU，matervers 时代 DAU 是什么？可能是 bot 可能是 agent</p>
+</li>
+</ul>
+<h1 id="有什么给首次创业者的建议"><a href="#有什么给首次创业者的建议" class="headerlink" title="有什么给首次创业者的建议"></a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/315164985/answer/3148996310">有什么给首次创业者的建议</a></h1><p>记录一些有感触的观点：</p>
+<ol>
+<li>创造人们需要的东西</li>
+<li>保持专注，不要试图同时做太多的事情。关注执行质量。</li>
+<li>你必须对你的公司有近乎疯狂的奉献精神才能成功。</li>
+<li>一般来说，不要开始你不愿投入十年努力的创业项目。</li>
+<li>对产品质量有执着要求。</li>
+<li>与您的团队进行充分的沟通，透明度是你的朋友。</li>
+<li>慎重招聘；快速解雇。招聘是你做的最重要的事情；至少要花费你三分之一的时间。</li>
+<li>雇佣你可以形容为”野兽“的人</li>
+<li>你经常会听到关于除了”打造一个伟大的产品”之外的所有事情的矛盾建议。这意味着你可以在其他大部分事情上采取任何方式，这并不真正重要。只需要做出决定，回到工作中。产品&#x2F;市场匹配是重要的。你可以并且将会犯很多错误。</li>
+<li>动力至关重要。不要失去它。</li>
+<li>吃苦是好事。</li>
+<li>记住，你更可能因为执行不良而死亡，而不是被竞争对手击败。</li>
+<li>不要让你的公司被销售人员控制。但要学会如何销售你的产品。</li>
+<li>有一个奖励产出的文化。</li>
+<li>简单是好的。对复杂性持怀疑态度。</li>
+<li>大多数事情并不像看起来那么有风险。</li>
+<li>对过于频繁使用”流程”这个词的人持怀疑态度。</li>
+<li>提供优质的客户服务。</li>
+<li>你可以通过突破性创新、细致改进或复杂协调创造价值。伟大的公司通常会做两个。最好的公司会做所有三个。</li>
+<li>董事会的<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E8%A7%82%E5%AF%9F%E8%80%85&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3148996310%7D">观察者</a>通常是头痛的事情。</li>
+<li>做出决定并犯错总比<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E7%8A%B9%E8%B1%AB%E4%B8%8D%E5%86%B3&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:3148996310%7D">犹豫不决</a>要好。</li>
+<li>总是赞扬优秀的工作。</li>
+<li>保持良好的运营节奏，确保项目短期内完成，并定期发布新内容。</li>
+<li>对于那些不是在开发产品或获取客户的工作要保持怀疑。很容易陷入基础设施重写的死循环中。</li>
+<li>让少数用户热爱你的产品，总比让大量用户稍微喜欢它要好。</li>
+<li>学会在你的世界崩溃时保持外向的乐观。</li>
+<li>你必须有优秀的执行力——比起愿意卷起袖子去完成事情，有好想法的人更多。</li>
+<li>做CEO的时候，痛苦的时候比开心的时候多。但是当开心的时候，真的很开心。</li>
+<li>选择几个高度参与的投资者，而不是很多参与度较低的投资者。</li>
+<li>对潜在投资者进行参考调查。向其他创始人询问在一切都出错时他们的表现如何。</li>
+<li>至少每周开一次员工会议。</li>
+<li>每个月都向公司分享结果（财务和关键指标）。</li>
+<li>最好的创业公司都是例外的定义；所有这些规则可能都是可以打破的，但可能不是同时打破。</li>
+</ol>
+<h1 id="Schema-校验工具"><a href="#Schema-校验工具" class="headerlink" title="Schema 校验工具"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/647911579">Schema 校验工具</a></h1><p>轻量的运行时校验工具，作用类似于 Typescript&#x2F;ajv。</p>
+<h1 id="Modular-Forms"><a href="#Modular-Forms" class="headerlink" title="Modular Forms"></a><a target="_blank" rel="noopener" href="https://modularforms.dev/solid/guides/philosophy">Modular Forms</a></h1><p>简单的表单库，支持所有原生 HTML 字段，简单易用的 API。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/image-20230813221355477.png" alt="image-20230813221355477" title="">
+                </div>
+                <div class="image-caption">image-20230813221355477</div>
+            </figure>
+
+<h1 id="Builder-io"><a href="#Builder-io" class="headerlink" title="Builder.io"></a><a target="_blank" rel="noopener" href="https://www.builder.io/">Builder.io</a></h1><p>快速构建网站，支持自定义组件</p>
+<h1 id="dynaboard"><a href="#dynaboard" class="headerlink" title="dynaboard"></a><a target="_blank" rel="noopener" href="https://dynaboard.com/?utm_source=cooperpress-jw&utm_medium=referral&utm_campaign=60seconds-q32023">dynaboard</a></h1><p>Build a web app in 60 seconds</p>
+<h1 id="前端性能监控"><a href="#前端性能监控" class="headerlink" title="前端性能监控"></a><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/dxa8am44oz*lukk5ufhy">前端性能监控</a></h1><ul>
+<li>人造监控（Synthetic Monitoring，SYN）：在一个模拟场景提交需要性能审计的页面，例如 LightHouse</li>
+<li>真实用户监控（Real User Monitoring，RUM）</li>
+</ul>
+<p>RUM 性能模型，页面被定义成了很多阶段：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://static.geekbang.org/infoq/5c6bce24ba464.png" alt="img" title="">
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+
+<h1 id="浏览器实现画中画-录屏"><a href="#浏览器实现画中画-录屏" class="headerlink" title="浏览器实现画中画&#x2F;录屏"></a>浏览器实现画中画&#x2F;录屏</h1><p><a target="_blank" rel="noopener" href="https://www.getcontrast.io/learn/using-document-picture-in-picture-and-insertable-streams-apis-to-record-your-screen-and-camera">https://www.getcontrast.io/learn/using-document-picture-in-picture-and-insertable-streams-apis-to-record-your-screen-and-camera</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://blog.getcontrast.io/content/images/2023/08/Untitled-4.png" alt="Untitled" title="">
+                </div>
+                <div class="image-caption">Untitled</div>
+            </figure>
+
+<h1 id="Fuite"><a href="#Fuite" class="headerlink" title="Fuite"></a><a target="_blank" rel="noopener" href="https://github.com/nolanlawson/fuite">Fuite</a></h1><p>实践检测 eolink 内存泄漏</p>
+<ol>
+<li>本地运行</li>
+<li>线上运行</li>
+<li>各配置检测</li>
+</ol>
+<h1 id="硅谷AI投资双子星：-Nat-Friedman-与-Daniel-Gross-如何投出美国人工智能的半壁江山？"><a href="#硅谷AI投资双子星：-Nat-Friedman-与-Daniel-Gross-如何投出美国人工智能的半壁江山？" class="headerlink" title="硅谷AI投资双子星： Nat Friedman 与 Daniel Gross 如何投出美国人工智能的半壁江山？"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/bymJNnMhWV0cthTstgJB6A">硅谷AI投资双子星： Nat Friedman 与 Daniel Gross 如何投出美国人工智能的半壁江山？</a></h1><p><strong>作为人类，我们有权利（也许是我们的道德责任）按照我们的喜好重塑宇宙。</strong></p>
+<p>- 技术，实际上是知识，使这成为可能</p>
+<p>- 我们可能应该努力提高上限，而不是底线</p>
+<p><strong>热情很重要！</strong></p>
+<p>- 做自己感兴趣的事情要容易得多</p>
+<p>- 也许正因如此，做大事比做小事更容易</p>
+<p>- 进步需要能量作为必要的输入</p>
+<p><strong>快速行动很重要</strong></p>
+<p>- 因为更频繁地与现实接触，我们每单位时间学到的东西更多</p>
+<p>- 快速行动使我们专注于重要的事情；没有时间胡说八道</p>
+<p>-「慢是假的」</p>
+<p>- 一周是一年的 2%</p>
+<p>- 时间是分母</p>
+<p><strong>有效市场假说是一个谎言</strong></p>
+<p>- 充其量它只是一个数据丢失严重的启示</p>
+<p>- 生活中最好的事情发生在 EMH 是错误的地方</p>
+<p>- 在许多情况下，将世界建模为 500 人比 80 亿人更准确</p>
+<p>-「大多数人都是其他人」</p>
+<p><strong>我们知道的比我们想象的要少</strong></p>
+<p>- 复制危机不是一个例外</p>
+<p>- 我们相信的许多事情都是错误的</p>
+<p>- 我们经常连正确的问题都没有问</p>
+<p><strong>对微观管理的文化禁令是有害的</strong></p>
+<p>- 伟大的个体应该被完全授权行使他们的判断</p>
+<p>- 目标不是避免错误；目标是在某个维度达到不相关的卓越水平</p>
+<p>- 这些缺点是值得的</p>
+<p><strong>小团队更好</strong></p>
+<p>- 更快的决策，更少的会议，更多的乐趣</p>
+<p>- 没有必要为政治原因分割工作</p>
+<p>- 没有平庸之人的位置（也可以支付更多！）</p>
+<p>- 大型工程项目在智力上比它们看起来更容易解决</p>
+<p>- 许多科技公司的员工超编 2-10 倍</p>
+<p><strong>我们从哪里获得自己的多巴胺？</strong></p>
+<p>- 答案可以预测我们的行为</p>
+<p>- <strong>最好从改进自己的想法，而不是从验证它们中获得多巴胺</strong></p>
+<p>- 从「让事情发生」中获得多巴胺是可以的</p>
+<p><strong>我们可以做的比自己想象的要多</strong></p>
+<p>- 我们被无形的传统束缚</p>
+<p>- 物理定律是唯一的限制</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.783Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/16f82a014de0/&title=《2023_08 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/16f82a014de0/&title=《2023_08 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/16f82a014de0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_08 学习笔记》 — 秦一&url=http://scar.site/16f82a014de0/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/16f82a014de0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/52b2948f6659/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AI 学习计划</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/f6e4aa17481d/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">孔雀 - 杨丽萍</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/16f82a014de0/&title=《2023_08 学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/16f82a014de0/&title=《2023_08 学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/16f82a014de0/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_08 学习笔记》 — 秦一&url=http://scar.site/16f82a014de0/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/16f82a014de0/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/16f82a014de0/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

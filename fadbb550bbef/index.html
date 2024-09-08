@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2023_04学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Electron 源码目录结构分析Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。  browser——主窗口、UI、主进程 renderer——渲染进程 common——同时被主进程和渲染进程用到的代码 app ——系统入口代码  Signals 是什么响应式更新&#x2F;细粒度更新。  状态（observable） 副作用（computed） 衍生状态（pu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2023_04学习笔记">
+<meta property="og:url" content="http://scar.site/fadbb550bbef/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="Electron 源码目录结构分析Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。  browser——主窗口、UI、主进程 renderer——渲染进程 common——同时被主进程和渲染进程用到的代码 app ——系统入口代码  Signals 是什么响应式更新&#x2F;细粒度更新。  状态（observable） 副作用（computed） 衍生状态（pu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-04-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.781Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2023_04学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2023_04学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2023-04-06T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2023-04-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Electron-%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="post-toc-number">1.</span> <span class="post-toc-text">Electron 源码目录结构分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Signals-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">2.</span> <span class="post-toc-text">Signals 是什么</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#import-maps"><span class="post-toc-number">3.</span> <span class="post-toc-text">import maps</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DefineProperty-enumerable"><span class="post-toc-number">4.</span> <span class="post-toc-text">DefineProperty enumerable</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BC%80%E5%8F%91%E5%9B%A2%E9%98%9F%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E7%90%90%E7%A2%8E%E3%80%81%E7%AA%81%E5%8F%91%E6%80%A7%E4%BB%BB%E5%8A%A1%EF%BC%9F"><span class="post-toc-number">5.</span> <span class="post-toc-text">开发团队如何管理琐碎、突发性任务？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%B8%AD%E5%BC%8F%E8%BE%A8%E5%9E%8B%E6%B3%95"><span class="post-toc-number">6.</span> <span class="post-toc-text">鸭式辨型法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTMX"><span class="post-toc-number">7.</span> <span class="post-toc-text">HTMX</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E4%BA%86%E8%A7%A3-React"><span class="post-toc-number">8.</span> <span class="post-toc-text">可视化了解 React</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2023_04学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2023_04学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2023-04-07 00:00:00" datetime="2023-04-06T16:00:00.000Z"  itemprop="datePublished">2023-04-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Electron-源码目录结构分析"><a href="#Electron-源码目录结构分析" class="headerlink" title="Electron 源码目录结构分析"></a><a target="_blank" rel="noopener" href="https://www.electronjs.org/zh/docs/latest/development/source-code-directory-structure">Electron 源码目录结构分析</a></h1><p>Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部分。</p>
+<ul>
+<li>browser——主窗口、UI、主进程</li>
+<li>renderer——渲染进程</li>
+<li>common——同时被主进程和渲染进程用到的代码</li>
+<li>app ——系统入口代码</li>
+</ul>
+<h1 id="Signals-是什么"><a href="#Signals-是什么" class="headerlink" title="Signals 是什么"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/FEA5swFdDaLyzK5v5wvDvA">Signals 是什么</a></h1><p>响应式更新&#x2F;细粒度更新。</p>
+<ul>
+<li>状态（observable）</li>
+<li>副作用（computed）</li>
+<li>衍生状态（pureComputed）</li>
+<li>反应式所有权</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/608897758">https://zhuanlan.zhihu.com/p/608897758</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/angular/angular/discussions/49090">https://github.com/angular/angular/discussions/49090</a></p>
+</blockquote>
+<h1 id="import-maps"><a href="#import-maps" class="headerlink" title="import maps"></a>import maps</h1><p><code>import map</code>直译过来是 <strong>导入映射</strong>，它与模块的使用有关，一般我们在项目中导入模块，会调用<code>require</code>方法，或者使用<code>import</code>语句或方法，引入的模块通常使用 npm 之类的包管理器进行管理。但是<code>import map</code>提供了一种支持，让我们可以直接在页面上管理模块，不需要通过打包构建。</p>
+<p>优势：</p>
+<ul>
+<li>支持动态加载模块</li>
+<li>通过合并模块减少网络请求</li>
+<li>模块关系管理</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定义模块关系 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;importmap&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">   &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&#x27;module1&#x27;</span>: <span class="string">&#x27;module1.js&#x27;</span>,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&#x27;module2&#x27;</span>: &#123; <span class="attr">deps</span>: [<span class="string">&#x27;module1&#x27;</span>], <span class="attr">url</span>: <span class="string">&#x27;module2.js&#x27;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">    <span class="string">&#x27;module3&#x27;</span>: &#123; <span class="attr">deps</span>: [<span class="string">&#x27;module1&#x27;</span>], <span class="attr">url</span>: <span class="string">&#x27;module3.js&#x27;</span> &#125;,</span></span><br><span class="line"><span class="language-javascript">  &#125;;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//加载模块</span></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">all</span>([<span class="keyword">import</span>(moduleMap[<span class="string">&quot;module1&quot;</span>].<span class="property">url</span>), <span class="keyword">import</span>(moduleMap[<span class="string">&quot;module2&quot;</span>].<span class="property">url</span>), <span class="keyword">import</span>(moduleMap[<span class="string">&quot;module3&quot;</span>].<span class="property">url</span>)]).<span class="title function_">then</span>(<span class="function">(<span class="params">[module1, module2, module3]</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="DefineProperty-enumerable"><a href="#DefineProperty-enumerable" class="headerlink" title="DefineProperty enumerable"></a>DefineProperty enumerable</h1><p>为什么 enumerable 默认为 false</p>
+<h1 id="开发团队如何管理琐碎、突发性任务？"><a href="#开发团队如何管理琐碎、突发性任务？" class="headerlink" title="开发团队如何管理琐碎、突发性任务？"></a>开发团队如何管理琐碎、突发性任务？</h1><p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/1xgi5mqffx33cavflaar">https://www.infoq.cn/article/1xgi5mqffx33cavflaar</a></p>
+<ul>
+<li><em>RD</em>: Research and Development engineer</li>
+</ul>
+<h1 id="鸭式辨型法"><a href="#鸭式辨型法" class="headerlink" title="鸭式辨型法"></a>鸭式辨型法</h1><blockquote>
+<p>“像鸭子一样走路并且嘎嘎叫的就叫鸭子。” – James Whitecomb Riley</p>
+</blockquote>
+<p>实现接口实际上是检测对象是否拥有接口定义的所有方法。</p>
+<p>接口只是用来定义某些方法名称，它并不需要实现这些方法，比如 Duck 接口中不需要实现 swim 方法。接口要做的是记住方法名称。</p>
+<h1 id="HTMX"><a href="#HTMX" class="headerlink" title="HTMX"></a><a target="_blank" rel="noopener" href="https://github.com/bigskysoftware/htmx">HTMX</a></h1><p>感慨时尚是一个圈，框架发展的弊端又开始让我们回归旧的潮流，但今时不同往日，即使用法一致背后的实现可能也是千差万别。</p>
+<p><a target="_blank" rel="noopener" href="https://www.infoq.cn/article/veskosrskc9xgiyygyku">https://www.infoq.cn/article/veskosrskc9xgiyygyku</a></p>
+<h1 id="可视化了解-React"><a href="#可视化了解-React" class="headerlink" title="可视化了解 React"></a>可视化了解 React</h1><p>很有意思的网站～</p>
+<p><a target="_blank" rel="noopener" href="https://react.gg/visualized#jquery">https://react.gg/visualized#jquery</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.781Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/fadbb550bbef/&title=《2023_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/fadbb550bbef/&title=《2023_04学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/fadbb550bbef/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_04学习笔记》 — 秦一&url=http://scar.site/fadbb550bbef/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/fadbb550bbef/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/7fbac36469dc/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2023_05学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/e7051014e84c/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第三种黑猩猩</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/fadbb550bbef/&title=《2023_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/fadbb550bbef/&title=《2023_04学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/fadbb550bbef/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2023_04学习笔记》 — 秦一&url=http://scar.site/fadbb550bbef/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/fadbb550bbef/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/fadbb550bbef/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

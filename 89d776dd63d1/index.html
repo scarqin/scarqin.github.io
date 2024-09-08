@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>开源一个微信阅读导出插件 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="从 2020 年开始使用微信读书替代 kindle 和纸质书，基本上想看的书都能在上面找到，阅读体验也很流畅，但是在导出读书笔记的时候遇到了痛点：  导出笔记到电脑需要借助第三方软件，可能会遇到导出长度限制、格式失真等问题 格式不是自己想要的 现有的工具对划线评论、图片、格式等支持不够好  所以想着自己动手做一个，拖着拖着拖到了 2021 年 chrome 发布了 V3 的浏览器插件，正好学习的同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开源一个微信阅读导出插件">
+<meta property="og:url" content="http://scar.site/89d776dd63d1/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="从 2020 年开始使用微信读书替代 kindle 和纸质书，基本上想看的书都能在上面找到，阅读体验也很流畅，但是在导出读书笔记的时候遇到了痛点：  导出笔记到电脑需要借助第三方软件，可能会遇到导出长度限制、格式失真等问题 格式不是自己想要的 现有的工具对划线评论、图片、格式等支持不够好  所以想着自己动手做一个，拖着拖着拖到了 2021 年 chrome 发布了 V3 的浏览器插件，正好学习的同">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/app.png">
+<meta property="og:image" content="https://images.scar.site/eolink.png">
+<meta property="article:published_time" content="2022-02-08T02:59:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.770Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/app.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">开源一个微信阅读导出插件</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">开源一个微信阅读导出插件</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-02-08T02:59:00.000Z" itemprop="datePublished" class="page-time">
+  2022-02-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8A%9F%E8%83%BD%E8%AE%BE%E8%AE%A1"><span class="post-toc-number">1.</span> <span class="post-toc-text">功能设计</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#API-%E5%88%86%E6%9E%90"><span class="post-toc-number">2.</span> <span class="post-toc-text">API 分析</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="post-toc-number">3.</span> <span class="post-toc-text">技术栈</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">4.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/开源一个微信阅读导出插件"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">开源一个微信阅读导出插件</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-02-08 10:59:00" datetime="2022-02-08T02:59:00.000Z"  itemprop="datePublished">2022-02-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>从 2020 年开始使用微信读书替代 kindle 和纸质书，基本上想看的书都能在上面找到，阅读体验也很流畅，但是在导出读书笔记的时候遇到了痛点：</p>
+<ul>
+<li>导出笔记到电脑需要借助第三方软件，可能会遇到导出长度限制、格式失真等问题</li>
+<li>格式不是自己想要的</li>
+<li>现有的工具对<strong>划线评论</strong>、图片、格式等支持不够好</li>
+</ul>
+<p>所以想着自己动手做一个，拖着拖着拖到了 2021 年 chrome 发布了<a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/extensions/mv3/intro/"> V3 的浏览器插件</a>，正好学习的同时解决痛点。</p>
+<p>对【<strong>浏览器插件开发</strong>】 <strong>、</strong> 【<strong>导出微信读书笔记</strong>】感兴趣的小伙伴可以参考参考 😊（别打我，我会慢慢完善的）。</p>
+<h1 id="功能设计"><a href="#功能设计" class="headerlink" title="功能设计"></a>功能设计</h1><p>第一版本先简单点快速搭建原型，实现以下功能即可：</p>
+<ul>
+<li>显示带笔记的书籍列表</li>
+<li>一键导出 markdown 格式划线&#x2F;笔记</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/app.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="API-分析"><a href="#API-分析" class="headerlink" title="API 分析"></a>API 分析</h1><p>为了展示清晰，仓库里面使用的 API 我整理成了 API 文档，通过 <a target="_blank" rel="noopener" href="https://www.eolink.com/">Eolink APIKit</a> 记录。</p>
+<p><a target="_blank" rel="noopener" href="https://scarfree.w.eolink.com/share/project/api/?groupID=-1&shareCode=65wWvE&shareToken=$2y$10$ZVixV4UGvQ221pgkWRQKOO4Ew~2FYGsXSwPbg.NRZO8i7r6hChj5q7e&shareID=355331">在线 API 文档</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/eolink.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><p>都是比较轻量的框架</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.sveltejs.cn/">sevlte</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mdui.org/">mdui</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.rollupjs.com/">rollup</a></li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>感谢开源项目 <a target="_blank" rel="noopener" href="https://github.com/arry-lee/wereader">arry-lee&#x2F;wereader</a> 提供的思路。</p>
+<p>后续将继续完善功能：</p>
+<ul>
+<li>自定义导出内容（书籍信息、阅读信息）</li>
+<li>自定义格式</li>
+<li>导出笔记图片</li>
+</ul>
+<p>目前插件源代码已上传到 <a target="_blank" rel="noopener" href="https://github.com/scarqin/wxread-export">GitHub - scarqin&#x2F;wxread-export</a>，欢迎使用、交流和贡献。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.770Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/89d776dd63d1/&title=《开源一个微信阅读导出插件》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/89d776dd63d1/&title=《开源一个微信阅读导出插件》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/89d776dd63d1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开源一个微信阅读导出插件》 — 秦一&url=http://scar.site/89d776dd63d1/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/89d776dd63d1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/4067a063dab9/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">前端架构：从入门到微前端</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/1bfee1fd707f/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2022_02学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/89d776dd63d1/&title=《开源一个微信阅读导出插件》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/89d776dd63d1/&title=《开源一个微信阅读导出插件》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/89d776dd63d1/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《开源一个微信阅读导出插件》 — 秦一&url=http://scar.site/89d776dd63d1/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/89d776dd63d1/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/89d776dd63d1/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

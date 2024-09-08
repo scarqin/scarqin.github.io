@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2022_05学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="开源用户漏斗 原文链接：Using Pirate Metrics to measure success of open source projects | Opensource.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022_05学习笔记">
+<meta property="og:url" content="http://scar.site/f29a60bd800a/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="开源用户漏斗 原文链接：Using Pirate Metrics to measure success of open source projects | Opensource.com">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220507102015.png">
+<meta property="og:image" content="https://images.scar.site/20220515000503.png">
+<meta property="og:image" content="https://images.scar.site/20220515000758.png">
+<meta property="article:published_time" content="2022-04-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.777Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220507102015.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2022_05学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2022_05学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-04-30T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2022-05-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BC%80%E6%BA%90%E7%94%A8%E6%88%B7%E6%BC%8F%E6%96%97"><span class="post-toc-number">1.</span> <span class="post-toc-text">开源用户漏斗</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%BA%E6%96%87%E5%BA%93"><span class="post-toc-number">2.</span> <span class="post-toc-text">论文库</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Serverless%E3%80%81BaaS%E3%80%81FaaS"><span class="post-toc-number">3.</span> <span class="post-toc-text">Serverless、BaaS、FaaS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BaaS"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">BaaS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#FaaS"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">FaaS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Serverless"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Serverless</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E5%8F%AB%E5%93%8D%E5%BA%94%E5%BC%8F%EF%BC%9F"><span class="post-toc-number">4.</span> <span class="post-toc-text">什么叫响应式？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%B0%88%E8%B0%88%E5%89%8D%E7%AB%AF%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="post-toc-number">5.</span> <span class="post-toc-text">谈谈前端的未来</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#import-type-%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="post-toc-number">6.</span> <span class="post-toc-text">import type 的作用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E8%B5%84%E6%96%99"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">资料</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Angular-%E9%87%8C%E9%9D%A2%E4%BD%BF%E7%94%A8-React"><span class="post-toc-number">7.</span> <span class="post-toc-text">Angular 里面使用 React</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%8C%87%E6%95%B0"><span class="post-toc-number">8.</span> <span class="post-toc-text">开源项目指数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#V2MOM"><span class="post-toc-number">9.</span> <span class="post-toc-text">V2MOM</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%8A%80%E6%9C%AF%E5%80%BA%E4%B8%8D%E6%98%AF%E8%B4%9F%E6%8B%85%EF%BC%8C%E8%80%8C%E6%98%AF%E6%88%90%E5%8A%9F%E7%9A%84%E6%88%98%E7%95%A5%E6%9D%A0%E6%9D%86"><span class="post-toc-number">10.</span> <span class="post-toc-text">技术债不是负担，而是成功的战略杠杆</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SVG-%E6%96%87%E4%BB%B6%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="post-toc-number">11.</span> <span class="post-toc-text">SVG 文件不安全</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Technical-Writer"><span class="post-toc-number">12.</span> <span class="post-toc-text">Technical Writer</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%85%A8%E7%90%83-DevOps-%E5%B7%A5%E5%85%B7%E6%A0%BC%E5%B1%80%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="post-toc-number">13.</span> <span class="post-toc-text">全球 DevOps 工具格局与发展</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E8%A7%A3%E5%86%B3%E4%BA%86%E6%89%80%E6%9C%89%E9%97%AE%E9%A2%98%EF%BC%8C%E8%BF%98%E6%98%AF%E6%97%A0%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%87%BA%E5%A5%BD%E7%9A%84%E4%BA%A7%E5%93%81%EF%BC%9F"><span class="post-toc-number">14.</span> <span class="post-toc-text">为什么我解决了所有问题，还是无法设计出好的产品？</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2022_05学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2022_05学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-05-01 00:00:00" datetime="2022-04-30T16:00:00.000Z"  itemprop="datePublished">2022-05-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="开源用户漏斗"><a href="#开源用户漏斗" class="headerlink" title="开源用户漏斗"></a>开源用户漏斗</h1><blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://opensource.com/business/16/6/pirate-metrics">Using Pirate Metrics to measure success of open source projects | Opensource.com</a></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220507102015.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="论文库"><a href="#论文库" class="headerlink" title="论文库"></a>论文库</h1><p>和代码相关的代码库</p>
+<p><a target="_blank" rel="noopener" href="https://paperswithcode.com/">https://paperswithcode.com/</a></p>
+<p>中国计算机协会 CCF</p>
+<p><a target="_blank" rel="noopener" href="https://www.ccf.org.cn/">https://www.ccf.org.cn/</a></p>
+<h1 id="Serverless、BaaS、FaaS"><a href="#Serverless、BaaS、FaaS" class="headerlink" title="Serverless、BaaS、FaaS"></a>Serverless、BaaS、FaaS</h1><blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="http://www.broadview.com.cn/article/792">BaaS、FaaS、Serverless都是什么馅儿？</a></p>
+</blockquote>
+<p>Serverless 包括 Baas、FaaS</p>
+<h2 id="BaaS"><a href="#BaaS" class="headerlink" title="BaaS"></a>BaaS</h2><p>Backend as a service，将后端服务作为产品开放给其他系统，例如登陆注册的逻辑对接 BaaS 提供的 API</p>
+<h2 id="FaaS"><a href="#FaaS" class="headerlink" title="FaaS"></a>FaaS</h2><p>Function asa Service，面向单个函数或者操作，按需调用，不需要像 API 一直运行</p>
+<h2 id="Serverless"><a href="#Serverless" class="headerlink" title="Serverless"></a>Serverless</h2><p>从表面上看，BaaS和FaaS是两码事——前者是把应用中的各个部分完全外包出去，后者是一种新的运行代码的托管环境。那么，为什么要把它们都划归为Serverless呢？关键在于，它们都不需要你管理自己的服务器主机或者服务器进程。一个完全Serverless的app不需要你考虑架构中的任何东西。你的应用逻辑——不管是自己编程实现，还是使用第三方服务集成——运行在一个完全弹性的操作环境里。你的状态也是以同样弹性的形式存储的。</p>
+<blockquote>
+<p>Serverless并不意味着没有服务器，而是你不需要操心服务器相关的事情。</p>
+</blockquote>
+<h1 id="什么叫响应式？"><a href="#什么叫响应式？" class="headerlink" title="什么叫响应式？"></a>什么叫响应式？</h1><p>响应式布局：Responsive layout，布局响应终端的变化，一个网站可以兼容多个终端</p>
+<p>Vue 响应式系统：Reactivity system，页面响应数据的变化</p>
+<h1 id="谈谈前端的未来"><a href="#谈谈前端的未来" class="headerlink" title="谈谈前端的未来"></a>谈谈前端的未来</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/65_fvL6to9HQyMZEtrvldw">原文链接</a></p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220515000503.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<ul>
+<li>CSR：Client Side Rendering 客户端渲染</li>
+<li>SSR: Server Side Rendering 服务器端渲染</li>
+<li>SSG: Static Side Generatio 静态网站生成</li>
+<li>ISR: Incremental Static Regeneration 增量式网站渲染</li>
+<li>RSC: Remote Service Component 远程服务化组件</li>
+</ul>
+<blockquote>
+<p>Serverless 会遇到冷启动问题，类似 AWS 这样的服务需要很长时间才能实际启动和执行你的代码。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220515000758.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>我们把 SSG&#x2F;ISR 和 SSR 结合起来，就是我刚刚提到的 Edge SSR。边缘网络的关键特性是可以在世界各地运行代码，这个特点是它与生俱来的，我们可以不断优化静态生成的部分和服务端渲染的部分。所以保证可用性的唯一办法，是尽可能静态生成。</p>
+<p><strong>在组件维度进行控制，而不是整个页面全部静态生成或动态获取，这就是 Edge Runtime 可以解锁的能力</strong>。</p>
+<p>**开发者关系(Developer Relations)**是做什么的？是我的首要工作吗？</p>
+<p>我认为是<strong>教育开发者和发展开发者社区</strong>。不仅仅是Next.js还有更大的社区，以及其他优秀的开源工具，比如 <strong>Turborepo[2], SWC, SWR[3], Webpack, 当然还有 Next.js</strong>。</p>
+<p>我团队的一些人，包括我在内，帮助发展这些开源社区，创建教育内容来帮助开发者们取得成功，去处理 issue 探讨他们遇见的困难，帮助他们了解使用我们的工具。所以我团队中有5个人，每个人负责一个不同的领域，来尝试帮助这个领域的开发者取得成功。</p>
+<h1 id="import-type-的作用"><a href="#import-type-的作用" class="headerlink" title="import type 的作用"></a>import type 的作用</h1><h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039800522">https://segmentfault.com/a/1190000039800522</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/50441093/is-there-a-point-to-doing-import-type-rather-than-import-with-flow">javascript - Is there a point to doing &#39;import type&#39; rather than &#39;import&#39; with Flow? - Stack Overflow</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html">https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html</a></p>
+</li>
+</ul>
+<h1 id="Angular-里面使用-React"><a href="#Angular-里面使用-React" class="headerlink" title="Angular 里面使用 React"></a>Angular 里面使用 React</h1><p><a target="_blank" rel="noopener" href="https://github.com/RGunning/Angular-React-hybrid">GitHub - 地址</a></p>
+<h1 id="开源项目指数"><a href="#开源项目指数" class="headerlink" title="开源项目指数"></a>开源项目指数</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://twosigmaventures.com/open-source-index/">https://twosigmaventures.com/open-source-index/</a></p>
+</blockquote>
+<p>“Two Sigma Score(以下简称TSV)”，具体算法权重是：</p>
+<ul>
+<li><p>Watch数占<strong>40%</strong></p>
+</li>
+<li><p>近一季度Watch增长占<strong>25%</strong></p>
+</li>
+<li><p>贡献者数量占<strong>15%</strong></p>
+</li>
+<li><p>发布节奏<strong>10%</strong></p>
+</li>
+<li><p>Github健康指数<strong>10%</strong></p>
+</li>
+</ul>
+<h1 id="V2MOM"><a href="#V2MOM" class="headerlink" title="V2MOM"></a>V2MOM</h1><p>可以歸結為五個問題，這五個問題為協調統合和領導統御創造一個架構：</p>
+<ol>
+<li><p>願景（Vision）：你想要什麼？</p>
+</li>
+<li><p>價值（Value）：對你重要的是什麼？</p>
+</li>
+<li><p>方法（Method）：你要如何做到？</p>
+</li>
+<li><p>障礙（Obstacles）：成功的阻礙是什麼？</p>
+</li>
+<li><p>指標（Measure）：你怎麼知道你做到了？</p>
+</li>
+</ol>
+<p><strong>V2MOM的五個部分構成一張詳細的地圖，指出我們要去哪裡；也是一個羅盤，引導我們到達目的地。它是Salesforce故事的重頭戲，也是我們成功的重要因素。</strong></p>
+<h1 id="技术债不是负担，而是成功的战略杠杆"><a href="#技术债不是负担，而是成功的战略杠杆" class="headerlink" title="技术债不是负担，而是成功的战略杠杆"></a>技术债不是负担，而是成功的战略杠杆</h1><blockquote>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://www.infoq.cn/article/gikgx72lztv4g9mghxj3">技术债不是负担，而是成功的战略杠杆_AI_Matt Greenberg_InfoQ精选文章</a></p>
+</blockquote>
+<p>误区：</p>
+<ul>
+<li><p>假设 1：技术债 &#x3D; 坏账</p>
+</li>
+<li><p>假设 2：所有技术债 &#x3D; 复杂的工作</p>
+</li>
+<li><p>假设 3：技术债 ≠ 产品工作</p>
+</li>
+<li><p>假设 4：个体痛苦 &#x3D; 组织痛苦</p>
+</li>
+</ul>
+<h1 id="SVG-文件不安全"><a href="#SVG-文件不安全" class="headerlink" title="SVG 文件不安全"></a>SVG 文件不安全</h1><p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/190651">SVG在Web攻击中的应用 - 安全客，安全资讯平台</a></p>
+<h1 id="Technical-Writer"><a href="#Technical-Writer" class="headerlink" title="Technical Writer"></a>Technical Writer</h1><p><a target="_blank" rel="noopener" href="https://technicalwriterhq.com/product-documentation/">What is Product Documentation? | Technical Writer HQ</a></p>
+<h1 id="全球-DevOps-工具格局与发展"><a href="#全球-DevOps-工具格局与发展" class="headerlink" title="全球 DevOps 工具格局与发展"></a>全球 DevOps 工具格局与发展</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Jykc9QUFd5Mp5STN5Pk-VA">https://mp.weixin.qq.com/s/Jykc9QUFd5Mp5STN5Pk-VA</a></p>
+<ol>
+<li><p>DevOps 工具可以抽象为以下几个大类：Design, Develop, Quality, Delivery,  Telemetry, Security, Runtime, Middleware；</p>
+</li>
+<li><p>Runtime 的产品不多，但是数量级的工程效能提升往往是 Runtime 发生了变化；</p>
+</li>
+<li><p>Middleware 是个大赛道，数据库是重中之重；</p>
+</li>
+<li><p>UI 设计工具很繁荣，商业化也很好，发展趋势是跟低代码结合；</p>
+</li>
+<li><p>开发领域的工具纷繁复杂，面对开源和大公司的挑战最多。项目管理类是商业化最好的细分领域；</p>
+</li>
+<li><p>国外在质量工具的投入巨大，产品丰富且出色，国内几乎为零；</p>
+</li>
+<li><p>互联网和云原生催生了持续交付的发展；</p>
+</li>
+<li><p>可观测性重要性越来越高，AIOps 是发展方向，商业化也很成功；</p>
+</li>
+<li><p>除了运行时安全以外，开发安全越来越受到关注，软件供应链方面也值得重视；</p>
+</li>
+<li><p>一站式工具一定会走向开放拥抱单点工具；</p>
+</li>
+<li><p>PC 时代和互联网时代工具都是国外的，云原生时代国内的 Infra 团队有机会；</p>
+</li>
+</ol>
+<h1 id="为什么我解决了所有问题，还是无法设计出好的产品？"><a href="#为什么我解决了所有问题，还是无法设计出好的产品？" class="headerlink" title="为什么我解决了所有问题，还是无法设计出好的产品？"></a><a target="_blank" rel="noopener" href="https://www.uisdc.com/product-design-problem-solving">为什么我解决了所有问题，还是无法设计出好的产品？</a></h1><ul>
+<li><p>你无法解决所有用户的问题，应该解决核心问题</p>
+</li>
+<li><p>不要直接解决用户问题，应该先定义问题</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.777Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/f29a60bd800a/&title=《2022_05学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/f29a60bd800a/&title=《2022_05学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/f29a60bd800a/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_05学习笔记》 — 秦一&url=http://scar.site/f29a60bd800a/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/f29a60bd800a/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/15d91087475e/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2022_05摘抄</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/91aa8086cfd6/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Eoapi+Vercel+Serverless，部署一个 API 调试工具</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/f29a60bd800a/&title=《2022_05学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/f29a60bd800a/&title=《2022_05学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/f29a60bd800a/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_05学习笔记》 — 秦一&url=http://scar.site/f29a60bd800a/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/f29a60bd800a/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/f29a60bd800a/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

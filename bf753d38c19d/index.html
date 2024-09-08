@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2021_10学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Array.copyWithincopyWithin(target, start, end) 不改变数组长度的情况下，用当前数组某些元素覆盖原有元素，返回一个新数组 什么是微服务将整个服务拆分成可以独立运行的微服务（功能原子性）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021_10学习笔记">
+<meta property="og:url" content="http://scar.site/bf753d38c19d/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="Array.copyWithincopyWithin(target, start, end) 不改变数组长度的情况下，用当前数组某些元素覆盖原有元素，返回一个新数组 什么是微服务将整个服务拆分成可以独立运行的微服务（功能原子性）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE2836afb7f6ef14d558470b6c9c77400f.png">
+<meta property="article:published_time" content="2021-09-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.776Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/WEBRESOURCE2836afb7f6ef14d558470b6c9c77400f.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2021_10学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2021_10学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-09-30T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2021-10-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Array-copyWithin"><span class="post-toc-number">1.</span> <span class="post-toc-text">Array.copyWithin</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BE%AE%E6%9C%8D%E5%8A%A1"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是微服务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%91%A9%E5%B0%94%E5%AE%9A%E5%BE%8B"><span class="post-toc-number">3.</span> <span class="post-toc-text">摩尔定律</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Intl"><span class="post-toc-number">4.</span> <span class="post-toc-text">Intl</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BA%A7%E5%93%81%E7%9A%84%E5%95%86%E4%B8%9A%E7%9B%AE%E6%A0%87%E5%B8%B8%E5%B8%B8%E4%B8%8E%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82%E7%9B%B8%E5%86%B2%E7%AA%81"><span class="post-toc-number">5.</span> <span class="post-toc-text">产品的商业目标常常与用户需求相冲突</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PLG"><span class="post-toc-number">6.</span> <span class="post-toc-text">PLG</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="post-toc-number">7.</span> <span class="post-toc-text">极限编程是什么？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%AE%9E%E7%8E%B0-call-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8-fn-%E5%81%9A%E4%B8%AD%E8%BD%AC%EF%BC%9F"><span class="post-toc-number">8.</span> <span class="post-toc-text">实现 call 为什么需要使用 .fn 做中转？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Fetch-API"><span class="post-toc-number">9.</span> <span class="post-toc-text">Fetch_API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#yarn-%E5%92%8C-npm-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="post-toc-number">10.</span> <span class="post-toc-text">yarn 和 npm 的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#indexedDb"><span class="post-toc-number">11.</span> <span class="post-toc-text">indexedDb</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2021_10学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2021_10学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-10-01 00:00:00" datetime="2021-09-30T16:00:00.000Z"  itemprop="datePublished">2021-10-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="Array-copyWithin"><a href="#Array-copyWithin" class="headerlink" title="Array.copyWithin"></a>Array.copyWithin</h2><p><code>copyWithin(target, start, end)</code></p>
+<p>不改变数组长度的情况下，用当前数组某些元素覆盖原有元素，返回一个新数组</p>
+<h2 id="什么是微服务"><a href="#什么是微服务" class="headerlink" title="什么是微服务"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CdBtNQZH8a4&ab_channel=IBMTechnology">什么是微服务</a></h2><p>将整个服务拆分成可以独立运行的微服务（功能原子性）</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE2836afb7f6ef14d558470b6c9c77400f.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h2 id="摩尔定律"><a href="#摩尔定律" class="headerlink" title="摩尔定律"></a>摩尔定律</h2><p>摩尔定律（英语：Moore’s law）是由英特尔（Intel）创始人之一戈登·摩尔提出的。其内容为：集成电路上可容纳的晶体管数目，约每隔两年便会增加一倍；经常被引用的“18个月”，是由英特尔首席执行官大卫·豪斯（David House）提出：预计18个月会将芯片的性能提高一倍（即更多的晶体管使其更快），是一种以倍数增长的观测。</p>
+<h2 id="Intl"><a href="#Intl" class="headerlink" title="Intl"></a><a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2019/09/js-intl-zh/">Intl</a></h2><p>Intl对象是 ECMAScript 国际化 API 的命名空间，它提供对语言敏感的字符串比较、支持数字格式化以及日期和时间的格式化。</p>
+<h2 id="产品的商业目标常常与用户需求相冲突"><a href="#产品的商业目标常常与用户需求相冲突" class="headerlink" title="产品的商业目标常常与用户需求相冲突"></a>产品的商业目标常常与用户需求相冲突</h2><p>产品的商业目标常常与用户需求相冲突。</p>
+<p>例如，通常的商业目标是赚的钱越多越好，而用户则想花的钱越少越好，这种最底层的冲突没法通过产品设计解决，而要靠商业上找准价值的切入点。</p>
+<h2 id="PLG"><a href="#PLG" class="headerlink" title="PLG"></a>PLG</h2><p>Product-Led-Growth，产品驱动增长公司。</p>
+<p>和传统的 2B 公司 Oracle、IBM以销售和市场营销驱动增长不同，<br>PLG 公司依靠产品、优秀的用户体验来推动增长。产品本身取代广告营销和销售成为增长引擎。</p>
+<h2 id="极限编程是什么？"><a href="#极限编程是什么？" class="headerlink" title="极限编程是什么？"></a><a target="_blank" rel="noopener" href="https://github.com/eXtremeProgramming-cn/www.extremeprogramming.cn">极限编程</a>是什么？</h2><p>极限编程（eXtreme Programming，简称“XP”）是Kent Beck在1990年代提出的软件开发方法。2001年，极限编程的领导者们与其他践行轻量级软件开发方法的先行者一起，签署了《敏捷软件开发宣言》，自此诞生了“敏捷”（Agile）这一概念。</p>
+<h2 id="实现-call-为什么需要使用-fn-做中转？"><a href="#实现-call-为什么需要使用-fn-做中转？" class="headerlink" title="实现 call 为什么需要使用 .fn 做中转？"></a>实现 call 为什么需要使用 .fn 做中转？</h2><p>因为需要在 context 环境执行 fn 函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype._call = function(context) &#123;</span><br><span class="line">    // 首先要获取调用call的函数，用this可以获取</span><br><span class="line">    context.fn = this; // this表示执行函数即bar函数</span><br><span class="line">    context.fn(); // 执行函数，即执行bar函数</span><br><span class="line">    delete context.fn; // 删除fn属性</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Fetch-API"><a href="#Fetch-API" class="headerlink" title="Fetch_API"></a><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch_API</a></h2><p>在 WebWorker 中生效的类 XMLHttpRequest 发起请求的方案，更灵活，更强大。<br>支持：</p>
+<ul>
+<li>跨域</li>
+</ul>
+<h2 id="yarn-和-npm-的区别"><a href="#yarn-和-npm-的区别" class="headerlink" title="yarn 和 npm 的区别"></a>yarn 和 npm 的区别</h2><p>Yarn 是为了弥补 npm 的一些缺陷而出现的：</p>
+<p>npm 是按照队列执行每个package，也就是说必须要等到当前package 安装完成之后，才能继续后面的安装。 而Yarn 是同步执行所有任务，提高了性能。</p>
+<p>离线模式：如果之前已经安装过一个软件包，用Yarn再次安装时之间从缓存中获取，就不用像npm那样再从网络下载了。</p>
+<h2 id="indexedDb"><a href="#indexedDb" class="headerlink" title="indexedDb"></a>indexedDb</h2><p>1.同源策略（同域或者子域）</p>
+<p>2.兼容性（<a target="_blank" rel="noopener" href="https://caniuse.com/?search=indexeddb%EF%BC%89">https://caniuse.com/?search=indexeddb）</a></p>
+<p>3.可以存储任何对象包括 blob 吗？<br>可以存储对象和基本类型，blob 类型要做适当转换（官方有提供方法）</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.776Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/bf753d38c19d/&title=《2021_10学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/bf753d38c19d/&title=《2021_10学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/bf753d38c19d/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_10学习笔记》 — 秦一&url=http://scar.site/bf753d38c19d/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/bf753d38c19d/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/5116927bdcd2/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">明朝那些事儿</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/b137547304a8/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">2021_09学习笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/bf753d38c19d/&title=《2021_10学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/bf753d38c19d/&title=《2021_10学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/bf753d38c19d/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_10学习笔记》 — 秦一&url=http://scar.site/bf753d38c19d/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/bf753d38c19d/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/bf753d38c19d/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

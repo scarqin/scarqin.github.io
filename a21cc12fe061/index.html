@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>浏览器 Chrome 86 启用缓存分区（Cache partitioning） | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。 近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！ 在介绍它之前，我们先来看看旧的缓存策略。 旧缓存策略-单键储存chrome 86 版本以前，引用&#x2F;储存缓存的键名是资源的 URL。如图：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器 Chrome 86 启用缓存分区（Cache partitioning）">
+<meta property="og:url" content="http://scar.site/a21cc12fe061/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。 近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！ 在介绍它之前，我们先来看看旧的缓存策略。 旧缓存策略-单键储存chrome 86 版本以前，引用&#x2F;储存缓存的键名是资源的 URL。如图：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/20220224231520.png">
+<meta property="og:image" content="https://images.scar.site/20220224231552.png">
+<meta property="og:image" content="https://images.scar.site/20220224232316.png">
+<meta property="article:published_time" content="2020-11-20T03:24:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.771Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/20220224231520.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">浏览器 Chrome 86 启用缓存分区（Cache partitioning）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">浏览器 Chrome 86 启用缓存分区（Cache partitioning）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-11-20T03:24:00.000Z" itemprop="datePublished" class="page-time">
+  2020-11-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%97%A7%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5-%E5%8D%95%E9%94%AE%E5%82%A8%E5%AD%98"><span class="post-toc-number">1.</span> <span class="post-toc-text">旧缓存策略-单键储存</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%96%B0%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5-%E7%BC%93%E5%AD%98%E5%88%86%E5%8C%BA%EF%BC%88Cache-partitioning%EF%BC%89"><span class="post-toc-number">2.</span> <span class="post-toc-text">新缓存策略-缓存分区（Cache partitioning）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E7%BC%93%E5%AD%98%E5%88%86%E5%8C%BA"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">为什么要做缓存分区</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%88%A4%E6%96%AD%E7%94%A8%E6%88%B7%E6%98%AF%E5%90%A6%E8%AE%BF%E9%97%AE%E8%BF%87%E7%89%B9%E5%AE%9A%E7%BD%91%E7%AB%99"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">判断用户是否访问过特定网站</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%B7%A8%E7%AB%99%E7%82%B9%E6%90%9C%E7%B4%A2%E6%94%BB%E5%87%BB%EF%BC%9A%E5%88%A4%E6%96%AD%E7%94%A8%E6%88%B7%E6%98%AF%E5%90%A6%E6%90%9C%E7%B4%A2%E8%BF%87%E7%89%B9%E5%AE%9A%E5%86%85%E5%AE%B9"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">跨站点搜索攻击：判断用户是否搜索过特定内容</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E8%B7%A8%E7%AB%99%E8%B7%9F%E8%B8%AA%EF%BC%9A%E5%85%B1%E4%BA%AB%E8%BA%AB%E4%BB%BD%E4%BF%A1%E6%81%AF"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">跨站跟踪：共享身份信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%8E%E4%B9%88%E5%81%9A%E7%BC%93%E5%AD%98%E5%88%86%E5%8C%BA"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">怎么做缓存分区</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E5%88%86%E5%8C%BA%E4%B9%8B%E5%90%8E%E7%9A%84%E5%8F%98%E5%8C%96"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">使用缓存分区之后的变化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%80%BB%E7%BB%93"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="post-toc-number">3.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-技术/浏览器 Chrome 86 启用缓存分区（ Cache partitioning）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">浏览器 Chrome 86 启用缓存分区（Cache partitioning）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-11-20 11:24:00" datetime="2020-11-20T03:24:00.000Z"  itemprop="datePublished">2020-11-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>所有浏览器都有自己的缓存机制，它们通过将资源缓存到本地，借此加速用户访问客户端的速度，减少服务器压力。</p>
+<p>近期发布的 chrome 86 启用了新的浏览器缓存策略，我们一起来看看它是什么，为什么出现，以及带来的影响吧！</p>
+<p>在介绍它之前，我们先来看看旧的缓存策略。</p>
+<h1 id="旧缓存策略-单键储存"><a href="#旧缓存策略-单键储存" class="headerlink" title="旧缓存策略-单键储存"></a>旧缓存策略-单键储存</h1><p>chrome 86 版本以前，引用&#x2F;储存缓存的<strong>键名是资源的 URL</strong>。如图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224231520.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>也就是说，如果有其他任何网站引用到了同个 URL的资源，浏览器会先去缓存里面查询有无资源，有则加载本地资源，无则远程请求。</p>
+<h1 id="新缓存策略-缓存分区（Cache-partitioning）"><a href="#新缓存策略-缓存分区（Cache-partitioning）" class="headerlink" title="新缓存策略-缓存分区（Cache partitioning）"></a>新缓存策略-缓存分区（Cache partitioning）</h1><p>从 chrome 86 版本开始，启用了新的缓存策略-<code>缓存分区</code>。</p>
+<p>从前端开发者的角度出发，我得知这个消息的第一反应是：啊！是 chrome 派来解决用户使用缓存里的旧版本，而前端资源已经更新导致的版本一致性问题吧？毕竟本人遇到的浏览器缓存导致唯一问题就是这个，殊不知不同的角度有不同的困惑，缓存分区，主要是解决谁的困惑呢？</p>
+<h2 id="为什么要做缓存分区"><a href="#为什么要做缓存分区" class="headerlink" title="为什么要做缓存分区"></a>为什么要做缓存分区</h2><p>其实旧的缓存机制一直表现都挺好的，兢兢业业，奈何人算不如天算。广告商和分析公司借此可以在用户不知情的情况下跟踪用户行为，攻击者也可以拿到你的某些网站身份信息。<br>具体包括：</p>
+<h3 id="判断用户是否访问过特定网站"><a href="#判断用户是否访问过特定网站" class="headerlink" title="判断用户是否访问过特定网站"></a>判断用户是否访问过特定网站</h3><p>通过检索缓存是否具有特定于某站点的资源（脚本、图片、CSS等）来检测用户的浏览历史记录。例如：通过对缓存内容的查询了解你有哪些社交账号，利用你的帐户名称滥用你的个人信息。</p>
+<h3 id="跨站点搜索攻击：判断用户是否搜索过特定内容"><a href="#跨站点搜索攻击：判断用户是否搜索过特定内容" class="headerlink" title="跨站点搜索攻击：判断用户是否搜索过特定内容"></a>跨站点搜索攻击：判断用户是否搜索过特定内容</h3><blockquote>
+<p>存在一些概念的跨站点搜索攻击证据，这些概念利用了一些站点（gmail，google search，…）在搜索结果为空时加载特定图像的事实。通过打开选项卡并执行搜索，然后在缓存中检查该图像，攻击者可以检测搜索结果中是否存在任意字符串。<br>通过检索与搜索结果相关的图片缓存，判断用户是否搜索过特定内容。例如：</p>
+</blockquote>
+<p>淘宝网在搜索结果为空时才会加载哭哭脸小二的图片，可以借此用户是否搜索。</p>
+<p style="text-align:center;color:#999">购物网站</p>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224231552.png" alt="淘宝网" title="">
+                </div>
+                <div class="image-caption">淘宝网</div>
+            </figure>
+
+<p>如果整块搜索结果是图片，图片中有搜索关键词的信息，那么甚至还可以获取用户的搜索关键字。</p>
+<h3 id="跨站跟踪：共享身份信息"><a href="#跨站跟踪：共享身份信息" class="headerlink" title="跨站跟踪：共享身份信息"></a>跨站跟踪：共享身份信息</h3><p>使用 <code>HTTP 缓存</code>储存类似 <code>Cookie</code> 的身份信息，来进行跨站跟踪。</p>
+<p>我们都知道，Cookie 是无法跨域访问的。<br>但实际上除了第一方 Cookie，还存在一种第三方 Cookie —— 广告商的 Cookie</p>
+<p>这种 Cookie是由站点内的广告跟踪器记录的。广告跟踪器相当于嵌入原站点的另一个网站，于是你就有了两份 Cookie :</p>
+<ul>
+<li>原站点的 <code>Cookie</code>，用于记住你的登陆。</li>
+<li>广告商的 <code>Cookie</code>，用于记住你的身份。</li>
+</ul>
+<p>通过第三方 Cookie，两家网站就可以共享同一个Cookie，共享用户的身份识别信息。</p>
+<p>当然第三方 cookie 也有好处，例如你在淘宝登录了，去天猫就不需要再登录一次了。</p>
+<h2 id="怎么做缓存分区"><a href="#怎么做缓存分区" class="headerlink" title="怎么做缓存分区"></a>怎么做缓存分区</h2><p>可恶，为什么我的隐私在裸奔，想安安静静偷偷摸摸的上网，有那么难吗？</p>
+<p>新的策略横空出世（实际上从 chrome 77 版本就一直在测试这个功能）新的 chrome 针对这些问题，做了哪些改变呢？</p>
+<p>此前资源的存储键只有一个项，现在则包含三个项，分别为域名 (domain)、当前帧 (domain) 和网址 (URL)。</p>
+<ul>
+<li>网页域名 (<a target="_blank" rel="noopener" href="http://a.example/">http://a.example</a>)</li>
+<li>资源的当前 iframe (<a target="_blank" rel="noopener" href="http://c.example/">http://c.example</a>)</li>
+<li>资源 URL (<a target="_blank" rel="noopener" href="https://x.example/doge.png">https://x.example/doge.png</a>)</li>
+</ul>
+<p style="text-align:center;color:#999">新旧策略对比图</p>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/20220224232316.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<p>例如:<br>用户返回了 <a target="_blank" rel="noopener" href="https://a.example/">https://a.example</a> ，但是图片是属于 <code>iframe</code> <a target="_blank" rel="noopener" href="https://c.example/">https://c.example</a> 。<br>遇到这种情况，资源会不会从缓存里面读取呢？</p>
+<p>答案是不会！因为不匹配 Cache Key 为 <a target="_blank" rel="noopener" href="https://a.example/">https://a.example</a> ， <a target="_blank" rel="noopener" href="https://c.example/">https://c.example</a> ,以及<a target="_blank" rel="noopener" href="https://x.example/doge.png">https://x.example/doge.png</a> 的资源，所以无法使用 <a target="_blank" rel="noopener" href="https://c.example/">https://c.example</a> 里面的缓存。</p>
+<h2 id="使用缓存分区之后的变化"><a href="#使用缓存分区之后的变化" class="headerlink" title="使用缓存分区之后的变化"></a>使用缓存分区之后的变化</h2><ul>
+<li>网站网络流量增加约 4%。 <a target="_blank" rel="noopener" href="https://github.com/shivanigithub/http-cache-partitioning#impact-on-metrics">对具体影响什么参数感兴趣的可以戳这里</a></li>
+<li>广告商想要从缓存入手跟踪用户变得更难。</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在网络隐私越来越重要的今天，chrome 为了保护用户选择牺牲一部分不易被察觉的体验，考虑到我们网络的速度以及电脑的配置也在一直升级，相信大多数用户会支持缓存分区。</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/2020/10/http-cache-partitioning">Eiji Kitamura-Gaining security and privacy by partitioning the cache</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.qpfangyu.com/news/dynamic/440.htm">防御盾-Chrome添加HTTP缓存分区以阻止攻击，跟踪</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/feiyu_may/article/details/88376945">feiyu_may-浏览器缓存带来的前端项目更新问题及解决方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/6698">rivative-Cross-Site Search</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.mozilla.org/firefox/cross-site-tracking-lets-unpack-that/">cross-site-tracking-lets-unpack-that</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34591096">巴伐利亚啤酒馆-你是如何被广告跟踪的？</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.771Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/a21cc12fe061/&title=《浏览器 Chrome 86 启用缓存分区（Cache partitioning）》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/a21cc12fe061/&title=《浏览器 Chrome 86 启用缓存分区（Cache partitioning）》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/a21cc12fe061/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浏览器 Chrome 86 启用缓存分区（Cache partitioning）》 — 秦一&url=http://scar.site/a21cc12fe061/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/a21cc12fe061/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/945af4d1337a/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2020_12学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/56086fccb0aa/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Head First 设计模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/a21cc12fe061/&title=《浏览器 Chrome 86 启用缓存分区（Cache partitioning）》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/a21cc12fe061/&title=《浏览器 Chrome 86 启用缓存分区（Cache partitioning）》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/a21cc12fe061/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浏览器 Chrome 86 启用缓存分区（Cache partitioning）》 — 秦一&url=http://scar.site/a21cc12fe061/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/a21cc12fe061/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/a21cc12fe061/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

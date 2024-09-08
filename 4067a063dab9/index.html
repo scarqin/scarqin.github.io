@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>前端架构：从入门到微前端 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="读后感适合检视阅读的一本书，讲了架构演进、前端架构一般包括什么（业务代码组件库、单元测试）、微前端架构等知识。内容多且有些散，没有太多重点，再选一次我还是会读，不过会读得更快一些。 笔记前端架构：从入门到微前端黄峰达98 个笔记  阅读时长：8 小时 开始时间：9&#x2F;26&#x2F;2021, 9:29:32 AM  前言 在多数情况下，数据库是后端最大的瓶颈，存储的时候要考虑原子性、一致">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端架构：从入门到微前端">
+<meta property="og:url" content="http://scar.site/4067a063dab9/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="读后感适合检视阅读的一本书，讲了架构演进、前端架构一般包括什么（业务代码组件库、单元测试）、微前端架构等知识。内容多且有些散，没有太多重点，再选一次我还是会读，不过会读得更快一些。 笔记前端架构：从入门到微前端黄峰达98 个笔记  阅读时长：8 小时 开始时间：9&#x2F;26&#x2F;2021, 9:29:32 AM  前言 在多数情况下，数据库是后端最大的瓶颈，存储的时候要考虑原子性、一致">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-27T03:52:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.802Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">前端架构：从入门到微前端</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">前端架构：从入门到微前端</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-02-27T03:52:00.000Z" itemprop="datePublished" class="page-time">
+  2022-02-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%98%85%E8%AF%BB/">阅读</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AF%BB%E5%90%8E%E6%84%9F"><span class="post-toc-number">1.</span> <span class="post-toc-text">读后感</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%94%E8%AE%B0"><span class="post-toc-number">2.</span> <span class="post-toc-text">笔记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E5%89%8D%E8%A8%80"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">1.1 为什么需要软件架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-2-%E6%9E%B6%E6%9E%84%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">1.2 架构的设计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-3-%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">1.3 架构设计原则</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%8F%91%E5%B1%95%E5%8F%B2"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">1.4 前端架构发展史</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-5-%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%EF%BC%9A%E5%B1%82%E6%AC%A1%E8%AE%BE%E8%AE%A1"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">1.5 前端架构设计：层次设计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E7%AC%AC-2-%E7%AB%A0-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%96%BD"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">第 2 章 项目中的技术架构实施</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-1-%E6%8A%80%E6%9C%AF%E8%B4%9F%E8%B4%A3%E4%BA%BA%E4%B8%8E%E6%9E%B6%E6%9E%84"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">2.1 技术负责人与架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-2-%E6%8A%80%E6%9C%AF%E5%87%86%E5%A4%87%E6%9C%9F%EF%BC%9A%E6%8E%A2%E7%B4%A2%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">2.2 技术准备期：探索技术架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-3-%E4%B8%9A%E5%8A%A1%E5%9B%9E%E8%A1%A5%E6%9C%9F%EF%BC%9A%E5%BA%94%E5%AF%B9%E7%AC%AC%E4%B8%80%E6%AC%A1-Deadline"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">2.3 业务回补期：应对第一次 Deadline</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-%E6%88%90%E9%95%BF%E4%BC%98%E5%8C%96%E6%9C%9F%EF%BC%9A%E6%8A%80%E6%9C%AF%E5%80%BA%E5%8A%A1%E4%B8%8E%E6%BC%94%E8%BF%9B"><span class="post-toc-number">2.11.</span> <span class="post-toc-text">2.4 成长优化期：技术债务与演进</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-2-%E4%BB%A3%E7%A0%81%E7%BB%84%E7%BB%87%E5%86%B3%E5%AE%9A%E5%BA%94%E7%94%A8%E6%9E%B6%E6%9E%84"><span class="post-toc-number">2.12.</span> <span class="post-toc-text">3.2 代码组织决定应用架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-6-%E8%A7%84%E8%8C%83%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%EF%BC%8C%E6%8F%90%E5%8D%87%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87"><span class="post-toc-number">2.13.</span> <span class="post-toc-text">3.6 规范开发工具，提升开发效率</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-8-%E7%BB%98%E5%88%B6%E6%9E%B6%E6%9E%84%E5%9B%BE%EF%BC%9A%E5%87%8F%E5%B0%91%E6%B2%9F%E9%80%9A%E6%88%90%E6%9C%AC"><span class="post-toc-number">2.14.</span> <span class="post-toc-text">3.8 绘制架构图：减少沟通成本</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-13-%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%EF%BC%9A%E6%AF%8F%E6%AC%A1%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4%E6%96%87%E6%A1%A3%E5%8C%96"><span class="post-toc-number">2.15.</span> <span class="post-toc-text">3.13 提交信息：每次代码提交文档化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-14-%E9%80%9A%E8%BF%87%E6%B5%81%E7%A8%8B%E5%8C%96%E6%8F%90%E9%AB%98%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F"><span class="post-toc-number">2.16.</span> <span class="post-toc-text">3.14 通过流程化提高代码质量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-16-%E6%B5%8B%E8%AF%95%E7%AD%96%E7%95%A5"><span class="post-toc-number">2.17.</span> <span class="post-toc-text">3.16 测试策略</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-2-%E8%BD%AF%E4%BB%B6%E5%8C%85%E6%BA%90%E7%AE%A1%E7%90%86"><span class="post-toc-number">2.18.</span> <span class="post-toc-text">4.2 软件包源管理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-5-%E6%8C%81%E7%BB%AD%E4%BA%A4%E4%BB%98%E9%97%AE%E9%A2%98"><span class="post-toc-number">2.19.</span> <span class="post-toc-text">4.5 持续交付问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8"><span class="post-toc-number">2.20.</span> <span class="post-toc-text">5.1 为什么不需要单页面应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-3-%E5%A4%8D%E6%9D%82%E5%A4%9A%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E7%9A%84%E5%BC%80%E5%8F%91"><span class="post-toc-number">2.21.</span> <span class="post-toc-text">5.3 复杂多页面应用的开发</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-4-%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E9%80%89%E5%9E%8B"><span class="post-toc-number">2.22.</span> <span class="post-toc-text">6.4 前端框架选型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-5-%E5%90%AF%E5%8A%A8%E5%89%8D%E7%AB%AF%E5%BA%94%E7%94%A8"><span class="post-toc-number">2.23.</span> <span class="post-toc-text">6.5 启动前端应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-6-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93"><span class="post-toc-number">2.24.</span> <span class="post-toc-text">6.6 服务端渲染</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-1-%E5%89%8D%E7%AB%AF%E7%9A%84%E7%BB%84%E4%BB%B6%E5%8C%96%E6%9E%B6%E6%9E%84"><span class="post-toc-number">2.25.</span> <span class="post-toc-text">7.1 前端的组件化架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-2-%E5%9F%BA%E7%A1%80%EF%BC%9A%E9%A3%8E%E6%A0%BC%E6%8C%87%E5%8D%97"><span class="post-toc-number">2.26.</span> <span class="post-toc-text">7.2 基础：风格指南</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-3-%E9%87%8D%E7%94%A8%EF%BC%9A%E6%A8%A1%E5%BC%8F%E5%BA%93"><span class="post-toc-number">2.27.</span> <span class="post-toc-text">7.3 重用：模式库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-4-%E8%BF%9B%E9%98%B6%EF%BC%9A%E8%AE%BE%E8%AE%A1%E7%B3%BB%E7%BB%9F"><span class="post-toc-number">2.28.</span> <span class="post-toc-text">7.4 进阶：设计系统</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-5-%E8%B7%A8%E6%A1%86%E6%9E%B6%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="post-toc-number">2.29.</span> <span class="post-toc-text">7.5 跨框架组件化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-1-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB"><span class="post-toc-number">2.30.</span> <span class="post-toc-text">8.1 前后端分离</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-2-API-%E7%AE%A1%E7%90%86%E6%A8%A1%E5%BC%8F%EF%BC%9AAPI-%E6%96%87%E6%A1%A3%E7%AE%A1%E7%90%86%E6%96%B9%E5%BC%8F"><span class="post-toc-number">2.31.</span> <span class="post-toc-text">8.2 API 管理模式：API 文档管理方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-3-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%B9%B6%E8%A1%8C%E5%BC%80%E5%8F%91%EF%BC%9AMock-Server"><span class="post-toc-number">2.32.</span> <span class="post-toc-text">8.3 前后端并行开发：Mock Server</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-4-%E6%9C%8D%E5%8A%A1%E4%BA%8E%E5%89%8D%E7%AB%AF%E7%9A%84%E5%90%8E%E7%AB%AF%EF%BC%9ABFF"><span class="post-toc-number">2.33.</span> <span class="post-toc-text">8.4 服务于前端的后端：BFF</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-1-%E5%BE%AE%E5%89%8D%E7%AB%AF"><span class="post-toc-number">2.34.</span> <span class="post-toc-text">9.1 微前端</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-2-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E6%8A%80%E6%9C%AF%E6%8B%86%E5%88%86%E6%96%B9%E5%BC%8F"><span class="post-toc-number">2.35.</span> <span class="post-toc-text">9.2 微前端的技术拆分方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-4-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="post-toc-number">2.36.</span> <span class="post-toc-text">9.4 微前端的架构设计</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-5-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F"><span class="post-toc-number">2.37.</span> <span class="post-toc-text">9.5 微前端的架构模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-6-%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="post-toc-number">2.38.</span> <span class="post-toc-text">9.6 微前端的设计理念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-7-%E2%80%9C%E5%BE%AE%E2%80%9D%E5%AE%B3%E6%9E%B6%E6%9E%84"><span class="post-toc-number">2.39.</span> <span class="post-toc-text">9.7 “微”害架构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-2-%E9%81%97%E7%95%99%E7%B3%BB%E7%BB%9F%E5%BE%AE%E5%89%8D%E7%AB%AF%EF%BC%9A%E4%BD%BF%E7%94%A8-iframe-%E4%BD%9C%E4%B8%BA%E5%AE%B9%E5%99%A8"><span class="post-toc-number">2.40.</span> <span class="post-toc-text">10.2 遗留系统微前端：使用 iframe 作为容器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-5-%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BE%AE%E5%89%8D%E7%AB%AF%EF%BC%9A%E5%BE%AE%E4%BB%B6%E5%8C%96"><span class="post-toc-number">2.41.</span> <span class="post-toc-text">10.5 组件化微前端：微件化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-6-%E9%9D%A2%E5%90%91%E6%9C%AA%E6%9D%A5%EF%BC%9AWeb-Components"><span class="post-toc-number">2.42.</span> <span class="post-toc-text">10.6 面向未来：Web Components</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-1-%E6%9B%B4%E6%96%B0"><span class="post-toc-number">2.43.</span> <span class="post-toc-text">11.1 更新</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-4-%E9%87%8D%E5%86%99"><span class="post-toc-number">2.44.</span> <span class="post-toc-text">11.4 重写</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-5-%E9%87%8D%E6%96%B0%E6%9E%B6%E6%9E%84"><span class="post-toc-number">2.45.</span> <span class="post-toc-text">11.5 重新架构</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-阅读/前端架构：从入门到微前端"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">前端架构：从入门到微前端</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-02-27 11:52:00" datetime="2022-02-27T03:52:00.000Z"  itemprop="datePublished">2022-02-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E9%98%85%E8%AF%BB/">阅读</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="读后感"><a href="#读后感" class="headerlink" title="读后感"></a>读后感</h1><p>适合检视阅读的一本书，讲了架构演进、前端架构一般包括什么（业务代码组件库、单元测试）、微前端架构等知识。<br>内容多且有些散，没有太多重点，再选一次我还是会读，不过会读得更快一些。</p>
+<h1 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h1><p>前端架构：从入门到微前端<br>黄峰达<br>98 个笔记</p>
+<ul>
+<li>阅读时长：8 小时</li>
+<li>开始时间：9&#x2F;26&#x2F;2021, 9:29:32 AM</li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>在多数情况下，数据库是后端最大的瓶颈，存储的时候要考虑原子性、一致性、隔离性和持久性，使用的时候要考虑通过分表、存储、主从同步来提高性能和并发量，在这个过程中还要考虑备份、迁移、查询速度、效率等问题。此外，在代码实现上还有一系列的复杂问题：使用消息队列来解耦依赖，使用微服务来拆分单体应用……</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>前端在实现的过程中，除了考虑代码的可用性、性能、模型构建、组件复用等问题，还有前端特有的平台设定、浏览器兼容、交互设计、用户体验等相关的问题。而在“大前端”的背景之下，还需要深入移动端设计、桌面应用、物联网等相关的领域。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>规范、原则、模式、架构，是我们在前端架构中需要关注的内容。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>● 应用的哪些部分可以在其他应用中快速重用？<br>● 应用内的组件采用怎样的通信机制？<br>● 是否通过拆分应用来降低复杂度？<br>● 如何对架构进行演进，以降低开发、维护成本？<br>● 如何让多个团队高效地进行并行开发？能否将不同应用、项目的代码隔离开来，而不是所有的人工作在一个代码库上？</p>
+</blockquote>
+<hr>
+
+<h2 id="1-1-为什么需要软件架构"><a href="#1-1-为什么需要软件架构" class="headerlink" title="1.1 为什么需要软件架构"></a>1.1 为什么需要软件架构</h2><blockquote>
+<p>架构是指体现在它的组件中的一个系统的基本组织、组织之间的关系、组织与环境的关系及指导其设计和发展的原则。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>为此，我们期望的软件架构，应该是贯穿在它被应用的生命周期里的，应该包含以下的内容：<br>◎ 系统间关系。明确地指出该系统与其他系统之间的关系，是调用关系，还是依赖关系等。<br>◎ 系统内关系。系统内各子系统之间的关系，如前端应用与后端应用，以怎样的方式通信，需要怎样的通信机制。<br>◎ 应用内架构。包含应用相关的框架、组件，并清楚地表示出它们之间的关系。<br>◎ 规范和原则。用于指导项目中的开发人员，编写出符合需求的代码，以构建出设计中的架构。</p>
+</blockquote>
+<hr>
+
+<h2 id="1-2-架构的设计"><a href="#1-2-架构的设计" class="headerlink" title="1.2 架构的设计"></a>1.2 架构的设计</h2><blockquote>
+<p>（1）收集利益相关者的需求。倾听业务人员、项目负责人等相关者的需求，进行用户访谈，收集相关的需求。<br>（2）与相应的技术人员（如开发人员、测试人员）讨论，了解架构上的潜在限制。<br>（3）寻找潜在的可行性技术方案。<br>（4）整理出功能列表中的功能性需求和跨功能性需求。<br>（5）找出会严重影响开发的风险点。<br>（6）和技术委员会、利益相关者反复确认方案（可选）。<br>（7）对架构设计进行概念证明。<br>（8）细化架构的部分实施细节。<br>（9）结合技术和业务，进行需求排期。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>架构并非完全从技术角度来考虑问题。它需要从多方的利益出发，在满足利益相关者需求的同时，还要具备技术上的可实施性。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>◎ 了解相关者的利益。<br>◎ 寻找架构关注点。<br>◎ 明确跨功能需求。<br>◎ 罗列技术风险点。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>跨功能性需求也是需求的一个重要组成部分，它指的是依靠一些条件判断系统运作的情形或其特性，而不是针对系统特定行为的需求。这些非功能性需求一般是隐性的，往往难以直接观察得出。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>在设计架构的过程中，还需要寻找系统中的一系列技术风险点，并努力降低它们带来的风险。因为系统的风险部分，往往才是最影响应用开发的部分——不确定性意味着其带来的风险是未知的。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>当系统中要大量地集成第三方系统时，系统的风险就会变大。对接第三方系统时，会涉及接口不一致，导致两边需要反复修改才能对接 API。对于这些系统的对接，我们往往只能估计一个大致的时间，并预留一些调试时间。在调试过程中，可能会出现一些意外，如人员休假、bug 不好修复等问题，导致出现一定的延迟，影响应用上线。而当出现大量的第三方系统时，总的延迟可能性就更高，风险也就越大。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>TOGAF（The Open Group Architecture Framework，开放组体系结构框架）</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>◎ 业务架构（Business Architecture）：定义业务战略、治理方法和关键业务流程。<br>◎ 应用架构（Application Architecture）：为将要部署的各个应用程序提供蓝图，并展示它们的交互及与核心业务流程的关系。<br>◎ 数据架构（Data Architecture）：描述了一个组织的逻辑、物理数据资产及数据管理资源的架构。<br>◎ 技术架构（Technology Architecture）：定义了支持部署业务、数据和应用程序服务所需的逻辑软件和硬件功能，它包含了 IT 基础设施、中间件、网络、通信、处理和标准。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>不论采用哪种架构设计方式，都需要留下相应的架构文档，它们将为团队开发打下基础。在进入开发阶段时，作为一个普通的开发人员希望得到的内容如下。<br>◎ 架构图：它包含了系统的整体架构，用于显示地告诉开发人员，它们是如何构成整个系统的，以及每个部分之间的关系。同时，显式地表明哪些部分是第三方系统，以及它们与该系统之间的关系。<br>◎ 迭代计划：按照业务和技术的要求，按时间顺序排列出项目的实施计划。由于其中也包含了上线时间，所以也可以从上线时间往前推算出迭代时间。开发流程：定义开发人员的工作方式，诸如采用敏捷还是瀑布的开发模式、何种源码方式（主分支、GitFlow 或者 Feature Branch（功能分支）工作流），必要时还要提前准备相应的工具和设备。然后，有针对性地对开发流程进行一定程度的裁剪，以真正满足团队的开发。<br>◎ 技术栈及选型：确定项目中使用的语言、框架、库等相关的技术栈，以及相应的依赖等。<br>◎ 示例代码：在这些代码中展示架构的风格及相应的设计规范。<br>◎ 测试策略：明确项目的测试类型、测试流程，以及相应的人员在哪些层级进行测试。<br>◎ 部署方式：定义应用的部署方式及相应的部署方案。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>持续集成方案：描述系统的各个模块之间（如前后端）如何集成，以及采用怎样的时间和频率来集成相关的模块。</p>
+</blockquote>
+<hr>
+
+<h2 id="1-3-架构设计原则"><a href="#1-3-架构设计原则" class="headerlink" title="1.3 架构设计原则"></a>1.3 架构设计原则</h2><blockquote>
+<p>如果在代码中为未来的代码预留一定的空间，那么大多是会产生问题的。因为多余的设计，会影响系统的后续扩展，并且在修改相关代码时，不敢放手去改，以满足现在的需求。比如在设计前端组件的过程中，想到未来会添加某些功能，便预留相关的接口，便有过度设计的嫌疑。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>架构都只是适合当前的情况，一谈论到各种需求变化时，会发现架构设计上有各种不足，这并非是架构的问题。架构要不断根据需求演进变化，以满足新的需求。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>Neal Ford 所说，开发中善于发现抽象与模式，并借助测试驱动开发，利用重构进行导向设计。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>关于架构相关的重要决定，还有一点很重要——延迟决策。如果架构上有多个可演进方向，无法做一个合适的决策，那么可以在条件更加充分的时候再做决策，而不是花费大量的时间盲目地修改架构，那样只会造成资源浪费。</p>
+</blockquote>
+<hr>
+
+<h2 id="1-4-前端架构发展史"><a href="#1-4-前端架构发展史" class="headerlink" title="1.4 前端架构发展史"></a>1.4 前端架构发展史</h2><blockquote>
+<p>◎ 跨框架。在一个页面上运行，可以同时使用多个前端框架。<br>◎ 应用拆分。将一个复杂的应用拆解为多个微小的应用，类似于微服务。<br>◎ 遗留系统迁移。让旧的前端框架，可以直接嵌入现有的应用运行。</p>
+</blockquote>
+<hr>
+
+<h2 id="1-5-前端架构设计：层次设计"><a href="#1-5-前端架构设计：层次设计" class="headerlink" title="1.5 前端架构设计：层次设计"></a>1.5 前端架构设计：层次设计</h2><blockquote>
+<p>◎ 系统级，即应用在整个系统内的关系，如与后台服务如何通信，与第三方系统如何集成。<br>◎ 应用级，即应用外部的整体架构，如多个应用之间如何共享组件、如何通信等。<br>◎ 模块级，即应用内部的模块架构，如代码的模块化、数据和状态的管理等。<br>◎ 代码级，即从基础设施来保障架构实施。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>我们所要做的是，制定一些规范或者更细致的架构设计。这部分内容会在我们开始业务编码之前进行设计。在敏捷软件开发中，它被称为迭代 0&#x2F;Sprint 0&#x2F;Iteration 0，其相关的内容有以下两个方面：<br>◎ 模块化。它包含了 CSS、JavaScript、HTML&#x2F;模板的模块化。对于 JavaScript 或者模板而言，其模块化的设计受框架的影响比较深。对于 CSS 来说，我们也需要设计一个合理的方式来进行管理，既需要考虑全局样式以用于样式复用、局部样式以用于隔离变化、通用变量以方便修改，又需要考虑相应的工具来辅助设计。此外，还需要定义相应的 CSS、JavaScript、模块的代码组织方式。<br>◎ 组件化。它主要考虑的是，在应用内如何对组件进行封闭，以及相应的原则和粒度。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>需要制定代码的测试策略，测试的目的并非减少 bug，而是用测试来保证现有的功能是正确的。</p>
+</blockquote>
+<hr>
+
+<h2 id="第-2-章-项目中的技术架构实施"><a href="#第-2-章-项目中的技术架构实施" class="headerlink" title="第 2 章 项目中的技术架构实施"></a>第 2 章 项目中的技术架构实施</h2><blockquote>
+<p>长期项目面临的主要挑战是团队的士气、能力的增长及架构的演进，而短期项目面临的主要挑战是技术实践与业务进度的冲突。</p>
+</blockquote>
+<hr>
+
+<h2 id="2-1-技术负责人与架构"><a href="#2-1-技术负责人与架构" class="headerlink" title="2.1 技术负责人与架构"></a>2.1 技术负责人与架构</h2><blockquote>
+<p>队长日常要做的事情有以下几方面：<br>◎ 适当地平衡业务的进度与技术方案。<br>◎ 解决重要、复杂的技术问题。<br>◎ 帮助团队的其他成员成长。<br>◎ 从全局考虑整个项目的技术和业务问题。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>作为一个技术负责人，当我们设计软件架构的时候，考虑的不仅是架构技术的方案，还需要包含如下内容：<br>（1）技术方案的设计。<br>（2）技术方案的落地。<br>（3）保证技术方案的实施。<br>（4）确保技术方案的上线。<br>（5）关注技术方案的后续维护。</p>
+</blockquote>
+<hr>
+
+<h2 id="2-2-技术准备期：探索技术架构"><a href="#2-2-技术准备期：探索技术架构" class="headerlink" title="2.2 技术准备期：探索技术架构"></a>2.2 技术准备期：探索技术架构</h2><blockquote>
+<p>概念验证（Proof of Concept，简称 PoC）是对某些想法的一个较短而不完整的实现，以证明其可行性，示范其原理，其目的是验证一些概念或理论。概念验证，通常被认为是一个有里程碑意义的实现原理。[wiki_poc]</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>因此，在尝试新的架构和设计之前，请务必先在业余时间有所实践，再拿到项目中使用，这也是笔者所推荐的模式。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>在迭代 0，我们所要做的基本事项有：<br>◎ 创建应用脚手架。<br>◎ 创建项目的代码库。<br>◎ 搭建持续集成、持续交付。<br>◎ 进行各种权限配置，如各种不同的环境账号准备、开发人员的账号配置等。<br>◎ 配置配套的工具，如代码审查、自动化原生应用上传等。<br>◎ 更细粒度的技术选型。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>这个阶段结束的标志是：项目成员可以进行正常的项目开发，并且此时的开发方式和未来没有太大的区别。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>为了有针对性地规范代码，并帮助其他成员了解代码，一个相应的举措便是编写相应的项目示例代码。通过这些示例代码，可以展现好的编程模式、范式，将它们融入项目中。有了这样一个基本的雏形，哪怕是刚毕业的学生，也能照猫画虎地编写业务代码。</p>
+</blockquote>
+<hr>
+
+<h2 id="2-3-业务回补期：应对第一次-Deadline"><a href="#2-3-业务回补期：应对第一次-Deadline" class="headerlink" title="2.3 业务回补期：应对第一次 Deadline"></a>2.3 业务回补期：应对第一次 Deadline</h2><blockquote>
+<p>虽然技术是业务价值的实现方式，但是业务才是赚钱的直接证明。如果业务无法存活下去，那么技术就无法证明其价值。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>先进的架构，并不一定会为业务带来价值；先进的技术，也并不一定会为业务带来价值。这就是为什么每当我们采用新的架构和技术时，总需要通过一系列的会议来讨论新的架构是否能够带来更多的价值。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>此外，在这个时期和上个时期里，开发人员编写的自动化测试（单元测试、UI 测试等）的覆盖率比较低——大量的时间被花费在相关业务功能的实现上。尽管如此，我们还需要尝试在这个时期里，定下一个覆盖率的基值，比如 30%，先从 0 开始，然后在下一个阶段里进入更高的数值——就当前而言，它不能变得更差了。这样在后期，我们才有机会进一步提升代码的质量。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>受团队能力影响，越是进度困难的时候，越需要提升团队的能力。它可以避免我们陷入一个误区，即我们因为能力不足而加班，却没有时间提升能力，又进一步导致加班。一旦团队里出现这样的问题，我们就不得不正视这个问题。尽管能力可以通过个人的练习得来，但是通过参与项目的方式来提升能力，则是一种更高速、有效的方式。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>日常培训的过程如下：<br>（1）通过进入日常开发之前的培训、阅读文档等一系列的方式，来帮助他们培养基本的能力。<br>（2）进入开发后，则通过代码检视、代码规范及原则等一系列的方式，来帮助他们写出符合需求的代码。<br>（3）在项目开发过程中，我们可能会通过结对编程的方式，来帮助他们更好地成长</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>与工作坊相似的，还有一个名为 Bootcamp 的练习事件。它适用于复杂的、抽象的技术，如面向对象和设计模式。工作坊着重于让参与的人掌握一门技术；而 Bootcamp 则只能帮我们技术入门。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>结对编程，是现代软件工程一直在寻找的一种有效的知识传递方式。结对编程存在多种模式：<br>（1）Navigator-Driver（领航员-驾驶员式）。Navigator 关注如何实现功能，Driver 则负责实现。并且由 Navigator 告诉 Driver 如何实现相关的代码。<br>（2）Ping-Pong 模式。常见于 TDD 开发模式，由 A 编写某个功能，B 实现测试，随后调反过来，由 B 编写功能，由 A 实现测试。<br>（3）键鼠模式。即编程时，由一方掌握鼠标，一方掌握键盘。这种模式的主要目的是，帮助新人快速熟悉使用编辑器的快捷键。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>我们还需要观察新人在过程中犯的错误，有些错误，我们可以直接指出来，并帮助其改正；有些错误，则是等他犯了之后，帮助其解决问题，以积累经验——有些错误若是不犯，可能并不会意识到有错误。</p>
+</blockquote>
+<hr>
+
+<h2 id="2-4-成长优化期：技术债务与演进"><a href="#2-4-成长优化期：技术债务与演进" class="headerlink" title="2.4 成长优化期：技术债务与演进"></a>2.4 成长优化期：技术债务与演进</h2><blockquote>
+<p>与日常的业务代码编写相比，改进过去的代码会带来更多的成长和技术挑战——我们更容易从错误的代码中学习，而不是从成功的经验中学习。</p>
+</blockquote>
+<hr>
+
+<h2 id="3-2-代码组织决定应用架构"><a href="#3-2-代码组织决定应用架构" class="headerlink" title="3.2 代码组织决定应用架构"></a>3.2 代码组织决定应用架构</h2><blockquote>
+<p>在接触代码之前，我们所要面对的就是代码的组织方式。我们可能会做如下一些事情：<br>◎ 打开 README 了解应该阅读哪些相关的资料。<br>◎ 阅读 package.json 了解系统的基础设施、使用了哪些组件库，以及配置了哪些构建脚本。<br>◎ 浏览主目录下的一个个文件，了解系统的一些插件的配置。<br>◎ 进入项目代码中阅读和了解。</p>
+</blockquote>
+<hr>
+
+<h2 id="3-6-规范开发工具，提升开发效率"><a href="#3-6-规范开发工具，提升开发效率" class="headerlink" title="3.6 规范开发工具，提升开发效率"></a>3.6 规范开发工具，提升开发效率</h2><blockquote>
+<p>对于编辑器的统一，同样会扼杀团队的多样性。因此退而求其次，我们可以追求使用相同的插件。</p>
+</blockquote>
+<hr>
+
+<h2 id="3-8-绘制架构图：减少沟通成本"><a href="#3-8-绘制架构图：减少沟通成本" class="headerlink" title="3.8 绘制架构图：减少沟通成本"></a>3.8 绘制架构图：减少沟通成本</h2><blockquote>
+<p>对于复杂的系统，架构图一般展示的是各个子系统之间如何通信；对于简单的系统，架构图则可以是由项目的技术栈组成的。</p>
+</blockquote>
+<hr>
+
+<h2 id="3-13-提交信息：每次代码提交文档化"><a href="#3-13-提交信息：每次代码提交文档化" class="headerlink" title="3.13 提交信息：每次代码提交文档化"></a>3.13 提交信息：每次代码提交文档化</h2><blockquote>
+<p>我们花费大量的时间来讨论文档化是因为它们真的非常重要。尽管对于开发人员来说，写文档是一件痛苦的事，但是在未来它会被证明是有价值的。当然，过去笔者也认为写文档是没有价值的，可是时间久了就发现，哪怕是一点点的记录，对于后来的人都是有帮助的。</p>
+</blockquote>
+<hr>
+
+<h2 id="3-14-通过流程化提高代码质量"><a href="#3-14-通过流程化提高代码质量" class="headerlink" title="3.14 通过流程化提高代码质量"></a>3.14 通过流程化提高代码质量</h2><blockquote>
+<p>一般而言，我们只会在两个阶段做相应的事情：<br>◎ pre-commit，预本地提交。通常会在该提交之前进行一些语法和 Lint 的检测。<br>◎ pre-push，预远程提交。通常会在该提交之前运行一些测试。</p>
+</blockquote>
+<hr>
+
+<h2 id="3-16-测试策略"><a href="#3-16-测试策略" class="headerlink" title="3.16 测试策略"></a>3.16 测试策略</h2><blockquote>
+<p>编写测试的时候，采用的往往也都是三段式风格 Given-When-Then，对应的中文便是：假设-当-那么。三段式风格解释如下。<br>◎ 假设（Given）：一个上下文，指定完成测试所需要的条件。<br>◎ 当（When）：进行一系列操作，即所要执行的操作，如单击某个按钮。<br>◎ 那么（Then）：得到一系列可观察的后果，即需要检测的断言，如按钮被隐藏。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>（1）必须进行测试的是通用、公用的 Utils 函数。<br>（2）复杂交互操作需要进行一定的测试。<br>（3）网络请求可以交给契约测试，或者不进行测试。<br>单元测试通常只用于测试代码中的逻辑，而对于隐藏在模板中的逻辑来说，单元测试往往难以进行测试。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>BDD，英文全称 Behavior Driven Development，中文含义为行为驱动开发，它是一种敏捷软件开发的技术，它鼓励软件项目中的开发者、QA 和非技术人员或商业参与者之间的协作。<br>与一般的自动化测试（如单元测试、服务测试、UI 测试）不一样，BDD 是多方参与的测试开发方式。如在使用 Protractor 写 Angular 的 E2E 测试的时候，所有的测试都是前端测试人员编写的。BDD 最重要的一个特性是：由非开发人员编写测试用例，而这些测试用例是使用自然语言编写的 DSL（领域特定语言）。</p>
+</blockquote>
+<hr>
+
+<h2 id="4-2-软件包源管理"><a href="#4-2-软件包源管理" class="headerlink" title="4.2 软件包源管理"></a>4.2 软件包源管理</h2><blockquote>
+<p>CSS in JavaScript 是组件化架构不断发展的一个产物，它可以解决 CSS 全局作用域的问题。传统的 CSS 加载方式是，将所有的样式写在 CSS 文件里；而 CSS in JavaScript 则是通过 JavaScript 将 CSS 样式附加到元素上。这意味着，组件的样式可以独立运行，并且能在 JavaScript 和 CSS 之间共享函数和变量。</p>
+</blockquote>
+<hr>
+
+<h2 id="4-5-持续交付问题"><a href="#4-5-持续交付问题" class="headerlink" title="4.5 持续交付问题"></a>4.5 持续交付问题</h2><blockquote>
+<p>不论是自动化部署还是手动部署，都需要一个确定的发布策略——不论是敏捷模式还是瀑布模式。敏捷模式的上线发布计划是一个分布迭代（通常两周一次），随后不断地发布；而瀑布模式则是一次上线就完成大部分主要功能。</p>
+</blockquote>
+<hr>
+
+<h2 id="5-1-为什么不需要单页面应用"><a href="#5-1-为什么不需要单页面应用" class="headerlink" title="5.1 为什么不需要单页面应用"></a>5.1 为什么不需要单页面应用</h2><blockquote>
+<p>早期，搜索引擎爬虫只支持从 HTML 中解析出内容，再处理解析的结果，并以某种形式展示到搜索的结果页。而随着技术的发展，有些搜索引擎爬虫可以支持抓取 JavaScript 动态渲染的内容。<br>对于面向 Google 的网站而言，它可以提供更好的 JavaScript 渲染支持，可以直接抓取 JavaScript 渲染的应用。然而，对于国内的开发者而言，多数时候我们要面对百度、搜狗等搜索引擎，它们对 JavaScript 渲染页面的支持并不是很好。如果网站的主要流量来源是搜索引擎，那么我们就不可能放弃这些“免费”的流量，我们的应用就需要支持爬虫，此时我们就要尽可能地提供一份由 HTML 构成的内容。<br>如果是单页面应用，就要考虑使用额外的方式来支持：<br>◎ 预渲染，即面向搜索引擎提供一份可以被索引的 HTML 代码。<br>◎ 同构应用，由后端运行 JavaScript 代码生成对应的 HTML 代码。<br>◎ 混合式后台渲染，由后端解析前端模板，生成对应的 HTML 代码。</p>
+</blockquote>
+<hr>
+
+<h2 id="5-3-复杂多页面应用的开发"><a href="#5-3-复杂多页面应用的开发" class="headerlink" title="5.3 复杂多页面应用的开发"></a>5.3 复杂多页面应用的开发</h2><blockquote>
+<p>一般情况下，我们会将前端模板引擎分为两种，基于字符串的模板引擎和基于 JavaScript 的模板引擎。两种不同类型的模板引擎，各有各的优势。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>基于字符串的模板引擎，就是通过字符串替换的方式，来渲染出 HTML，再将 HTML 插入 DOM 节点中，其代表性框架有 Mustache 和 Handlebars.js。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>基于 Virtual DOM 技术的 JavaScript 模板引擎的基本逻辑如下：<br>◎ 使用一种名为 HyperScript 的 DSL（领域特定语言）来创建虚拟的树。<br>◎ 通过这个虚拟树来创建一个 DOM 节点。<br>◎ 在数据发生变化的时候，diff DOM 节点也会发生变化，并通过更新对应修改的 DOM 来更新模板。<br>HyperScript 是一个用于创建带 HTML 结构的 script 脚本的工具，可以用于渲染出一个虚拟的 DOM 树。</p>
+</blockquote>
+<hr>
+
+<p>除了上面几种方法，还可以使用 proxy 在数据变化前包一层代理</p>
+<blockquote>
+<p>双向绑定有几种不同的实现方式：<br>◎ 手动绑定。即两个单身绑定的结合，通过手动 set 和 get 数据来触发 UI 或数据变化。<br>◎ 脏检查机制。即在发生指定的事件（如 HTTP 请求、DOM 事件）时，遍历数据相应的元素，然后进行数据比较，对变化的数据进行操作。<br>◎ 数据劫持。即通过 hack 的方式（Object.defineProperty()）对数据的 setter 和 getter 进行劫持。在数据变化时，通知相应的数据订阅者，以触发相应的监听回调。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>基于 History API 的路由和传统的路由基本一样，区别是它可以通过 JavaScript 来控制。HTML5 中的 History API 无刷新更改地址栏链接，配合 Ajax 可以做到无刷新跳转。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>基于 Hash 的路由在浏览器地址栏是通过#号及后面的部分来代表 URL 的，其背后的原理要从 DOM API 中的 location 讲起，location.href 会获取当前页面的 URL，而 location.hash 将会获取#后面的内容</p>
+</blockquote>
+<hr>
+
+<h2 id="6-4-前端框架选型"><a href="#6-4-前端框架选型" class="headerlink" title="6.4 前端框架选型"></a>6.4 前端框架选型</h2><blockquote>
+<p>与 React 相比，虽然 Angular 没有官方的 Web 领域之外的平台方案，但是在社区拥有一些相应的框架。如用于跨平台原生应用开发的 NativeScript，及用于混合应用的 Ionic 框架，它们都可以在某种程度上实现与 Web 平台共用逻辑。</p>
+</blockquote>
+<hr>
+
+<h2 id="6-5-启动前端应用"><a href="#6-5-启动前端应用" class="headerlink" title="6.5 启动前端应用"></a>6.5 启动前端应用</h2><blockquote>
+<p>如下是 PC 端常见的分辨率：<br>◎ 1280×768 像素。<br>◎ 1366×768 像素。<br>◎ 1440×768 像素。<br>◎ 1920×1080 像素。<br>◎ 2560×1440 像素。</p>
+</blockquote>
+<hr>
+
+<h2 id="6-6-服务端渲染"><a href="#6-6-服务端渲染" class="headerlink" title="6.6 服务端渲染"></a>6.6 服务端渲染</h2><blockquote>
+<p>页面应用的服务端渲染可以分成三种类型：<br>◎ 非 JavaScript 语言的同构渲染。<br>◎ 基于 JavaScript 语言的同构渲染。<br>◎ 预渲染。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>使用非 JavaScript 语言来生成 JSON，往往并不是那么方便。特别对于那些强类型的语言如 Java，我们需要不断地声明类型，判断是否为空等。</p>
+</blockquote>
+<hr>
+
+<p>服务端渲染不只是利于 seo，还可能可以在渲染层继承一些数据整合的操作</p>
+<blockquote>
+<p>当前需要单页面应用的服务端渲染是因为现有的搜索引擎不够强大，如百度等国内的搜索引擎不支持，或者支持不好。未来，一旦搜索引擎支持客户端渲染，就不需要如此复杂的处理过程了。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>预渲染（PreRender）指的是预先渲染 HTML，并针对爬虫返回特定的 HTML。这种类型的渲染方式并不常见，一方面是因为不适合数据量大的应用，另一方面是因为更新比较麻烦。<br>因为公司内有项目采用这种方式，于是笔者曾经尝试过用这种方式来渲染，有如下方法可以尝试采用：<br>◎ 爬虫生成静态页面。在本地运行应用，用爬虫抓取所有页面，再上传到文件存储服务器即可。<br>◎ 程序生成静态页面。在本地运行应用，内部带有真实的线上数据，由 PhantomJS&#x2F;Chrome Headless 来渲染页面，再保存为对应的页面。<br>◎ 静态站点生成器。编写一个独立的应用程序，该应用程序将从服务器获取数据，再通过模板来渲染出静态页面。</p>
+</blockquote>
+<hr>
+
+<h2 id="7-1-前端的组件化架构"><a href="#7-1-前端的组件化架构" class="headerlink" title="7.1 前端的组件化架构"></a>7.1 前端的组件化架构</h2><blockquote>
+<p>为了统一设计风格，我们制定了一套规范，即 Style Guide。然后，为了统一相互之间的代码，我们又创建了 UI 组件库。最后，为了统一开发人员之间的语言，我们又创建了设计系统。</p>
+</blockquote>
+<hr>
+
+<h2 id="7-2-基础：风格指南"><a href="#7-2-基础：风格指南" class="headerlink" title="7.2 基础：风格指南"></a>7.2 基础：风格指南</h2><blockquote>
+<p>设计人员可以根据风格指南设计出符合系统统一风格的页面和 UI。风格指南只是一份索引——设计、组件的列表，该列表内容如下：<br>◎ 其展现形式，通常是以网站的形式来展现的。<br>◎ 设计人员，通过风格指南来查找对应的设计准备及常见的 UI 样式。<br>◎ 开发人员，从风格指南上直接复制风格的相关代码。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>《写给大家看的设计书》一书中强调的四个设计原理：<br>◎ 亲密性，即将相关的项（组件）组织到一起。<br>◎ 对齐，每一项都应当与页面上的内容存在某种视觉联系。<br>◎ 重复，重复元素以体现一致性。<br>◎ 对比，对比产生强调，以强调产生强烈的反差。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>◎ 主题色，又可以称为品牌色，用于体现产品的特性及宣传时使用。<br>◎ 功能色，用来展示数据和状态，以及提醒用户。在 Material Design 中则被称为次主题色。<br>◎ 中性色，用于常规的页面显示和过渡，通常是浅色和深色的变种，如白色和灰色。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>在不同的系统上，字体使用情况如下所示。<br>◎ macOS，苹方简体：PingFang SC。<br>◎ Windows，微软雅黑：Microsoft YaHei。<br>◎ Linux，开源字体文泉驿微米黑：WenQuanYi Micro Hei。<br>对应的，我们的全局 font-family 设置可能就是这样的：<br>￼ body {￼ font-family:-apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC,￼ Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei,￼ sans-serif;￼ }</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>在平面设计中，栅格是一种由一系列用于组织内容的相交直线（垂直的、水平的）组成的结构（通常是二维的），它广泛应用于打印设计中的设计布局和内容结构。在网页设计中，它是一种用于快速创建一致的布局和有效地使用 HTML 和 CSS 的方法。——维基百科<br>栅格系统的参数根据项目的实际情况，尽量建立 10 的倍数或 8 的倍数（Google Material Desig 推荐）。从某种意义上说，它是设计人员的设计与开发人员的数值化相结合的一种产物。既能满足设计人员对于数值的要求，又能让开发人员快速使用。</p>
+</blockquote>
+<hr>
+
+<h2 id="7-3-重用：模式库"><a href="#7-3-重用：模式库" class="headerlink" title="7.3 重用：模式库"></a>7.3 重用：模式库</h2><blockquote>
+<p>模式库和组件库，是一个容易混淆的概念，它们是包含的关系。从名称上来说，模式库包含了项目、应用程序中的所有可重用元素，如组件、通用代码等；而组件库只包含应用程序中与组件相关的代码。</p>
+</blockquote>
+<hr>
+
+<h2 id="7-4-进阶：设计系统"><a href="#7-4-进阶：设计系统" class="headerlink" title="7.4 进阶：设计系统"></a>7.4 进阶：设计系统</h2><blockquote>
+<p>[插图]</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>下面是专业的 UX 设计平台 UXPin 提出的创建设计原则的步骤：<br>（1）寻找产品类比。<br>（2）在产品类比中寻找设计原则。<br>（3）通过用户调研，让列表变得真实。<br>（4）建立价值主张。<br>（5）抽象原则。</p>
+</blockquote>
+<hr>
+
+<h2 id="7-5-跨框架组件化"><a href="#7-5-跨框架组件化" class="headerlink" title="7.5 跨框架组件化"></a>7.5 跨框架组件化</h2><blockquote>
+<p>Angular 框架提供了一个 createCustomElement 的接口，可以直接将组件定义成 Web Components 组件。而在 React、Vue 框架中，则是可以支持引入这些 Web Components 组件，也可以引入其他框架的组件。不过直接使用 Angular 构建出来的组件，体积上稍微大一些。一个更合适的方式则是，使用第三方框架来构建 Web Components 组件，如 Stencil，然后在我们的框架、应用中引入这些组件。</p>
+</blockquote>
+<hr>
+
+<h2 id="8-1-前后端分离"><a href="#8-1-前后端分离" class="headerlink" title="8.1 前后端分离"></a>8.1 前后端分离</h2><blockquote>
+<p>后端进行检验时默认前端是不可信的。后端开发人员应该确保后端的健壮性。稍显麻烦的一点在于，保证前后端校验逻辑的一致性。在测试人员进行测试的时候，会发现诸多前后端不一致的逻辑校验问题。</p>
+</blockquote>
+<hr>
+
+<h2 id="8-2-API-管理模式：API-文档管理方式"><a href="#8-2-API-管理模式：API-文档管理方式" class="headerlink" title="8.2 API 管理模式：API 文档管理方式"></a>8.2 API 管理模式：API 文档管理方式</h2><blockquote>
+<p>API 文档应该不只是文档，还可以作为前端的工具来使用。</p>
+</blockquote>
+<hr>
+
+<h2 id="8-3-前后端并行开发：Mock-Server"><a href="#8-3-前后端并行开发：Mock-Server" class="headerlink" title="8.3 前后端并行开发：Mock Server"></a>8.3 前后端并行开发：Mock Server</h2><blockquote>
+<p>Swagger 的 Mock API 是基于 Node.js 的后端 Web 框架 Express 封装而来的。因此，从上面的代码来看，我们仿佛是在使用 Express 框架编写后端的 API。</p>
+</blockquote>
+<hr>
+
+<h2 id="8-4-服务于前端的后端：BFF"><a href="#8-4-服务于前端的后端：BFF" class="headerlink" title="8.4 服务于前端的后端：BFF"></a>8.4 服务于前端的后端：BFF</h2><blockquote>
+<p>BFF，即 Backends For Frontends（服务于前端的后端），是指在服务器设计 API 时会考虑客户端的使用情况，在服务端根据不同的设备类型返回不同客户端所需要的结果。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>API Gateway 与 BFF 最大的区别在于，API Gateway 只拥有一个 API 入口，而 BFF 则是针对不同客户端，拥有各种 API Gateway。此外，BFF 会根据业务逻辑进行编码。而 API Gateway 只做数据的转发，不做额外的数据。因此从某种程度上来说，BFF 是一种高级的 API Gateway。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>与普通的 Node.js+Web 框架实现 BFF 相比，更流行的方式是采用 GraphQL。GraphQL 既是一种用于 API 的查询语言，又是一种标准，也相当于一个满足开发者数据查询的运行时。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>HTTP 请求无法被缓存。由于所有 HTTP 的请求只能在 App 级别上实现缓存，即通过 GraphQL 客户端库来实现。</p>
+</blockquote>
+<hr>
+
+<h2 id="9-1-微前端"><a href="#9-1-微前端" class="headerlink" title="9.1 微前端"></a>9.1 微前端</h2><blockquote>
+<p>解决遗留系统，才是人们采用微前端方案最重要的原因。</p>
+</blockquote>
+<hr>
+
+<h2 id="9-2-微前端的技术拆分方式"><a href="#9-2-微前端的技术拆分方式" class="headerlink" title="9.2 微前端的技术拆分方式"></a>9.2 微前端的技术拆分方式</h2><blockquote>
+<p>微前端架构可以采用以下几种方式进行：<br>（1）路由分发式。通过 HTTP 服务器的反向代理功能，将请求路由到对应的应用上。<br>（2）前端微服务化。在不同的框架之上设计通信和加载机制，以在一个页面内加载对应的应用。<br>（3）微应用。通过软件工程的方式，在部署构建环境中，把多个独立的应用组合成一个单体应用。<br>（4）微件化。开发一个新的构建系统，将部分业务功能构建成一个独立的 chunk 代码，使用时只需要远程加载即可。<br>（5）前端容器化。将 iframe 作为容器来容纳其他前端应用。<br>（6）应用组件化。借助于 Web Components 技术，来构建跨框架的前端应用。<br>实施的方式虽然多，但都是依据场景而采用的。在有些场景下，可能没有合适的方式；在有些场景下，则可以同时使用多种方案。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>路由分发式的架构应该是采用得最多、最容易的“微前端”方案。但是这种方式看上去更像是多个前端应用的聚合，即我们只是将这些不同的前端应用拼凑到一起，使他们看起来像一个完整的整体。但它们并非是一个整体，每当用户从 A 应用转换到 B 应用的时候，往往需要刷新一下页面、重新加载资源文件。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>前端微服务化，是微服务架构在前端的实施，每个前端应用都是完全独立（技术栈、开发、部署、构建独立）、自主运行的，最后通过模块化的方式组合出完整的前端应用。其架构如图 9-4 所示。<br>￼<br>图 9-4<br>采用这种方式意味着，一个页面上同时存在两个及以上的前端应用在运行。而路由分发式方案则是，一个页面只有唯一一个应用。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>微件（Widget），是一段可以直接嵌入应用上运行的代码，它由开发人员预先编译好，在加载时不需要再做任何修改或编译。</p>
+</blockquote>
+<hr>
+
+<h2 id="9-4-微前端的架构设计"><a href="#9-4-微前端的架构设计" class="headerlink" title="9.4 微前端的架构设计"></a>9.4 微前端的架构设计</h2><blockquote>
+<p>在微前端设计初期，构建基础设施要做如下几件事情：<br>◎ 组件与模式库。在应用之间提供通用的 UI 组件、共享的业务组件，以及相应的通用函数功能模块，如日期转换等。<br>◎ 应用通信机制。设计应用间的通信机制，并提供相应的底层库支持。<br>◎ 数据共享机制。对于通用的数据，采取一定的策略来缓存数据，而不是每个应用单独获取自己的数据。<br>◎ 专用的构建系统（可选）。在某些微前端实现里，如微件化，构建系统用于构建出每个单独的应用，又可以构建出最后的整个应用。<br>这些技术实践，只是一些相对比较通用的内容。对于不同的微前端方案来说，又存在一些细微的差异，具体需求我们将在第 10 章中讨论。</p>
+</blockquote>
+<hr>
+
+<h2 id="9-5-微前端的架构模式"><a href="#9-5-微前端的架构模式" class="headerlink" title="9.5 微前端的架构模式"></a>9.5 微前端的架构模式</h2><blockquote>
+<p>从微前端应用间的关系来看分为两种：基座模式（管理式）、自组织式，分别对应两种不同的架构模式：<br>◎ 基座模式。通过一个主应用来管理其他应用。设计难度小、方便实践，但是通用度低。<br>◎ 自组织模式。应用之间是平等的，不存在相互管理的模式。设计难度大，不方便实施，但是通用度高。<br>就当前而言，基座模式实施起来比较方便，方案上也是蛮多的。</p>
+</blockquote>
+<hr>
+
+<h2 id="9-6-微前端的设计理念"><a href="#9-6-微前端的设计理念" class="headerlink" title="9.6 微前端的设计理念"></a>9.6 微前端的设计理念</h2><blockquote>
+<p>前端微架构与后端微架构的最大不同之处，也在于此——生命周期。微前端应用作为一个客户端应用拥有自己的生命周期，生命周期包括如下 3 个部分：<br>（1）加载应用。<br>（2）运行应用。<br>（3）卸载应用。<br>在微前端框架 Single-SPA 中设计了一个基本的生命周期（虽然它没有统一管理），其包含如下 5 种状态。<br>◎ load：决定加载哪个应用，并绑定生命周期。<br>◎ bootstrap：获取静态资源。<br>◎ mount：安装应用，如创建 DOM 节点。<br>◎ unload：删除应用的生命周期。<br>◎ unmount：卸载应用，如删除 DOM 节点、取消事件绑定。</p>
+</blockquote>
+<hr>
+
+<h2 id="9-7-“微”害架构"><a href="#9-7-“微”害架构" class="headerlink" title="9.7 “微”害架构"></a>9.7 “微”害架构</h2><blockquote>
+<p>后端应用从单体应用拆分成一个一个微服务，它们对于用户来说是不可见的，但对于自身的客户端而言，仍然是一个整体；前端和移动应用则正在从一个一个的应用，整合成一个大的整体。然而客户端又稍有不同，它们需要实现在开发时拆分，构建时聚合。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>这就是《Linux&#x2F;Unix 设计思想》一书中所提到的三个系统，毫无维和感：<br>（1）在背水一战的情况下，人类设计出了第一个系统。<br>（2）专家们在第一个系统的基础上，做出了伟大而臃肿的第二个系统。<br>（3）受累于第二个系统的人，设计出了第三个系统。</p>
+</blockquote>
+<hr>
+
+<h2 id="10-2-遗留系统微前端：使用-iframe-作为容器"><a href="#10-2-遗留系统微前端：使用-iframe-作为容器" class="headerlink" title="10.2 遗留系统微前端：使用 iframe 作为容器"></a>10.2 遗留系统微前端：使用 iframe 作为容器</h2><blockquote>
+<p>在采用 iframe 的时候，我们需要做两件事：<br>◎ 设计管理应用机制。<br>◎ 设计应用通信机制。</p>
+</blockquote>
+<hr>
+
+<h2 id="10-5-组件化微前端：微件化"><a href="#10-5-组件化微前端：微件化" class="headerlink" title="10.5 组件化微前端：微件化"></a>10.5 组件化微前端：微件化</h2><blockquote>
+<p>尽管微件化的定义中部署的代码是已编译好的代码，但是实际上，它可以是源码，又或者是某种特定的语言。按照广义的微件化方式可以将微件化方式划分为三种：<br>◎ DSL 微件化，即通过创建领域特定语言（DSL）来实施微件化。<br>◎ 预编译微件化。<br>◎ 运行时编译微件化。</p>
+</blockquote>
+<hr>
+
+<h2 id="10-6-面向未来：Web-Components"><a href="#10-6-面向未来：Web-Components" class="headerlink" title="10.6 面向未来：Web Components"></a>10.6 面向未来：Web Components</h2><blockquote>
+<p>Web Components 主要由如下四项技术组件组成 ￼：<br>◎ Custom Elements（自定义元素），允许开发者创建自定义元素。即常见的 HTML 标签以外的元素，如<app-root></app-root>等。<br>◎ Shadow DOM（影子 DOM），它是一组 JavaScript API，用于将封装的“影子”DOM 树附加到元素（与主文档 DOM 分开呈现）中，并控制其关联的功能。通过它可以保持元素的私有化，而不用担心与文档的其他部分发生冲突。<br>◎ HTML Templates（HTML 模板），如&lt;template&gt;和&lt;slot&gt;元素等，可以用于编写不在页面中显示的标记模板。<br>◎ HTML Imports，用于引入自定义组件。目前的做法都是将组件的定义细节存储在一个单独的文件中，再通过导入文件来使用。</p>
+</blockquote>
+<hr>
+
+<h2 id="11-1-更新"><a href="#11-1-更新" class="headerlink" title="11.1 更新"></a>11.1 更新</h2><blockquote>
+<p>一旦我们决定对一个项目采取维护模式，就需要制定一些基本的策略，比如：<br>◎ 确认合理的时间间隔，如三个月一次。<br>◎ 定期检查依赖或者使用工具自动检测。<br>◎ 为更新预留时间及精力<br>◎ 准备文档策略，以记录过程中遇到的问题。<br>但是无论如何，难点不在于规范和策略的制定，而在于升级依赖的决心。</p>
+</blockquote>
+<hr>
+
+<h2 id="11-4-重写"><a href="#11-4-重写" class="headerlink" title="11.4 重写"></a>11.4 重写</h2><blockquote>
+<p>而资深的程序员，又会同情地告诉我们“重写不会带来业务价值”。那么，怎样才能带来业务价值？下面是问题的答案。<br>◎ 更少的功能完成时间。旧的系统需要 3 天才能完成的功能，新的系统现在只需要 1 天就能完成。<br>◎ 更好的用户体验。<br>◎ 提升应用的性能。旧的应用需要 3 秒才能响应结果，新的系统只需要 0.5 秒。</p>
+</blockquote>
+<hr>
+
+<blockquote>
+<p>在整理的过程中会发现相关的开发人员、业务人员，往往只记得某个时刻的业务，并不清楚最终的业务是怎样的。为了理清这些业务，需要找到所有的利益相关人，按时间线，从头到尾理清业务变化，以确认最终的业务逻辑。然而，即便如此，我们也很难整理出所有的业务逻辑。</p>
+</blockquote>
+<hr>
+
+<h2 id="11-5-重新架构"><a href="#11-5-重新架构" class="headerlink" title="11.5 重新架构"></a>11.5 重新架构</h2><blockquote>
+<p>◎ 重新设计构建系统，以支撑新架构。<br>◎ 设计模块化的应用架构，以帮助我们解耦模块。<br>◎ 抽象化组件、提取函数库，以减少重复代码。<br>◎ 采用微前端技术来解耦前端应用。</p>
+</blockquote>
+<hr>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.802Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/4067a063dab9/&title=《前端架构：从入门到微前端》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/4067a063dab9/&title=《前端架构：从入门到微前端》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/4067a063dab9/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端架构：从入门到微前端》 — 秦一&url=http://scar.site/4067a063dab9/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/4067a063dab9/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/5389c9521ebe/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2021看的书</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/89d776dd63d1/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">开源一个微信阅读导出插件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/4067a063dab9/&title=《前端架构：从入门到微前端》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/4067a063dab9/&title=《前端架构：从入门到微前端》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/4067a063dab9/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端架构：从入门到微前端》 — 秦一&url=http://scar.site/4067a063dab9/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/4067a063dab9/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/4067a063dab9/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

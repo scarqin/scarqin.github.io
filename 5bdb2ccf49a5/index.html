@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2022_07学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="学习笔记还是和摘抄合并吧～不然总是忘记看 Nest 最佳实践近期项目用了 Node 写后端，因为前端技术栈是 Angular，选了 Nest 作为后端框架，比较成熟且上手很快～学习下它的最佳实践。 Nest.js 实践总结 - 掘金 铁头乔：开源社区那些事这篇分析开源社区角色的文章浅显易懂。  用户  贡献者  布道师   每个管理者都要有的5张牌思维最近经常看到刘润老师的文章，有干货不枯燥。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2022_07学习笔记">
+<meta property="og:url" content="http://scar.site/5bdb2ccf49a5/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="学习笔记还是和摘抄合并吧～不然总是忘记看 Nest 最佳实践近期项目用了 Node 写后端，因为前端技术栈是 Angular，选了 Nest 作为后端框架，比较成熟且上手很快～学习下它的最佳实践。 Nest.js 实践总结 - 掘金 铁头乔：开源社区那些事这篇分析开源社区角色的文章浅显易懂。  用户  贡献者  布道师   每个管理者都要有的5张牌思维最近经常看到刘润老师的文章，有干货不枯燥。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/1741cb03-448d-400b-84a1-2f0db601bc7e.jpeg">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/538961/201806/538961-20180607213812248-985248858.jpg">
+<meta property="article:published_time" content="2022-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.778Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/1741cb03-448d-400b-84a1-2f0db601bc7e.jpeg">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2022_07学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2022_07学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2022-06-30T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2022-07-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Nest-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="post-toc-number">1.</span> <span class="post-toc-text">Nest 最佳实践</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%93%81%E5%A4%B4%E4%B9%94%EF%BC%9A%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E9%82%A3%E4%BA%9B%E4%BA%8B"><span class="post-toc-number">2.</span> <span class="post-toc-text">铁头乔：开源社区那些事</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%AF%8F%E4%B8%AA%E7%AE%A1%E7%90%86%E8%80%85%E9%83%BD%E8%A6%81%E6%9C%89%E7%9A%845%E5%BC%A0%E7%89%8C%E6%80%9D%E7%BB%B4"><span class="post-toc-number">3.</span> <span class="post-toc-text">每个管理者都要有的5张牌思维</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Typeorm-2-7-3-7"><span class="post-toc-number">4.</span> <span class="post-toc-text">Typeorm 2.7-&gt;3.7</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%96%AD%E8%A8%80%E5%BA%93-chai-js-BDD-TDD"><span class="post-toc-number">5.</span> <span class="post-toc-text">断言库 chai.js BDD&#x2F;TDD</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E5%88%99"><span class="post-toc-number">6.</span> <span class="post-toc-text">第一性原则</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E9%A9%AC%E5%A4%AA%E6%95%88%E5%BA%94"><span class="post-toc-number">7.</span> <span class="post-toc-text">马太效应</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%95%88%E7%94%A8%E3%80%81%E6%88%90%E6%9C%AC%E3%80%81%E8%BE%B9%E9%99%85%E3%80%81%E4%BE%9B%E9%9C%80%E5%AE%9A%E5%BE%8B"><span class="post-toc-number">8.</span> <span class="post-toc-text">效用、成本、边际、供需定律</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%95%88%E7%94%A8"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">效用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E6%88%90%E6%9C%AC"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">成本</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%BE%B9%E9%99%85"><span class="post-toc-number">9.</span> <span class="post-toc-text">边际</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#%E4%BE%9B%E9%9C%80%E5%AE%9A%E4%B9%89"><span class="post-toc-number">9.1.</span> <span class="post-toc-text">供需定义</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Bun"><span class="post-toc-number">10.</span> <span class="post-toc-text">Bun</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%96%B0%E7%9A%84%E8%81%8C%E4%B8%9A%E6%96%B9%E5%90%91"><span class="post-toc-number">11.</span> <span class="post-toc-text">新的职业方向</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Zapier-%E8%BF%90%E8%90%A5%E6%80%9D%E8%B7%AF"><span class="post-toc-number">12.</span> <span class="post-toc-text">Zapier 运营思路</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%85%B3%E7%B3%BB%E5%9B%BE"><span class="post-toc-number">13.</span> <span class="post-toc-text">设计模式关系图</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E6%B7%B1%E5%BA%A6-vs-%E5%B9%BF%E5%BA%A6"><span class="post-toc-number">14.</span> <span class="post-toc-text">深度 vs 广度</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%BE%AE%E8%BD%AF%E6%8E%A8%E5%87%BA%E7%9A%84%E4%B8%80%E7%A7%8D-JSON-%E6%A0%BC%E5%BC%8F%E5%8D%A1%E7%89%87"><span class="post-toc-number">15.</span> <span class="post-toc-text">微软推出的一种 JSON 格式卡片</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E7%BC%96%E7%A8%8B%E5%8E%9F%E5%88%99"><span class="post-toc-number">16.</span> <span class="post-toc-text">编程原则</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2022_07学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2022_07学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2022-07-01 00:00:00" datetime="2022-06-30T16:00:00.000Z"  itemprop="datePublished">2022-07-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>学习笔记还是和摘抄合并吧～不然总是忘记看</p>
+<h1 id="Nest-最佳实践"><a href="#Nest-最佳实践" class="headerlink" title="Nest 最佳实践"></a>Nest 最佳实践</h1><p>近期项目用了 Node 写后端，因为前端技术栈是 Angular，选了 Nest 作为后端框架，比较成熟且上手很快～学习下它的最佳实践。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7002176233115123725">Nest.js 实践总结 - 掘金</a></p>
+<h1 id="铁头乔：开源社区那些事"><a href="#铁头乔：开源社区那些事" class="headerlink" title="铁头乔：开源社区那些事"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/GhfTInUgU38b45Ie3kIUqA">铁头乔：开源社区那些事</a></h1><p>这篇分析开源社区角色的文章浅显易懂。</p>
+<ul>
+<li><p>用户</p>
+</li>
+<li><p>贡献者</p>
+</li>
+<li><p>布道师</p>
+</li>
+</ul>
+<h1 id="每个管理者都要有的5张牌思维"><a href="#每个管理者都要有的5张牌思维" class="headerlink" title="每个管理者都要有的5张牌思维"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/kgYp4218o6F83x9qs0QiQA">每个管理者都要有的5张牌思维</a></h1><p>最近经常看到刘润老师的文章，有干货不枯燥。</p>
+<blockquote>
+<p>时间，只能给成长者。把时间，留给那些正在以肉眼可见的速度成长的人。然后，耐心一点，安静地等待他们爆发能量。</p>
+</blockquote>
+<blockquote>
+<p>没错，所以还需要做第二件事，区分算术错误和高数错误。<br>算术错误，就是那些低级错误。因为大意，因为粗心，因为傲慢犯的错误，是一种愚蠢。<br>低级错误，不应该被保护。<br>而那些高数错误，是创新的风险，必须允许。<br>保护这张牌，只能给创新者。</p>
+<p>保护创新者，这是企业能长远发展的关键。</p>
+</blockquote>
+<blockquote>
+<p>组织不应该是关系文化，不应该是官僚文化，而应该是业绩文化。记住，奖励这张牌，只能给有产出的人。不能乱给。更不能全凭自己的好恶没有原则地给。</p>
+</blockquote>
+<blockquote>
+<p>管理者不能当老好人，把惩罚锁在柜子里。可以菩萨心肠，但必要的时候，要雷霆手段。</p>
+</blockquote>
+<h1 id="Typeorm-2-7-3-7"><a href="#Typeorm-2-7-3-7" class="headerlink" title="Typeorm 2.7-&gt;3.7"></a>Typeorm 2.7-&gt;3.7</h1><blockquote>
+<p> <a target="_blank" rel="noopener" href="https://github.com/typeorm/typeorm/releases">https://github.com/typeorm/typeorm/releases</a></p>
+</blockquote>
+<p>遇到两个问题：</p>
+<ul>
+<li><p>写法变更，例如 find、findOne 改成传对象</p>
+</li>
+<li><p>migration 不支持（还没找到好办法解决）</p>
+</li>
+</ul>
+<h1 id="断言库-chai-js-BDD-TDD"><a href="#断言库-chai-js-BDD-TDD" class="headerlink" title="断言库 chai.js BDD&#x2F;TDD"></a>断言库 chai.js BDD&#x2F;TDD</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.chaijs.com/">https://www.chaijs.com/</a></p>
+</blockquote>
+<p>BDD - 行为驱动开发</p>
+<p>TDD - 测试驱动开发</p>
+<h1 id="第一性原则"><a href="#第一性原则" class="headerlink" title="第一性原则"></a>第一性原则</h1><p><strong>回归事物最基本的条件，将其拆分成各要素进行解构分析，从而找到实现目标最优路径的方法</strong></p>
+<blockquote>
+<p>马斯克：不要优化不该存在的东西</p>
+</blockquote>
+<ol>
+<li><p>约束、优化需求</p>
+</li>
+<li><p>删除多余的零部件和工艺步骤</p>
+</li>
+<li><p>简化和优化迭代</p>
+</li>
+<li><p>加快生产速度</p>
+</li>
+<li><p>实现自动化</p>
+</li>
+</ol>
+<h1 id="马太效应"><a href="#马太效应" class="headerlink" title="马太效应"></a>马太效应</h1><p>指科学界的名声累加的一种<a target="_blank" rel="noopener" href="https://zh.m.wikipedia.org/wiki/%E5%8F%8D%E9%A6%88" title="反馈">反馈</a>现象，最早由美国社会学家<a target="_blank" rel="noopener" href="https://zh.m.wikipedia.org/wiki/%E7%BD%97%E4%BC%AF%E7%89%B9%C2%B7%E8%8E%AB%E9%A1%BF" title="罗伯特·莫顿">罗伯特·莫顿</a>于1968年提出<a target="_blank" rel="noopener" href="https://zh.m.wikipedia.org/zh/%E9%A9%AC%E5%A4%AA%E6%95%88%E5%BA%94#cite_note-%E5%86%B3%E7%AD%96%E7%A7%91%E5%AD%A6%E8%BE%9E%E5%85%B8-1">[1]</a>[<a target="_blank" rel="noopener" href="https://zh.m.wikipedia.org/zh/%E9%A9%AC%E5%A4%AA%E6%95%88%E5%BA%94#cite_note-%E7%8E%B0%E4%BB%A3%E7%BB%8F%E6%B5%8E%E8%AF%8D%E5%85%B8-2">2</a></p>
+<blockquote>
+<p> 有余者损之，不足者与之，天之道损有余而补不足。人道则不然，损不足，奉有余。——   老子《道德经》</p>
+</blockquote>
+<h1 id="效用、成本、边际、供需定律"><a href="#效用、成本、边际、供需定律" class="headerlink" title="效用、成本、边际、供需定律"></a>效用、成本、边际、供需定律</h1><h2 id="效用"><a href="#效用" class="headerlink" title="效用"></a>效用</h2><p>满足了用户什么需求和满足程度，人们默认追求效用最大化</p>
+<h2 id="成本"><a href="#成本" class="headerlink" title="成本"></a>成本</h2><ul>
+<li><p>直接成本：<strong>直接用于生产过程的各项费用</strong></p>
+</li>
+<li><p>交易成本：<strong>达成一笔交易所要花费的成本，也指买卖过程中所花费的全部时间和货币成本</strong>。</p>
+</li>
+<li><p>机会成本：<strong>企业为从事某项经营活动而放弃另一项经营活动的机会，或利用一定资源获得某种收入时所放弃的另一种收入</strong>。</p>
+</li>
+</ul>
+<h1 id="边际"><a href="#边际" class="headerlink" title="边际"></a>边际</h1><ul>
+<li><p>边际递减：是指在一定时期内，在其他商品或服务消费量不变的条件下，随着<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B6%88%E8%B4%B9%E8%80%85/1795849">消费者</a>不断增加某种商品或服务的消费量，消费者从每增加一单位该商品或服务的消费中所获得的效用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%A2%9E%E5%8A%A0%E9%87%8F/1284976">增加量</a>是逐渐递减的。</p>
+</li>
+<li><p>边际成本：<strong>在一定产量水平下，增加或减少一个单位产量所引起成本总额的变动数</strong>。</p>
+</li>
+<li><p>边际效用：<strong>每新增（或减少）一个单位的財貨或服务，它对財貨或服务的收益增加（或减少）的效用</strong></p>
+</li>
+<li><p>边际交易</p>
+</li>
+</ul>
+<h2 id="供需定义"><a href="#供需定义" class="headerlink" title="供需定义"></a>供需定义</h2><p>其他条件不变时，价格下降则需求量上升</p>
+<h1 id="Bun"><a href="#Bun" class="headerlink" title="Bun"></a>Bun</h1><p>一种新的 Javascript 运行时：Bun，对标 Node、deno</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/oven-sh/bun">https://github.com/oven-sh/bun</a></p>
+<p>官网说主要聚焦在三件事：</p>
+<ul>
+<li><p>快速启动（有优势）</p>
+</li>
+<li><p>从底层提高了性能水平</p>
+</li>
+<li><p>提供完整的工具链（打包、编译、包管理）</p>
+</li>
+</ul>
+<p>官网贴出的性能对比</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/1741cb03-448d-400b-84a1-2f0db601bc7e.jpeg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="新的职业方向"><a href="#新的职业方向" class="headerlink" title="新的职业方向"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/du5DYfyOSMGygArtRPOu8g">新的职业方向</a></h1><p>他用了一个词来描述他在GO团队担任的职位，「fairly unique」。他说，自己的目标是给GO的用户和开发者创造非凡的体验，</p>
+<p>他负责的工作包括：</p>
+<p>为初学者和专家改进Go开发者体验、为Go采用和最佳实践创建教育资源、完善 Go 贡献者的体验（标准库、工具、编译器等）、增加Go团队和社区之间的协作和沟通、收集来自企业、用户、开发人员、集成商的数据和反馈，并为Go团队提供见解、与不同的供应商、产品建立合作伙伴关系等。</p>
+<h1 id="Zapier-运营思路"><a href="#Zapier-运营思路" class="headerlink" title="Zapier 运营思路"></a>Zapier 运营思路</h1><p><a target="_blank" rel="noopener" href="https://m.huxiu.com/article/487738.html">Zapier：工具虽犀利，理念永流传-虎嗅网</a></p>
+<h1 id="设计模式关系图"><a href="#设计模式关系图" class="headerlink" title="设计模式关系图"></a>设计模式关系图</h1><p><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4353432/blog/3944699">设计模式学习心得</a></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images2018.cnblogs.com/blog/538961/201806/538961-20180607213812248-985248858.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+<h1 id="深度-vs-广度"><a href="#深度-vs-广度" class="headerlink" title="深度 vs 广度"></a>深度 vs 广度</h1><p>近期听到一些技术关于往深了走还是往广走的话题，我好像没有太大的困惑。</p>
+<p>首先我觉得我还是个菜鸟，并没有到那个抉择考清华还是考北大的境地，需要的去学，感兴趣的去学，享受攻克某个难点的快感，兵来将挡水来土掩。</p>
+<p>其次我相信人的适应性是很强的，多反思当前的处境，环境也会告诉你你需要补齐什么能力。</p>
+<p>我觉得考虑技术深度还是技术广度是一个伪命题，只是暂时不知道自己要往哪里走，毕竟很多所谓的往深走也只是找个借口欺骗自己不要走出舒适圈，例如：我不想与人沟通，不想当管理，所以我要当技术专家我要往深了走。</p>
+<p>不是说思路不对，而是你拒绝为沟通付出的时间，真的花在当技术专家的路上了吗？</p>
+<p>还不如直接承认我要的不多，所以我不需要努力，甚至是我上辈子是个大摆锤，就喜欢摆，坦诚一点。</p>
+<p>再说了技术专家不需要沟通吗？当技术专家或许比与人沟通难多了，如果连这也不敢破圈，那怎么能保证未来可以解决更难的问题？偏科不适合普通人。</p>
+<p>人生是一场考验耐力的马拉松，我从小就践行先上路，再考虑往哪里走，哪段路走多快，要花多久，或许永远也找不到答案，或许会回头、会弃赛，但落子无悔。</p>
+<p>最可怕的是你不知道自己不知道什么，所以勇敢破圈，当你的边界只有撞到墙了碰到壁你才知道，喔，原来短板在这。</p>
+<h1 id="微软推出的一种-JSON-格式卡片"><a href="#微软推出的一种-JSON-格式卡片" class="headerlink" title="微软推出的一种 JSON 格式卡片"></a>微软推出的一种 JSON 格式卡片</h1><p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/adaptive-cards/authoring-cards/input-validation">输入验证 - Adaptive Cards | Microsoft Docs</a></p>
+<h1 id="编程原则"><a href="#编程原则" class="headerlink" title="编程原则"></a>编程原则</h1><p><a target="_blank" rel="noopener" href="https://cread.jd.com/read/startRead.action?bookId=30726877&readType=1">编程原则：来自代码大师Max Kanat-Alexander的建议 – （美）马克斯·卡纳特-亚历山大（Max Kanat-Alexander</a></p>
+<p>忘了在哪里看到介绍这本书，看了序喜欢译者的叙述，不抛高大上的术语，如同和另一个程序员攀谈，听他叙述他的经验，经验中就有我遇到的困境，买！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.778Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/5bdb2ccf49a5/&title=《2022_07学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/5bdb2ccf49a5/&title=《2022_07学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/5bdb2ccf49a5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_07学习笔记》 — 秦一&url=http://scar.site/5bdb2ccf49a5/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/5bdb2ccf49a5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/707e8658cb36/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">2022_08学习笔记</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/9981f3a8a530/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">柳林风声</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/5bdb2ccf49a5/&title=《2022_07学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/5bdb2ccf49a5/&title=《2022_07学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/5bdb2ccf49a5/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2022_07学习笔记》 — 秦一&url=http://scar.site/5bdb2ccf49a5/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/5bdb2ccf49a5/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/5bdb2ccf49a5/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

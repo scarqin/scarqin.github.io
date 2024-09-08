@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>2021_04学习笔记 | 秦一</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="git submodule添加子仓库到老仓库1git submodule add &lt;gitUrl&gt; &lt;filePath&gt; 例如 1git submodule add -name &lt;moduleName&gt; &lt;repo url&gt; &lt;filePath&gt;  初始化子仓库1git submodule init &amp;&amp; git subm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021_04学习笔记">
+<meta property="og:url" content="http://scar.site/c87e07956a0e/index.html">
+<meta property="og:site_name" content="秦一">
+<meta property="og:description" content="git submodule添加子仓库到老仓库1git submodule add &lt;gitUrl&gt; &lt;filePath&gt; 例如 1git submodule add -name &lt;moduleName&gt; &lt;repo url&gt; &lt;filePath&gt;  初始化子仓库1git submodule init &amp;&amp; git subm">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE42592ea1e92d86d2a9e9a002f03dc311.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCEe30778d851ac9b92da5c6b345d61f6ee.png">
+<meta property="og:image" content="https://images.scar.site/WEBRESOURCE85546cee63cceab9c8b901af4e0529a7.png">
+<meta property="og:image" content="https://segmentfault.com/img/bVZ1fP?w=901&h=84">
+<meta property="article:published_time" content="2021-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-08-26T05:25:01.775Z">
+<meta property="article:author" content="秦一">
+<meta property="article:tag" content="创造黑客与画家的人生,程序员">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.scar.site/WEBRESOURCE42592ea1e92d86d2a9e9a002f03dc311.png">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">秦一</h5>
+          <a href="mailto:scarqin@gmail.com" title="scarqin@gmail.com" class="mail">scarqin@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-archive"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/ssarqin" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a target="_blank" rel="noopener" href="https://waavomjtjd.feishu.cn/base/CLSjbace5aIdsPsgzhncuzTPnIg?from=from_copylink"  >
+                <i class="icon icon-lg icon-link"></i>
+                阅读年历
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">2021_04学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">2021_04学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-03-31T16:00:00.000Z" itemprop="datePublished" class="page-time">
+  2021-04-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#git-submodule"><span class="post-toc-number">1.</span> <span class="post-toc-text">git submodule</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%AD%90%E4%BB%93%E5%BA%93%E5%88%B0%E8%80%81%E4%BB%93%E5%BA%93"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">添加子仓库到老仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AD%90%E4%BB%93%E5%BA%93"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">初始化子仓库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">批量操作子模块</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%A0%E9%99%A4%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">删除子模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%88%A0%E9%99%A4"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">本地删除</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%B0%B8%E4%B9%85%E5%88%A0%E9%99%A4"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">永久删除</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E6%89%8B%E5%8A%A8%E5%88%A0%E9%99%A4%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">手动删除的土方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AD%90%E6%A8%A1%E5%9D%97%E5%B5%8C%E5%A5%97"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">子模块嵌套</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#submodule-%E6%B8%B8%E7%A6%BB%E9%97%AE%E9%A2%98"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">submodule 游离问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">解决方案</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#%E5%BB%BA%E8%AE%AE"><span class="post-toc-number">1.6.2.</span> <span class="post-toc-text">建议</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#CommonJS-%E6%A8%A1%E5%9D%97%E5%BC%95%E7%94%A8-node-modules-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E8%B7%AF%E5%BE%84"><span class="post-toc-number">2.</span> <span class="post-toc-text">CommonJS 模块引用 node_modules 为什么不用路径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spawn"><span class="post-toc-number">3.</span> <span class="post-toc-text">spawn</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AES-%E5%8A%A0%E5%AF%86-Java-%E5%92%8C-Node-%E4%B8%8D%E4%B8%80%E8%87%B4%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="post-toc-number">4.</span> <span class="post-toc-text">AES 加密 Java 和 Node 不一致怎么解决？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#css-only-child"><span class="post-toc-number">5.</span> <span class="post-toc-text">css :only-child</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BD%BF%E7%94%A8-Math-log-%E8%AE%A1%E7%AE%97%E5%AF%B9%E6%95%B0"><span class="post-toc-number">6.</span> <span class="post-toc-text">使用 Math.log 计算对数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UV-%E5%92%8C-PV-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="post-toc-number">7.</span> <span class="post-toc-text">UV 和 PV 是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-1-toFixe-%E6%8A%A5%E9%94%99%EF%BC%8C%E4%BD%86%E6%98%AF-1-toFixed-%E4%B8%8D%E6%8A%A5%E9%94%99"><span class="post-toc-number">8.</span> <span class="post-toc-text">为什么 1.toFixe() 报错，但是 (1).toFixed 不报错</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E7%A6%81%E6%AD%A2%E5%8F%8D%E7%88%AC%E6%9C%BA%E5%88%B6%E7%9A%84%E6%97%A0%E9%99%90%E6%96%AD%E7%82%B9"><span class="post-toc-number">9.</span> <span class="post-toc-text">如何禁止反爬机制的无限断点</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-知识卡片/2021_04学习笔记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">2021_04学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-04-01 00:00:00" datetime="2021-03-31T16:00:00.000Z"  itemprop="datePublished">2021-04-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E7%9F%A5%E8%AF%86%E5%8D%A1%E7%89%87/">知识卡片</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="git-submodule"><a href="#git-submodule" class="headerlink" title="git submodule"></a>git submodule</h3><h4 id="添加子仓库到老仓库"><a href="#添加子仓库到老仓库" class="headerlink" title="添加子仓库到老仓库"></a>添加子仓库到老仓库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add &lt;gitUrl&gt; &lt;filePath&gt;</span><br></pre></td></tr></table></figure>
+<p>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add -name &lt;moduleName&gt; &lt;repo url&gt; &lt;filePath&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="初始化子仓库"><a href="#初始化子仓库" class="headerlink" title="初始化子仓库"></a>初始化子仓库</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule init &amp;&amp; git submodule update</span><br></pre></td></tr></table></figure>
+<h4 id="批量操作子模块"><a href="#批量操作子模块" class="headerlink" title="批量操作子模块"></a>批量操作子模块</h4><p>git submodule foreach <command></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git submodule foreach git checkout master</span><br><span class="line">git submodule foreach git status</span><br><span class="line">git submodule foreach git pull</span><br></pre></td></tr></table></figure>
+<h4 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h4><h5 id="本地删除"><a href="#本地删除" class="headerlink" title="本地删除"></a>本地删除</h5><p><code>git submodule deinit &lt;submodule-name&gt;</code></p>
+<p>deinit 之后,只修改 $GIT_DIR&#x2F;config file 文件。<br>本地仓库消失， <code>git submodule update</code>&#x2F;<code>git submodule foreach</code>  等不会生效。<br>.gitsubmodule 仍然记录子仓库信息，不会影响远程仓库，使用 <code>git submodule init</code> 可以还原子仓库。</p>
+<p>我理解为类似于 git 的 untrack 文件，让本地不跟踪改</p>
+<h5 id="永久删除"><a href="#永久删除" class="headerlink" title="永久删除"></a>永久删除</h5><p><code>git rm &lt;submodule file path&gt;</code></p>
+<p>此时 .gitsubmodule 信息也被删除，但是如果 <code>git revert</code> 的话撤销 commit 的还是可以恢复。</p>
+<p>如果不想恢复，可以手动去删除</p>
+<p><code>.git/modules/&lt;submodule name&gt;</code></p>
+<p>路径下的文件夹</p>
+<h5 id="手动删除的土方法"><a href="#手动删除的土方法" class="headerlink" title="手动删除的土方法"></a>手动删除的土方法</h5><ol>
+<li><code>rm -rf</code> 子模块目录 删除子模块目录及源码</li>
+<li><code>vi .gitmodules</code> 删除项目目录下<code>.gitmodules</code>文件中子模块相关条目</li>
+<li><code>vi .git/config</code> 删除配置项中子模块相关条目</li>
+<li><code>rm .git/module/*</code> 删除模块下的子模块目录，每个子模块对应一个目录，注意只删除对应的子模块目录即可</li>
+</ol>
+<h4 id="子模块嵌套"><a href="#子模块嵌套" class="headerlink" title="子模块嵌套"></a>子模块嵌套</h4><p>需求：根仓库是个架子，子模块 1 不提交上远程仓库，仅在本地仓库维护。子模块中还有其他子模块 1.1，这时候可以</p>
+<ul>
+<li>子模块 1 使用 git clone,sunmodule 直接维护在子模块 1 仓库。</li>
+<li>忽略根仓库的 .gitmodules 文件</li>
+</ul>
+<h4 id="submodule-游离问题"><a href="#submodule-游离问题" class="headerlink" title="submodule 游离问题"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/8646bddede23">submodule 游离问题</a></h4><p>父仓库记录了 <code>submodule</code> 提交时的 <code>commit id</code>，如果你 pull 父仓库前 <code>submodule</code> 没有子仓库 <code>commit id</code> 对应的代码，子仓库就会游离无法 <code>git push</code>，显示:</p>
+<p><code>git submodule head detached</code></p>
+<h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><h5 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h5><p>先把子仓库代码更到最新，再 <code>git pull</code> 父仓库，爸爸就能找到孩子，子仓库就不会游离了。</p>
+<p>可以选择以下任意一个指令：</p>
+<ul>
+<li><code>git submodule foreach git pull</code></li>
+<li><code>git submodule update --remote</code></li>
+</ul>
+<p>值得注意的是，<code>git submodule update --remote</code> 默认拉取 <code>master</code> 分支,如果要拉取 <code>submodule</code> 的其他分支，需要使用以下指令：</p>
+<p><code>git config -f .gitmodules submodule.&lt;subModuleName&gt;.branch &lt;branchName&gt;</code></p>
+<h3 id="CommonJS-模块引用-node-modules-为什么不用路径"><a href="#CommonJS-模块引用-node-modules-为什么不用路径" class="headerlink" title="CommonJS 模块引用 node_modules 为什么不用路径"></a>CommonJS 模块引用 node_modules 为什么不用路径</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE42592ea1e92d86d2a9e9a002f03dc311.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<blockquote>
+<p>ps:先提交 submodule 再提交主 module，否则还需要提交一次主 module</p>
+</blockquote>
+<h3 id="spawn"><a href="#spawn" class="headerlink" title="spawn"></a>spawn</h3><p>Node 使用子进程执行命令行</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCEe30778d851ac9b92da5c6b345d61f6ee.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+
+<h3 id="AES-加密-Java-和-Node-不一致怎么解决？"><a href="#AES-加密-Java-和-Node-不一致怎么解决？" class="headerlink" title="AES 加密 Java 和 Node 不一致怎么解决？"></a>AES 加密 Java 和 Node 不一致怎么解决？</h3><p>检查密钥长度，是否为 16 位的，如果不是的话内部填充方法可能不一致。</p>
+<h3 id="css-only-child"><a href="#css-only-child" class="headerlink" title="css :only-child"></a>css :only-child</h3><p>只有一个子元素的时候使用</p>
+<h3 id="使用-Math-log-计算对数"><a href="#使用-Math-log-计算对数" class="headerlink" title="使用 Math.log 计算对数"></a>使用 Math.log 计算对数</h3><p><code>Math.ceil(Math.log(1000) / Math.log(10))//3</code></p>
+<h3 id="UV-和-PV-是什么"><a href="#UV-和-PV-是什么" class="headerlink" title="UV 和 PV 是什么"></a><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20448467">UV 和 PV 是什么</a></h3><h3 id="为什么-1-toFixe-报错，但是-1-toFixed-不报错"><a href="#为什么-1-toFixe-报错，但是-1-toFixed-不报错" class="headerlink" title="为什么 1.toFixe() 报错，但是 (1).toFixed 不报错"></a>为什么 1.toFixe() 报错，但是 (1).toFixed 不报错</h3><p>如果不加括号，程序无法判断是你是浮点数还是引用属性（对象引用属性 a.b）</p>
+<p>对于原始字面量的整型数字，使用原型链 Number 的方法时都需要使用 () 告诉程序你就要调用函数～</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/WEBRESOURCE85546cee63cceab9c8b901af4e0529a7.png" alt="image.png" title="">
+                </div>
+                <div class="image-caption">image.png</div>
+            </figure>
+
+<h3 id="如何禁止反爬机制的无限断点"><a href="#如何禁止反爬机制的无限断点" class="headerlink" title="如何禁止反爬机制的无限断点"></a>如何禁止反爬机制的无限断点</h3><p>这个问题解决起来还是蛮简单的，问题解决只需要一句话：禁止断点。<br>而对应的操作是在Chrome控制台的Source Tab页点击Deactivate breakpoints按钮或者按下Ctrl + f8(下图)。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://segmentfault.com/img/bVZ1fP?w=901&h=84" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2024-08-26T05:25:01.775Z" itemprop="dateUpdated">2024-08-26 13:25:01</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://scar.site">
+            <img src="/img/avatar.jpg" alt="秦一">
+            秦一
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/c87e07956a0e/&title=《2021_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/c87e07956a0e/&title=《2021_04学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/c87e07956a0e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_04学习笔记》 — 秦一&url=http://scar.site/c87e07956a0e/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/c87e07956a0e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/935f36478cb5/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">穷爸爸富爸爸</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/7d8bb182ddd6/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JavaScript 实现 HTMLDecode</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>秦一 &copy; 2015 - 2024</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://scar.site/c87e07956a0e/&title=《2021_04学习笔记》 — 秦一&pic=http://scar.site/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://scar.site/c87e07956a0e/&title=《2021_04学习笔记》 — 秦一&source=创造黑客与画家的人生" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://scar.site/c87e07956a0e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《2021_04学习笔记》 — 秦一&url=http://scar.site/c87e07956a0e/&via=http://scar.site" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://scar.site/c87e07956a0e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://scar.site/c87e07956a0e/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.js?v=1.7.2" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
