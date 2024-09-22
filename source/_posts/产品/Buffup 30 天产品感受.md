@@ -3,7 +3,7 @@ title: Buffup 30 天产品感受
 date: 2024/02/22 08:06
 description:
 categories:
-  - [产品体验]
+  - [产品]
 ---
 
 沉浸式开发了 30 天，昨天 buffup 进行了 pre-release，昊臻问了我们的四个问题，以下是我的回答。
