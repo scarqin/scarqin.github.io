@@ -28,11 +28,15 @@
 <meta property="og:site_name" content="秦一">
 <meta property="og:description" content="如何发布一个 npm 包创建一个完整且生产准备的 npm 包所需的全面配置，包括 Git、TypeScript、代码格式化、导出检查、测试和持续集成。  配置导出和类型检查：使用@arethetypeswrong&#x2F;cli检查导出的正确性，并配置main字段。 双发布（可选）：如果需要，可以使用tsup工具同时发布 CJS 和 ESM 格式的代码。 测试：使用 Vitest 编写和运行测试用例，并将">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pbs.twimg.com/media/GXB96yPaQAAQiP2?format=jpg&name=large">
+<meta property="og:image" content="https://images.scar.site/image-20240920233149045.png">
+<meta property="og:image" content="https://www.debugbear.com/dimg/9910b4431e735409254070dfee82a811.png">
 <meta property="article:published_time" content="2024-09-02T01:43:00.000Z">
-<meta property="article:modified_time" content="2024-09-07T03:41:49.574Z">
+<meta property="article:modified_time" content="2024-09-22T14:49:10.682Z">
 <meta property="article:author" content="秦一">
 <meta property="article:tag" content="创造黑客与画家的人生,程序员">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pbs.twimg.com/media/GXB96yPaQAAQiP2?format=jpg&name=large">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
@@ -80,7 +84,7 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://github.com/ssarqin" target="_blank" >
+              <a href="https://github.com/scarqin" target="_blank" >
                 <i class="icon icon-lg icon-github"></i>
                 Github
               </a>
@@ -151,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA-npm-%E5%8C%85"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何发布一个 npm 包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Cloude-System-Prompts"><span class="post-toc-number">2.</span> <span class="post-toc-text">Cloude System Prompts</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%A6%82%E4%BD%95%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA-npm-%E5%8C%85"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何发布一个 npm 包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Cloude-System-Prompts"><span class="post-toc-number">2.</span> <span class="post-toc-text">Cloude System Prompts</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E5%80%9F%E5%8A%A9-AI-%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%96%B0%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95"><span class="post-toc-number">3.</span> <span class="post-toc-text">借助 AI 实现的新学习方法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenAI-is-shockingly-good-at-unminifying-code"><span class="post-toc-number">4.</span> <span class="post-toc-text">OpenAI is shockingly good at unminifying code</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Github-AI-Rotbot"><span class="post-toc-number">5.</span> <span class="post-toc-text">Github AI Rotbot</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Chrome-built-in-AI"><span class="post-toc-number">6.</span> <span class="post-toc-text">Chrome built-in AI</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Little-Chinese-Everywhere"><span class="post-toc-number">7.</span> <span class="post-toc-text">Little Chinese Everywhere</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#New-Performance-Panel-in-DevTools"><span class="post-toc-number">8.</span> <span class="post-toc-text">New Performance Panel in DevTools</span></a></li></ol>
         </nav>
     </aside>
 
@@ -192,6 +196,42 @@
 <p>提供了根据时区创建日期、对比日期的 API</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const zonedDateTime = Temporal.ZonedDateTime.from(&#123;</span><br><span class="line">  year: 2024,</span><br><span class="line">  month: 8,</span><br><span class="line">  day: 16,</span><br><span class="line">  hour: 12,</span><br><span class="line">  minute: 30,</span><br><span class="line">  second: 0,</span><br><span class="line">  timeZone: &#x27;Europe/Madrid&#x27;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<h1 id="借助-AI-实现的新学习方法"><a href="#借助-AI-实现的新学习方法" class="headerlink" title="借助 AI 实现的新学习方法"></a>借助 AI 实现的新学习方法</h1><p><a target="_blank" rel="noopener" href="https://twitter.com/expatlevi/status/1833103743061041585">https://twitter.com/expatlevi/status/1833103743061041585</a></p>
+<p>费曼学习法可以简化为四个单词：Concept （概念）、<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Review/10921488?fromModule=lemma_inlink">Review</a> （回顾）、Simplify （简化）、Teach （教给别人）。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://pbs.twimg.com/media/GXB96yPaQAAQiP2?format=jpg&name=large" alt="Image" title="">
+                </div>
+                <div class="image-caption">Image</div>
+            </figure>
+
+<h1 id="OpenAI-is-shockingly-good-at-unminifying-code"><a href="#OpenAI-is-shockingly-good-at-unminifying-code" class="headerlink" title="OpenAI is shockingly good at unminifying code"></a><a target="_blank" rel="noopener" href="https://glama.ai/blog/2024-08-29-reverse-engineering-minified-code-using-openai">OpenAI is shockingly good at unminifying code</a></h1><p>用 OpenAI 翻译简化的代码</p>
+<h1 id="Github-AI-Rotbot"><a href="#Github-AI-Rotbot" class="headerlink" title="Github AI Rotbot"></a>Github AI Rotbot</h1><p><a target="_blank" rel="noopener" href="https://github.com/apps/dosubot">https://github.com/apps/dosubot</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/lobehub/lobe-chat/issues/3999">https://github.com/lobehub/lobe-chat/issues/3999</a></p>
+<h1 id="Chrome-built-in-AI"><a href="#Chrome-built-in-AI" class="headerlink" title="Chrome built-in AI"></a><a target="_blank" rel="noopener" href="https://developer.chrome.com/docs/ai/built-in">Chrome built-in AI</a></h1><p>俊坤申请的时候把我拉上一起了，正在体验中，初步感受：</p>
+<ol>
+<li>天然有上下文，函数比 API 好用多了</li>
+<li>速度&#x2F;安全性有极大地优势</li>
+</ol>
+<p>看好这个特性，后续有场景可以利用它开发应用</p>
+<h1 id="Little-Chinese-Everywhere"><a href="#Little-Chinese-Everywhere" class="headerlink" title="Little Chinese Everywhere"></a><a target="_blank" rel="noopener" href="https://www.youtube.com/@littlechineseeverywhere">Little Chinese Everywhere</a></h1><p>I love this channel! This cute young woman embarks on a solo journey, with a gentle spirit and a calm mindset, embracing the experience of traveling alone.</p>
+<p>I really admire her,and i hope to experience the world like she does</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://images.scar.site/image-20240920233149045.png" alt="image-20240920233149045" title="">
+                </div>
+                <div class="image-caption">image-20240920233149045</div>
+            </figure>
+
+<h1 id="New-Performance-Panel-in-DevTools"><a href="#New-Performance-Panel-in-DevTools" class="headerlink" title="New Performance Panel in DevTools"></a><a target="_blank" rel="noopener" href="https://www.debugbear.com/blog/fix-web-performance-devtools">New Performance Panel in DevTools</a></h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://www.debugbear.com/dimg/9910b4431e735409254070dfee82a811.png" alt="New Performance Panel" title="">
+                </div>
+                <div class="image-caption">New Performance Panel</div>
+            </figure>
 
         </div>
 
@@ -200,7 +240,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2024-09-07T03:41:49.574Z" itemprop="dateUpdated">2024-09-07 11:41:49</time>
+    最后更新时间：<time datetime="2024-09-22T14:49:10.682Z" itemprop="dateUpdated">2024-09-22 22:49:10</time>
 </span><br>
 
 
